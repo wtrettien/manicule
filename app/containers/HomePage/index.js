@@ -1,12 +1,29 @@
 
-import React from 'react'
-import Page from '../../components/page'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-theme.css'
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+import React from 'react'
+import { Grid, Row, Col, Navbar } from 'react-bootstrap'
+import Reader from '../../components/reader'
+
+
+export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
   render() {
     return (
-      <div>
-        <Page num={2} />
+      <div className="page-container">
+        <Navbar>
+          <Navbar.Brand>
+            <a href="#home">Used Books Reader</a>
+          </Navbar.Brand>
+        </Navbar>
+        <Grid>
+          <Row>
+            <Col>
+              <Reader />
+            </Col>
+          </Row>
+        </Grid>
       </div>
     )
   }
