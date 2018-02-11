@@ -11,20 +11,33 @@ import Page from './page'
 //     margin: auto;
 // `
 
+const MAX_PAGE = 172
+
 export default class Reader extends React.Component {
   constructor(props) {
     super(props)
+
+    this.next = this.changePage.bind(this, 'next')
+    this.prev = this.changePage.bind(this, 'prev')
+
     this.state = {
       page: 1,
+    }
+  }
+  changePage(dir) {
+    if (dir === 'prev') {
+      this.setState({ page: this.state.page - 1 })
+    } else {
+      this.setState({ page: this.state.page + 1 })
     }
   }
   render() {
     return (<div>
       <Pager>
-        <Pager.Item previous href="#">
+        <Pager.Item previous onClick={this.prev} disabled={this.state.page <= 1}>
                 &larr; Previous Page
             </Pager.Item>
-        <Pager.Item next href="#">
+        <Pager.Item next onClick={this.next} disabled={this.state.page > MAX_PAGE}>
                 Next Page &rarr;
             </Pager.Item>
       </Pager>
