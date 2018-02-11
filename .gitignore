@@ -63,3 +63,4 @@ src
 *.code-workspace
 .DS_Store
 .vscode
+build
