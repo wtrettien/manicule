@@ -1,7 +1,7 @@
 // Reader for the book
 import React from 'react'
 // import styled from 'styled-components'
-import { Pager } from 'react-bootstrap'
+import { Grid, Row, Col, Pager } from 'react-bootstrap'
 
 import Page from './page'
 import pageData from '../../data/pages-penn.json'
@@ -20,9 +20,11 @@ export default class Reader extends React.Component {
 
     this.next = this.changePage.bind(this, 'next')
     this.prev = this.changePage.bind(this, 'prev')
+
     this.pageData = this.initializePageData(pageData)
     this.state = {
-      page: 1,
+      verso: 1,
+      recto: 2,
     }
   }
   initializePageData(pd) {
@@ -35,14 +37,20 @@ export default class Reader extends React.Component {
   }
   changePage(dir) {
     if (dir === 'prev') {
-      this.setState({ page: this.state.page - 1 })
+      this.setState({
+        verso: this.state.verso - 1,
+        recto: this.state.recto - 1,
+      })
     } else {
-      this.setState({ page: this.state.page + 1 })
+      this.setState({
+        verso: this.state.verso + 1,
+        recto: this.state.recto + 1,
+      })
     }
   }
   render() {
     return (<div>
-      <div> Page: {this.pageData[this.state.page].category} </div>
+
       <Pager>
         <Pager.Item previous onClick={this.prev} disabled={this.state.page <= 1}>
                 &larr; Previous Page
@@ -51,14 +59,16 @@ export default class Reader extends React.Component {
                 Next Page &rarr;
             </Pager.Item>
       </Pager>
-      <div className="row">
-        <div className="col">
-        <Page num={this.state.page} />
-      </div>
-        <div className="col">
-           <Page num={this.state.page + 1} />
-         </div>
-      </div>
+      <Grid>
+        <Row>
+          <Col md={6}>
+            <Page num={this.state.verso} category={this.pageData[this.state.verso].category} pos="verso" />
+          </Col>
+          <Col md={6}>
+            <Page num={this.state.recto} category={this.pageData[this.state.recto].category} pos="recto" />
+          </Col>
+        </Row>
+      </Grid>
     </div>)
   }
 }
