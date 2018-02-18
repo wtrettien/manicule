@@ -13,7 +13,7 @@ const categoryColors = {
   engraving: '#dc3912',
   'original engraving': '#ff9900',
   'pattern poem': '#109618',
-  'poem (English)': '#990099',
+  'poem (English)': '#316395',
   'poem (Latin)': '#0099c6',
   preliminary: '#dd4477',
   'repurposed image': '#66aa00',
