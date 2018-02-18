@@ -2,13 +2,13 @@
  * Create the store with dynamic reducers
  */
 
-import { createStore, applyMiddleware, compose } from 'redux';
-import { fromJS } from 'immutable';
-import { routerMiddleware } from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
-import createReducer from './reducers';
+import { createStore, applyMiddleware, compose } from 'redux'
+import { fromJS } from 'immutable'
+import { routerMiddleware } from 'react-router-redux'
+import createSagaMiddleware from 'redux-saga'
+import createReducer from './reducers'
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware()
 
 export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
@@ -17,11 +17,11 @@ export default function configureStore(initialState = {}, history) {
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history),
-  ];
+  ]
 
   const enhancers = [
     applyMiddleware(...middlewares),
-  ];
+  ]
 
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
   /* eslint-disable no-underscore-dangle */
@@ -34,27 +34,27 @@ export default function configureStore(initialState = {}, history) {
         // Prevent recomputing reducers for `replaceReducer`
         shouldHotReload: false,
       })
-      : compose;
+      : compose
   /* eslint-enable */
 
   const store = createStore(
     createReducer(),
     fromJS(initialState),
     composeEnhancers(...enhancers)
-  );
+  )
 
   // Extensions
-  store.runSaga = sagaMiddleware.run;
-  store.injectedReducers = {}; // Reducer registry
-  store.injectedSagas = {}; // Saga registry
+  store.runSaga = sagaMiddleware.run
+  store.injectedReducers = {} // Reducer registry
+  store.injectedSagas = {} // Saga registry
 
   // Make reducers hot reloadable, see http://mxs.is/googmo
   /* istanbul ignore next */
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      store.replaceReducer(createReducer(store.injectedReducers));
-    });
+      store.replaceReducer(createReducer(store.injectedReducers))
+    })
   }
 
-  return store;
+  return store
 }

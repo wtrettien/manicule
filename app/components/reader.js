@@ -51,7 +51,14 @@ export default class Reader extends React.Component {
                 Next Page &rarr;
             </Pager.Item>
       </Pager>
-      <Page num={this.state.page} />
+      <div className="row">
+        <div className="col">
+        <Page num={this.state.page} />
+      </div>
+        <div className="col">
+           <Page num={this.state.page + 1} />
+         </div>
+      </div>
     </div>)
   }
 }
