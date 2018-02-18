@@ -1,18 +1,24 @@
 // Reader for the book
 import React from 'react'
-// import styled from 'styled-components'
 import { Grid, Row, Col, Pager } from 'react-bootstrap'
 
 import Page from './page'
+import NavStrip from './nav-strip'
+
 import pageData from '../../data/pages-penn.json'
 
-// const Wrapper = styled.article`
-//     min-height: 100%;
-//     max-width: 80%;
-//     margin: auto;
-// `
-
-const MAX_PAGE = pageData.length
+const categoryColors = {
+  preliminary: 'gray',
+  'commendatory verse': 'blue',
+  engraving: 'purple',
+  blank: 'lightgrey',
+  'title page': 'green',
+  'original engraving': 'orange',
+  'poem (English)': 'red',
+  'pattern poem': 'violet',
+  'repurposed image': 'black',
+  'poem (Latin)': 'yellow',
+}
 
 export default class Reader extends React.Component {
   constructor(props) {
@@ -29,9 +35,11 @@ export default class Reader extends React.Component {
   }
   initializePageData(pd) {
     // Create an index table into the page values displayed here
-    const data = {}
+    const data = new Array(pd.length)
     pd.forEach((p) => {
-      data[p.index] = p
+      const item = Object.assign({ color: '' }, p)
+      item.color = categoryColors[item.category]
+      data[parseInt(item.index, 10)] = item
     })
     return data
   }
@@ -55,20 +63,30 @@ export default class Reader extends React.Component {
         <Pager.Item previous onClick={this.prev} disabled={this.state.page <= 1}>
                 &larr; Previous Page
             </Pager.Item>
-        <Pager.Item next onClick={this.next} disabled={this.state.page > MAX_PAGE}>
+        <Pager.Item next onClick={this.next} disabled={this.state.page > pageData.length}>
                 Next Page &rarr;
             </Pager.Item>
       </Pager>
+      <NavStrip data={this.pageData} />
       <Grid>
         <Row>
           <Col md={6}>
-            <Page num={this.state.verso} category={this.pageData[this.state.verso].category} pos="verso" />
+            <Page
+              num={this.state.verso}
+              pos="verso"
+              {...this.pageData[this.state.verso]}
+            />
           </Col>
           <Col md={6}>
-            <Page num={this.state.recto} category={this.pageData[this.state.recto].category} pos="recto" />
+            <Page
+              num={this.state.recto}
+              pos="recto"
+              {...this.pageData[this.state.recto]}
+            />
           </Col>
         </Row>
       </Grid>
+
     </div>)
   }
 }
