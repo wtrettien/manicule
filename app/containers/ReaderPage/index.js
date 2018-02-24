@@ -8,14 +8,13 @@ import Reader from '../../components/reader'
 import SiteContainer from '../SiteContainer'
 
 export default class ReaderPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
   render() {
     return (
       <SiteContainer>
         <Grid>
           <Row>
             <Col>
-              <Reader />
+              <Reader edition="yale" />
             </Col>
           </Row>
         </Grid>

@@ -1,5 +1,7 @@
 // Reader for the book
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { Panel, Grid, Row, Col, Pager } from 'react-bootstrap'
 
 import Page from './page'
@@ -34,6 +36,8 @@ export default class Reader extends React.Component {
       recto: 2,
     }
   }
+
+
     // Set the verso page; this may need to normalize to reset to the actual verso page
   setPage(versoPage) {
     this.setState({
@@ -81,6 +85,7 @@ export default class Reader extends React.Component {
           <Row>
             <Col md={6}>
               <Page
+                edition={this.props.edition}
                 num={this.state.verso}
                 pos="verso"
                 {...this.pageData[this.state.verso]}
@@ -88,6 +93,7 @@ export default class Reader extends React.Component {
             </Col>
             <Col md={6}>
               <Page
+                edition={this.props.edition}
                 num={this.state.recto}
                 pos="recto"
                 {...this.pageData[this.state.recto]}
@@ -102,3 +108,9 @@ export default class Reader extends React.Component {
     </div>)
   }
 }
+
+
+Reader.propTypes = {
+  edition: PropTypes.string.isRequired,
+}
+

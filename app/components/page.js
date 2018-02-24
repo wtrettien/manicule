@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 
 import { Image, Label } from 'react-bootstrap'
 
-const Page = ({ num, category, signatures, color }) => {
+const Page = ({ edition, num, category, signatures, color }) => {
   const pad = (`0000${num}`).substr(-4, 4)
-  const img = require(`../images/book/${pad}.jpg`) // eslint-disable-line global-require
+  const img = require(`../images/book/${edition}/${pad}.jpg`) // eslint-disable-line global-require
 
   return (
     <div>
@@ -18,6 +18,7 @@ const Page = ({ num, category, signatures, color }) => {
 }
 
 Page.propTypes = {
+  edition: PropTypes.string.isRequired,
   num: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
