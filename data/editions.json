@@ -1,0 +1,10 @@
+[
+  {
+    "edition": "Penn",
+    "prefix": "penn"
+  },
+  {
+    "edition": "Yale",
+    "prefix": "yale"
+  }
+]
