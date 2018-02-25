@@ -1,0 +1,25 @@
+// Bootstrap sass overrides
+
+$grid-gutter-width: 0px !default;
+
+// Magic something something webpack
+$bootstrap-sass-asset-helper: true;
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+$scan-bg: rgb(28,28,30);
+
+.nav-thumbnail {
+  color: white;
+  height: 85px;
+  width: 85px;
+  filter: brightness(1.4) grayscale(100%);
+  background-position: center center;
+  border: 0;
+
+  &.recto {
+    border-left: 2px solid white;
+  }
+  &.is-current {
+    filter: brightness(1.4) grayscale(0%);
+  }
+}

@@ -14,9 +14,11 @@ const NavStrip = ({ data, setPage, currentPage, window }) => {
   const after = Array.from({ length: afterSlots }, (v, k) => data[currentPage + 2 + k])
 
   return (<Well>
-    <NavGroup data={before} setPage={setPage} />
-    <NavGroup data={[data[currentPage], data[currentPage + 1]]} setPage={setPage} isCurrent />
-    <NavGroup data={after} setPage={setPage} />
+    <div style={{ margin: 'auto', textAlign: 'center' }}>
+      <NavGroup data={before} setPage={setPage} />
+      <NavGroup data={[data[currentPage], data[currentPage + 1]]} setPage={setPage} isCurrent />
+      <NavGroup data={after} setPage={setPage} />
+    </div>
   </Well>
   )
 }
@@ -34,14 +36,19 @@ NavStrip.defaultProps = {
 const NavGroup = ({ data, setPage, isCurrent }) =>
   (<ButtonGroup>{data.map((p) => {
     const pos = parseInt(p.index, 10) % 2 === 0 ? 'recto' : 'verso'
+    const pad = (`0000${p.index}`).substr(-4, 4)
+    const edition = 'yale' // FIXME
+    const img = require(`../images/book/${edition}/thumbnails/${pad}.jpg`) // eslint-disable-line global-require
+
+    const cls = `nav-thumbnail ${pos} ${isCurrent ? 'is-current' : ''}`
+
     return (<OverlayTrigger key={p.index} placement="top" overlay={<Tooltip id={p.index}>{p.signatures} - {p.category}</Tooltip>}>
       <Button
-        style={{ background: p.color,
-          color: 'white',
-          height: '85px',
-          width: '85px',
+        bsClass={cls}
+        style={{ backgroundImage: `url(${img})`,
           margin: pos === 'verso' ? '5px 0 5px 5px' : '5px 5px 5px 0',
-          border: isCurrent ? '10px solid gold' : '1px solid white' }}
+          borderBottom: `10px solid ${p.color}`,
+        }}
         onClick={() => setPage(parseInt(p.index, 10))}
       >
       </Button>
