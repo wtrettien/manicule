@@ -24,10 +24,10 @@ index,signatures,pagenum,category
 23,B[1]r,,preliminary
 24,B[1]v,,preliminary
 25,B2r,,preliminary
-26,B2v,,preliminary; repurposed image
-27,B3r,,preliminary; repurposed image
-28,B3v,,preliminary; repurposed image
-29,[B4]r,,preliminary; repurposed image
+26,B2v,,preliminary
+27,B3r,,preliminary
+28,B3v,,preliminary
+29,[B4]r,,preliminary
 30,[B4]v,,commendatory verse
 31,[B5]r,,commendatory verse
 32,[B5]v,,commendatory verse
@@ -66,7 +66,7 @@ index,signatures,pagenum,category
 65,[D6]r,11,poem (English)
 66,[D6]v,12,poem (English)
 67,E[1]r,13,poem (English)
-68,E[1]v,14,pattern poem
+68,E[1]v,14,poem (English)
 69,E2r,15,poem (English)
 70,E2v,16,poem (English)
 71,E3r,17,poem (English)
@@ -187,7 +187,7 @@ index,signatures,pagenum,category
 186,O[1]v,122,poem (English)
 187,[insertion]r,,repurposed image
 188,[insertion]v,,blank
-189,[O2]r,123,preliminary; original engraving
+189,[O2]r,123,preliminary
 190,[O2]v,124,poem (Latin)
 191,[insertion]r,,blank
 192,[insertion]v,,original engraving
@@ -272,20 +272,20 @@ index,signatures,pagenum,category
 271,[V6]r,203,poem (English)
 272,[V6]v,204,poem (English)
 273,X[1]r,205,poem (English)
-274,X[1]v,206,poem (English); repurposed image
+274,X[1]v,206,poem (English)
 275,[X2]r,207,poem (Latin)
 276,[X2]v,208,poem (Latin)
-277,Y[1]r,209,poem (Latin); repurposed image
-278,Y[1]v,210,poem (Latin); repurposed image
+277,Y[1]r,209,poem (Latin)
+278,Y[1]v,210,poem (Latin)
 279,[Y2]r,211,poem (Latin)
-280,[Y2]v,212,poem (Latin); repurposed image
+280,[Y2]v,212,poem (Latin)
 281,Z[1]r,213,poem (Latin)
 282,Z[1]v,214,poem (Latin)
 283,[Z2]r,215,poem (Latin)
 284,[Z2]v,216,poem (Latin)
 285,Aa[1]r,217,poem (Latin)
 286,Aa[1]v,218,poem (Latin)
-287,[Aa2]r,219,poem (Latin); poem (English)
+287,[Aa2]r,219,poem (Latin)
 288,[Aa2]v,220,poem (English)
 289,Bb[1]r,221,poem (English)
 290,Bb[1]v,222,poem (English)
@@ -313,7 +313,7 @@ index,signatures,pagenum,category
 312,Gg[1]v,242,poem (English)
 313,[Gg2]r,243,poem (English)
 314,[Gg2]v,244,poem (English)
-315,Hh[1]r,245,poem (English); repurposed image
+315,Hh[1]r,245,poem (English)
 316,Hh[1]v,246,poem (English)
 317,[Hh2]r,247,poem (English)
 318,[Hh2]v,248,poem (English)

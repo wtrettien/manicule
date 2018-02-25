@@ -14,7 +14,7 @@ export default class ReaderPage extends React.Component { // eslint-disable-line
         <Grid>
           <Row>
             <Col>
-              <Reader edition="yale" />
+              <Reader edition="penn" />
             </Col>
           </Row>
         </Grid>

@@ -37,8 +37,8 @@ export default class Reader extends React.Component {
     }
   }
 
-
-    // Set the verso page; this may need to normalize to reset to the actual verso page
+  // Set the verso page; this may need to normalize to reset to the actual verso page
+  // Versos are always odd??
   setPage(versoPage) {
     this.setState({
       verso: versoPage,
@@ -58,13 +58,13 @@ export default class Reader extends React.Component {
   changePage(dir) {
     if (dir === 'prev') {
       this.setState({
-        verso: this.state.verso - 1,
-        recto: this.state.recto - 1,
+        verso: this.state.verso - 2,
+        recto: this.state.recto - 2,
       })
     } else {
       this.setState({
-        verso: this.state.verso + 1,
-        recto: this.state.recto + 1,
+        verso: this.state.verso + 2,
+        recto: this.state.recto + 2,
       })
     }
   }
@@ -103,7 +103,7 @@ export default class Reader extends React.Component {
         </Grid>
       </Panel>
 
-      <NavStrip data={this.pageData} setPage={this.setPage} />
+      <NavStrip data={this.pageData} setPage={this.setPage} currentPage={this.state.verso} />
 
     </div>)
   }
