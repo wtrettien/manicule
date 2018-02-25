@@ -1,343 +1,352 @@
 index,signatures,pagenum,category
-1,[insertion]r,,engraving
-2,[insertion]v,,blank
-3,[π]r,,title page
-4,[πv]v,,blank
-5,A[1]r,,preliminary
-6,A[1]v,,preliminary
-7,[insertion]r,,blank
-8,[insertion]v,,engraving
-9,[A2]r,,preliminary
-10,[A2]v,,preliminary
-11,¶[1]r,,preliminary
-12,¶[1]v,,preliminary
-13,[¶2]r,,preliminary
-14,[¶2]v,,preliminary
-15,¶¶[1]r,,preliminary
-16,¶¶[1]v,,preliminary
-17,[¶¶2]r,,preliminary
-18,[¶¶2]v,,preliminary
-19,¶¶¶[1]r,,preliminary
-20,¶¶¶[1]v,,preliminary
-21,[¶¶¶2]r,,preliminary
-22,[¶¶¶2]v,,preliminary
-23,B[1]r,,preliminary
-24,B[1]v,,preliminary
-25,B2r,,preliminary
-26,B2v,,preliminary
-27,B3r,,preliminary
-28,B3v,,preliminary
-29,[B4]r,,preliminary
-30,[B4]v,,commendatory verse
-31,[B5]r,,commendatory verse
-32,[B5]v,,commendatory verse
-33,(c)[1]r,,commendatory verse
-34,(c)[1]v,,commendatory verse
-35,[(c)2]r,,commendatory verse
-36,[(c)2]v,,commendatory verse
-37,(d)[1]r,,commendatory verse
-38,(d)[1]v,,commendatory verse
-39,[B6]r,,commendatory verse
-40,[B6]v,,commendatory verse
-41,C[1]r,,commendatory verse
-42,C[1]v,,commendatory verse
-43,C2r,,commendatory verse
-44,C2v,,commendatory verse
-45,C3r,,commendatory verse
-46,C3v,,commendatory verse
-47,[C4]r,,commendatory verse
-48,[C4]v,,commendatory verse
-49,[C5]r,,commendatory verse
-50,[C5]v,,commendatory verse
-51,[C6]r,,commendatory verse
-52,[C6]v,,commendatory verse
-53,[insertion]r,,blank
-54,[insertion]v,,original engraving
-55,D[1]r,1,poem (English)
-56,D[1]v,2,poem (English)
-57,B2r,3,poem (English)
-58,B2v,4,poem (English)
-59,D3r,5,poem (English)
-60,D3v,6,poem (English)
-61,[D4]r,7,poem (English)
-62,[D4]v,8,poem (English)
-63,[D5]r,9,poem (English)
-64,[D5]v,10,poem (English)
-65,[D6]r,11,poem (English)
-66,[D6]v,12,poem (English)
-67,E[1]r,13,poem (English)
-68,E[1]v,14,poem (English)
-69,E2r,15,poem (English)
-70,E2v,16,poem (English)
-71,E3r,17,poem (English)
-72,E3v,18,poem (English)
-73,[E4]r,19,poem (English)
-74,[E4]v,20,poem (English)
-75,[E5]r,21,poem (English)
-76,[E5]v,22,poem (English)
-77,[E6]r,23,poem (English)
-78,[E6]v,24,poem (English)
-79,[insertion]r,,blank
-80,[insertion]v,,repurposed image
-81,F[1]r,25,poem (English)
-82,F[1]v,26,poem (English)
-83,E2r,27,poem (English)
-84,E2v,28,poem (English)
-85,F3r,29,poem (English)
-86,F3v,30,poem (English)
-87,[F4]r,31,poem (English)
-88,[F4]v,32,poem (English)
-89,[F5]r,33,poem (English)
-90,[F5]v,34,poem (English)
-91,[F6]r,35,poem (English)
-92,[F6]v,36,poem (English)
-93,[insertion]r,,blank
-94,[insertion]v,,original engraving
-95,G[1]r,37,poem (English)
-96,G[1]v,38,poem (English)
-97,G2r,39,poem (English)
-98,G2v,40,poem (English)
-99,G3r,41,poem (English)
-100,G3v,42,poem (English)
-101,[G4]r,43,poem (English)
-102,[G4]v,44,poem (English)
-103,[G5]r,45,poem (English)
-104,[G5]v,46,poem (English)
-105,[G6]r,47,poem (English)
-106,[G6]v,48,poem (English)
-107,H[1]r,49,poem (English)
-108,H[1]v,50,poem (English)
-109,[insertion]rr,,blank
-110,[insertion]vv,,original engraving
-111,H2r,51,poem (English)
-112,H2v,52,poem (English)
-113,H3r,53,poem (English)
-114,H3v,54,poem (English)
-115,[H4]r,55,poem (English)
-116,[H4]v,56,poem (English)
-117,[H5]r,57,poem (English)
-118,[H5]v,58,poem (English)
-119,[H6]r,59,poem (English)
-120,[H6]v,60,poem (English)
-121,I[1]r,61,poem (English)
-122,I[1]v,62,poem (English)
-123,I2r,63,poem (English)
-124,I2v,69,poem (English)
-125,I3r,65,poem (English)
-126,I3v,,original engraving
-127,[I4]r,67,poem (English)
-128,[I4]v,68,poem (English)
-129,[I5]r,63,poem (English)
-130,[I5]v,70,poem (English)
-131,[I6]r,71,poem (English)
-132,[I6]v,72,poem (English)
-133,K[1]r,73,poem (English)
-134,K[1]v,74,poem (English)
-135,K2r,75,poem (English)
-136,K2v,76,poem (English)
-137,K3r,77,poem (English)
-138,K3v,78,poem (English)
-139,[K4]r,79,poem (English)
-140,[K4]v,80,poem (English)
-141,[K5]r,81,poem (English)
-142,[K5]v,82,poem (English)
-143,[K6]r,83,poem (English)
-144,[K6]v,84,poem (English)
-145,L[1]r,85,poem (English)
-146,L[1]v,86,poem (English)
-147,L2r,87,poem (English)
-148,L2v,88,poem (English)
-149,L2r,89,poem (English)
-150,L2v,90,poem (English)
-151,[L4]r,91,poem (English)
-152,[L4]v,92,poem (English)
-153,[L5]r,93,poem (English)
-154,[L5]v,94,poem (English)
-155,[insertion]r,,blank
-156,[insertion]v,,original engraving
-157,[L6]r,95,poem (English)
-158,[L6]v,96,poem (English)
-159,M[1]r,97,poem (English)
-160,M[1]v,98,poem (English)
-161,M2r,99,poem (English)
-162,M2v,100,poem (English)
-163,M3r,101,poem (English)
-164,M3v,102,poem (English)
-165,[M4]r,103,poem (English)
-166,[M4]v,104,poem (English)
-167,[M5]r,105,poem (English)
-168,[M5]v,106,poem (English)
-169,[M6]r,107,poem (English)
-170,[M6]v,108,poem (English)
-171,[insertion]r,,blank
-172,[insertion]v,,original engraving
-173,N[1]r,109,poem (English)
-174,N[1]v,110,poem (English)
-175,N2r,111,poem (English)
-176,N2v,112,poem (English)
-177,N3r,113,poem (English)
-178,N3v,114,poem (English)
-179,[N4]r,115,poem (English)
-180,[N4]v,116,poem (English)
-181,[N5]r,117,poem (English)
-182,[N5]v,118,poem (English)
-183,[N6]r,119,poem (English)
-184,[N6]v,120,poem (English)
-185,O[1]r,121,poem (English)
-186,O[1]v,122,poem (English)
-187,[insertion]r,,repurposed image
-188,[insertion]v,,blank
-189,[O2]r,123,preliminary
-190,[O2]v,124,poem (Latin)
-191,[insertion]r,,blank
-192,[insertion]v,,original engraving
-193,[O3]r,125,poem (English)
-194,[O3]v,126,poem (Latin)
-195,[O4]r,127,poem (English)
-196,[O4]v,128,poem (Latin)
-197,[O5]r,129,poem (English)
-198,[O5]v,130,poem (Latin)
-199,[O6]r,131,poem (English)
-200,[O6]v,132,poem (Latin)
-201,P[1]r,133,poem (English)
-202,P[1]v,134,poem (Latin)
-203,P2r,135,poem (English)
-204,P2v,136,poem (Latin)
-205,P3r,137,poem (English)
-206,P3v,138,poem (Latin)
-207,[P4]r,139,poem (English)
-208,[P4]v,140,poem (Latin)
-209,[P5]r,141,poem (English)
-210,[P5]v,142,poem (Latin)
-211,[P6]r,143,poem (English)
-212,[P6]v,144,poem (Latin)
-213,Q[1]r,145,poem (English)
-214,Q[1]v,146,poem (Latin)
-215,Q2r,147,poem (English)
-216,Q2v,148,poem (Latin)
-217,Q3r,149,poem (Latin)
-218,Q3v,150,poem (Latin)
-219,[Q4]r,151,poem (Latin)
-220,[Q4]v,152,poem (Latin)
-221,[Q5]r,153,poem (Latin)
-222,[Q5]v,154,poem (Latin)
-223,[Q6]r,155,poem (Latin)
-224,[Q6]v,156,poem (Latin)
-225,R[1]r,157,poem (Latin)
-226,R[1]v,158,poem (Latin)
-227,R2r,159,poem (Latin)
-228,R2v,160,poem (Latin)
-229,R3r,161,pattern poem
-230,R3v,162,poem (Latin)
-231,[R4]r,163,poem (Latin)
-232,[R4]v,164,poem (Latin)
-233,[R5]r,165,poem (Latin)
-234,[R5]v,166,poem (Latin)
-235,[R6]r,167,poem (Latin)
-236,[R6]v,168,poem (Latin)
-237,S[1]r,169,poem (Latin)
-238,S[1]v,170,poem (Latin)
-239,S2r,171,poem (Latin)
-240,S2v,172,poem (Latin)
-241,S3r,173,poem (Latin)
-242,S3v,174,poem (Latin)
-243,[S4]r,175,repurposed poem
-244,[S4]v,176,poem (Latin)
-245,[S5]r,177,poem (English)
-246,[S5]v,178,poem (Latin)
-247,[S6]r,179,poem (English)
-248,[S6]v,180,poem (English)
-249,T[1]r,181,poem (English)
-250,T[1]v,182,poem (English)
-251,T2r,183,poem (English)
-252,T2v,184,poem (English)
-253,T3r,185,poem (English)
-254,T3v,186,poem (English)
-255,[T4]r,187,poem (English)
-256,[T4]v,188,poem (English)
-257,[T5]r,189,poem (English)
-258,[T5]v,190,poem (English)
-259,[T6]r,191,poem (English)
-260,[T6]v,192,poem (English)
-261,V[1]r,193,poem (English)
-262,V[1]v,194,poem (English)
-263,V2r,195,poem (English)
-264,V2v,196,poem (English)
-265,V3r,197,poem (English)
-266,V3v,198,poem (English)
-267,[V4]r,191,poem (English)
-268,[V4]v,200,poem (English)
-269,[V5]r,201,poem (English)
-270,[V5]v,202,poem (English)
-271,[V6]r,203,poem (English)
-272,[V6]v,204,poem (English)
-273,X[1]r,205,poem (English)
-274,X[1]v,206,poem (English)
-275,[X2]r,207,poem (Latin)
-276,[X2]v,208,poem (Latin)
-277,Y[1]r,209,poem (Latin)
-278,Y[1]v,210,poem (Latin)
-279,[Y2]r,211,poem (Latin)
-280,[Y2]v,212,poem (Latin)
-281,Z[1]r,213,poem (Latin)
-282,Z[1]v,214,poem (Latin)
-283,[Z2]r,215,poem (Latin)
-284,[Z2]v,216,poem (Latin)
-285,Aa[1]r,217,poem (Latin)
-286,Aa[1]v,218,poem (Latin)
-287,[Aa2]r,219,poem (Latin)
-288,[Aa2]v,220,poem (English)
-289,Bb[1]r,221,poem (English)
-290,Bb[1]v,222,poem (English)
-291,[Bb2]r,223,poem (English)
-292,[Bb2]v,224,poem (English)
-293,Cc[1]r,225,poem (English)
-294,Cc[1]v,226,poem (English)
-295,[Cc2]r,227,poem (English)
-296,[Cc2]v,228,poem (English)
-297,Dd[1]r,229,poem (English)
-298,Dd[1]v,230,poem (English)
-299,[Dd2]r,231,poem (English)
-300,[Dd2]v,232,poem (English)
-301,Ee[1]r,233,poem (English)
-302,Ee[1]v,234,poem (English)
-303,[insertion]r,,blank
-304,[insertion]v,,original engraving
-305,[Ee2]r,235,poem (Latin)
-306,[Ee2]v,236,poem (English)
-307,Ff[1]r,237,poem (English)
-308,Ff[1]v,238,poem (English)
-309,[Ff2]r,239,poem (English)
-310,[Ff2]v,240,poem (English)
-311,Gg[1]r,241,poem (English)
-312,Gg[1]v,242,poem (English)
-313,[Gg2]r,243,poem (English)
-314,[Gg2]v,244,poem (English)
-315,Hh[1]r,245,poem (English)
-316,Hh[1]v,246,poem (English)
-317,[Hh2]r,247,poem (English)
-318,[Hh2]v,248,poem (English)
-319,Ii[1]r,249,poem (English)
-320,Ii[1]v,250,poem (English)
-321,[Ii2]r,251,poem (English)
-322,[Ii2]v,252,poem (Latin)
-323,Kk[1]r,253,poem (Latin)
-324,Kk[1]v,254,poem (Latin)
-325,[Kk2]r,255,poem (Latin)
-326,[Kk2]v,256,poem (Latin)
-327,Ll[1]r,257,poem (Latin)
-328,Ll[1]v,258,poem (Latin)
-329,[Ll2]r,259,poem (Latin)
-330,[Ll2]v,260,poem (Latin)
-331,Mm[1]r,261,poem (Latin)
-332,Mm[1]v,262,poem (Latin)
-333,[Mm2]r,263,poem (Latin)
-334,[Mm2]v,264,poem (Latin)
-335,Nn[1]r,265,poem (Latin)
-336,Nn[1]v,266,poem (Latin)
-337,[Nn2]r,267,poem (Latin)
-338,[Nn2]v,268,poem (Latin)
-339,[insertion]r,,repurposed image
-340,[insertion]v,,blank
-341,[insertion]r,,repurposed image
-342,[insertion]v,,blank
+1,[inside front cover],,flyleaf
+2,[flyleaf],,flyleaf
+3,[flyleaf],,flyleaf
+4,[flyleaf],,flyleaf
+5,[flyleaf],,flyleaf
+6,[insertion]r,,blank
+7,[insertion]v,,engraving
+8,[π]r,,title page
+9,[πv]v,,blank
+10,A[1]r,,preliminary
+11,A[1]v,,preliminary
+12,[insertion]r,,blank
+13,[insertion]v,,engraving
+14,[A2]r,,preliminary
+15,[A2]v,,preliminary
+16,¶[1]r,,preliminary
+17,¶[1]v,,preliminary
+18,[¶2]r,,preliminary
+19,[¶2]v,,preliminary
+20,¶¶[1]r,,preliminary
+21,¶¶[1]v,,preliminary
+22,[¶¶2]r,,preliminary
+23,[¶¶2]v,,preliminary
+24,¶¶¶[1]r,,preliminary
+25,¶¶¶[1]v,,preliminary
+26,[¶¶¶2]r,,preliminary
+27,[¶¶¶2]v,,preliminary
+28,B[1]r,,preliminary
+29,B[1]v,,preliminary
+30,B2r,,preliminary
+31,B2v,,preliminary
+32,B3r,,preliminary
+33,B3v,,preliminary
+34,[B4]r,,preliminary
+35,[B4]v,,commendatory verse
+36,[B5]r,,commendatory verse
+37,[B5]v,,commendatory verse
+38,(c)[1]r,,commendatory verse
+39,(c)[1]v,,commendatory verse
+40,[(c)2]r,,commendatory verse
+41,[(c)2]v,,commendatory verse
+42,(d)[1]r,,commendatory verse
+43,(d)[1]v,,commendatory verse
+44,[B6]r,,commendatory verse
+45,[B6]v,,commendatory verse
+46,C[1]r,,commendatory verse
+47,C[1]v,,commendatory verse
+48,C2r,,commendatory verse
+49,C2v,,commendatory verse
+50,C3r,,commendatory verse
+51,C3v,,commendatory verse
+52,[C4]r,,commendatory verse
+53,[C4]v,,commendatory verse
+54,[C5]r,,commendatory verse
+55,[C5]v,,commendatory verse
+56,[C6]r,,commendatory verse
+57,[C6]v,,commendatory verse
+58,[insertion]r,,blank
+59,[insertion]v,,original engraving
+60,D[1]r,1,poem (English)
+61,D[1]v,2,poem (English)
+62,B2r,3,poem (English)
+63,B2v,4,poem (English)
+64,D3r,5,poem (English)
+65,D3v,6,poem (English)
+66,[D4]r,7,poem (English)
+67,[D4]v,8,poem (English)
+68,[D5]r,9,poem (English)
+69,[D5]v,10,poem (English)
+70,[D6]r,11,poem (English)
+71,[D6]v,12,poem (English)
+72,E[1]r,13,poem (English)
+73,E[1]v,14,poem (English)
+74,E2r,15,poem (English)
+75,E2v,16,poem (English)
+76,E3r,17,poem (English)
+77,E3v,18,poem (English)
+78,[E4]r,19,poem (English)
+79,[E4]v,20,poem (English)
+80,[E5]r,21,poem (English)
+81,[E5]v,22,poem (English)
+82,[E6]r,23,poem (English)
+83,[E6]v,24,poem (English)
+84,[insertion]r,,blank
+85,[insertion]v,,repurposed image
+86,F[1]r,25,poem (English)
+87,F[1]v,26,poem (English)
+88,E2r,27,poem (English)
+89,E2v,28,poem (English)
+90,F3r,29,poem (English)
+91,F3v,30,poem (English)
+92,[F4]r,31,poem (English)
+93,[F4]v,32,poem (English)
+94,[F5]r,33,poem (English)
+95,[F5]v,34,poem (English)
+96,[F6]r,35,poem (English)
+97,[F6]v,36,poem (English)
+98,[insertion]r,,blank
+99,[insertion]v,,original engraving
+100,G[1]r,37,poem (English)
+101,G[1]v,38,poem (English)
+102,G2r,39,poem (English)
+103,G2v,40,poem (English)
+104,G3r,41,poem (English)
+105,G3v,42,poem (English)
+106,[G4]r,43,poem (English)
+107,[G4]v,44,poem (English)
+108,[G5]r,45,poem (English)
+109,[G5]v,46,poem (English)
+110,[G6]r,47,poem (English)
+111,[G6]v,48,poem (English)
+112,H[1]r,49,poem (English)
+113,H[1]v,50,poem (English)
+114,[insertion]rr,,blank
+115,[insertion]vv,,original engraving
+116,H2r,51,poem (English)
+117,H2v,52,poem (English)
+118,H3r,53,poem (English)
+119,H3v,54,poem (English)
+120,[H4]r,55,poem (English)
+121,[H4]v,56,poem (English)
+122,[H5]r,57,poem (English)
+123,[H5]v,58,poem (English)
+124,[H6]r,59,poem (English)
+125,[H6]v,60,poem (English)
+126,I[1]r,61,poem (English)
+127,I[1]v,62,poem (English)
+128,I2r,63,poem (English)
+129,I2v,69,poem (English)
+130,I3r,65,poem (English)
+131,I3v,,original engraving
+132,[I4]r,67,poem (English)
+133,[I4]v,68,poem (English)
+134,[I5]r,63,poem (English)
+135,[I5]v,70,poem (English)
+136,[I6]r,71,poem (English)
+137,[I6]v,72,poem (English)
+138,K[1]r,73,poem (English)
+139,K[1]v,74,poem (English)
+140,K2r,75,poem (English)
+141,K2v,76,poem (English)
+142,K3r,77,poem (English)
+143,K3v,78,poem (English)
+144,[K4]r,79,poem (English)
+145,[K4]v,80,poem (English)
+146,[K5]r,81,poem (English)
+147,[K5]v,82,poem (English)
+148,[K6]r,83,poem (English)
+149,[K6]v,84,poem (English)
+150,L[1]r,85,poem (English)
+151,L[1]v,86,poem (English)
+152,L2r,87,poem (English)
+153,L2v,88,poem (English)
+154,L2r,89,poem (English)
+155,L2v,90,poem (English)
+156,[L4]r,91,poem (English)
+157,[L4]v,92,poem (English)
+158,[L5]r,93,poem (English)
+159,[L5]v,94,poem (English)
+160,[insertion]r,,blank
+161,[insertion]v,,original engraving
+162,[L6]r,95,poem (English)
+163,[L6]v,96,poem (English)
+164,M[1]r,97,poem (English)
+165,M[1]v,98,poem (English)
+166,M2r,99,poem (English)
+167,M2v,100,poem (English)
+168,M3r,101,poem (English)
+169,M3v,102,poem (English)
+170,[M4]r,103,poem (English)
+171,[M4]v,104,poem (English)
+172,[M5]r,105,poem (English)
+173,[M5]v,106,poem (English)
+174,[M6]r,107,poem (English)
+175,[M6]v,108,poem (English)
+176,[insertion]r,,blank
+177,[insertion]v,,original engraving
+178,N[1]r,109,poem (English)
+179,N[1]v,110,poem (English)
+180,N2r,111,poem (English)
+181,N2v,112,poem (English)
+182,N3r,113,poem (English)
+183,N3v,114,poem (English)
+184,[N4]r,115,poem (English)
+185,[N4]v,116,poem (English)
+186,[N5]r,117,poem (English)
+187,[N5]v,118,poem (English)
+188,[N6]r,119,poem (English)
+189,[N6]v,120,poem (English)
+190,O[1]r,121,poem (English)
+191,O[1]v,122,poem (English)
+192,[insertion]r,,repurposed image
+193,[insertion]v,,blank
+194,[O2]r,123,preliminary
+195,[O2]v,124,poem (Latin)
+196,[insertion]r,,blank
+197,[insertion]v,,original engraving
+198,[O3]r,125,poem (English)
+199,[O3]v,126,poem (Latin)
+200,[O4]r,127,poem (English)
+201,[O4]v,128,poem (Latin)
+202,[O5]r,129,poem (English)
+203,[O5]v,130,poem (Latin)
+204,[O6]r,131,poem (English)
+205,[O6]v,132,poem (Latin)
+206,P[1]r,133,poem (English)
+207,P[1]v,134,poem (Latin)
+208,P2r,135,poem (English)
+209,P2v,136,poem (Latin)
+210,P3r,137,poem (English)
+211,P3v,138,poem (Latin)
+212,[P4]r,139,poem (English)
+213,[P4]v,140,poem (Latin)
+214,[P5]r,141,poem (English)
+215,[P5]v,142,poem (Latin)
+216,[P6]r,143,poem (English)
+217,[P6]v,144,poem (Latin)
+218,Q[1]r,145,poem (English)
+219,Q[1]v,146,poem (Latin)
+220,Q2r,147,poem (English)
+221,Q2v,148,poem (Latin)
+222,Q3r,149,poem (Latin)
+223,Q3v,150,poem (Latin)
+224,[Q4]r,151,poem (Latin)
+225,[Q4]v,152,poem (Latin)
+226,[Q5]r,153,poem (Latin)
+227,[Q5]v,154,poem (Latin)
+228,[Q6]r,155,poem (Latin)
+229,[Q6]v,156,poem (Latin)
+230,R[1]r,157,poem (Latin)
+231,R[1]v,158,poem (Latin)
+232,R2r,159,poem (Latin)
+233,R2v,160,poem (Latin)
+234,R3r,161,pattern poem
+235,R3v,162,poem (Latin)
+236,[R4]r,163,poem (Latin)
+237,[R4]v,164,poem (Latin)
+238,[R5]r,165,poem (Latin)
+239,[R5]v,166,poem (Latin)
+240,[R6]r,167,poem (Latin)
+241,[R6]v,168,poem (Latin)
+242,S[1]r,169,poem (Latin)
+243,S[1]v,170,poem (Latin)
+244,S2r,171,poem (Latin)
+245,S2v,172,poem (Latin)
+246,S3r,173,poem (Latin)
+247,S3v,174,poem (Latin)
+248,[S4]r,175,repurposed poem
+249,[S4]v,176,poem (Latin)
+250,[S5]r,177,poem (English)
+251,[S5]v,178,poem (Latin)
+252,[S6]r,179,poem (English)
+253,[S6]v,180,poem (English)
+254,T[1]r,181,poem (English)
+255,T[1]v,182,poem (English)
+256,T2r,183,poem (English)
+257,T2v,184,poem (English)
+258,T3r,185,poem (English)
+259,T3v,186,poem (English)
+260,[T4]r,187,poem (English)
+261,[T4]v,188,poem (English)
+262,[T5]r,189,poem (English)
+263,[T5]v,190,poem (English)
+264,[T6]r,191,poem (English)
+265,[T6]v,192,poem (English)
+266,V[1]r,193,poem (English)
+267,V[1]v,194,poem (English)
+268,V2r,195,poem (English)
+269,V2v,196,poem (English)
+270,V3r,197,poem (English)
+271,V3v,198,poem (English)
+272,[V4]r,191,poem (English)
+273,[V4]v,200,poem (English)
+274,[V5]r,201,poem (English)
+275,[V5]v,202,poem (English)
+276,[V6]r,203,poem (English)
+277,[V6]v,204,poem (English)
+278,X[1]r,205,poem (English)
+279,X[1]v,206,poem (English)
+280,[X2]r,207,poem (Latin)
+281,[X2]v,208,poem (Latin)
+282,Y[1]r,209,poem (Latin)
+283,Y[1]v,210,poem (Latin)
+284,[Y2]r,211,poem (Latin)
+285,[Y2]v,212,poem (Latin)
+286,Z[1]r,213,poem (Latin)
+287,Z[1]v,214,poem (Latin)
+288,[Z2]r,215,poem (Latin)
+289,[Z2]v,216,poem (Latin)
+290,Aa[1]r,217,poem (Latin)
+291,Aa[1]v,218,poem (Latin)
+292,[Aa2]r,219,poem (Latin)
+293,[Aa2]v,220,poem (English)
+294,Bb[1]r,221,poem (English)
+295,Bb[1]v,222,poem (English)
+296,[Bb2]r,223,poem (English)
+297,[Bb2]v,224,poem (English)
+298,Cc[1]r,225,poem (English)
+299,Cc[1]v,226,poem (English)
+300,[Cc2]r,227,poem (English)
+301,[Cc2]v,228,poem (English)
+302,Dd[1]r,229,poem (English)
+303,Dd[1]v,230,poem (English)
+304,[Dd2]r,231,poem (English)
+305,[Dd2]v,232,poem (English)
+306,Ee[1]r,233,poem (English)
+307,Ee[1]v,234,poem (English)
+308,[insertion]r,,blank
+309,[insertion]v,,original engraving
+310,[Ee2]r,235,poem (Latin)
+311,[Ee2]v,236,poem (English)
+312,Ff[1]r,237,poem (English)
+313,Ff[1]v,238,poem (English)
+314,[Ff2]r,239,poem (English)
+315,[Ff2]v,240,poem (English)
+316,Gg[1]r,241,poem (English)
+317,Gg[1]v,242,poem (English)
+318,[Gg2]r,243,poem (English)
+319,[Gg2]v,244,poem (English)
+320,Hh[1]r,245,poem (English)
+321,Hh[1]v,246,poem (English)
+322,[Hh2]r,247,poem (English)
+323,[Hh2]v,248,poem (English)
+324,Ii[1]r,249,poem (English)
+325,Ii[1]v,250,poem (English)
+326,[Ii2]r,251,poem (English)
+327,[Ii2]v,252,poem (Latin)
+328,Kk[1]r,253,poem (Latin)
+329,Kk[1]v,254,poem (Latin)
+330,[Kk2]r,255,poem (Latin)
+331,[Kk2]v,256,poem (Latin)
+332,Ll[1]r,257,poem (Latin)
+333,Ll[1]v,258,poem (Latin)
+334,[Ll2]r,259,poem (Latin)
+335,[Ll2]v,260,poem (Latin)
+336,Mm[1]r,261,poem (Latin)
+337,Mm[1]v,262,poem (Latin)
+338,[Mm2]r,263,poem (Latin)
+339,[Mm2]v,264,poem (Latin)
+340,Nn[1]r,265,poem (Latin)
+341,Nn[1]v,266,poem (Latin)
+342,[Nn2]r,267,poem (Latin)
+343,[Nn2]v,268,poem (Latin)
+344,[insertion]r,,repurposed image
+345,[insertion]v,,blank
+346,[insertion]r,,repurposed image
+347,[insertion]v,,blank
+348,[flyleaf],,flyleaf
+349,[flyleaf],,flyleaf
+350,[flyleaf],,flyleaf
+351,[back cover],,cover
