@@ -6,6 +6,8 @@ $grid-gutter-width: 0px !default;
 $bootstrap-sass-asset-helper: true;
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "navgroup";
+
 $scan-bg: rgb(28,28,30);
 
 .nav-thumbnail {
@@ -23,3 +25,4 @@ $scan-bg: rgb(28,28,30);
     filter: brightness(1.4) grayscale(0%);
   }
 }
+
