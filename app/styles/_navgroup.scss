@@ -1,0 +1,35 @@
+.nav-group {
+
+  position: relative;
+  height: 95px;
+  overflow-x: scroll;
+
+  .btn-group {
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  .nav-thumbnail {
+    display: inline-block;
+
+    button {
+      height: 85px;
+      width: 85px;
+      filter: brightness(1.4) grayscale(100%);
+      background-position: center center;
+    }
+
+    border: 0;
+    margin: 5px 0 5px 5px;
+
+    &.recto {
+      border-left: 2px solid white;
+      margin: 5px 5px 5px 0;
+    }
+    &.is-current button {
+      filter: brightness(1.4) grayscale(0%);
+      /* Make this one always centered */
+    }
+
+  }
+}
