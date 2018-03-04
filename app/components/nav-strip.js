@@ -37,7 +37,7 @@ const NavGroup = ({ data, setPage, isCurrent }) =>
   (<ButtonGroup>{data.map((p) => {
     const pos = parseInt(p.index, 10) % 2 === 0 ? 'recto' : 'verso'
     const pad = (`0000${p.index}`).substr(-4, 4)
-    const edition = 'yale' // FIXME
+    const edition = 'penn' // FIXME make this something switchable
     const img = require(`../images/book/${edition}/thumbnails/${pad}.jpg`) // eslint-disable-line global-require
 
     const cls = `nav-thumbnail ${pos} ${isCurrent ? 'is-current' : ''}`
