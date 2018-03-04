@@ -21,10 +21,10 @@ class NavStrip extends React.Component {
     }
   }
   componentDidUpdate() {
-    if (this.props.currentPage > 9) {
-      const offset = $(`.thumbnail-${this.props.currentPage + 1}`).position().left - (($(window).width() / 2) - 90)
-      $('.nav-group').scrollLeft(offset)
-    }
+    // Take the natural horizontal position of the current page element...
+    let offset = $(`.thumbnail-${this.props.currentPage + 1}`).position().left
+    offset -= ($('.nav-group').width() / 2)  // divide the current filmstrip in half
+    $('.nav-group').scrollLeft(offset)
   }
   render() {
     return (<Well bsClass="nav-group">
