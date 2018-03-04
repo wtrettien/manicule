@@ -11,7 +11,7 @@ import pageData from '../../data/pages-penn.json'
 
 const categoryColors = {
   blank: 'lightgrey',
-  flylead: 'lightgrey',
+  flyleaf: 'lightgrey',
   'commendatory verse': '#3366cc',
   engraving: '#dc3912',
   'original engraving': '#ff9900',

@@ -54,15 +54,19 @@ const NavGroup = ({ data, setPage, currentPage }) =>
     const cls = `nav-thumbnail ${pos} ${page === currentPage || page === currentPage + 1 ? 'is-current' : ''}`
 
     return (<OverlayTrigger key={p.index} placement="top" overlay={<Tooltip id={p.index}>{p.signatures} - {p.category}</Tooltip>}>
-      <Button
-        bsClass={cls}
-        style={{ backgroundImage: `url(${img})`,
-          margin: pos === 'verso' ? '5px 0 5px 5px' : '5px 5px 5px 0',
-          borderBottom: `10px solid ${p.color}`,
-        }}
-        onClick={() => setPage(parseInt(p.index, 10))}
+      <div
+        className={cls}
+        style={{ borderBottom: `10px solid ${p.color}` }}
       >
-      </Button>
+        <Button
+          style={{ backgroundImage: `url(${img})`,
+
+          }}
+          onClick={() => setPage(parseInt(p.index, 10))}
+        >
+        </Button>
+      </div>
+
     </OverlayTrigger>)
   })}
   </ButtonGroup>)
