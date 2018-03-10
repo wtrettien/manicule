@@ -3,9 +3,10 @@
 // Tour components
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Panel, Grid, Row, Col, Image } from 'react-bootstrap'
+import { Panel, Grid, Row, Col, Image, Pager } from 'react-bootstrap'
 
-const TourItem = ({ page, edition, images }) => {
+const TourItem = ({ index, edition, getData, next, prev, hasNext, hasPrev }) => {
+  const { page, images } = getData(index)
   // Get the HTML for this
   const html = require(`../tour/${edition}/${page}.html`) // eslint-disable-line global-require
   return (
@@ -17,6 +18,14 @@ const TourItem = ({ page, edition, images }) => {
           </Col>
           <Col sm={8}>
             <div dangerouslySetInnerHTML={{ __html: html }} />
+            <Pager>
+              <Pager.Item previous onClick={prev} disabled={!hasPrev}>
+                &larr; Previous Page
+            </Pager.Item>
+              <Pager.Item next onClick={next} disabled={!hasNext}>
+                Next Page &rarr;
+            </Pager.Item>
+            </Pager>
           </Col>
         </Row>
       </Grid>
@@ -24,9 +33,14 @@ const TourItem = ({ page, edition, images }) => {
   )
 }
 TourItem.propTypes = {
-  page: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
   edition: PropTypes.string.isRequired,
-  images: PropTypes.array.isRequired,
+  next: PropTypes.func.isRequired,
+  prev: PropTypes.func.isRequired,
+  getData: PropTypes.func.isRequired,
+  hasNext: PropTypes.bool.isRequired,
+  hasPrev: PropTypes.bool.isRequired,
+
 }
 
 

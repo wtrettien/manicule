@@ -5,21 +5,60 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import TourItem from '../../components/tour-item'
 import SiteContainer from '../SiteContainer'
 
-const Tour = ({ edition }) => {
-  const tourData = require(`../../tour/${edition}/tour.json`)   // eslint-disable-line global-require
-  const { page, images } = tourData[0]  // FIXME state management
+export default class Tour extends React.Component {
 
-  return (<SiteContainer>
-    <Grid>
-      <Row>
-        <Col>
-          <TourItem page={page} edition={edition} images={images} />
-        </Col>
-      </Row>
-    </Grid>
-  </SiteContainer>)
+  constructor(props) {
+    super(props)
+    this.next = this.next.bind(this)
+    this.prev = this.prev.bind(this)
+    this.getData = this.getData.bind(this)
+    this.tourData = require(`../../tour/${this.props.edition}/tour.json`)   // eslint-disable-line global-require
+
+    this.state = {
+      index: props.index,
+    }
+  }
+  getData(index) {
+    return this.tourData[index]
+  }
+  prev() {
+    this.setState({
+      index: this.state.index - 1,
+    })
+  }
+  next() {
+    this.setState({
+      index: this.state.index + 1,
+    })
+  }
+  render() {
+    const hasPrev = this.state.index > 0
+    const hasNext = this.state.index < this.tourData.length - 1
+
+    return (<SiteContainer>
+      <Grid>
+        <Row>
+          <Col>
+            <TourItem
+              edition={this.props.edition}
+              index={this.state.index}
+              next={this.next}
+              prev={this.prev}
+              getData={this.getData}
+              hasPrev={hasPrev}
+              hasNext={hasNext}
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </SiteContainer>)
+  }
 }
+
 Tour.propTypes = {
   edition: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 }
-export default Tour
+Tour.defaultProps = {
+  index: 0,
+}
