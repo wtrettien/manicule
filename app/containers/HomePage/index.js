@@ -18,7 +18,7 @@ export default class HomePage extends React.Component { // eslint-disable-line r
         <Grid>
           <Row>
             <Col>
-              <Jumbotron>
+              <Jumbotron bsClass="home">
                 <Row>
                   <Col sm={4}>
                     <Image src={sample} alt="Sample page from Benlowes" rounded responsive />
@@ -37,7 +37,7 @@ export default class HomePage extends React.Component { // eslint-disable-line r
                     <ListGroup>
                       <ListGroupItem> <Link to="/reader">Browse through this edition of Theophila</Link></ListGroupItem>
 
-                      <ListGroupItem > Take a tour! </ListGroupItem>
+                      <ListGroupItem > <Link to="/tour">Take a tour!</Link> </ListGroupItem>
                       <ListGroupItem > Browse the figures</ListGroupItem>
                       <ListGroupItem > Biography of Edward Belowes</ListGroupItem>
                       <ListGroupItem > Belowes’ social network</ListGroupItem>

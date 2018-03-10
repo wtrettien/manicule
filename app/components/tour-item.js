@@ -17,15 +17,17 @@ const TourItem = ({ index, edition, getData, next, prev, hasNext, hasPrev }) => 
             <TourImages images={images} edition={edition} />
           </Col>
           <Col sm={8}>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+
             <Pager>
               <Pager.Item previous onClick={prev} disabled={!hasPrev}>
-                &larr; Previous Page
-            </Pager.Item>
+                &larr; Previous Item
+              </Pager.Item>
               <Pager.Item next onClick={next} disabled={!hasNext}>
-                Next Page &rarr;
-            </Pager.Item>
+                Next Item &rarr;
+              </Pager.Item>
             </Pager>
+
+            <div dangerouslySetInnerHTML={{ __html: html }} />
           </Col>
         </Row>
       </Grid>
