@@ -5,9 +5,9 @@ import NotFoundPage from '../index'
 
 describe('<NotFoundPage />', () => {
   it('should render the page message', () => {
-    const renderedComponent = shallow(
+    const wrapper = shallow(
       <NotFoundPage />
     )
-    renderedComponent.isEmpty()
+    expect(wrapper.exists()).toBe(true)
   })
 })
