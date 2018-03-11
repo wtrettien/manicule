@@ -7,8 +7,6 @@ import { Panel, Grid, Row, Col, Pager } from 'react-bootstrap'
 import Page from './page'
 import NavStrip from './nav-strip'
 
-import pageData from '../../data/pages-penn.json'
-
 const categoryColors = {
   blank: 'lightgrey',
   flyleaf: 'lightgrey',
@@ -31,7 +29,9 @@ export default class Reader extends React.Component {
     this.prev = this.changePage.bind(this, 'prev')
     this.setPage = this.setPage.bind(this)
 
-    this.pageData = this.initializePageData(pageData)
+    const pageDataFile = require(`../../data/${props.edition}/pages.json`)  // eslint-disable-line global-require
+
+    this.pageData = this.initializePageData(pageDataFile)
     this.state = {
       verso: 1,
       recto: 2,
@@ -77,7 +77,7 @@ export default class Reader extends React.Component {
         <Pager.Item previous onClick={this.prev} disabled={this.state.page <= 1}>
                 &larr; Previous Page
             </Pager.Item>
-        <Pager.Item next onClick={this.next} disabled={this.state.page > pageData.length}>
+        <Pager.Item next onClick={this.next} disabled={this.state.page > this.pageData.length}>
                 Next Page &rarr;
             </Pager.Item>
       </Pager>
@@ -104,7 +104,7 @@ export default class Reader extends React.Component {
         </Grid>
       </Panel>
 
-      <NavStrip data={this.pageData} setPage={this.setPage} currentPage={this.state.verso} />
+      <NavStrip data={this.pageData} setPage={this.setPage} currentPage={this.state.verso} edition={this.props.edition} />
 
     </div>)
   }

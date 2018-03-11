@@ -28,7 +28,7 @@ class NavStrip extends React.Component {
   }
   render() {
     return (<Well bsClass="nav-group">
-      <NavGroup data={this.state.items} setPage={this.props.setPage} currentPage={this.props.currentPage} />
+      <NavGroup data={this.state.items} setPage={this.props.setPage} currentPage={this.props.currentPage} edition={this.props.edition} />
     </Well>
     )
   }
@@ -37,6 +37,7 @@ class NavStrip extends React.Component {
 NavStrip.propTypes = {
   data: PropTypes.array.isRequired,
   setPage: PropTypes.func.isRequired,
+  edition: PropTypes.string.isRequired,
   currentPage: PropTypes.number,
 }
 NavStrip.defaultProps = {
@@ -44,12 +45,11 @@ NavStrip.defaultProps = {
   window: -1, // The length of the window of pages before/after. -1 is infinite
 }
 
-const NavGroup = ({ data, setPage, currentPage }) => (<ButtonGroup >
+const NavGroup = ({ data, setPage, currentPage, edition }) => (<ButtonGroup >
   {data.map((p) => {
     const page = parseInt(p.index, 10)
     const pos = page % 2 === 0 ? 'recto' : 'verso'
     const pad = (`0000${p.index}`).substr(-4, 4)
-    const edition = 'penn' // FIXME make this something switchable
     const img = require(`../images/book/${edition}/thumbnails/${pad}.jpg`) // eslint-disable-line global-require
     const cls = `nav-thumbnail thumbnail-${p.index} ${pos} ${page === currentPage || page === currentPage + 1 ? 'is-current' : ''}`
 
@@ -75,6 +75,7 @@ NavGroup.propTypes = {
   data: PropTypes.array.isRequired,
   setPage: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
+  edition: PropTypes.string.isRequired,
 }
 
 export default NavStrip
