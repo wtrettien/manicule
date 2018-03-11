@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Panel, Grid, Row, Col, Pager } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import Page from './page'
 import NavStrip from './nav-strip'
@@ -24,28 +25,10 @@ const categoryColors = {
 export default class Reader extends React.Component {
   constructor(props) {
     super(props)
-
-    this.next = this.changePage.bind(this, 'next')
-    this.prev = this.changePage.bind(this, 'prev')
-    this.setPage = this.setPage.bind(this)
-
     const pageDataFile = require(`../../data/${props.edition}/pages.json`)  // eslint-disable-line global-require
-
     this.pageData = this.initializePageData(pageDataFile)
-    this.state = {
-      verso: 1,
-      recto: 2,
-    }
   }
 
-  // Set the verso page; this may need to normalize to reset to the actual verso page
-  // Versos are always odd??
-  setPage(versoPage) {
-    this.setState({
-      verso: versoPage,
-      recto: versoPage + 1,
-    })
-  }
   initializePageData(pd) {
     // Create an index table into the page values displayed here
     const data = new Array(pd.length)
@@ -56,30 +39,26 @@ export default class Reader extends React.Component {
     })
     return data
   }
-  changePage(dir) {
-    if (dir === 'prev') {
-      this.setState({
-        verso: this.state.verso - 2,
-        recto: this.state.recto - 2,
-      })
-    } else {
-      this.setState({
-        verso: this.state.verso + 2,
-        recto: this.state.recto + 2,
-      })
-    }
-  }
 
   render() {
+    const nextPage = Math.max(this.props.page + 1, 1)
+    const prevPage = Math.min(this.props.page - 1, this.pageData.length)
+    const verso = this.props.page
+    const recto = this.props.page + 1
+
     return (<div>
 
       <Pager>
-        <Pager.Item previous onClick={this.prev} disabled={this.state.page <= 1}>
+        <Link to={`/reader/${this.props.edition}/${prevPage}`}>
+          <button className="prev" disabled={this.props.page <= 1}>
                 &larr; Previous Page
-            </Pager.Item>
-        <Pager.Item next onClick={this.next} disabled={this.state.page > this.pageData.length}>
+            </button>
+        </Link>
+        <Link to={`/reader/${this.props.edition}/${nextPage}`}>
+          <button className="next" disabled={this.props.page > this.pageData.length}>
                 Next Page &rarr;
-            </Pager.Item>
+            </button>
+        </Link>
       </Pager>
       <Panel>
         <Grid>
@@ -87,24 +66,24 @@ export default class Reader extends React.Component {
             <Col md={6}>
               <Page
                 edition={this.props.edition}
-                num={this.state.verso}
+                num={verso}
                 pos="verso"
-                {...this.pageData[this.state.verso]}
+                {...this.pageData[verso]}
               />
             </Col>
             <Col md={6}>
               <Page
                 edition={this.props.edition}
-                num={this.state.recto}
+                num={recto}
                 pos="recto"
-                {...this.pageData[this.state.recto]}
+                {...this.pageData[recto]}
               />
             </Col>
           </Row>
         </Grid>
       </Panel>
 
-      <NavStrip data={this.pageData} setPage={this.setPage} currentPage={this.state.verso} edition={this.props.edition} />
+      <NavStrip data={this.pageData} currentPage={verso} edition={this.props.edition} />
 
     </div>)
   }
@@ -113,5 +92,6 @@ export default class Reader extends React.Component {
 
 Reader.propTypes = {
   edition: PropTypes.string.isRequired,
+  page: PropTypes.number.isRequired,
 }
 

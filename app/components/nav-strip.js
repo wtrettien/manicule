@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import $ from 'jquery'
 
+import { Link } from 'react-router-dom'
+
 import { Well, OverlayTrigger, Tooltip, Button, ButtonGroup } from 'react-bootstrap'
 
 class NavStrip extends React.Component {
@@ -28,7 +30,7 @@ class NavStrip extends React.Component {
   }
   render() {
     return (<Well bsClass="nav-group">
-      <NavGroup data={this.state.items} setPage={this.props.setPage} currentPage={this.props.currentPage} edition={this.props.edition} />
+      <NavGroup data={this.state.items} currentPage={this.props.currentPage} edition={this.props.edition} />
     </Well>
     )
   }
@@ -36,16 +38,11 @@ class NavStrip extends React.Component {
 
 NavStrip.propTypes = {
   data: PropTypes.array.isRequired,
-  setPage: PropTypes.func.isRequired,
   edition: PropTypes.string.isRequired,
   currentPage: PropTypes.number,
 }
-NavStrip.defaultProps = {
-  currentPage: 10,
-  window: -1, // The length of the window of pages before/after. -1 is infinite
-}
 
-const NavGroup = ({ data, setPage, currentPage, edition }) => (<ButtonGroup >
+const NavGroup = ({ data, currentPage, edition }) => (<ButtonGroup >
   {data.map((p) => {
     const page = parseInt(p.index, 10)
     const pos = page % 2 === 0 ? 'recto' : 'verso'
@@ -58,12 +55,13 @@ const NavGroup = ({ data, setPage, currentPage, edition }) => (<ButtonGroup >
         className={cls}
         style={{ borderBottom: `10px solid ${p.color}` }}
       >
-        <Button
-          style={{ backgroundImage: `url(${img})`,
-          }}
-          onClick={() => setPage(parseInt(p.index, 10))}
-        >
-        </Button>
+        <Link to={`/reader/${edition}/${p.index}`}>
+          <Button
+            style={{ backgroundImage: `url(${img})`,
+            }}
+          >
+          </Button>
+        </Link>
       </div>
 
     </OverlayTrigger>)
@@ -73,7 +71,6 @@ const NavGroup = ({ data, setPage, currentPage, edition }) => (<ButtonGroup >
 
 NavGroup.propTypes = {
   data: PropTypes.array.isRequired,
-  setPage: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   edition: PropTypes.string.isRequired,
 }
