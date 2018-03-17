@@ -35,20 +35,4 @@ describe('<Reader />', () => {
     expect(wrapper.instance().hasPrevPage()).toBe(true)
     expect(wrapper.instance().hasNextPage()).toBe(false)
   })
-
-  it('should generate the expected pageData mapping', () => {
-    const wrapper = shallow(<Reader {...props} />)
-    const instance = wrapper.instance()
-    const pageData = instance.initializePageData(instance.pageData)
-
-    // The "index" values should match indexes into the array
-    expect(pageData[1].index).toEqual('1')
-    expect(pageData[2].index).toEqual('2')
-
-    // The categories and signature values should exist
-    const verso = wrapper.instance().props.page
-    const recto = wrapper.instance().props.page + 1
-    expect(pageData[verso].category).toEqual('flyleaf')
-    expect(pageData[recto].category).toEqual('engraving')
-  })
 })

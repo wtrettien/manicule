@@ -81,6 +81,10 @@ module.exports = (options) => ({
           },
         },
       },
+      {
+        test: /.xml$/,
+        use: 'xml-loader',
+      },
     ],
   },
   plugins: options.plugins.concat([

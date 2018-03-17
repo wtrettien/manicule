@@ -16,6 +16,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 import HomePage from 'containers/HomePage/Loadable'
 import ReaderPage from 'containers/ReaderPage'
+import Structure from 'containers/Structure'
 import Tour from 'containers/Tour'
 
 import NotFoundPage from 'containers/NotFoundPage/Loadable'
@@ -27,8 +28,9 @@ export default function App() {
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/structure" component={() => <Structure edition={DEFAULT_EDITION} />} />
         <Route exact path="/reader" render={() => <Redirect to="/reader/penn/1" />} />
-        <Route path="/reader/:edition/:page" component={ReaderPage} />
+        <Route exact path="/reader/:edition/:page" component={ReaderPage} />
         <Route exact path="/tour" render={() => <Tour edition={DEFAULT_EDITION} />} />
         <Route component={NotFoundPage} />
       </Switch>
