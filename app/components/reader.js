@@ -25,7 +25,7 @@ const categoryColors = {
 export default class Reader extends React.Component {
   constructor(props) {
     super(props)
-    const pageDataFile = require(`../../data/${props.edition}/pages.json`)  // eslint-disable-line global-require
+    const pageDataFile = require(`../data/${props.edition}/pages.json`)  // eslint-disable-line global-require
     this.pageData = this.initializePageData(pageDataFile)
   }
 
