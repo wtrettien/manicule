@@ -1,5 +1,6 @@
 const pennStructure = require('../data/penn/structure.xml')
 const pennData = require('../data/penn/pages.json')
+const pennTour = require('../tour/penn/tour.json')
 
 const testData = require('../data/test/pages.json')
 // TODO add testStructure
@@ -22,6 +23,7 @@ export const metadata = {
   penn: {
     structure: pennStructure.book,
     pages: pennData,
+    tour: pennTour,
   },
   test: {
     structure: null,

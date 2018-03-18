@@ -3,4 +3,9 @@
       padding: 20px;
     }
     font-size: larger;
+
+    .tour-panel {
+      overflow-y: scroll;
+      height: 60vh;
+    }
 }

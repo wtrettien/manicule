@@ -5,6 +5,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Panel, Grid, Row, Col, Image, Pager } from 'react-bootstrap'
 
+import NavStrip from './nav-strip'
+
 const TourItem = ({ index, edition, getData, next, prev, hasNext, hasPrev }) => {
   const { page, images } = getData(index)
   // Get the HTML for this
@@ -27,7 +29,14 @@ const TourItem = ({ index, edition, getData, next, prev, hasNext, hasPrev }) => 
               </Pager.Item>
             </Pager>
 
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <Panel bsClass="tour-panel">
+              <div dangerouslySetInnerHTML={{ __html: html }} />
+            </Panel>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <NavStrip currentPage={page} edition={edition} />
           </Col>
         </Row>
       </Grid>

@@ -5,6 +5,8 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import TourItem from '../../components/tour-item'
 import SiteContainer from '../SiteContainer'
 
+import { metadata } from '../../utils/metadata'
+
 export default class Tour extends React.Component {
 
   constructor(props) {
@@ -12,7 +14,7 @@ export default class Tour extends React.Component {
     this.next = this.next.bind(this)
     this.prev = this.prev.bind(this)
     this.getData = this.getData.bind(this)
-    this.tourData = require(`../../tour/${this.props.edition}/tour.json`)   // eslint-disable-line global-require
+    this.tourData = metadata[props.edition].tour
 
     this.state = {
       index: props.index,
