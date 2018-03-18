@@ -2,8 +2,9 @@ const pennStructure = require('../data/penn/structure.xml')
 const pennData = require('../data/penn/pages.json')
 const pennTour = require('../tour/penn/tour.json')
 
-const testData = require('../data/test/pages.json')
 // TODO add testStructure
+const testData = require('../data/test/pages.json')
+const testTour = require('../tour/test/tour.json')
 
 const categoryColors = {
   blank: 'lightgrey',
@@ -28,6 +29,7 @@ export const metadata = {
   test: {
     structure: null,
     pages: testData,
+    tour: testTour,
   },
 }
 

@@ -7,60 +7,30 @@ import SiteContainer from '../SiteContainer'
 
 import { metadata } from '../../utils/metadata'
 
-export default class Tour extends React.Component {
+const Tour = ({ match }) => {
+  const data = metadata[match.params.edition].tour
 
-  constructor(props) {
-    super(props)
-    this.next = this.next.bind(this)
-    this.prev = this.prev.bind(this)
-    this.getData = this.getData.bind(this)
-    this.tourData = metadata[props.edition].tour
-
-    this.state = {
-      index: props.index,
-    }
-  }
-  getData(index) {
-    return this.tourData[index]
-  }
-  prev() {
-    this.setState({
-      index: this.state.index - 1,
-    })
-  }
-  next() {
-    this.setState({
-      index: this.state.index + 1,
-    })
-  }
-  render() {
-    const hasPrev = this.state.index > 0
-    const hasNext = this.state.index < this.tourData.length - 1
-
-    return (<SiteContainer>
-      <Grid>
-        <Row>
-          <Col>
-            <TourItem
-              edition={this.props.edition}
-              index={this.state.index}
-              next={this.next}
-              prev={this.prev}
-              getData={this.getData}
-              hasPrev={hasPrev}
-              hasNext={hasNext}
-            />
-          </Col>
-        </Row>
-      </Grid>
-    </SiteContainer>)
-  }
+  return (<SiteContainer>
+    <Grid>
+      <Row>
+        <Col>
+          <TourItem
+            edition={match.params.edition}
+            index={parseInt(match.params.index, 10)}
+            data={data}
+          />
+        </Col>
+      </Row>
+    </Grid>
+  </SiteContainer>)
 }
 
 Tour.propTypes = {
-  edition: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      edition: PropTypes.string.isRequired,
+      index: PropTypes.string.isRequired,
+    }),
+  }),
 }
-Tour.defaultProps = {
-  index: 0,
-}
+export default Tour

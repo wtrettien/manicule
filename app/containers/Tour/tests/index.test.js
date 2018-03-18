@@ -1,19 +1,19 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import ReaderPage from '../index'
+import Tour from '../index'
 
-describe('<ReaderPage />', () => {
-  it('should render the page', () => {
+describe('<Tour />', () => {
+  it('should render the tour', () => {
     const props = {
       match: {
         params: {
           edition: 'test',
-          page: '12',
+          index: 1,
         },
       },
     }
-    const wrapper = shallow(<ReaderPage {...props} />)
+    const wrapper = shallow(<Tour {...props} />)
     expect(wrapper.exists()).toBe(true)
   })
 })

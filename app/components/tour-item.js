@@ -3,14 +3,22 @@
 // Tour components
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Panel, Grid, Row, Col, Image, Pager } from 'react-bootstrap'
+import { Panel, Grid, Row, Col, Image } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import NavStrip from './nav-strip'
 
-const TourItem = ({ index, edition, getData, next, prev, hasNext, hasPrev }) => {
-  const { page, images } = getData(index)
+const TourItem = ({ index, edition, data }) => {
+  const { page, images } = data[index]
   // Get the HTML for this
   const html = require(`../tour/${edition}/${page}.html`) // eslint-disable-line global-require
+
+  const hasPrev = index > 0
+  const hasNext = index < data.length - 1
+
+  const prevLink = hasPrev ? <Link to={`/tour/${edition}/${index - 1}`}>&larr; Previous Item</Link> : <span>&larr; Previous Item</span>
+  const nextLink = hasNext ? <Link to={`/tour/${edition}/${index + 1}`}>Next Item &rarr;</Link> : <span>Next Item &rarr;</span>
+
   return (
     <Panel bsClass="tour">
       <Grid>
@@ -19,15 +27,14 @@ const TourItem = ({ index, edition, getData, next, prev, hasNext, hasPrev }) => 
             <TourImages images={images} edition={edition} />
           </Col>
           <Col sm={8}>
-
-            <Pager>
-              <Pager.Item previous onClick={prev} disabled={!hasPrev}>
-                &larr; Previous Item
-              </Pager.Item>
-              <Pager.Item next onClick={next} disabled={!hasNext}>
-                Next Item &rarr;
-              </Pager.Item>
-            </Pager>
+            <Row>
+              <Col sm={6}>
+                {prevLink}
+              </Col>
+              <Col sm={6}>
+                {nextLink}
+              </Col>
+            </Row>
 
             <Panel bsClass="tour-panel">
               <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -46,11 +53,7 @@ const TourItem = ({ index, edition, getData, next, prev, hasNext, hasPrev }) => 
 TourItem.propTypes = {
   index: PropTypes.number.isRequired,
   edition: PropTypes.string.isRequired,
-  next: PropTypes.func.isRequired,
-  prev: PropTypes.func.isRequired,
-  getData: PropTypes.func.isRequired,
-  hasNext: PropTypes.bool.isRequired,
-  hasPrev: PropTypes.bool.isRequired,
+  data: PropTypes.array.isRequired,
 
 }
 
