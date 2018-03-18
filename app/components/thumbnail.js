@@ -26,6 +26,8 @@ const Thumbnail = ({ pageData, edition, currentPage }) => {
     >
       <Link to={`/reader/${edition}/${index}`}>
         <Button
+          id={`page-${page}`}
+          bsClass="page-thumbnail"
           style={{ backgroundImage: `url(${img})`,
           }}
         >

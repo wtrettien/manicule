@@ -38,7 +38,7 @@ export default class HomePage extends React.Component { // eslint-disable-line r
                       <ListGroupItem> <Link to="/reader">Browse through this edition of Theophila</Link></ListGroupItem>
 
                       <ListGroupItem > <Link to="/tour">Take a tour!</Link> </ListGroupItem>
-                      <ListGroupItem > Browse the figures</ListGroupItem>
+                      <ListGroupItem > <Link to="/structure">Explore the book‘s physical structure</Link></ListGroupItem>
                       <ListGroupItem > Biography of Edward Belowes</ListGroupItem>
                       <ListGroupItem > Belowes’ social network</ListGroupItem>
                       <ListGroupItem > Download the page images and metadata</ListGroupItem>

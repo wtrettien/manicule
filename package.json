@@ -247,6 +247,7 @@
     "reselect": "3.0.1",
     "sanitize.css": "4.1.0",
     "styled-components": "2.0.0",
+    "underscore": "^1.8.3",
     "warning": "3.0.0",
     "whatwg-fetch": "2.0.3",
     "xml-loader": "^1.2.1"
@@ -290,6 +291,7 @@
     "imports-loader": "0.7.1",
     "jest-cli": "20.0.4",
     "jquery": "^3.3.1",
+    "jsplumb": "^2.6.9",
     "lint-staged": "3.5.1",
     "ngrok": "2.2.9",
     "node-plop": "0.7.0",

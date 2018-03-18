@@ -45,7 +45,7 @@ NavStrip.propTypes = {
 }
 
 const NavGroup = ({ data, currentPage, edition }) => (<ButtonGroup >
-  {data.map((p) => <Thumbnail pageData={p} currentPage={currentPage} edition={edition} />)}
+  {data.map((p) => <Thumbnail pageData={p} currentPage={currentPage} edition={edition} key={p.index} />)}
 </ButtonGroup>)
 
 
