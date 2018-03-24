@@ -8,10 +8,7 @@ import { getPageData } from '../utils/metadata'
 const Quire = ({ quire, edition, face, currentPage }) => {
   const index = face === 'recto' ? 0 : 1
   return (<div className="quire">
-    <h3>Quire: {quire.$.n}</h3>
-    {
-
-    quire.leaf.map((leaf) => (
+    { quire.leaf.map((leaf) => (
       <Leaf page={parseInt(leaf.page[index].$.index, 10)} key={leaf.$.folio_number} edition={edition} currentPage={currentPage} />
     ))
    }

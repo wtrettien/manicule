@@ -1,12 +1,31 @@
+// The structure view
 .structure-nav {
   position: fixed;
   right: 5%;
+}
 
-}
 .quire {
-  min-height: 200px;
+  min-height: 250px;
+  text-align: center;
+
+  // The insertion
+  .nav-thumbnail a {
+    position: relative;
+    display: inline-block;
+
+    svg.insertion-line {
+      position: absolute;
+      left: calc(50% - 2px);
+      top: -50px;
+
+      line {
+        stroke: rgb(2,200,90);
+        stroke-width: 4px;
+      }
+    }
+  }
 }
+// The quire arcs
 .jtk-connector, .jtk-endpoint {
   z-index: -1;
-
 }
