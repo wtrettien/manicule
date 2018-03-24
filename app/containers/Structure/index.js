@@ -72,11 +72,15 @@ export default class Structure extends React.Component {
             const pageHtml = document.getElementById(`page-${page}`)
             const conjoinedHtml = document.getElementById(`page-${conjoinedPage}`)
 
+            // Curviness is a function of the distance between the two pages, where
+            // closer pages have a shallower arc
+            const curviness = 50 - ((page - conjoinedPage) * 10)
+
             j.connect({
               // Target/source swapped for animation
               target: pageHtml.id,
               source: conjoinedHtml.id,
-              connector: 'Bezier',
+              connector: ['Bezier', { curviness }],
               endpointStyle: { radius: 125 },
               anchors: ['TopCenter', 'TopCenter'],
             })

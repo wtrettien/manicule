@@ -33,7 +33,6 @@ Leaf.propTypes = {
   page: PropTypes.number.isRequired,
   edition: PropTypes.string.isRequired,
   currentPage: PropTypes.number,
-
 }
 
 export default Quire
