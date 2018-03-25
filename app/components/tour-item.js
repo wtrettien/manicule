@@ -3,7 +3,7 @@
 // Tour components
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Panel, Grid, Row, Col, Image, Carousel } from 'react-bootstrap'
+import { Panel, Grid, Row, Col, Image, Carousel, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import NavStrip from './nav-strip'
@@ -16,26 +16,28 @@ const TourItem = ({ index, edition, data }) => {
   const hasPrev = index > 0
   const hasNext = index < data.length - 1
 
-  const prevLink = hasPrev ? <Link to={`/tour/${edition}/${index - 1}`}>&larr; Previous Item</Link> : <span>&larr; Previous Item</span>
-  const nextLink = hasNext ? <Link to={`/tour/${edition}/${index + 1}`}>Next Item &rarr;</Link> : <span>Next Item &rarr;</span>
+  const prevLink = hasPrev ? (<Link to={`/tour/${edition}/${index - 1}`} className="book-nav left">
+    <Glyphicon glyph="arrow-left" /> Previous Item</Link>) : <span>&larr; Previous Item</span>
+  const nextLink = hasNext ? (<Link to={`/tour/${edition}/${index + 1}`}className="book-nav right" >
+    Next Item <Glyphicon glyph="arrow-right" /></Link>) : <span>Next Item &rarr;</span>
 
   return (
     <Panel bsClass="tour">
       <Grid>
         <Row>
-          <Col sm={4}>
+          <Col sm={6}>
+            {prevLink}
+          </Col>
+          <Col sm={6}>
+            {nextLink}
+          </Col>
+        </Row>
+        <Row className="tour-grid">
+          <Col sm={4} className="image-panel">
             <TourImages images={images} edition={edition} />
           </Col>
-          <Col sm={8}>
-            <Row>
-              <Col sm={6}>
-                {prevLink}
-              </Col>
-              <Col sm={6}>
-                {nextLink}
-              </Col>
-            </Row>
-
+          <Col sm={1}>&nbsp;</Col>
+          <Col sm={7}>
             <Panel bsClass="tour-panel">
               <div dangerouslySetInnerHTML={{ __html: html }} />
             </Panel>

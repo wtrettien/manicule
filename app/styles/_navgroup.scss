@@ -1,6 +1,7 @@
 .nav-group, .quire {
 
-  min-height: 95px;
+
+  min-height: 150px;
 
   .nav-thumbnail {
 
@@ -28,6 +29,19 @@
 .nav-group {
   position: relative;
   overflow-x: scroll;
+  width: $default-width;
+  margin: 20px auto;
+  padding-top: 20px;
+
+  background: radial-gradient(ellipse farthest-corner,
+    lighten($scan-bg, 50%) 0%,
+    lighten($scan-bg, 30%) 100%
+    );
+
+   box-shadow:  0 0 5px darken($scan-bg, 50%),
+       0 0 5px darken($scan-bg, 5%),
+       0 0 5px darken($scan-bg, 50%);
+
 
   .btn-group {
     position: absolute;

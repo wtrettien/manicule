@@ -1,0 +1,61 @@
+.page-panel {
+
+
+  .page-metadata {
+
+      .metadata-label {
+        display: inline-block;
+        height: 3em;
+        padding: 1em;
+        width: 100%;
+        text-align: center;
+        color: white;
+      }
+      .category-label {
+        text-transform: uppercase;
+      }
+      .signatures-label {
+        font-family: monospace;
+        background: darkgray;
+      }
+      .tour-label {
+        background: $scan-bg;
+        color: white;
+        text-transform: uppercase;
+        a {
+          color: white;
+        }
+      }
+
+      .page-metadata-grid {
+        margin: 0 10%;
+      }
+    }
+
+}
+.book-pagination, .tour {
+
+  .book-nav {
+     color: oldlace;
+     text-transform: uppercase;
+     padding: 0 10%;
+     display: inline-block;
+     width: 100%;
+     height: 3em;
+   }
+   .left {
+     text-align: left;
+   }
+   .right {
+     text-align: right;
+   }
+}
+
+.reader-grid {
+  .verso {
+    padding-right: 10px;
+  }
+  .recto {
+    padding-left: 10px;
+  }
+}

@@ -1,11 +1,26 @@
 .tour {
-    [class*="col-"] {
-      padding: 20px;
+
+    .tour-grid {
+      margin: 0 5%;
+      .image-panel {
+        margin: auto;
+        text-align: center;
+        img {
+          display: inline-block;
+        }
+      }
     }
-    font-size: larger;
 
     .tour-panel {
       overflow-y: scroll;
-      height: 60vh;
+      height: 70vh;
+      color: oldlace;
+      line-height: 1.6em;
+      background: rgba(255,255,255,0.2);
+      padding: 40px;
+      text-indent: 1em;
+      font-size: 20px;
+
+      font-family: Georgia, serif;
     }
 }

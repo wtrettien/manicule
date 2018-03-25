@@ -6,10 +6,36 @@ $grid-gutter-width: 0px !default;
 $bootstrap-sass-asset-helper: true;
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+$default-width: 80%;  // For everything but the container
+
+$scan-bg: rgb(28,28,30);
+$page-bg: rgb(207, 180, 147);
+$red-color: rgb(159,71,	53);
+
 @import "navgroup";
 @import "tour";
 @import "home";
 @import "structure";
+@import "reader";
 
-$scan-bg: rgb(28,28,30);
+.navbar-inverse {
+  padding: 0 5%;
+  background: linear-gradient(to bottom,
+    lighten($red-color, 5%) 0%,
+    lighten($red-color, 0%) 80%,
+    darken($red-color, 5%) 100%);
 
+  a.navbar-brand {
+    color: oldlace;
+  }
+}
+body {
+  background: radial-gradient(ellipse farthest-corner,
+    lighten($scan-bg, 20%) 0%,
+    lighten($scan-bg, 5%) 100%
+  );
+  min-height: 100vh;
+}
+.container {
+  width: 100%;
+}

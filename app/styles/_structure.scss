@@ -1,6 +1,9 @@
 // The structure view
 .structure {
 
+  background: lighten($page-bg, 90%);
+  padding: 0 5%;
+
   .structure-nav {
     position: fixed;
     right: 5%;
@@ -49,6 +52,6 @@
 // The quire arcs
 .jtk-connector, .jtk-endpoint {
   path {
-    stroke: darkgra;
+    stroke: darkgray;
   }
 }

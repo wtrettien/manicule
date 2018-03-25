@@ -1,17 +1,45 @@
 // Viewer for a single page (of a spread)
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-import { Image, Label } from 'react-bootstrap'
+import { Row, Col, Image, Label, Glyphicon } from 'react-bootstrap'
+
+import { getTourForPage } from '../utils/metadata'
 
 const Page = ({ edition, num, category, signatures, color }) => {
   const pad = (`0000${num}`).substr(-4, 4)
   const img = require(`../images/book/${edition}/${pad}.jpg`) // eslint-disable-line global-require
+  const tour = getTourForPage(edition, num)
 
   return (
-    <div>
-      <h3><Label style={{ background: color }}>Category: {category}</Label></h3>
-      <h4><Label>{signatures}</Label></h4>
+    <div className="page-panel">
+      <div className="page-metadata">
+        <Row className="page-metadata-grid">
+          <Col md={4}>
+            <Label bsClass="metadata-label category-label" style={{ background: color }}>
+              <Glyphicon glyph="tag" />
+              {category}
+            </Label>
+
+          </Col>
+          <Col md={4}>
+            <Label bsClass="metadata-label signatures-label">
+              <Glyphicon glyph="info-sign" />
+              {signatures}
+            </Label>
+          </Col>
+          <Col md={4}>
+            <Label bsClass="metadata-label tour-label">
+              { tour.length > 0 ?
+                <Link to={`/tour/${tour[0].index}`}>
+                  <Glyphicon glyph="export" />
+                  Tour
+                </Link>
+              : <span>&nbsp;</span> }</Label>
+          </Col>
+        </Row>
+      </div>
       <Image src={img} alt="" responsive />
     </div>
   )

@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Panel, Grid, Row, Col } from 'react-bootstrap'
+import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import Page from './page'
@@ -35,12 +35,12 @@ export default class Reader extends React.Component {
 
   getLink(page, dir) {
     if (dir === 'prev' && this.hasPrevPage()) {
-      return (<Link to={`/reader/${this.props.edition}/${page}`}>
-      &larr; Previous Page
+      return (<Link to={`/reader/${this.props.edition}/${page}`} className="book-nav left">
+        <Glyphicon glyph="arrow-left" /> Previous Page
       </Link>)
     } else if (dir === 'next' && this.hasNextPage()) {
-      return (<Link to={`/reader/${this.props.edition}/${page}`}>
-       Next Page &rarr;
+      return (<Link to={`/reader/${this.props.edition}/${page}`} className="book-nav right">
+       Next Page <Glyphicon glyph="arrow-right" />
       </Link>)
     }
     return null
@@ -66,30 +66,26 @@ export default class Reader extends React.Component {
     }
 
     return (<div>
+      <div className="book-pagination">
+        <Row>
+          <Col sm={6}>
+            {this.getLink(prevPage, 'prev')}
 
-      <Panel>
-        <Grid>
-          <Row>
-            <Col md={6}>
-              {this.getLink(prevPage, 'prev')}
+          </Col>
+          <Col sm={6}>
+            {this.getLink(nextPage, 'next')}
+          </Col>
+        </Row>
+      </div>
 
-            </Col>
-            <Col md={6}>
-              {this.getLink(nextPage, 'next')}
-            </Col>
-          </Row>
-
-          <Row>
-            <Col md={6}>
-              {this.getPage(verso, 'verso')}
-            </Col>
-            <Col md={6}>
-              {this.getPage(recto, 'recto')}
-            </Col>
-          </Row>
-        </Grid>
-      </Panel>
-
+      <Row className="reader-grid">
+        <Col sm={6} className="verso">
+          {this.getPage(verso, 'verso')}
+        </Col>
+        <Col sm={6} className="recto">
+          {this.getPage(recto, 'recto')}
+        </Col>
+      </Row>
       <NavStrip currentPage={verso} edition={this.props.edition} />
 
     </div>)

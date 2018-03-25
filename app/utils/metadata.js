@@ -7,8 +7,8 @@ const testData = require('../data/test/pages.json')
 const testTour = require('../tour/test/tour.json')
 
 const categoryColors = {
-  blank: 'lightgrey',
-  flyleaf: 'lightgrey',
+  blank: 'grey',
+  flyleaf: 'darkslategrey',
   'commendatory verse': '#3366cc',
   engraving: '#dc3912',
   'original engraving': '#ff9900',
@@ -63,5 +63,14 @@ export const getPageData = (edition) => {
     item.color = categoryColors[item.category]
     data[parseInt(item.index, 10)] = item
   })
+  return data
+}
+
+// Given an edition, find any possible tour data for it
+export const getTourForPage = (edition, page) => {
+  const tour = metadata[edition].tour
+  const data = tour.filter((item) =>
+    item.page === page
+  )
   return data
 }
