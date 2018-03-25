@@ -22,7 +22,7 @@ export default class SiteContainer extends React.Component { // eslint-disable-l
           </Navbar.Header>
           <Nav>
             <NavItem>
-              <Link to="/browse">Browse</Link>
+              <Link to="/reader">Browse</Link>
             </NavItem>
             <NavItem>
               <Link to="/tour">Tour</Link>

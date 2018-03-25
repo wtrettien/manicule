@@ -18,23 +18,20 @@ const Page = ({ edition, num, category, signatures, color }) => {
         <Row className="page-metadata-grid">
           <Col md={4}>
             <Label bsClass="metadata-label category-label" style={{ background: color }}>
-              <Glyphicon glyph="tag" />
-              {category}
+              <Glyphicon glyph="tag" /> {category}
             </Label>
 
           </Col>
           <Col md={4}>
             <Label bsClass="metadata-label signatures-label">
-              <Glyphicon glyph="info-sign" />
-              {signatures}
+              <Glyphicon glyph="info-sign" /> {signatures}
             </Label>
           </Col>
           <Col md={4}>
             <Label bsClass="metadata-label tour-label">
               { tour.length > 0 ?
                 <Link to={`/tour/${tour[0].index}`}>
-                  <Glyphicon glyph="export" />
-                  Tour
+                  <Glyphicon glyph="export" /> Tour
                 </Link>
               : <span>&nbsp;</span> }</Label>
           </Col>
