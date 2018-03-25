@@ -3,7 +3,7 @@
 // Tour components
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Panel, Grid, Row, Col, Image } from 'react-bootstrap'
+import { Panel, Grid, Row, Col, Image, Carousel } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import NavStrip from './nav-strip'
@@ -58,26 +58,25 @@ TourItem.propTypes = {
 }
 
 
-const TourImages = ({ edition, images }) =>
+const TourImages = ({ edition, images }) => {
   // Get all the images for this page
-   (
-     <div>
-       {images.map((filename) => <TourImage key={filename} edition={edition} filename={filename} />)}
-     </div>
+  if (images.length === 1) {
+    const img = require(`../tour/${edition}/images/${images[0]}`)  // eslint-disable-line global-require
+    return <Image responsive src={img} alt="" />
+  }
+  return (
+    <Carousel>
+      {images.map((filename) => {
+        const img = require(`../tour/${edition}/images/${filename}`)  // eslint-disable-line global-require
+        return (<Carousel.Item key={filename}>
+          <Image responsive src={img} width={400} alt="" />
+        </Carousel.Item>)
+      })}
+    </Carousel>
   )
-
-
+}
 TourImages.propTypes = {
   images: PropTypes.array.isRequired,
-  edition: PropTypes.string.isRequired,
-}
-
-const TourImage = ({ filename, edition }) => {
-  const img = require(`../tour/${edition}/images/${filename}`)  // eslint-disable-line global-require
-  return <Image responsive src={img} alt="" />
-}
-TourImage.propTypes = {
-  filename: PropTypes.string.isRequired,
   edition: PropTypes.string.isRequired,
 }
 
