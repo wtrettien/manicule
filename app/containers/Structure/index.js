@@ -86,16 +86,24 @@ export default class Structure extends React.Component {
   }
 
   // Draw an insertion line at a given point
-  drawInsertion(page, length = 50) {
+  drawInsertion(page, length = 45, width = 86) {
     const pageEl = document.getElementById(`page-${page}`)
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     svg.classList.add('insertion-line')
-    svg.setAttribute('width', 5)
+    svg.setAttribute('width', width)
     svg.setAttribute('height', length)
-
+    const marker = document.createElementNS('http://www.w3.org/2000/svg', 'defs')
+    marker.innerHTML = `<marker id="triangle"
+    viewBox="0 0 10 10"
+    markerWidth="7" markerHeight="7" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" />
+    </marker>`
+    svg.appendChild(marker)
     pageEl.parentNode.appendChild(svg)
 
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
+    line.setAttribute('x1', width / 2)
+    line.setAttribute('x2', width / 2)
     line.setAttribute('y2', length)
     svg.appendChild(line)
   }
@@ -116,7 +124,7 @@ export default class Structure extends React.Component {
       target: pageHtml.id,
       source: conjoinedHtml.id,
       connector: ['Bezier', { curviness }],
-      endpointStyle: { radius: 125 },
+      endpointStyle: { radius: 0 },
       anchors: ['TopCenter', 'TopCenter'],
     })
   }
@@ -145,29 +153,30 @@ export default class Structure extends React.Component {
     const quires = this.structure.quire
 
     return (<SiteContainer>
+      <div className="structure">
+        <Grid>
+          <Row>
+            <Col md={10}></Col>
+            <Col md={2}>
+              <Panel bsClass="structure-nav">
+                <Button onClick={this.onFlip}>Showing {this.state.face} side</Button>
+              </Panel>
+            </Col>
+          </Row>
 
-      <Grid>
-        <Row>
-          <Col md={10}></Col>
-          <Col md={2}>
-            <Panel bsClass="structure-nav">
-              <Button onClick={this.onFlip}>Showing {this.state.face} side</Button>
-            </Panel>
-          </Col>
-        </Row>
-
-        {
-          quires.map((quire) => (<Row key={quire.key}>
+          {
+          quires.map((quire, index) => (<Row key={quire.key} id={`row-${index}`}>
             <Col md={2}>
               <h3>Quire: {quire.$.n}</h3>
               {this.describeQuire(quire)}
             </Col>
-            <Col md={8}>
+            <Col md={8} >
               <Quire quire={quire} edition={this.props.edition} face={this.state.face} />
             </Col>
           </Row>))
         }
-      </Grid>
+        </Grid>
+      </div>
     </SiteContainer>)
   }
 }
