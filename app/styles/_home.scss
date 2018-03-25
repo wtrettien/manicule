@@ -2,4 +2,43 @@
   [class*="col-"] {
     padding: 20px;
   }
+  height: 100vh;
+
+  .jumbotron {
+    color: oldlace;
+    background: rgba(20,20, 20, 0.7);
+
+    font-family: Georgia, serif;
+  }
+  //../../tour/penn/images/0290-1.jpg/
+
+  .list-group {
+    margin-top: 4em;
+  }
+  .list-group-item {
+    background: inherit;
+    font-family: Helvetica, sans-serif;
+    font-size: 25px;
+    background: rgba(20,20, 20, 0.6);
+    border: rgba(20,20, 20, 1);
+    a {
+
+      color: lightsteelblue;
+      .glyphicon {
+
+        padding-right: 30px;
+      }
+    }
+  }
+  .image-col {
+    max-height: 70vh;
+    overflow-y: hidden;
+    filter: brightness(1.2) grayscale(40%);
+  }
+  h1 {
+    font-family: 'Berkshire Swash', cursive;
+    color: lightsteelblue;
+    font-size: 100px;
+  }
 }
+

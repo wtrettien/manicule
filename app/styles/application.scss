@@ -25,8 +25,8 @@ $red-color: rgb(159,71,	53);
     lighten($red-color, 0%) 80%,
     darken($red-color, 5%) 100%);
 
-  a.navbar-brand {
-    color: oldlace;
+  a {
+    color: oldlace !important;
   }
 }
 body {
@@ -38,4 +38,12 @@ body {
 }
 .container {
   width: 100%;
+}
+
+footer {
+  height: 10vh;
+  color: oldlace;
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
 }

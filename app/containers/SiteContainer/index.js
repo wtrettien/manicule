@@ -6,7 +6,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import { Navbar } from 'react-bootstrap'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
 
 export default class SiteContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -15,13 +15,28 @@ export default class SiteContainer extends React.Component { // eslint-disable-l
     return (
       <div className="page-container">
         <Navbar inverse>
-          <Navbar.Brand>
-            <Link to="/">“Used” Books</Link>
-          </Navbar.Brand>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to="/">Used Books</Link>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <Nav>
+            <NavItem>
+              <Link to="/browse">Browse</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/tour">Tour</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/structure">Structure</Link>
+            </NavItem>
+          </Nav>
+
         </Navbar>
         {this.props.children}
-        <footer>
 
+        <footer>
+          Some credit, copyright, and usage info here.
         </footer>
 
       </div>
