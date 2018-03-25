@@ -28,12 +28,12 @@ const Page = ({ edition, num, category, signatures, color }) => {
             </Label>
           </Col>
           <Col md={4}>
-            <Label bsClass="metadata-label tour-label">
-              { tour.length > 0 ?
-                <Link to={`/tour/${tour[0].index}`}>
-                  <Glyphicon glyph="export" /> Tour
-                </Link>
-              : <span>&nbsp;</span> }</Label>
+
+            { tour.length > 0 ? <Label bsClass="metadata-label tour-label">
+              <Link to={`/tour/${edition}/${tour[0].index}`} className="has-tour">
+                <Glyphicon glyph="export" /> Tour
+                </Link></Label>
+              : <span>&nbsp;</span> }
           </Col>
         </Row>
       </div>
