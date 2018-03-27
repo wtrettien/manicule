@@ -47,8 +47,6 @@ export default class HomePage extends React.Component { // eslint-disable-line r
                       <ListGroupItem > <Link to="/tour">
                         <Glyphicon glyph="export" /> Take a tour!</Link> </ListGroupItem>
                       <ListGroupItem > <Link to="/structure"> <Glyphicon glyph="book" /> Explore the book‘s physical structure</Link></ListGroupItem>
-                      <ListGroupItem > Biography of Edward Belowes</ListGroupItem>
-                      <ListGroupItem > Download the page images and metadata</ListGroupItem>
                     </ListGroup>
                   </Col>
                   <Col sm={2} className="image-col">
