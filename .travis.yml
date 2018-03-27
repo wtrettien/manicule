@@ -7,4 +7,4 @@ deploy:
   skip_cleanup: true
 before_install:
 - openssl aes-256-cbc -K $encrypted_8a2e9576d3d0_key -iv $encrypted_8a2e9576d3d0_iv
-  -in used-books-deploy.enc -out ~\/.ssh/used-books-deploy -d
+  -in used-books-deploy.enc -out ~/.ssh/used-books-deploy -d
