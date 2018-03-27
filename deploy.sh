@@ -1,6 +1,9 @@
 #!/bin/sh
 
 npm run build
+
+echo "Done building, trying to rsync..."
+
 rsync -az -e "ssh -i $HOME/.ssh/used-books-deploy" build/* $USED_BOOKS_USER@$USED_BOOKS_HOST:used-books/
 
 echo "Done deploying code, expiring CloudFlare cache..."
