@@ -12,7 +12,7 @@ import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
+import { BrowserRouter } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 
 // Import root app
@@ -49,9 +49,9 @@ const MOUNT_NODE = document.getElementById('app')
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <BrowserRouter basename={'/usedbooks'}>
         <App />
-      </ConnectedRouter>
+      </BrowserRouter>
     </Provider>,
     MOUNT_NODE
   )
@@ -81,11 +81,4 @@ if (!window.Intl) {
     })
 } else {
   render()
-}
-
-// Install ServiceWorker and AppCache in the end since
-// it's not most important operation and if main code fails,
-// we do not want it installed
-if (process.env.NODE_ENV === 'production') {
-  require('offline-plugin/runtime').install() // eslint-disable-line global-require
 }
