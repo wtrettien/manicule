@@ -33,7 +33,7 @@ It should run for a long time and then complete.
 npm start
 ```
 
-This will run the application as http://localhost:3000/
+This will run the application as http://localhost:3000/usedbooks/
 
 ## Deploying the application to production
 
