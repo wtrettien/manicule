@@ -6,7 +6,7 @@ ssh-keyscan $USED_BOOKS_HOST >> ~/.ssh/known_hosts
 
 echo "Done building, trying to rsync..."
 
-rsync -az -e "ssh -i $HOME/.ssh/used-books-deploy" build/* $USED_BOOKS_USER@$USED_BOOKS_HOST:used-books/
+rsync -az -e "ssh -i $HOME/.ssh/used-books-deploy" build/* $USED_BOOKS_USER@$USED_BOOKS_HOST:used-books/usedbooks/
 
 echo "Done deploying code, expiring CloudFlare cache..."
 

@@ -4,7 +4,7 @@
   "background_color": "#fafafa",
   "display": "standalone",
   "Scope": "/",
-  "start_url": "/",
+  "start_url": "/usedbooks/",
   "icons": [
     {
       "src": "icon-72x72.png",
