@@ -33,11 +33,13 @@ export default class HomePage extends React.Component { // eslint-disable-line r
                     <h1>
                       <i>Used</i> Books
                     </h1>
-                    <p>Edward Benlowes (1603-1676) was an odd gentleman, obsessed with playful forms of poetry and language games. He also was interested in the technologies of printing. He owned a press for printing intaglio plates and employed an actual Dutch printer, Jan Schoren, who helped him in his technological experimentations.</p>
-      				<p>Benlowes’ masterpiece — the work he spent decades perfecting — was <i>Theophila</i> (1652), an epic poem about the progress of the soul to heaven. Benlowes designed and printed several etchings to illustrate different parts of the poem, then made up each individual copy, inserting these engravings — alongside other prints he had collected — in different locations in the text. Thus every existing copy of Theophila is a unique assemblage, making it ripe for comparative study.</p>
-      				<p>Taking Theophila as its test case — and the book artist Benlowes as its inspiration — this project asks:</p>
-				<p><b>How can we leverage digital media to tell richer, more textured stories about early readers, writers, and printers?</b></p>
-                    <ListGroup>
+                     <p>Edward Benlowes was an odd gentleman, obsessed with strange forms of poetry and language games—chronograms,
+-                      pattern poems, emblems, and so on. He also was interested in the technologies of printing and experimented
+-                      with them [...]</p>
+-                    <p>
+-                       Benlowes’s masterpiece was <i>Theophila</i>, a book-length poem about the progress of the soul (figured as the woman Theophila) to heaven. It was published in 1652.
+-                    </p>
+		     <ListGroup>
                       <ListGroupItem> <Link to="/reader">
                         <Glyphicon glyph="zoom-in" /> Browse through this edition of Theophila</Link></ListGroupItem>
 
