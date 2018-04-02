@@ -9,7 +9,7 @@ describe('<Tour />', () => {
       match: {
         params: {
           edition: 'test',
-          index: 1,
+          index: '1',
         },
       },
     }
