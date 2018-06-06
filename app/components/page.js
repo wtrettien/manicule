@@ -32,7 +32,7 @@ const Page = ({ edition, num, category, signatures, color }) => {
             { tour.length > 0 ? <Label bsClass="metadata-label tour-label">
               <Link to={`/tour/${edition}/${tour[0].index}`} className="has-tour">
                 <Glyphicon glyph="export" /> Tour
-                </Link></Label>
+              </Link></Label>
               : <span>&nbsp;</span> }
           </Col>
         </Row>

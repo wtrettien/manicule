@@ -25,26 +25,54 @@
     }
   }
 }
+.nav-strip-container {
 
-.nav-group {
-  position: relative;
-  overflow-x: scroll;
-  width: $default-width;
   margin: 20px auto;
-  padding-top: 20px;
+  width: $default-width;
+  position: relative;
+  background: inherit;
 
-  background: radial-gradient(ellipse farthest-corner,
-    lighten($scan-bg, 50%) 0%,
-    lighten($scan-bg, 30%) 100%
-    );
-
-   box-shadow:  0 0 5px darken($scan-bg, 50%),
-       0 0 5px darken($scan-bg, 5%),
-       0 0 5px darken($scan-bg, 50%);
+  .nav-group {
+    position: relative;
+    overflow-x: scroll;
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
 
 
-  .btn-group {
+    background: radial-gradient(ellipse farthest-corner,
+      lighten($scan-bg, 50%) 0%,
+      lighten($scan-bg, 30%) 100%
+      );
+
+    box-shadow:  0 0 5px darken($scan-bg, 50%),
+        0 0 5px darken($scan-bg, 5%),
+        0 0 5px darken($scan-bg, 50%);
+
+
+    .btn-group {
+      position: absolute;
+      white-space: nowrap;
+    }
+
+  }
+
+  .nav-strip-button {
     position: absolute;
-    white-space: nowrap;
+    display: inline-block;
+    top: 0;
+    button {
+      height: 150px;
+      background: inherit;
+      border: none;
+      font-size: 80px;
+      color:$page-bg;
+    }
+    &.next {
+      right: 0;
+    }
+    &.prev {
+      left: 0;
+    }
   }
 }
