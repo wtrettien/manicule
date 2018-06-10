@@ -66,7 +66,7 @@ export const getPageData = (edition) => {
   return data
 }
 
-// Given an edition, find any possible tour data for it
+// Given an edition, find any possible tour data for a page
 export const getTourForPage = (edition, page) => {
   const tour = metadata[edition].tour
   const data = tour.filter((item) =>

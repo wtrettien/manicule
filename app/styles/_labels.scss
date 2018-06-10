@@ -1,0 +1,31 @@
+.metadata-label {
+  display: inline-block;
+  height: 3em;
+  padding: 1em;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.category-label {
+  text-transform: uppercase;
+}
+.signatures-label {
+  background: darkgray;
+}
+.tour-label {
+
+  background: darkslateblue;
+  text-transform: uppercase;
+  a {
+    color: oldlace;
+  }
+}
+// Inside the nav thumbnail, a label is absolutely positioned
+.nav-thumbnail .metadata-label {
+  display: block;
+  position: absolute;
+  width: 83px;
+  height: 20px;
+  top: 100px;
+  padding: 0;
+}
