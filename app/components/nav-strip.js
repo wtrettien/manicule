@@ -12,6 +12,7 @@ import Thumbnail from './thumbnail'
 class NavStrip extends React.Component {
   constructor(props) {
     super(props)
+    this.centerCurrentPage = this.centerCurrentPage.bind(this)
     const { currentPage, edition } = props
     const data = getPageData(edition)
 
@@ -20,11 +21,18 @@ class NavStrip extends React.Component {
 
     const current = [data[currentPage], data[currentPage + 1]]
     const items = before.concat(current).concat(after)
+
     this.state = {
       items,
     }
   }
+  componentDidMount() {
+    this.centerCurrentPage()
+  }
   componentDidUpdate() {
+    this.centerCurrentPage()
+  }
+  centerCurrentPage() {
     // Take the natural horizontal position of the current page element...
     let offset = $(`.thumbnail-${this.props.currentPage + 1}`).position().left
     offset -= ($('.nav-group').width() / 2) // divide the current filmstrip in half
