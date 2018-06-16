@@ -9,7 +9,7 @@ import SiteContainer from '../SiteContainer'
 
 import Quire from '../../components/quire'
 
-import { metadata, getPageData } from '../../utils/metadata'
+import { metadata } from '../../utils/metadata'
 
 const j = jsPlumb.jsPlumb
 
@@ -18,12 +18,10 @@ export default class Structure extends React.Component {
   constructor(props) {
     super(props)
     this.structure = metadata[props.edition].structure
-
     // Generate some unique keys for the quires
     this.structure.quire.forEach((q) => { q.key = Math.random() }) // eslint-disable-line no-param-reassign
 
-    this.pageData = getPageData(props.edition)
-
+    this.pageData = metadata[props.edition].pages
     this.onRender = this.onRender.bind(this)
     this.onFlip = this.onFlip.bind(this)
 
@@ -184,4 +182,3 @@ export default class Structure extends React.Component {
 Structure.propTypes = {
   edition: PropTypes.string.isRequired,
 }
-

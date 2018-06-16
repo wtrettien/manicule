@@ -2,7 +2,6 @@ const pennStructure = require('../data/penn/structure.xml')
 const pennData = require('../data/penn/pages.json')
 const pennTour = require('../tour/penn/tour.json')
 
-// TODO add testStructure
 const testData = require('../data/test/pages.json')
 const testTour = require('../tour/test/tour.json')
 
@@ -20,18 +19,6 @@ const categoryColors = {
   'title page': '#b82e2e',
 }
 
-export const metadata = {
-  penn: {
-    structure: pennStructure.book,
-    pages: pennData,
-    tour: pennTour,
-  },
-  test: {
-    structure: null,
-    pages: testData,
-    tour: testTour,
-  },
-}
 
   // Get the current quire from the page structure for the current verso page
 export const getCurrentQuire = (edition, pageIndex) => {
@@ -55,8 +42,7 @@ export const getCurrentQuire = (edition, pageIndex) => {
 }
 
 // get all of the information about the individual pages in the book
-export const getPageData = (edition) => {
-  const pageData = metadata[edition].pages
+export const getPageData = (pageData) => {
   const data = []
   pageData.forEach((p) => {
     const item = Object.assign({ color: '' }, p)
@@ -74,3 +60,19 @@ export const getTourForPage = (edition, page) => {
   )
   return data
 }
+
+export const metadata = {
+  penn: {
+    structure: pennStructure.book,
+    pages: getPageData(pennData),
+    tour: pennTour,
+  },
+  test: {
+    structure: {
+      quire: [],
+    },
+    pages: getPageData(testData),
+    tour: testTour,
+  },
+}
+

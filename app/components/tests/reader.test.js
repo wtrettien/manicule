@@ -1,11 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Reader from '../reader'
+import { Reader } from '../reader'
+import { metadata } from '../../utils/metadata'
 
 const props = {
   edition: 'test',
   page: 1,
+  pages: metadata.test.pages,
 }
 
 describe('<Reader />', () => {
@@ -14,11 +16,6 @@ describe('<Reader />', () => {
     expect(wrapper.exists()).toBe(true)
   })
 
-  it('should load page data', () => {
-    const wrapper = shallow(<Reader {...props} />)
-    // This will be +1 the length of pagedata, because zero-indexing
-    expect(wrapper.instance().pageData.length).toBe(3)
-  })
 
   it('should paginate correctly from the first page', () => {
     const wrapper = shallow(<Reader {...props} />)
@@ -30,6 +27,7 @@ describe('<Reader />', () => {
     const myProps = {
       edition: 'test',
       page: 2,
+      pages: metadata.test.pages,
     }
     const wrapper = shallow(<Reader {...myProps} />)
     expect(wrapper.instance().hasPrevPage()).toBe(true)

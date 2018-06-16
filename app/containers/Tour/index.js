@@ -1,28 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import { Grid, Row, Col } from 'react-bootstrap'
 import TourItem from '../../components/tour-item'
 import SiteContainer from '../SiteContainer'
 
-import { metadata } from '../../utils/metadata'
+import { setEdition } from '../../reducers/edition'
 
-const Tour = ({ match }) => {
-  const data = metadata[match.params.edition].tour
-
-  return (<SiteContainer>
-    <Grid>
-      <Row>
-        <Col>
-          <TourItem
-            edition={match.params.edition}
-            index={parseInt(match.params.index, 10)}
-            data={data}
-          />
-        </Col>
-      </Row>
-    </Grid>
-  </SiteContainer>)
+export class Tour extends React.Component {
+  constructor(props) {
+    super(props)
+    props.setEdition(props.match.params.edition)
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.edition !== prevProps.match.params.edition) {
+      this.props.setEdition(this.props.match.params.edition)
+    }
+  }
+  render() {
+    return (<SiteContainer>
+      <Grid>
+        <Row>
+          <Col>
+            <TourItem
+              index={parseInt(this.props.match.params.index, 10)}
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </SiteContainer>)
+  }
 }
 
 Tour.propTypes = {
@@ -32,5 +40,15 @@ Tour.propTypes = {
       index: PropTypes.string.isRequired,
     }),
   }),
+  setEdition: PropTypes.func.isRequired,
 }
-export default Tour
+
+const mapStateToProps = () => ({ })
+
+export default connect(
+  mapStateToProps,
+  {
+    setEdition,
+  }
+)(Tour)
+

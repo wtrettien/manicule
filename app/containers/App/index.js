@@ -14,12 +14,12 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import HomePage from 'containers/HomePage/Loadable'
-import ReaderPage from 'containers/ReaderPage'
-import Structure from 'containers/Structure'
-import Tour from 'containers/Tour'
+import HomePage from '../HomePage/Loadable'
+import ReaderPage from '../ReaderPage'
+import Structure from '../Structure'
+import Tour from '../Tour'
 
-import NotFoundPage from 'containers/NotFoundPage/Loadable'
+import NotFoundPage from '../NotFoundPage/Loadable'
 
 const DEFAULT_EDITION = 'penn'  // FIXME allow multiple editions
 

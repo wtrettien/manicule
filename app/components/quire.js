@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Thumbnail from './thumbnail'
-import { getPageData } from '../utils/metadata'
+import { metadata } from '../utils/metadata'
 
 
 const Quire = ({ quire, edition, face, currentPage }) => {
@@ -23,7 +23,7 @@ Quire.propTypes = {
 
 const Leaf = ({ page, edition, currentPage }) => {
   // Get page data for this
-  const pageData = getPageData(edition)[page]
+  const pageData = metadata[edition].pages[page]
   return <Thumbnail edition={edition} pageData={pageData} currentPage={currentPage} />
 }
 Leaf.propTypes = {
