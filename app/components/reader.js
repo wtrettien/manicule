@@ -8,13 +8,9 @@ import { connect } from 'react-redux'
 
 import Page from './page'
 import NavStrip from './nav-strip'
-import { getPageData } from '../utils/metadata'
 
 export class Reader extends React.Component {
-  constructor(props) {
-    super(props)
-    this.pageData = getPageData(props.edition)
-  }
+
   getPagination(dir) {
     if (dir === 'next') {
       return this.hasNextPage()
@@ -25,10 +21,9 @@ export class Reader extends React.Component {
   getPage(page, leaf) {
     if (page > 0) {
       return (<Page
-        edition={this.props.edition}
         num={page}
         pos={leaf}
-        {...this.pageData[page]}
+        {...this.props.pages[page]}
       />)
     }
     return null
@@ -48,7 +43,7 @@ export class Reader extends React.Component {
   }
 
   hasNextPage() {
-    return this.props.page < this.pageData.length - 1  // Subtract one for the extra element
+    return this.props.page < this.props.pages.length - 1  // Subtract one for the extra element
   }
 
   hasPrevPage() {
@@ -57,12 +52,12 @@ export class Reader extends React.Component {
 
   render() {
     const nextPage = Math.max(this.props.page + 1, 1)
-    const prevPage = Math.min(this.props.page - 1, this.pageData.length)
+    const prevPage = Math.min(this.props.page - 1, this.props.pages.length)
     const verso = this.props.page
     // const { quire, page } = this.getCurrentQuire()
 
     let recto = verso + 1
-    if (recto >= this.pageData.length) {
+    if (recto >= this.props.pages.length) {
       recto = null
     }
 
@@ -97,9 +92,16 @@ export class Reader extends React.Component {
 Reader.propTypes = {
   edition: PropTypes.string.isRequired,
   page: PropTypes.number.isRequired,
+  pages: PropTypes.array.isRequired,
 }
 
-const mapStateToProps = (state) => ({ edition: state.edition })
+const mapStateToProps = (state) => (
+  {
+    edition: state.edition.name,
+    pages: state.edition.pages,
+  }
+
+)
 
 export default connect(
   mapStateToProps,

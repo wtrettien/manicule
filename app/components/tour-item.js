@@ -3,18 +3,20 @@
 // Tour components
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
 import { Panel, Grid, Row, Col, Image, Carousel, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import NavStrip from './nav-strip'
 
-const TourItem = ({ index, edition, data }) => {
-  const { page, images } = data[index]
+const TourItem = ({ index, edition, metadata }) => {
+  const { page, images } = metadata[index]
   // Get the HTML for this
   const html = require(`../tour/${edition}/${page}.html`) // eslint-disable-line global-require
 
   const hasPrev = index > 0
-  const hasNext = index < data.length - 1
+  const hasNext = index < metadata.length - 1
 
   const prevLink = hasPrev ? (<Link to={`/tour/${edition}/${index - 1}`} className="book-nav left">
     <Glyphicon glyph="arrow-left" /> Previous Item</Link>) : <span>&larr; Previous Item</span>
@@ -55,7 +57,7 @@ const TourItem = ({ index, edition, data }) => {
 TourItem.propTypes = {
   index: PropTypes.number.isRequired,
   edition: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired,
+  metadata: PropTypes.array.isRequired,
 
 }
 
@@ -82,4 +84,12 @@ TourImages.propTypes = {
   edition: PropTypes.string.isRequired,
 }
 
-export default TourItem
+const mapStateToProps = (state) => ({
+  edition: state.edition.name,
+  metadata: state.edition.metadata.tour,
+})
+
+export default connect(
+  mapStateToProps,
+)(TourItem)
+

@@ -2,14 +2,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-
-import { Row, Col, Image, Label, Glyphicon } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { Row, Col, Label, Glyphicon } from 'react-bootstrap'
 
 import { getTourForPage } from '../utils/metadata'
+import PageImage from './page-image'
 
 const Page = ({ edition, num, category, signatures, color }) => {
-  const pad = (`0000${num}`).substr(-4, 4)
-  const img = require(`../images/book/${edition}/${pad}.jpg`) // eslint-disable-line global-require
   const tour = getTourForPage(edition, num)
 
   return (
@@ -37,7 +36,7 @@ const Page = ({ edition, num, category, signatures, color }) => {
           </Col>
         </Row>
       </div>
-      <Image src={img} alt="" responsive />
+      <PageImage num={num} edition={edition} />
     </div>
   )
 }
@@ -49,5 +48,9 @@ Page.propTypes = {
   color: PropTypes.string.isRequired,
   signatures: PropTypes.string.isRequired,
 }
+const mapStateToProps = (state) => ({ edition: state.edition.name })
 
-export default Page
+export default connect(
+  mapStateToProps,
+)(Page)
+

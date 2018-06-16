@@ -2,24 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import $ from 'jquery'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import { Well, ButtonGroup, Button } from 'react-bootstrap'
-import { getPageData } from '../utils/metadata'
 
 import Thumbnail from './thumbnail'
 
 
-class NavStrip extends React.Component {
+export class NavStrip extends React.Component {
   constructor(props) {
     super(props)
     this.centerCurrentPage = this.centerCurrentPage.bind(this)
-    const { currentPage, edition } = props
-    const data = getPageData(edition)
+    const { currentPage } = props
 
-    const before = Array.from({ length: currentPage - 1 }, (v, k) => data[currentPage - k - 1]).reverse()
-    const after = Array.from({ length: data.length - currentPage - 2 }, (v, k) => data[currentPage + 2 + k])
+    const before = Array.from({ length: currentPage - 1 }, (v, k) => props.pages[currentPage - k - 1]).reverse()
+    const after = Array.from({ length: props.pages.length - currentPage - 2 }, (v, k) => props.pages[currentPage + 2 + k])
 
-    const current = [data[currentPage], data[currentPage + 1]]
+    const current = [props.pages[currentPage], props.pages[currentPage + 1]]
     const items = before.concat(current).concat(after)
 
     this.state = {
@@ -54,7 +53,19 @@ class NavStrip extends React.Component {
 NavStrip.propTypes = {
   edition: PropTypes.string.isRequired,
   currentPage: PropTypes.number,
+  pages: PropTypes.array.isRequired,
 }
+const mapStateToProps = (state) => (
+  {
+    edition: state.edition.name,
+    pages: state.edition.pages,
+  }
+)
+
+export default connect(
+  mapStateToProps,
+)(NavStrip)
+
 
 export const NavArrow = ({ items, currentPage, dir, edition }) => {
   if (dir === 'prev' && currentPage === 1) {
@@ -102,4 +113,3 @@ NavGroup.propTypes = {
   edition: PropTypes.string.isRequired,
 }
 
-export default NavStrip

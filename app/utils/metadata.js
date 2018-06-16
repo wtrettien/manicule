@@ -20,18 +20,6 @@ const categoryColors = {
   'title page': '#b82e2e',
 }
 
-export const metadata = {
-  penn: {
-    structure: pennStructure.book,
-    pages: pennData,
-    tour: pennTour,
-  },
-  test: {
-    structure: null,
-    pages: testData,
-    tour: testTour,
-  },
-}
 
   // Get the current quire from the page structure for the current verso page
 export const getCurrentQuire = (edition, pageIndex) => {
@@ -55,8 +43,7 @@ export const getCurrentQuire = (edition, pageIndex) => {
 }
 
 // get all of the information about the individual pages in the book
-export const getPageData = (edition) => {
-  const pageData = metadata[edition].pages
+export const getPageData = (pageData) => {
   const data = []
   pageData.forEach((p) => {
     const item = Object.assign({ color: '' }, p)
@@ -73,4 +60,17 @@ export const getTourForPage = (edition, page) => {
     item.page === page
   )
   return data
+}
+
+export const metadata = {
+  penn: {
+    structure: pennStructure.book,
+    pages: getPageData(pennData),
+    tour: pennTour,
+  },
+  test: {
+    structure: null,
+    pages: getPageData(testData),
+    tour: testTour,
+  },
 }
