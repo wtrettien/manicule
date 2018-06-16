@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Page from './page'
 import NavStrip from './nav-strip'
 import { getPageData } from '../utils/metadata'
 
-export default class Reader extends React.Component {
+export class Reader extends React.Component {
   constructor(props) {
     super(props)
     this.pageData = getPageData(props.edition)
@@ -97,4 +98,10 @@ Reader.propTypes = {
   edition: PropTypes.string.isRequired,
   page: PropTypes.number.isRequired,
 }
+
+const mapStateToProps = (state) => ({ edition: state.edition })
+
+export default connect(
+  mapStateToProps,
+)(Reader)
 

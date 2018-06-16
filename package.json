@@ -149,6 +149,7 @@
         "never"
       ],
       "react/forbid-prop-types": 0,
+      "react/prefer-stateless-function": 0,
       "react/jsx-first-prop-new-line": [
         2,
         "multiline"

@@ -2,11 +2,10 @@
  * Create the store with dynamic reducers
  */
 
-import { createStore, applyMiddleware, compose } from 'redux'
-import { fromJS } from 'immutable'
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
-import createReducer from './reducers'
+import edition from './reducers/edition'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -38,8 +37,10 @@ export default function configureStore(initialState = {}, history) {
   /* eslint-enable */
 
   const store = createStore(
-    createReducer(),
-    fromJS(initialState),
+    combineReducers({
+      edition,
+    }),
+    initialState,
     composeEnhancers(...enhancers)
   )
 
@@ -47,14 +48,6 @@ export default function configureStore(initialState = {}, history) {
   store.runSaga = sagaMiddleware.run
   store.injectedReducers = {} // Reducer registry
   store.injectedSagas = {} // Saga registry
-
-  // Make reducers hot reloadable, see http://mxs.is/googmo
-  /* istanbul ignore next */
-  if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      store.replaceReducer(createReducer(store.injectedReducers))
-    })
-  }
 
   return store
 }
