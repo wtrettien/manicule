@@ -86,7 +86,7 @@ TourImages.propTypes = {
 
 const mapStateToProps = (state) => ({
   edition: state.edition.name,
-  metadata: state.edition.metadata.tour,
+  metadata: state.edition.tour,
 })
 
 export default connect(
