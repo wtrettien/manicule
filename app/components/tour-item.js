@@ -18,9 +18,9 @@ const TourItem = ({ index, edition, metadata }) => {
   const hasPrev = index > 0
   const hasNext = index < metadata.length - 1
 
-  const prevLink = hasPrev ? (<Link to={`/tour/${edition}/${index - 1}`} className="book-nav left">
+  const prevLink = hasPrev ? (<Link to={`/usedbooks/tour/${edition}/${index - 1}`} className="book-nav left">
     <Glyphicon glyph="arrow-left" /> Previous Item</Link>) : <span>&larr; Previous Item</span>
-  const nextLink = hasNext ? (<Link to={`/tour/${edition}/${index + 1}`}className="book-nav right" >
+  const nextLink = hasNext ? (<Link to={`/usedbooks/tour/${edition}/${index + 1}`}className="book-nav right" >
     Next Item <Glyphicon glyph="arrow-right" /></Link>) : <span>Next Item &rarr;</span>
 
   return (

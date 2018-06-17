@@ -41,12 +41,12 @@ export default class HomePage extends React.Component { // eslint-disable-line r
                        Benlowes’s masterpiece was <i>Theophila</i>, a book-length poem about the progress of the soul (figured as the woman Theophila) to heaven. It was published in 1652.
                     </p>
                     <ListGroup>
-                      <ListGroupItem> <Link to="/reader">
+                      <ListGroupItem> <Link to="/usedbooks/reader">
                         <Glyphicon glyph="zoom-in" /> Browse through this edition of Theophila</Link></ListGroupItem>
 
-                      <ListGroupItem > <Link to="/tour">
+                      <ListGroupItem > <Link to="/usedbooks/tour">
                         <Glyphicon glyph="export" /> Take a tour!</Link> </ListGroupItem>
-                      <ListGroupItem > <Link to="/structure"> <Glyphicon glyph="book" /> Explore the book‘s physical structure</Link></ListGroupItem>
+                      <ListGroupItem > <Link to="/usedbooks/structure"> <Glyphicon glyph="book" /> Explore the book‘s physical structure</Link></ListGroupItem>
                     </ListGroup>
                   </Col>
                   <Col sm={2} className="image-col">

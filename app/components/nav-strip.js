@@ -78,7 +78,7 @@ export const NavArrow = ({ items, currentPage, dir, edition }) => {
 
   if (dir === 'next') {
     return (
-      <Link to={`/reader/${edition}/${currentPage + 1}`} className="nav-strip-button next">
+      <Link to={`/usedbooks/reader/${edition}/${currentPage + 1}`} className="nav-strip-button next">
         <Button bsClass="button">
         &gt;
         </Button>
@@ -86,7 +86,7 @@ export const NavArrow = ({ items, currentPage, dir, edition }) => {
     )
   }
   return (
-    <Link to={`/reader/${edition}/${currentPage - 1}`} className="nav-strip-button prev">
+    <Link to={`/usedbooks/reader/${edition}/${currentPage - 1}`} className="nav-strip-button prev">
       <Button bsClass="button">
       &lt;
       </Button>

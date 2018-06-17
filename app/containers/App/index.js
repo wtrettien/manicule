@@ -27,12 +27,12 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/structure" component={() => <Structure edition={DEFAULT_EDITION} />} />
-        <Route exact path="/reader" render={() => <Redirect to="/reader/penn/1" />} />
-        <Route exact path="/reader/:edition/:page" component={ReaderPage} />
-        <Route exact path="/tour" render={() => <Redirect to="/tour/penn/0" />} />
-        <Route exact path="/tour/:edition/:index" component={Tour} />
+        <Route exact path="/usedbooks" component={HomePage} />
+        <Route exact path="/usedbooks/structure" component={() => <Structure edition={DEFAULT_EDITION} />} />
+        <Route exact path="/usedbooks/reader" render={() => <Redirect to="/usedbooks/reader/penn/1" />} />
+        <Route exact path="/usedbooks/reader/:edition/:page" component={ReaderPage} />
+        <Route exact path="/usedbooks/tour" render={() => <Redirect to="/usedbooks/tour/penn/0" />} />
+        <Route exact path="/usedbooks/tour/:edition/:index" component={Tour} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
