@@ -17,7 +17,7 @@ const Thumbnail = ({ pageData, edition, currentPage }) => {
   const tour = getTourForPage(edition, page)
 
   const tourLabel = tour.length > 0 ? (<Label bsClass="metadata-label tour-label">
-    <Link to={`/usedbooks/tour/${edition}/${tour[0].index}`} className="has-tour">
+    <Link to={`/tour/${edition}/${tour[0].index}`} className="has-tour">
       <Glyphicon glyph="export" /> Tour
     </Link></Label>) : null
 
@@ -32,7 +32,7 @@ const Thumbnail = ({ pageData, edition, currentPage }) => {
         overlay={<Tooltip id={index}>{signatures} - {category}</Tooltip>}
       >
 
-        <Link to={`/usedbooks/reader/${edition}/${index}`}>
+        <Link to={`/reader/${edition}/${index}`}>
           <Button
             id={`page-${page}`}
             bsClass="page-thumbnail"

@@ -12,7 +12,8 @@ import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { ConnectedRouter } from 'react-router-redux'
+
 import createHistory from 'history/createBrowserHistory'
 
 
@@ -50,9 +51,9 @@ const MOUNT_NODE = document.getElementById('app')
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <BrowserRouter>
+      <ConnectedRouter history={history}>
         <App />
-      </BrowserRouter>
+      </ConnectedRouter>
     </Provider>,
     MOUNT_NODE
   )

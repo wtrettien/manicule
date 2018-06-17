@@ -3,7 +3,7 @@
  */
 
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
 import edition from './reducers/edition'
 
@@ -39,6 +39,7 @@ export default function configureStore(initialState = {}, history) {
   const store = createStore(
     combineReducers({
       edition,
+      router: routerReducer,
     }),
     initialState,
     composeEnhancers(...enhancers)

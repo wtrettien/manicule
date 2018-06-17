@@ -17,18 +17,18 @@ export default class SiteContainer extends React.Component { // eslint-disable-l
         <Navbar inverse>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/usedbooks/">Used Books</Link>
+              <Link to="/">Used Books</Link>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
             <NavItem>
-              <Link to="/usedbooks/reader">Browse</Link>
+              <Link to="/reader">Browse</Link>
             </NavItem>
             <NavItem>
-              <Link to="/usedbooks/tour">Tour</Link>
+              <Link to="/tour">Tour</Link>
             </NavItem>
             <NavItem>
-              <Link to="/usedbooks/structure">Structure</Link>
+              <Link to="/structure">Structure</Link>
             </NavItem>
           </Nav>
 
