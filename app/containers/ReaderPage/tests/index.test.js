@@ -6,12 +6,8 @@ import { ReaderPage } from '../index'
 describe('<ReaderPage />', () => {
   it('should render the page', () => {
     const props = {
-      match: {
-        params: {
-          edition: 'test',
-          page: '12',
-        },
-      },
+      edition: 'test',
+      page: '12',
       setEdition: () => {},
     }
     const wrapper = shallow(<ReaderPage {...props} />)

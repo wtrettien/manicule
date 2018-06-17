@@ -14,16 +14,16 @@ import { setEdition } from '../../reducers/edition'
 export class ReaderPage extends React.Component {
   constructor(props) {
     super(props)
-    props.setEdition(props.match.params.edition)
+    props.setEdition(props.edition)
   }
   componentDidUpdate(prevProps) {
-    if (this.props.match.params.edition !== prevProps.match.params.edition) {
-      this.props.setEdition(this.props.match.params.edition)
+    if (this.props.edition !== prevProps.edition) {
+      this.props.setEdition(this.props.edition)
     }
   }
 
   render() {
-    const page = parseInt(this.props.match.params.page, 10)
+    const page = parseInt(this.props.page, 10)
 
     return (
       <SiteContainer>
@@ -39,12 +39,8 @@ export class ReaderPage extends React.Component {
   }
 }
 ReaderPage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      edition: PropTypes.string.isRequired,
-      page: PropTypes.string.isRequired,
-    }),
-  }),
+  edition: PropTypes.string.isRequired,
+  page: PropTypes.string.isRequired,
   setEdition: PropTypes.func.isRequired,
 }
 const mapStateToProps = () => ({ })
