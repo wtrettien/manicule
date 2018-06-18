@@ -91,7 +91,6 @@
       "es6": true
     },
     "plugins": [
-      "redux-saga",
       "react",
       "jsx-a11y"
     ],
@@ -116,6 +115,7 @@
         2,
         "always-multiline"
       ],
+      "global-require": 0,
       "import/imports-first": 0,
       "import/newline-after-import": 0,
       "import/no-dynamic-require": 0,
@@ -159,8 +159,6 @@
       "react/require-default-props": 0,
       "react/require-extension": 0,
       "react/self-closing-comp": 0,
-      "redux-saga/no-yield-in-race": 2,
-      "redux-saga/yield-effects": 2,
       "require-yield": 0
     },
     "settings": {
@@ -239,6 +237,7 @@
     "react-dom": "15.6.1",
     "react-helmet": "5.2.0",
     "react-loadable": "4.0.3",
+    "react-motion": "^0.5.2",
     "react-redux": "5.0.7",
     "react-router-dom": "4.2.2",
     "react-router-redux": "5.0.0-alpha.6",
@@ -281,7 +280,6 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.0.1",
     "eslint-plugin-react": "7.1.0",
-    "eslint-plugin-redux-saga": "0.9.0",
     "eventsource-polyfill": "0.9.6",
     "exports-loader": "0.7.0",
     "file-loader": "1.1.11",

@@ -10,20 +10,20 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import Reader from '../../components/reader'
 import SiteContainer from '../SiteContainer'
 import { setEdition } from '../../reducers/edition'
+import NavStrip from '../../components/nav-strip'
 
 export class ReaderPage extends React.Component {
   constructor(props) {
     super(props)
-    props.setEdition(props.match.params.edition)
+    props.setEdition(props.edition)
   }
   componentDidUpdate(prevProps) {
-    if (this.props.match.params.edition !== prevProps.match.params.edition) {
-      this.props.setEdition(this.props.match.params.edition)
+    if (this.props.edition !== prevProps.edition) {
+      this.props.setEdition(this.props.edition)
     }
   }
-
   render() {
-    const page = parseInt(this.props.match.params.page, 10)
+    const page = parseInt(this.props.page, 10)
 
     return (
       <SiteContainer>
@@ -33,26 +33,29 @@ export class ReaderPage extends React.Component {
               <Reader page={page} />
             </Col>
           </Row>
+          <Row>
+            <Col>
+              <NavStrip currentPage={page} edition={this.props.edition} />
+            </Col>
+          </Row>
         </Grid>
       </SiteContainer>
     )
   }
 }
 ReaderPage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      edition: PropTypes.string.isRequired,
-      page: PropTypes.string.isRequired,
-    }),
-  }),
+  edition: PropTypes.string.isRequired,
+  page: PropTypes.string.isRequired,
   setEdition: PropTypes.func.isRequired,
 }
-const mapStateToProps = () => ({ })
+const mapStateToProps = (state, ownProps) => ({
+  page: ownProps.match.params.page,
+  edition: ownProps.match.params.edition,
+})
+
 
 export default connect(
   mapStateToProps,
-  {
-    setEdition,
-  }
+  { setEdition },
 )(ReaderPage)
 

@@ -4,17 +4,15 @@ import { Link } from 'react-router-dom'
 import { OverlayTrigger, Tooltip, Button, Glyphicon, Label } from 'react-bootstrap'
 
 import { getTourForPage } from '../utils/metadata'
+import { getImageUrl } from './page-image'
 
 const Thumbnail = ({ pageData, edition, currentPage }) => {
   const page = parseInt(pageData.index, 10)
-  const index = pageData.index
-  const color = pageData.color
-  const signatures = pageData.signatures
-  const category = pageData.category
+  const { index, color, signatures, category } = pageData
 
   const pos = page % 2 === 0 ? 'recto' : 'verso'
-  const pad = (`0000${index}`).substr(-4, 4)
-  const img = require(`../images/book/${edition}/thumbnails/${pad}.jpg`) // eslint-disable-line global-require
+  const img = getImageUrl(edition, page, true)
+
   const cls = `nav-thumbnail thumbnail-${index} ${pos} ${page === currentPage || page === currentPage + 1 ? 'is-current' : ''}`
   const tour = getTourForPage(edition, page)
 

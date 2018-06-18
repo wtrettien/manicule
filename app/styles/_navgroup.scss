@@ -8,7 +8,10 @@
     display: inline-block;
     border: 0;
     margin: 5px 0 5px 5px;
+    a {
+      display: inline-block;
 
+    }
     button {
       height: 85px;
       width: 85px;
@@ -61,6 +64,7 @@
     position: absolute;
     display: inline-block;
     top: 0;
+
     button {
       height: 150px;
       background: inherit;

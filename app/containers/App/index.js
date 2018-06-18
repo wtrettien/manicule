@@ -12,7 +12,7 @@
  */
 
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
 import HomePage from '../HomePage/Loadable'
 import ReaderPage from '../ReaderPage'
@@ -26,15 +26,22 @@ const DEFAULT_EDITION = 'penn'  // FIXME allow multiple editions
 export default function App() {
   return (
     <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/structure" component={() => <Structure edition={DEFAULT_EDITION} />} />
-        <Route exact path="/reader" render={() => <Redirect to="/reader/penn/1" />} />
-        <Route exact path="/reader/:edition/:page" component={ReaderPage} />
-        <Route exact path="/tour" render={() => <Redirect to="/tour/penn/0" />} />
-        <Route exact path="/tour/:edition/:index" component={Tour} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/structure" component={() => <Structure edition={DEFAULT_EDITION} />} />
+      <Route exact path="/reader" render={() => <Redirect to="/reader/penn/1" />} />
+      <Route
+        exact
+        path="/reader/:edition/:page"
+        component={ReaderPage}
+      />
+      <Route exact path="/tour" render={() => <Redirect to="/tour/penn/0" />} />
+      <Route
+        exact
+        path="/tour/:edition/:index"
+        component={Tour}
+      />
+      <Route component={NotFoundPage} />
+
     </div>
   )
 }

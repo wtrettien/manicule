@@ -11,11 +11,11 @@ import { setEdition } from '../../reducers/edition'
 export class Tour extends React.Component {
   constructor(props) {
     super(props)
-    props.setEdition(props.match.params.edition)
+    props.setEdition(props.edition)
   }
   componentDidUpdate(prevProps) {
-    if (this.props.match.params.edition !== prevProps.match.params.edition) {
-      this.props.setEdition(this.props.match.params.edition)
+    if (this.props.edition !== prevProps.edition) {
+      this.props.setEdition(this.props.edition)
     }
   }
   render() {
@@ -24,7 +24,7 @@ export class Tour extends React.Component {
         <Row>
           <Col>
             <TourItem
-              index={parseInt(this.props.match.params.index, 10)}
+              index={parseInt(this.props.index, 10)}
             />
           </Col>
         </Row>
@@ -34,16 +34,15 @@ export class Tour extends React.Component {
 }
 
 Tour.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      edition: PropTypes.string.isRequired,
-      index: PropTypes.string.isRequired,
-    }),
-  }),
+  edition: PropTypes.string.isRequired,
+  index: PropTypes.string.isRequired,
   setEdition: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = () => ({ })
+const mapStateToProps = (state, ownProps) => ({
+  edition: ownProps.match.params.edition,
+  index: ownProps.match.params.index,
+})
 
 export default connect(
   mapStateToProps,

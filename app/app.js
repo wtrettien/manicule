@@ -12,11 +12,10 @@ import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { ConnectedRouter } from 'react-router-redux'
+
 import createHistory from 'history/createBrowserHistory'
 
-// Import root app
-import App from 'containers/App'
 
 // Load the favicon, the manifest.json file and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
@@ -40,18 +39,21 @@ import configureStore from './configureStore'
 // SASS
 import './styles/application.scss'
 
+// Import root app
+import App from '../app/containers/App'
+
 // Create redux store with history
 const initialState = {}
-const history = createHistory()
+const history = createHistory({ basename: 'usedbooks' })
 const store = configureStore(initialState, history)
 const MOUNT_NODE = document.getElementById('app')
 
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <BrowserRouter basename={'/usedbooks'}>
+      <ConnectedRouter history={history}>
         <App />
-      </BrowserRouter>
+      </ConnectedRouter>
     </Provider>,
     MOUNT_NODE
   )
