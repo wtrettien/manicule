@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 
 import Page from './page'
-import NavStrip from './nav-strip'
 
 export class Reader extends React.Component {
 
@@ -36,7 +36,7 @@ export class Reader extends React.Component {
       </Link>)
     } else if (dir === 'next' && this.hasNextPage()) {
       return (<Link to={`/reader/${this.props.edition}/${page}`} className="book-nav right">
-       Next Page <Glyphicon glyph="arrow-right" />
+        Next Page <Glyphicon glyph="arrow-right" />
       </Link>)
     }
     return null
@@ -55,7 +55,6 @@ export class Reader extends React.Component {
     const prevPage = Math.min(this.props.page - 1, this.props.pages.length)
     const verso = this.props.page
     // const { quire, page } = this.getCurrentQuire()
-
     let recto = verso + 1
     if (recto >= this.props.pages.length) {
       recto = null
@@ -82,7 +81,6 @@ export class Reader extends React.Component {
           {this.getPage(recto, 'recto')}
         </Col>
       </Row>
-      <NavStrip currentPage={verso} edition={this.props.edition} />
 
     </div>)
   }
@@ -102,8 +100,12 @@ const mapStateToProps = (state) => (
   }
 
 )
+const mapDispatchToProps = (dispatch) => ({
+  push: (loc) => dispatch(push(loc)),
+})
 
 export default connect(
   mapStateToProps,
+  mapDispatchToProps
 )(Reader)
 

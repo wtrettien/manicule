@@ -39,7 +39,10 @@ Tour.propTypes = {
   setEdition: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = () => ({ })
+const mapStateToProps = (state, ownProps) => ({
+  edition: ownProps.match.params.edition,
+  index: ownProps.match.params.index,
+})
 
 export default connect(
   mapStateToProps,

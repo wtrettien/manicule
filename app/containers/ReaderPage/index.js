@@ -10,6 +10,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import Reader from '../../components/reader'
 import SiteContainer from '../SiteContainer'
 import { setEdition } from '../../reducers/edition'
+import NavStrip from '../../components/nav-strip'
 
 export class ReaderPage extends React.Component {
   constructor(props) {
@@ -21,7 +22,6 @@ export class ReaderPage extends React.Component {
       this.props.setEdition(this.props.edition)
     }
   }
-
   render() {
     const page = parseInt(this.props.page, 10)
 
@@ -31,6 +31,11 @@ export class ReaderPage extends React.Component {
           <Row>
             <Col>
               <Reader page={page} />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <NavStrip currentPage={page} edition={this.props.edition} />
             </Col>
           </Row>
         </Grid>
@@ -43,12 +48,14 @@ ReaderPage.propTypes = {
   page: PropTypes.string.isRequired,
   setEdition: PropTypes.func.isRequired,
 }
-const mapStateToProps = () => ({ })
+const mapStateToProps = (state, ownProps) => ({
+  page: ownProps.match.params.page,
+  edition: ownProps.match.params.edition,
+})
+
 
 export default connect(
   mapStateToProps,
-  {
-    setEdition,
-  }
+  { setEdition },
 )(ReaderPage)
 
