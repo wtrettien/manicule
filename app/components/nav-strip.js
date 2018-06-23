@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import $ from 'jquery'
 import { connect } from 'react-redux'
-import { Motion, spring } from 'react-motion'
+import { Motion, spring, presets } from 'react-motion'
 
 import { Well, ButtonGroup, Button } from 'react-bootstrap'
 
@@ -25,6 +25,9 @@ export class NavStrip extends React.Component {
     if (after) {
       items = items.concat(after)
     }
+    this.scrollTimeout = undefined
+    this.scrollTimer = 100
+
     this.state = {
       items,
       offset: 0,
@@ -51,11 +54,23 @@ export class NavStrip extends React.Component {
     return null
   }
   // When the arrow is held, change the offset value
-  onTriggerScroll = (offset) => {
+  onTriggerScroll = (dir) => {
+    let offset = this.state.offset
+    if (dir === 'next') {
+      offset += 100
+    } else {
+      offset -= 100
+    }
     this.setState({
       lastOffset: this.state.offset,
       offset,
     })
+    this.scrollTimeout = setTimeout(() => this.onTriggerScroll(dir), this.scrollCounter)
+    this.scrollCounter /= 2
+  }
+  onTriggerEnd = () => {
+    clearTimeout(this.scrollTimeout)
+    this.scrollCounter = 100
   }
   computeCenteredPage(currentPage) {
     // Take the natural horizontal position of the current page element...
@@ -72,12 +87,12 @@ export class NavStrip extends React.Component {
     return (
       <div className="nav-strip-container">
         { this.props.currentPage > 1 &&
-          <NavArrow dir="prev" offset={this.state.offset} onTriggerScroll={this.onTriggerScroll} />
+          <NavArrow dir="prev" onTriggerScroll={this.onTriggerScroll} onTriggerEnd={this.onTriggerEnd} />
         }
 
         <Motion
           defaultStyle={{ offset: this.state.lastOffset }}
-          style={{ offset: spring(this.state.offset) }}
+          style={{ offset: spring(this.state.offset, presets.stiff) }}
         >
           {this.onScroll}
         </Motion>
@@ -85,7 +100,7 @@ export class NavStrip extends React.Component {
           <NavGroup data={this.state.items} currentPage={this.props.currentPage} edition={this.props.edition} />
         </Well>
         { this.props.currentPage < this.state.items.length &&
-          <NavArrow dir="next" offset={this.state.offset} onTriggerScroll={this.onTriggerScroll} />
+          <NavArrow dir="next" onTriggerScroll={this.onTriggerScroll} onTriggerEnd={this.onTriggerEnd} />
         }
       </div>
     )
@@ -110,33 +125,18 @@ export default connect(
 )(NavStrip)
 
 
-export const NavArrow = ({ dir, onTriggerScroll, offset }) => {
-  const OFFSET_DELTA = 200 // Pixels moved in either direction by the arrow
-
-  if (dir === 'next') {
-    const newOffset = offset + OFFSET_DELTA
-    return (
-      <div className="nav-strip-button {dir}">
-        <Button bsClass="button" onMouseDown={() => onTriggerScroll(newOffset)}>
-        &gt;
-     </Button>
-      </div>
-    )
-  }
-  const newOffset = Math.max(offset - OFFSET_DELTA, 0)
-  return (
-    <div className="nav-strip-button prev">
-      <Button bsClass="button" onMouseDown={() => onTriggerScroll(newOffset)}>
-      &lt;
+export const NavArrow = ({ dir, onTriggerScroll, onTriggerEnd }) => (
+  <div className={`nav-strip-button ${dir}`}>
+    <Button bsClass="button" onMouseDown={() => onTriggerScroll(dir)} onMouseUp={onTriggerEnd}>
+      { dir === 'prev' ? '≪' : '≫' }
     </Button>
-    </div>
-  )
-}
+  </div>)
+
 
 NavArrow.propTypes = {
   dir: PropTypes.string.isRequired,
-  offset: PropTypes.number.isRequired,
   onTriggerScroll: PropTypes.func.isRequired,
+  onTriggerEnd: PropTypes.func.isRequired,
 }
 
 const NavGroup = ({ data, currentPage, edition }) => (
