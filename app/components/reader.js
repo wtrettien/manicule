@@ -32,11 +32,11 @@ export class Reader extends React.Component {
   getLink(page, dir) {
     if (dir === 'prev' && this.hasPrevPage()) {
       return (<Link to={`/reader/${this.props.edition}/${page}`} className="book-nav left">
-        <Glyphicon glyph="arrow-left" /> Previous Page
+        <Glyphicon glyph="arrow-left" /> Previous Spread
       </Link>)
     } else if (dir === 'next' && this.hasNextPage()) {
       return (<Link to={`/reader/${this.props.edition}/${page}`} className="book-nav right">
-        Next Page <Glyphicon glyph="arrow-right" />
+        Next Spread <Glyphicon glyph="arrow-right" />
       </Link>)
     }
     return null
@@ -51,8 +51,8 @@ export class Reader extends React.Component {
   }
 
   render() {
-    const nextPage = Math.max(this.props.page + 1, 1)
-    const prevPage = Math.min(this.props.page - 1, this.props.pages.length)
+    const nextPage = Math.max(this.props.page + 2, 1)
+    const prevPage = Math.min(this.props.page - 2, this.props.pages.length)
     const verso = this.props.page
     // const { quire, page } = this.getCurrentQuire()
     let recto = verso + 1

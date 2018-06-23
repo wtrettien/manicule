@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
 import Reader from '../../components/reader'
 import SiteContainer from '../SiteContainer'
@@ -27,18 +27,17 @@ export class ReaderPage extends React.Component {
 
     return (
       <SiteContainer>
-        <Grid>
-          <Row>
-            <Col>
-              <Reader page={page} />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <NavStrip currentPage={page} edition={this.props.edition} />
-            </Col>
-          </Row>
-        </Grid>
+        <Row>
+          <Col>
+            <Reader page={page} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <NavStrip currentPage={page} edition={this.props.edition} />
+          </Col>
+        </Row>
+
       </SiteContainer>
     )
   }
