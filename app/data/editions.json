@@ -1,6 +1,12 @@
 [
   {
     "edition": "Penn",
-    "prefix": "penn"
+    "prefix": "penn",
+    "source": "Boston Public Library, RARE BKS A.742.1 FOLIO"
+  },
+  {
+    "edition": "Boston Public Library",
+    "prefix": "bpl",
+    "source": "University of Pennsylvania, Folio EC65 B4387 652t."
   }
-]
+ ]
