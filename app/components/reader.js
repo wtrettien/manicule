@@ -1,6 +1,7 @@
 // Reader for the book
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Motion, spring, presets } from 'react-motion'
 
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -8,8 +9,15 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
 import Page from './page'
+import PageModal from './page-modal'
 
 export class Reader extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalUrl: undefined,
+    }
+  }
 
   getPagination(dir) {
     if (dir === 'next') {
@@ -23,6 +31,7 @@ export class Reader extends React.Component {
       return (<Page
         num={page}
         pos={leaf}
+        toggleModal={this.toggleModal}
         {...this.props.pages[page]}
       />)
     }
@@ -41,7 +50,11 @@ export class Reader extends React.Component {
     }
     return null
   }
-
+  toggleModal = (url) => {
+    this.setState({
+      modalUrl: url,
+    })
+  }
   hasNextPage() {
     return this.props.page < this.props.pages.length - 1  // Subtract one for the extra element
   }
@@ -61,6 +74,21 @@ export class Reader extends React.Component {
     }
 
     return (<div>
+      { this.state.modalUrl ? <Motion
+        defaultStyle={{ scale: this.state.modalUrl ? 0 : 1 }}
+        style={{ scale: spring(1, presets.stiff) }}
+      >
+        { (style) => (<PageModal
+          url={this.state.modalUrl}
+          toggleModal={this.toggleModal}
+          style={{
+            transform: `scale(${style.scale})` }}
+        />)
+        }
+      </Motion>
+
+        : null }
+
       <div className="book-pagination">
         <Row>
           <Col sm={6}>
