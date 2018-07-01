@@ -8,41 +8,45 @@ import { Row, Col, Label, Glyphicon } from 'react-bootstrap'
 import { getTourForPage } from '../utils/metadata'
 import PageImage from './page-image'
 
-const Page = ({ edition, num, category, signatures, color, pos }) => {
-  const tour = getTourForPage(edition, num)
+export class Page extends React.Component {
 
-  return (
-    <div className="page-panel">
-      <div className="page-metadata">
-        <Row>
-          {
+  render() {
+    const { edition, num, category, signatures, color, pos } = this.props
+    const tour = getTourForPage(edition, num)
+
+    return (
+      <div className="page-panel">
+        <div className="page-metadata">
+          <Row>
+            {
             pos === 'recto' && <Col sm={8}>
-              <PageImage num={num} edition={edition} />
+              <PageImage num={num} edition={edition} toggleModal={this.props.toggleModal} />
             </Col>
           }
-          <Col sm={4}>
-            <Label bsClass="metadata-label category-label" style={{ background: color }}>
-              <Glyphicon glyph="tag" /> {category}
-            </Label>
-            <Label bsClass="metadata-label signatures-label">
-              <Glyphicon glyph="info-sign" /> {signatures}
-            </Label>
-            { tour.length > 0 ? <Label bsClass="metadata-label tour-label">
-              <Link to={`/tour/${edition}/${tour[0].index}`} className="has-tour">
-                <Glyphicon glyph="export" /> Tour
+            <Col sm={4}>
+              <Label bsClass="metadata-label category-label" style={{ background: color }}>
+                <Glyphicon glyph="tag" /> {category}
+              </Label>
+              <Label bsClass="metadata-label signatures-label">
+                <Glyphicon glyph="info-sign" /> {signatures}
+              </Label>
+              { tour.length > 0 ? <Label bsClass="metadata-label tour-label">
+                <Link to={`/tour/${edition}/${tour[0].index}`} className="has-tour">
+                  <Glyphicon glyph="export" /> Tour
               </Link></Label>
               : <span>&nbsp;</span> }
-          </Col>
-          {
+            </Col>
+            {
             pos === 'verso' && <Col sm={8}>
-              <PageImage num={num} edition={edition} />
+              <PageImage num={num} edition={edition} toggleModal={this.props.toggleModal} />
             </Col>
           }
 
-        </Row>
+          </Row>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 Page.propTypes = {
@@ -52,6 +56,7 @@ Page.propTypes = {
   color: PropTypes.string.isRequired,
   signatures: PropTypes.string.isRequired,
   pos: PropTypes.string,
+  toggleModal: PropTypes.func,
 }
 const mapStateToProps = (state) => ({ edition: state.edition.name })
 
