@@ -81,26 +81,22 @@
       <page index="36" pagenum="" side="r" />
       <page index="37" pagenum="" side="v" />
     </leaf>
-  </quire>
-  <quire n="(c)">
-    <leaf n="1" mode="original" single="false" folio_number="17" conjoin="2">
+    <leaf n="(c)1" mode="original" single="false" folio_number="17" conjoin="(c)2">
       <page index="38" pagenum="" side="r" />
       <page index="39" pagenum="" side="v" />
     </leaf>
-    <leaf n="2" mode="original" single="false" folio_number="18" conjoin="1">
+    <leaf n="(c)2" mode="original" single="false" folio_number="18" conjoin="(c)1">
       <page index="40" pagenum="" side="r" />
       <page index="41" pagenum="" side="v" />
     </leaf>
-  </quire>
-  <quire n="(d)">
-    <leaf n="1" mode="original" single="true" folio_number="19" conjoin="">
+    <leaf n="(d)1" mode="original" single="true" folio_number="19" conjoin="">
       <page index="42" pagenum="" side="r" />
       <page index="43" pagenum="" side="v" />
     </leaf>
-  <leaf n="6" mode="original" single="false" folio_number="20" conjoin="1">
-    <page index="44" pagenum="" side="r" />
-    <page index="45" pagenum="" side="v" />
-  </leaf>
+    <leaf n="6" mode="original" single="false" folio_number="20" conjoin="1">
+      <page index="44" pagenum="" side="r" />
+      <page index="45" pagenum="" side="v" />
+    </leaf>
   </quire>
   <quire n="C">
     <leaf n="1" mode="original" single="false" folio_number="21" conjoin="6">
