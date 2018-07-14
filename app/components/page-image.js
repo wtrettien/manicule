@@ -10,18 +10,18 @@ export const getImageUrl = (edition, num, thumbnail = false) => {
   return img
 }
 
-const PageImage = ({ edition, num, toggleModal }) => {
+const PageImage = ({ edition, num, toggleZoom }) => {
   const img = getImageUrl(edition, num)
   return (
     <div>
-      <Image src={img} alt="" responsive onClick={() => toggleModal(img)} />
+      <Image src={img} alt="" responsive onClick={() => toggleZoom(img)} />
     </div>
   )
 }
 PageImage.propTypes = {
   edition: PropTypes.string.isRequired,
   num: PropTypes.number.isRequired,
-  toggleModal: PropTypes.func,
+  toggleZoom: PropTypes.func,
 }
 export default PageImage
 

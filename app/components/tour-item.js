@@ -5,14 +5,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { Panel, Grid, Row, Col, Image, Carousel, Glyphicon } from 'react-bootstrap'
+import { Panel, Button, Image, Carousel, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import NavStrip from './nav-strip'
+const TourItem = ({ index, toggleTour, edition, metadata }) => {
+  const { page } = metadata[index]
 
-const TourItem = ({ index, edition, metadata }) => {
-  const { page, images } = metadata[index]
-  // Get the HTML for this
   const html = require(`../tour/${edition}/${page}.html`) // eslint-disable-line global-require
 
   const hasPrev = index > 0
@@ -24,33 +22,16 @@ const TourItem = ({ index, edition, metadata }) => {
     Next Item <Glyphicon glyph="arrow-right" /></Link>) : <span>Next Item &rarr;</span>
 
   return (
-    <Panel bsClass="tour">
-      <Grid>
-        <Row>
-          <Col sm={6}>
-            {prevLink}
-          </Col>
-          <Col sm={6}>
-            {nextLink}
-          </Col>
-        </Row>
-        <Row className="tour-grid">
-          <Col sm={4} className="image-panel">
-            <TourImages images={images} edition={edition} />
-          </Col>
-          <Col sm={1}>&nbsp;</Col>
-          <Col sm={7}>
-            <Panel bsClass="tour-panel">
-              <div dangerouslySetInnerHTML={{ __html: html }} />
-            </Panel>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <NavStrip currentPage={page} edition={edition} />
-          </Col>
-        </Row>
-      </Grid>
+    <Panel bsClass="tour-panel" className="recto">
+      <div className="text" dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="text">
+        {prevLink}
+        {nextLink}
+        <Button onClick={() => toggleTour(null)}>
+        Close
+      </Button>
+      </div>
+
     </Panel>
   )
 }
@@ -58,6 +39,7 @@ TourItem.propTypes = {
   index: PropTypes.number.isRequired,
   edition: PropTypes.string.isRequired,
   metadata: PropTypes.array.isRequired,
+  toggleTour: PropTypes.func,
 
 }
 

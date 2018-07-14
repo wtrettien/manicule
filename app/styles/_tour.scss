@@ -1,26 +1,21 @@
-.tour {
+.tour-panel {
+    position: absolute;
+    z-index: 2;
+    overflow-y: scroll;
+    color: oldlace;
+    line-height: 1.6em;
+    background: rgba(255,255,255,0);
+    text-indent: 1em;
+    font-family: Georgia, serif;
 
-    .tour-grid {
-      margin: 0 5%;
-      .image-panel {
-        margin: auto;
-        text-align: center;
-        img {
-          display: inline-block;
-        }
-      }
+    &.recto {
+      margin: 0 10% 0 51%;
     }
-
-    .tour-panel {
-      overflow-y: scroll;
-      height: 70vh;
-      color: oldlace;
-      line-height: 1.6em;
-      background: rgba(255,255,255,0.2);
+    &.verso {
+      margin: 0 51% 0 10%;
+    }
+    .text {
       padding: 40px;
-      text-indent: 1em;
-      font-size: 20px;
-
-      font-family: Georgia, serif;
+      background: $scan-bg;
     }
 }

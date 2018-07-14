@@ -1,7 +1,6 @@
 // Viewer for a single page (of a spread)
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Row, Col, Label, Glyphicon } from 'react-bootstrap'
 
@@ -13,15 +12,18 @@ export class Page extends React.Component {
   render() {
     const { edition, num, category, signatures, color, pos } = this.props
     const tour = getTourForPage(edition, num)
+    const pageImage = (<PageImage
+      num={num}
+      edition={edition}
+      toggleZoom={this.props.toggleZoom}
+    />)
 
     return (
       <div className="page-panel">
         <div className="page-metadata">
           <Row>
             {
-            pos === 'recto' && <Col sm={8}>
-              <PageImage num={num} edition={edition} toggleModal={this.props.toggleModal} />
-            </Col>
+            pos === 'recto' && <Col sm={8}>{pageImage}</Col>
           }
             <Col sm={4}>
               <Label bsClass="metadata-label category-label" style={{ background: color }}>
@@ -30,16 +32,16 @@ export class Page extends React.Component {
               <Label bsClass="metadata-label signatures-label">
                 <Glyphicon glyph="info-sign" /> {signatures}
               </Label>
-              { tour.length > 0 ? <Label bsClass="metadata-label tour-label">
-                <Link to={`/tour/${edition}/${tour[0].index}`} className="has-tour">
-                  <Glyphicon glyph="export" /> Tour
-              </Link></Label>
+              { tour.length > 0 ? <Label
+                bsClass="metadata-label tour-label"
+                onClick={() => this.props.toggleTour(tour)}
+              >
+                <Glyphicon glyph="export" /> Tour
+              </Label>
               : <span>&nbsp;</span> }
             </Col>
             {
-            pos === 'verso' && <Col sm={8}>
-              <PageImage num={num} edition={edition} toggleModal={this.props.toggleModal} />
-            </Col>
+            pos === 'verso' && <Col sm={8}>{pageImage}</Col>
           }
 
           </Row>
@@ -56,7 +58,8 @@ Page.propTypes = {
   color: PropTypes.string.isRequired,
   signatures: PropTypes.string.isRequired,
   pos: PropTypes.string,
-  toggleModal: PropTypes.func,
+  toggleZoom: PropTypes.func,
+  toggleTour: PropTypes.func,
 }
 const mapStateToProps = (state) => ({ edition: state.edition.name })
 

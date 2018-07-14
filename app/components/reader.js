@@ -9,13 +9,15 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
 import Page from './page'
-import PageModal from './page-modal'
+import PageZoom from './page-zoom'
+import TourItem from './tour-item'
 
 export class Reader extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      modalUrl: undefined,
+      zoomUrl: undefined,
+      tour: undefined,
     }
   }
 
@@ -31,7 +33,8 @@ export class Reader extends React.Component {
       return (<Page
         num={page}
         pos={leaf}
-        toggleModal={this.toggleModal}
+        toggleZoom={this.toggleZoom}
+        toggleTour={this.toggleTour}
         {...this.props.pages[page]}
       />)
     }
@@ -50,9 +53,15 @@ export class Reader extends React.Component {
     }
     return null
   }
-  toggleModal = (url) => {
+  toggleZoom = (url) => {
     this.setState({
-      modalUrl: url,
+      zoomUrl: url,
+    })
+  }
+  toggleTour = (tour) => {
+    console.log(tour)
+    this.setState({
+      tour,
     })
   }
   hasNextPage() {
@@ -62,6 +71,26 @@ export class Reader extends React.Component {
   hasPrevPage() {
     return this.props.page > 1
   }
+  showZoom = () => (
+    <Motion
+      defaultStyle={{ scale: this.state.zoomUrl ? 0 : 1 }}
+      style={{ scale: spring(1, presets.stiff) }}
+    >
+      { (style) => (<PageZoom
+        url={this.state.zoomUrl}
+        toggleZoom={this.toggleZoom}
+        style={{
+          transform: `scale(${style.scale})` }}
+      />)
+        }
+    </Motion>
+  )
+  showTour = () => (
+    <TourItem
+      index={this.state.tour[0].index}
+      toggleTour={this.toggleTour}
+    />
+  )
 
   render() {
     const nextPage = Math.max(this.props.page + 2, 1)
@@ -74,20 +103,7 @@ export class Reader extends React.Component {
     }
 
     return (<div>
-      { this.state.modalUrl ? <Motion
-        defaultStyle={{ scale: this.state.modalUrl ? 0 : 1 }}
-        style={{ scale: spring(1, presets.stiff) }}
-      >
-        { (style) => (<PageModal
-          url={this.state.modalUrl}
-          toggleModal={this.toggleModal}
-          style={{
-            transform: `scale(${style.scale})` }}
-        />)
-        }
-      </Motion>
-
-        : null }
+      { this.state.zoomUrl ? this.showZoom() : null }
 
       <div className="book-pagination">
         <Row>
@@ -102,6 +118,9 @@ export class Reader extends React.Component {
       </div>
 
       <Row className="reader-grid">
+        { this.state.tour ? this.showTour() : null }
+
+
         <Col sm={6} className="verso">
           {this.getPage(verso, 'verso')}
         </Col>
