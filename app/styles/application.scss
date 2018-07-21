@@ -33,6 +33,10 @@ $default-width: 80%;  // For everything but the container
   .navbar-header li {
     list-style: none;
   }
+  .navbar-brand {
+    font-family: 'Berkshire Swash', cursive !important;
+    font-size: 30px;
+  }
 }
 body {
   background: radial-gradient(ellipse farthest-corner,
