@@ -6,8 +6,8 @@ import { Motion, spring, presets } from 'react-motion'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 
+import { setTourIndex } from '../reducers/tour-index'
 import Page from './page'
 import PageZoom from './page-zoom'
 import TourItem from './tour-item'
@@ -17,10 +17,13 @@ export class Reader extends React.Component {
     super(props)
     this.state = {
       zoomUrl: undefined,
-      tour: undefined,
+      tour: { index: undefined },
+      tourSide: undefined,
     }
   }
+  componentWillReceiveProps() {
 
+  }
   getPagination(dir) {
     if (dir === 'next') {
       return this.hasNextPage()
@@ -58,10 +61,11 @@ export class Reader extends React.Component {
       zoomUrl: url,
     })
   }
-  toggleTour = (tour) => {
-    console.log(tour)
+  toggleTour = (tour, tourSide) => {
+    this.props.setTourIndex(tour.index)
     this.setState({
       tour,
+      tourSide,
     })
   }
   hasNextPage() {
@@ -85,10 +89,10 @@ export class Reader extends React.Component {
         }
     </Motion>
   )
-  showTour = () => (
+  showTour = (side) => (
     <TourItem
-      index={this.state.tour[0].index}
       toggleTour={this.toggleTour}
+      side={side}
     />
   )
 
@@ -96,7 +100,6 @@ export class Reader extends React.Component {
     const nextPage = Math.max(this.props.page + 2, 1)
     const prevPage = Math.min(this.props.page - 2, this.props.pages.length)
     const verso = this.props.page
-    // const { quire, page } = this.getCurrentQuire()
     let recto = verso + 1
     if (recto >= this.props.pages.length) {
       recto = null
@@ -118,7 +121,7 @@ export class Reader extends React.Component {
       </div>
 
       <Row className="reader-grid">
-        { this.state.tour ? this.showTour() : null }
+        { this.state.tour.index !== undefined ? this.showTour(this.state.tourSide) : null }
 
 
         <Col sm={6} className="verso">
@@ -138,6 +141,7 @@ Reader.propTypes = {
   edition: PropTypes.string.isRequired,
   page: PropTypes.number.isRequired,
   pages: PropTypes.array.isRequired,
+  setTourIndex: PropTypes.func,
 }
 
 const mapStateToProps = (state) => (
@@ -147,12 +151,9 @@ const mapStateToProps = (state) => (
   }
 
 )
-const mapDispatchToProps = (dispatch) => ({
-  push: (loc) => dispatch(push(loc)),
-})
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { setTourIndex }
 )(Reader)
 

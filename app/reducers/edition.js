@@ -19,6 +19,7 @@ export default (state = { edition: null, data: {} }, action) => {
         tour,
       }
     }
+
     default:
       return state
   }

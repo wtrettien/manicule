@@ -5,29 +5,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { Panel, Button, Image, Carousel, Glyphicon } from 'react-bootstrap'
+import { Panel, Button, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const TourItem = ({ index, toggleTour, edition, metadata }) => {
+const TourItem = ({ index, toggleTour, edition, metadata, side }) => {
   const { page } = metadata[index]
-
   const html = require(`../tour/${edition}/${page}.html`) // eslint-disable-line global-require
 
   const hasPrev = index > 0
   const hasNext = index < metadata.length - 1
 
-  const prevLink = hasPrev ? (<Link to={`/tour/${edition}/${index - 1}`} className="book-nav left">
-    <Glyphicon glyph="arrow-left" /> Previous Item</Link>) : <span>&larr; Previous Item</span>
-  const nextLink = hasNext ? (<Link to={`/tour/${edition}/${index + 1}`}className="book-nav right" >
-    Next Item <Glyphicon glyph="arrow-right" /></Link>) : <span>Next Item &rarr;</span>
+  const prevLink = hasPrev ? (
+    <Link to={`/reader/${edition}/${metadata[index - 1].page}`} className="book-nav left">
+      <Glyphicon glyph="arrow-left" /> Previous Tour Item</Link>) : null
+
+  const nextLink = hasNext ? (<Link to={`/reader/${edition}/${metadata[index + 1].page}`}className="book-nav right" >
+    Next Tour Item <Glyphicon glyph="arrow-right" /></Link>) : null
 
   return (
-    <Panel bsClass="tour-panel" className="recto">
+    <Panel bsClass="tour-panel" className={side}>
       <div className="text" dangerouslySetInnerHTML={{ __html: html }} />
       <div className="text">
         {prevLink}
         {nextLink}
-        <Button onClick={() => toggleTour(null)}>
+        <Button onClick={() => toggleTour({ index: undefined }, undefined)}>
         Close
       </Button>
       </div>
@@ -36,39 +37,18 @@ const TourItem = ({ index, toggleTour, edition, metadata }) => {
   )
 }
 TourItem.propTypes = {
-  index: PropTypes.number.isRequired,
+  index: PropTypes.number,
   edition: PropTypes.string.isRequired,
   metadata: PropTypes.array.isRequired,
+  side: PropTypes.oneOf(['recto', 'verso']),
   toggleTour: PropTypes.func,
 
-}
-
-
-const TourImages = ({ edition, images }) => {
-  // Get all the images for this page
-  if (images.length === 1) {
-    const img = require(`../tour/${edition}/images/${images[0]}`)  // eslint-disable-line global-require
-    return <Image responsive src={img} alt="" />
-  }
-  return (
-    <Carousel>
-      {images.map((filename) => {
-        const img = require(`../tour/${edition}/images/${filename}`)  // eslint-disable-line global-require
-        return (<Carousel.Item key={filename}>
-          <Image responsive src={img} width={400} alt="" />
-        </Carousel.Item>)
-      })}
-    </Carousel>
-  )
-}
-TourImages.propTypes = {
-  images: PropTypes.array.isRequired,
-  edition: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = (state) => ({
   edition: state.edition.name,
   metadata: state.edition.tour,
+  index: state.tourIndex.index,
 })
 
 export default connect(

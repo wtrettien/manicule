@@ -16,8 +16,8 @@ const Thumbnail = ({ pageData, edition, currentPage }) => {
   const cls = `nav-thumbnail thumbnail-${index} ${pos} ${page === currentPage || page === currentPage + 1 ? 'is-current' : ''}`
   const tour = getTourForPage(edition, page)
 
-  const tourLabel = tour.length > 0 ? (<Label bsClass="metadata-label tour-label">
-    <Link to={`/tour/${edition}/${tour[0].index}`} className="has-tour">
+  const tourLabel = tour ? (<Label bsClass="metadata-label tour-label">
+    <Link to={`/tour/${edition}/${tour.index}`} className="has-tour">
       <Glyphicon glyph="export" /> Tour
     </Link></Label>) : null
 
