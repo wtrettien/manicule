@@ -17,7 +17,6 @@ import { Route, Redirect } from 'react-router-dom'
 import HomePage from '../HomePage/Loadable'
 import ReaderPage from '../ReaderPage'
 import Structure from '../Structure'
-import Tour from '../Tour'
 
 import NotFoundPage from '../NotFoundPage/Loadable'
 
@@ -33,12 +32,6 @@ export default function App() {
         exact
         path="/reader/:edition/:page"
         component={ReaderPage}
-      />
-      <Route exact path="/tour" render={() => <Redirect to="/tour/penn/0" />} />
-      <Route
-        exact
-        path="/tour/:edition/:index"
-        component={Tour}
       />
       <Route component={NotFoundPage} />
 
