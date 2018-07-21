@@ -1,5 +1,5 @@
 import React from 'react'
-import { Jumbotron, Grid, Col, Row } from 'react-bootstrap'
+import { Grid, Col, Row } from 'react-bootstrap'
 
 import SiteContainer from '../SiteContainer'
 
@@ -9,15 +9,15 @@ export default class LoadingPage extends React.PureComponent { // eslint-disable
     return (
       <SiteContainer>
         <Grid
-          className="home"
+          className="loader"
         >
           <Row>
             <Col>
-              <Jumbotron>
-                <h2>
-        Loading...
-          </h2>
-              </Jumbotron>
+
+              <h1>
+                  Loading...
+                </h1>
+
             </Col>
           </Row>
         </Grid>

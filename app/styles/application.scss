@@ -16,6 +16,8 @@ $default-width: 80%;  // For everything but the container
 @import "reader";
 @import "page";
 @import "labels";
+@import "loader";
+
 
 .navbar-inverse {
   padding: 0 5%;
