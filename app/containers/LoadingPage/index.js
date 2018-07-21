@@ -4,7 +4,7 @@ import { Grid, Col, Row } from 'react-bootstrap'
 import SiteContainer from '../SiteContainer'
 
 
-export default class NotFound extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class LoadingPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <SiteContainer>
@@ -13,9 +13,10 @@ export default class NotFound extends React.PureComponent { // eslint-disable-li
         >
           <Row>
             <Col>
+
               <h1>
-        Page Not Found
-          </h1>
+                  Loading...
+                </h1>
 
             </Col>
           </Row>

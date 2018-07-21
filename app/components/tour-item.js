@@ -17,10 +17,10 @@ const TourItem = ({ index, toggleTour, edition, metadata, side }) => {
 
   const prevLink = hasPrev ? (
     <Link to={`/reader/${edition}/${metadata[index - 1].page}`} className="book-nav left">
-      <Glyphicon glyph="arrow-left" /> Previous Tour Item</Link>) : null
+      <Glyphicon glyph="arrow-left" /> Previous Tour </Link>) : null
 
   const nextLink = hasNext ? (<Link to={`/reader/${edition}/${metadata[index + 1].page}`}className="book-nav right" >
-    Next Tour Item <Glyphicon glyph="arrow-right" /></Link>) : null
+    Next Tour <Glyphicon glyph="arrow-right" /></Link>) : null
 
   const tourNav = (
     <div className="tour-nav">
