@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { setTourIndex } from '../reducers/tour-index'
+import { getTourForPage } from '../utils/metadata'
 import Page from './page'
 import PageZoom from './page-zoom'
 import TourItem from './tour-item'
@@ -21,8 +22,14 @@ export class Reader extends React.Component {
       tourSide: undefined,
     }
   }
-  componentWillReceiveProps() {
-
+  componentWillReceiveProps(props) {
+    // When the page loads, if the tour modal is open, update it
+    if (this.state.tour.index !== undefined) {
+      const tour = getTourForPage(props.edition, props.page)
+      if (tour) {
+        this.toggleTour(tour, 'recto')
+      }
+    }
   }
   getPagination(dir) {
     if (dir === 'next') {
