@@ -6,19 +6,31 @@ import { Motion, spring, presets } from 'react-motion'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 
+import { setTourIndex } from '../reducers/tour-index'
+import { getTourForPage } from '../utils/metadata'
 import Page from './page'
-import PageModal from './page-modal'
+import PageZoom from './page-zoom'
+import TourItem from './tour-item'
 
 export class Reader extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      modalUrl: undefined,
+      zoomUrl: undefined,
+      tour: { index: undefined },
+      tourSide: undefined,
     }
   }
-
+  componentWillReceiveProps(props) {
+    // When the page loads, if the tour modal is open, update it
+    if (this.state.tour.index !== undefined) {
+      const tour = getTourForPage(props.edition, props.page)
+      if (tour) {
+        this.toggleTour(tour, 'recto')
+      }
+    }
+  }
   getPagination(dir) {
     if (dir === 'next') {
       return this.hasNextPage()
@@ -31,7 +43,8 @@ export class Reader extends React.Component {
       return (<Page
         num={page}
         pos={leaf}
-        toggleModal={this.toggleModal}
+        toggleZoom={this.toggleZoom}
+        toggleTour={this.toggleTour}
         {...this.props.pages[page]}
       />)
     }
@@ -50,9 +63,16 @@ export class Reader extends React.Component {
     }
     return null
   }
-  toggleModal = (url) => {
+  toggleZoom = (url) => {
     this.setState({
-      modalUrl: url,
+      zoomUrl: url,
+    })
+  }
+  toggleTour = (tour, tourSide) => {
+    this.props.setTourIndex(tour.index)
+    this.setState({
+      tour,
+      tourSide,
     })
   }
   hasNextPage() {
@@ -62,32 +82,38 @@ export class Reader extends React.Component {
   hasPrevPage() {
     return this.props.page > 1
   }
+  showZoom = () => (
+    <Motion
+      defaultStyle={{ scale: this.state.zoomUrl ? 0 : 1 }}
+      style={{ scale: spring(1, presets.stiff) }}
+    >
+      { (style) => (<PageZoom
+        url={this.state.zoomUrl}
+        toggleZoom={this.toggleZoom}
+        style={{
+          transform: `scale(${style.scale})` }}
+      />)
+        }
+    </Motion>
+  )
+  showTour = (side) => (
+    <TourItem
+      toggleTour={this.toggleTour}
+      side={side}
+    />
+  )
 
   render() {
     const nextPage = Math.max(this.props.page + 2, 1)
     const prevPage = Math.min(this.props.page - 2, this.props.pages.length)
     const verso = this.props.page
-    // const { quire, page } = this.getCurrentQuire()
     let recto = verso + 1
     if (recto >= this.props.pages.length) {
       recto = null
     }
 
     return (<div>
-      { this.state.modalUrl ? <Motion
-        defaultStyle={{ scale: this.state.modalUrl ? 0 : 1 }}
-        style={{ scale: spring(1, presets.stiff) }}
-      >
-        { (style) => (<PageModal
-          url={this.state.modalUrl}
-          toggleModal={this.toggleModal}
-          style={{
-            transform: `scale(${style.scale})` }}
-        />)
-        }
-      </Motion>
-
-        : null }
+      { this.state.zoomUrl ? this.showZoom() : null }
 
       <div className="book-pagination">
         <Row>
@@ -102,6 +128,9 @@ export class Reader extends React.Component {
       </div>
 
       <Row className="reader-grid">
+        { this.state.tour.index !== undefined ? this.showTour(this.state.tourSide) : null }
+
+
         <Col sm={6} className="verso">
           {this.getPage(verso, 'verso')}
         </Col>
@@ -119,6 +148,7 @@ Reader.propTypes = {
   edition: PropTypes.string.isRequired,
   page: PropTypes.number.isRequired,
   pages: PropTypes.array.isRequired,
+  setTourIndex: PropTypes.func,
 }
 
 const mapStateToProps = (state) => (
@@ -128,12 +158,9 @@ const mapStateToProps = (state) => (
   }
 
 )
-const mapDispatchToProps = (dispatch) => ({
-  push: (loc) => dispatch(push(loc)),
-})
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { setTourIndex }
 )(Reader)
 

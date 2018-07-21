@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 
 import { Panel, Well, Image, Button } from 'react-bootstrap'
 
-const PageModal = ({ url, toggleModal, style }) => (
+const PageZoom = ({ url, toggleZoom, style }) => (
   <Panel className="page-modal" style={style}>
     <Well>
       <p>
       Scroll around this pop-up to examine the page in detail.
-      <Button onClick={() => toggleModal(null)}>
+      <Button onClick={() => toggleZoom(null)}>
         Close
       </Button>
       </p>
@@ -20,10 +20,10 @@ const PageModal = ({ url, toggleModal, style }) => (
 
   </Panel>
   )
-PageModal.propTypes = {
+PageZoom.propTypes = {
   url: PropTypes.string.isRequired,
-  toggleModal: PropTypes.func.isRequired,
+  toggleZoom: PropTypes.func.isRequired,
   style: PropTypes.object,
 }
-export default PageModal
+export default PageZoom
 

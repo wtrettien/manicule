@@ -15,6 +15,7 @@ import NavStrip from '../../components/nav-strip'
 export class ReaderPage extends React.Component {
   constructor(props) {
     super(props)
+
     props.setEdition(props.edition)
   }
   componentDidUpdate(prevProps) {

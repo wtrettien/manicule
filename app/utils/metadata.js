@@ -57,7 +57,7 @@ export const getTourForPage = (edition, page) => {
   const tour = metadata[edition].tour
   const data = tour.filter((item) =>
     item.page === page
-  )
+  )[0]
   return data
 }
 
