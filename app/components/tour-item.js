@@ -5,7 +5,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { Panel, Button, Glyphicon } from 'react-bootstrap'
+import { Row, Col, Panel, Button, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const TourItem = ({ index, toggleTour, edition, metadata, side }) => {
@@ -22,17 +22,28 @@ const TourItem = ({ index, toggleTour, edition, metadata, side }) => {
   const nextLink = hasNext ? (<Link to={`/reader/${edition}/${metadata[index + 1].page}`}className="book-nav right" >
     Next Tour Item <Glyphicon glyph="arrow-right" /></Link>) : null
 
+  const tourNav = (
+    <div className="tour-nav">
+      <Row>
+        <Col sm={5}>
+          {prevLink}
+        </Col>
+        <Col sm={5}>
+          {nextLink}
+        </Col>
+        <Col sm={2}>
+          <Button className="close-modal" onClick={() => toggleTour({ index: undefined }, undefined)}>
+            <Glyphicon glyph="remove" />
+          </Button>
+        </Col>
+      </Row>
+    </div>
+  )
   return (
     <Panel bsClass="tour-panel" className={side}>
+      {tourNav}
       <div className="text" dangerouslySetInnerHTML={{ __html: html }} />
-      <div className="text">
-        {prevLink}
-        {nextLink}
-        <Button onClick={() => toggleTour({ index: undefined }, undefined)}>
-        Close
-      </Button>
-      </div>
-
+      {tourNav}
     </Panel>
   )
 }

@@ -1,22 +1,26 @@
+@import "colors";
+
 .metadata-label {
   display: block;
   padding: .75em;
   text-align: center;
-  color: white;
+  color: $a-light-color;
 }
 .category-label {
   text-transform: uppercase;
 }
 .signatures-label {
-  background: darkgray;
+  background: $signatures-color;
 }
 .tour-label {
 
-  background: darkslateblue;
+  background: $tour-color;
   text-transform: uppercase;
   a {
-    color: oldlace;
+    color: $a-light-color;
   }
+  cursor: pointer;
+
 }
 // Inside the nav thumbnail, a label is absolutely positioned
 .nav-thumbnail .metadata-label {

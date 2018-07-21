@@ -1,21 +1,48 @@
+@import "colors";
+
 .tour-panel {
     position: absolute;
     z-index: 2;
     overflow-y: scroll;
-    color: oldlace;
+    color: $a-light-color;
     line-height: 1.6em;
     background: rgba(255,255,255,0);
     text-indent: 1em;
     font-family: Georgia, serif;
+    border: 2px solid lighten($tour-color, 20%);
 
     &.recto {
-      margin: 0 10% 0 51%;
+      margin: -10px 10% 0 51%;
+      padding: 0 !important;
+
     }
     &.verso {
-      margin: 0 51% 0 10%;
+      margin: -10px 51% 0 10%;
+      padding: 0 !important;
+
     }
     .text {
       padding: 40px;
       background: $scan-bg;
+    }
+    .tour-nav {
+      background: radial-gradient(
+      $tour-color 10%,
+      darken($tour-color, 10%));
+      color: $a-light-color;
+      a {
+        color: $a-light-color;
+        text-transform: uppercase;
+        font-family: "Helvetica", sans-serif;
+      }
+
+      min-height: 4rem;
+      .row {
+        padding-top: 1rem;
+        button {
+          padding: 5px;
+          margin-bottom: 5px;
+        }
+      }
     }
 }

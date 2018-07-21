@@ -8,10 +8,7 @@ $bootstrap-sass-asset-helper: true;
 
 $default-width: 80%;  // For everything but the container
 
-$scan-bg: rgb(28,28,30);
-$page-bg: rgb(207, 180, 147);
-$red-color: rgb(159,71,	53);
-
+@import "colors";
 @import "navgroup";
 @import "tour";
 @import "home";
@@ -29,6 +26,10 @@ $red-color: rgb(159,71,	53);
 
   a {
     color: oldlace !important;
+
+  }
+  .navbar-header li {
+    list-style: none;
   }
 }
 body {
@@ -42,8 +43,15 @@ body {
 
 footer {
   height: 10vh;
-  color: oldlace;
+  color: $a-light-color;
   padding: 20px;
   text-align: center;
   font-size: 15px;
+}
+
+button.close-modal {
+  background: black;
+  color: $a-light-color;
+  border: $a-light-color;
+
 }
