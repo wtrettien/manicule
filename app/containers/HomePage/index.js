@@ -1,19 +1,24 @@
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
-
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Jumbotron, Image, ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap'
-import SiteContainer from '../SiteContainer'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import bg from '../../tour/penn/images/0290-1.jpg'
+import { Link } from 'react-router-dom'
+import { Grid, Row, Col, ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap'
+import SiteContainer from '../SiteContainer'
+import MapView from '../../components/map-view'
+import { setEdition } from '../../reducers/edition'
+
 import im1 from '../../tour/penn/images/0013-1.jpg'
 import im2 from '../../tour/penn/images/0007-1.jpg'
-import im3 from '../../tour/penn/images/0229-1.jpg'
-import im4 from '../../tour/penn/images/0059-1.jpg'
 
-export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class HomePage extends React.Component {
+  constructor(props) {
+    super(props)
+    props.setEdition(props.edition)
+  }
 
   render() {
     return (
@@ -21,41 +26,45 @@ export default class HomePage extends React.Component { // eslint-disable-line r
         <Grid
           className="home"
           style={{
-            background: `url(${bg})`,
             backgroundSize: 'cover',
           }}
         >
           <Row>
             <Col>
-              <Jumbotron >
-                <Row>
-                  <Col sm={10}>
+
+              <Row>
+                <Col sm={8}>
+                  <div className="home-text">
                     <h1>
                       <i>Used</i> Books
-                    </h1>
-                    <p>Edward Benlowes was an odd gentleman, obsessed with strange forms of poetry and language games—chronograms,
-                      pattern poems, emblems, and so on. He also was interested in the technologies of printing and experimented
-                      with them [...]
-                    </p>
+                       </h1>
+                    <img src={im2} className="img-circle" width="200" alt="Portrait of Benlowes" style={{ float: 'right' }} />
+                    <p>
+                        Edward Benlowes was an odd gentleman, obsessed with strange forms of poetry and language games—chronograms,
+                        pattern poems, emblems, and so on. He also was interested in the technologies of printing and experimented
+                        with them [...]
+                      </p>
+                    <img src={im1} className="img-rounded" width="200" alt="Engraving of a masked woman" style={{ float: 'left' }} />
                     <p>
                        Benlowes’s masterpiece was <i>Theophila</i>, a book-length poem about the progress of the soul (figured as the woman Theophila) to heaven. It was published in 1652.
-                    </p>
-                    <ListGroup>
-                      <ListGroupItem> <Link to="/reader">
-                        <Glyphicon glyph="zoom-in" /> Tour through this edition of Theophila</Link></ListGroupItem>
+                      </p>
 
-                      <ListGroupItem >
-                        <Link to="/structure"> <Glyphicon glyph="book" /> Explore the book‘s physical structure</Link></ListGroupItem>
-                    </ListGroup>
-                  </Col>
-                  <Col sm={2} className="image-col">
-                    <Image width="200" src={im1} />
-                    <Image width="200" src={im2} />
-                    <Image width="200" src={im3} />
-                    <Image width="200" src={im4} />
-                  </Col>
-                </Row>
-              </Jumbotron>
+                    <p className="clear"></p>
+
+                  </div>
+                </Col>
+                <Col sm={4}>
+                  <ListGroup>
+                    <ListGroupItem> <Link to="/reader">
+                      <Glyphicon glyph="zoom-in" /> Tour through this edition of Theophila</Link></ListGroupItem>
+
+                    <ListGroupItem >
+                      <Link to="/structure"> <Glyphicon glyph="book" /> Explore the book‘s physical structure</Link></ListGroupItem>
+                  </ListGroup>
+                  <MapView currentPage={0} />
+                </Col>
+              </Row>
+
 
             </Col>
           </Row>
@@ -65,3 +74,16 @@ export default class HomePage extends React.Component { // eslint-disable-line r
   }
 }
 
+HomePage.propTypes = {
+  edition: PropTypes.string.isRequired,
+  setEdition: PropTypes.func.isRequired,
+}
+const mapStateToProps = (state, ownProps) => ({
+  edition: ownProps.edition,
+
+})
+
+export default connect(
+  mapStateToProps,
+  { setEdition },
+)(HomePage)

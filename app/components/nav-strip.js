@@ -4,7 +4,7 @@ import $ from 'jquery'
 import { connect } from 'react-redux'
 import { Motion, spring, presets } from 'react-motion'
 
-import { Well, ButtonGroup, Button } from 'react-bootstrap'
+import { Well, ButtonGroup } from 'react-bootstrap'
 
 import Thumbnail from './thumbnail'
 
@@ -127,9 +127,9 @@ export default connect(
 
 export const NavArrow = ({ dir, onTriggerScroll, onTriggerEnd }) => (
   <div className={`nav-strip-button ${dir}`}>
-    <Button bsClass="button" onMouseDown={() => onTriggerScroll(dir)} onMouseUp={onTriggerEnd}>
+    <div role="link" tabIndex="0" className="button" onMouseDown={() => onTriggerScroll(dir)} onMouseUp={onTriggerEnd}>
       { dir === 'prev' ? '≪' : '≫' }
-    </Button>
+    </div>
   </div>)
 
 

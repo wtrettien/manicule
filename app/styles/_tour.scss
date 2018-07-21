@@ -8,16 +8,16 @@
     line-height: 1.6em;
     background: rgba(255,255,255,0);
     text-indent: 1em;
-    font-family: Georgia, serif;
     border: 2px solid lighten($tour-color, 20%);
+    width: 45%;
 
     &.recto {
-      margin: -10px 10% 0 51%;
+      right: 20px;
       padding: 0 !important;
 
     }
     &.verso {
-      margin: -10px 51% 0 10%;
+      left: 20px;
       padding: 0 !important;
 
     }
@@ -33,7 +33,7 @@
       a {
         color: $a-light-color;
         text-transform: uppercase;
-        font-family: "Helvetica", sans-serif;
+        font-size: smaller;
       }
 
       min-height: 4rem;

@@ -130,7 +130,6 @@ export class Reader extends React.Component {
       <Row className="reader-grid">
         { this.state.tour.index !== undefined ? this.showTour(this.state.tourSide) : null }
 
-
         <Col sm={6} className="verso">
           {this.getPage(verso, 'verso')}
         </Col>

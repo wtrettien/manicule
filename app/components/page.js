@@ -38,7 +38,7 @@ export class Page extends React.Component {
                 bsClass="metadata-label tour-label"
                 onClick={() => this.props.toggleTour(tour, tourSide)}
               >
-                <Glyphicon glyph="export" /> Tour
+                <Glyphicon glyph="star" /> Start Tour
               </Label>
               : <span>&nbsp;</span> }
             </Col>
