@@ -11,6 +11,7 @@ import Reader from '../../components/reader'
 import SiteContainer from '../SiteContainer'
 import { setEdition } from '../../reducers/edition'
 import NavStrip from '../../components/nav-strip'
+import MapView from '../../components/map-view'
 
 export class ReaderPage extends React.Component {
   constructor(props) {
@@ -35,10 +36,14 @@ export class ReaderPage extends React.Component {
         </Row>
         <Row>
           <Col>
-            <NavStrip currentPage={page} edition={this.props.edition} />
+            <NavStrip currentPage={page} />
           </Col>
         </Row>
-
+        <Row>
+          <Col>
+            <MapView currentPage={page} />
+          </Col>
+        </Row>
       </SiteContainer>
     )
   }

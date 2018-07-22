@@ -6,7 +6,7 @@ $grid-gutter-width: 0px !default;
 $bootstrap-sass-asset-helper: true;
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-$default-width: 80%;  // For everything but the container
+$default-width: 95%;  // For everything but the container
 
 @import "colors";
 @import "navgroup";
@@ -17,8 +17,11 @@ $default-width: 80%;  // For everything but the container
 @import "page";
 @import "labels";
 @import "loader";
+@import "map";
 
-
+.row {
+  margin: 0 !important;
+}
 .navbar-inverse {
   padding: 0 5%;
   background: linear-gradient(to bottom,
@@ -53,6 +56,10 @@ footer {
   padding: 20px;
   text-align: center;
   font-size: 15px;
+  a {
+    color: $a-light-color !important;
+    text-decoration: underline;
+  }
 }
 
 button.close-modal {

@@ -1,0 +1,28 @@
+@import "colors";
+
+.home {
+  .map-blocks {
+
+  }
+}
+.map-blocks {
+  width: $default-width;
+  margin: auto;
+
+  .map-block {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $scan-bg;
+    text-align: center;
+    &.current-page {
+      border: 1px solid $a-light-color;
+    }
+    .glyphicon {
+      line-height: 1;
+      top: 2px;
+      left: 1px;
+    }
+  }
+
+}

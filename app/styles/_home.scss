@@ -1,32 +1,38 @@
+@import "colors";
+
 .home {
   [class*="col-"] {
-    padding: 20px;
-  }
-  height: 100vh;
 
-  .jumbotron {
-    color: oldlace;
-    background: rgba(20,20, 20, 0.7);
-
-    font-family: Georgia, serif;
+    p {
+      font-size: 20px;
+      color: $a-light-color;
+    }
   }
-  //../../tour/penn/images/0290-1.jpg/
+  img {
+    margin: 10px;
+  }
+  .home-text {
+      background: rgba(20, 20, 20, 0.7);
+      padding: 2em;
+      min-height: 120vh;
+  }
 
   .list-group {
+    clear: both;
     margin-top: 4em;
   }
   .list-group-item {
     background: inherit;
     font-family: Helvetica, sans-serif;
-    font-size: 25px;
+    font-size: 15px;
     background: rgba(20,20, 20, 0.6);
     border: rgba(20,20, 20, 1);
     a {
-
-      color: lightsteelblue;
+      color: $a-light-color;
       .glyphicon {
-
-        padding-right: 30px;
+        color: lightsteelblue;
+        font-size: 30px;
+        margin-top: 10px;
       }
     }
   }

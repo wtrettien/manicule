@@ -1,7 +1,7 @@
 .nav-group, .quire {
 
 
-  min-height: 150px;
+  min-height: 125px;
 
   .nav-thumbnail {
 
@@ -38,20 +38,7 @@
   .nav-group {
     position: relative;
     overflow-x: scroll;
-    width: 80%;
     margin: auto;
-    padding-top: 20px;
-
-
-    background: radial-gradient(ellipse farthest-corner,
-      lighten($scan-bg, 50%) 0%,
-      lighten($scan-bg, 30%) 100%
-      );
-
-    box-shadow:  0 0 5px darken($scan-bg, 50%),
-        0 0 5px darken($scan-bg, 5%),
-        0 0 5px darken($scan-bg, 50%);
-
 
     .btn-group {
       position: absolute;
@@ -63,20 +50,47 @@
   .nav-strip-button {
     position: absolute;
     display: inline-block;
+    cursor: pointer;
     top: 0;
-
-    button {
-      height: 150px;
-      background: inherit;
+    width: 150px;
+    .button {
       border: none;
       font-size: 80px;
-      color:$page-bg;
+      color:$a-light-color;
+      padding: 0;
+      margin: 0;
+
     }
     &.next {
+
       right: 0;
+      z-index: 1;
+
+      .button {
+        text-align: right;
+        display: inline-block;
+        padding-right: 10px;
+        width: 100%;
+        background: linear-gradient(to right,
+         rgba(255,255,255,0),
+         rgba($scan-bg,.8) 40%,
+         rgba($scan-bg,1) 80%);
+      }
     }
     &.prev {
       left: 0;
+      z-index: 1;
+      .button {
+        text-align: left;
+        width: 100%;
+        display: inline-block;
+        padding-left: 10px;
+
+        background: linear-gradient(to left,
+        rgba(255,255,255,0),
+        rgba($scan-bg,.8) 40%,
+        rgba($scan-bg,1) 80%);
+      }
     }
   }
 }

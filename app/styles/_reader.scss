@@ -22,9 +22,16 @@
 
 .reader-grid {
   .verso {
-    padding-right: 10px;
+    padding-right: 0;
+    margin-right: 0;
   }
   .recto {
-    padding-left: 10px;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  .page-metadata {
+    .col-sm-8 {
+      padding: 3px;
+    }
   }
 }
