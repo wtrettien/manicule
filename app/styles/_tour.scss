@@ -4,9 +4,9 @@
     position: absolute;
     z-index: 2;
     overflow-y: scroll;
-    color: $a-light-color;
+    background: $a-light-color;
     line-height: 1.6em;
-    background: rgba(255,255,255,0);
+    color: $scan-bg;
     text-indent: 1em;
     border: 2px solid lighten($tour-color, 20%);
     width: 45%;
@@ -23,7 +23,6 @@
     }
     .text {
       padding: 40px;
-      background: $scan-bg;
     }
     .tour-nav {
       background: radial-gradient(
