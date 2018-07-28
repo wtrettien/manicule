@@ -66,15 +66,14 @@ export default class Structure extends React.Component {
       const quires = this.structure.quire
       quires.forEach((quire) => {
         quire.leaf.forEach((leaf) => {
-          const conjoined = quire.leaf.filter((l) => (
-            l.$.conjoin === leaf.$.n && parseInt(leaf.$.n, 10) < parseInt(l.$.n, 10)
-          ))
+          const conjoined = quire.leaf.filter((l) =>
+            l.$.conjoin === leaf.$.n && parseInt(leaf.$.folio_number, 10) < parseInt(l.$.folio_number, 10))
           if (conjoined.length > 0) {
             this.drawConjoined(index, leaf, conjoined)
           } else {
             const page = leaf.page[index].$.index
-            const data = this.pageData[page]
-            if (data.signatures.includes('insertion')) {
+            // const data = this.pageData[page]
+            if (leaf.$.conjoin === '') {
               this.drawInsertion(page)
             }
           }
@@ -118,7 +117,6 @@ export default class Structure extends React.Component {
     const curviness = 50 - ((page - conjoinedPage) * 10)
 
     this.j.connect({
-      // Target/source swapped for animation
       target: pageHtml.id,
       source: conjoinedHtml.id,
       connector: ['Bezier', { curviness }],
@@ -165,10 +163,10 @@ export default class Structure extends React.Component {
           {
           quires.map((quire, index) => (<Row key={quire.key} id={`row-${index}`}>
             <Col md={2}>
-              <h3>Quire: {quire.$.n}</h3>
+              <h4>Quire: {quire.$.n}</h4>
               {this.describeQuire(quire)}
             </Col>
-            <Col md={8} >
+            <Col md={10} >
               <Quire quire={quire} edition={this.props.edition} face={this.state.face} />
             </Col>
           </Row>))
