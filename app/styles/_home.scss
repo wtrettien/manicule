@@ -10,6 +10,12 @@
   }
   img {
     margin: 10px;
+    filter: brightness(1.5) grayscale(40%);
+    padding: 15px;
+    &.img-circle {
+      border-top: 1px dashed $signatures-color;
+      border-bottom: 1px dashed $signatures-color;
+    }
   }
   .home-text {
       background: rgba(20, 20, 20, 0.7);
@@ -32,15 +38,14 @@
       .glyphicon {
         color: lightsteelblue;
         font-size: 30px;
-        margin-top: 10px;
+        position: relative;
+        top: 10px;
+        padding-right: 20px;
+        margin-bottom: .5em;
       }
     }
   }
-  .image-col {
-    max-height: 70vh;
-    overflow-y: hidden;
-    filter: brightness(1.2) grayscale(40%);
-  }
+
   h1 {
     font-family: 'Berkshire Swash', cursive;
     color: lightsteelblue;

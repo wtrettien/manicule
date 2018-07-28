@@ -8,6 +8,7 @@ import { Well, ButtonGroup } from 'react-bootstrap'
 
 import Thumbnail from './thumbnail'
 
+const OFFSET_SPEED = 400  // Pixels by which the filmstrip nav will slide on each keypress
 
 export class NavStrip extends React.Component {
   constructor(props) {
@@ -57,9 +58,9 @@ export class NavStrip extends React.Component {
   onTriggerScroll = (dir) => {
     let offset = this.state.offset
     if (dir === 'next') {
-      offset += 100
+      offset += OFFSET_SPEED
     } else {
-      offset -= 100
+      offset -= OFFSET_SPEED
     }
     this.setState({
       lastOffset: this.state.offset,

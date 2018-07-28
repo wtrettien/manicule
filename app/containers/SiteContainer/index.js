@@ -25,6 +25,7 @@ export default class SiteContainer extends React.Component { // eslint-disable-l
              Browse
             </NavItem>
             <NavItem componentClass={Link} to="/structure" href="/structure">Structure</NavItem>
+            <NavItem componentClass={Link} to="/about" href="/about">About</NavItem>
           </Nav>
 
         </Navbar>
