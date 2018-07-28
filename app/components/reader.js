@@ -7,7 +7,7 @@ import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { setTourIndex } from '../reducers/tour-index'
+import { setTourItem } from '../reducers/tour-item'
 import { getTourForPage } from '../utils/metadata'
 import Page from './page'
 import PageZoom from './page-zoom'
@@ -18,13 +18,13 @@ export class Reader extends React.Component {
     super(props)
     this.state = {
       zoomUrl: undefined,
-      tour: { index: undefined },
+      tour: { item: undefined },
       tourSide: undefined,
     }
   }
   componentWillReceiveProps(props) {
     // When the page loads, if the tour modal is open, update it
-    if (this.state.tour.index !== undefined) {
+    if (this.state.tour.item !== undefined) {
       const tour = getTourForPage(props.edition, props.page)
       if (tour) {
         this.toggleTour(tour, 'recto')
@@ -69,7 +69,7 @@ export class Reader extends React.Component {
     })
   }
   toggleTour = (tour, tourSide) => {
-    this.props.setTourIndex(tour.index)
+    this.props.setTourItem(tour.item)
     this.setState({
       tour,
       tourSide,
@@ -128,7 +128,7 @@ export class Reader extends React.Component {
       </div>
 
       <Row className="reader-grid">
-        { this.state.tour.index !== undefined ? this.showTour(this.state.tourSide) : null }
+        { this.state.tour.item !== undefined ? this.showTour(this.state.tourSide) : null }
 
         <Col sm={6} className="verso">
           {this.getPage(verso, 'verso')}
@@ -147,7 +147,7 @@ Reader.propTypes = {
   edition: PropTypes.string.isRequired,
   page: PropTypes.number.isRequired,
   pages: PropTypes.array.isRequired,
-  setTourIndex: PropTypes.func,
+  setTourItem: PropTypes.func,
 }
 
 const mapStateToProps = (state) => (
@@ -160,6 +160,6 @@ const mapStateToProps = (state) => (
 
 export default connect(
   mapStateToProps,
-  { setTourIndex }
+  { setTourItem }
 )(Reader)
 
