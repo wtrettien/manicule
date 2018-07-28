@@ -8,18 +8,20 @@ import { connect } from 'react-redux'
 import { Row, Col, Panel, Button, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const TourItem = ({ index, toggleTour, edition, metadata, side }) => {
-  const { page } = metadata[index]
+const TourItem = ({ item, toggleTour, edition, metadata, side }) => {
+  const indexIntoTourData = item - 1
+  const { page } = metadata[indexIntoTourData]
+
   const html = require(`../tour/${edition}/${page}.html`) // eslint-disable-line global-require
 
-  const hasPrev = index > 0
-  const hasNext = index < metadata.length - 1
+  const hasPrev = item > 1
+  const hasNext = item < metadata.length
 
   const prevLink = hasPrev ? (
-    <Link to={`/reader/${edition}/${metadata[index - 1].page}`} className="book-nav left">
+    <Link to={`/reader/${edition}/${metadata[indexIntoTourData - 1].page}`} className="book-nav left">
       <Glyphicon glyph="arrow-left" /> Previous Tour </Link>) : null
 
-  const nextLink = hasNext ? (<Link to={`/reader/${edition}/${metadata[index + 1].page}`}className="book-nav right" >
+  const nextLink = hasNext ? (<Link to={`/reader/${edition}/${metadata[indexIntoTourData + 1].page}`}className="book-nav right" >
     Next Tour <Glyphicon glyph="arrow-right" /></Link>) : null
 
   const tourNav = (
@@ -32,7 +34,7 @@ const TourItem = ({ index, toggleTour, edition, metadata, side }) => {
           {nextLink}
         </Col>
         <Col sm={2}>
-          <Button className="close-modal" onClick={() => toggleTour({ index: undefined }, undefined)}>
+          <Button className="close-modal" onClick={() => toggleTour({ item: undefined }, undefined)}>
             <Glyphicon glyph="remove" />
           </Button>
         </Col>
@@ -48,7 +50,7 @@ const TourItem = ({ index, toggleTour, edition, metadata, side }) => {
   )
 }
 TourItem.propTypes = {
-  index: PropTypes.number,
+  item: PropTypes.number,
   edition: PropTypes.string.isRequired,
   metadata: PropTypes.array.isRequired,
   side: PropTypes.oneOf(['recto', 'verso']),
@@ -59,7 +61,7 @@ TourItem.propTypes = {
 const mapStateToProps = (state) => ({
   edition: state.edition.name,
   metadata: state.edition.tour,
-  index: state.tourIndex.index,
+  item: state.tourItem.item,
 })
 
 export default connect(
