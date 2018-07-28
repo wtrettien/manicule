@@ -1,0 +1,13 @@
+@import "colors";
+
+.about {
+  padding: 2% 5% 10% 5%;
+  background: lighten($a-light-color, 5%);
+  h1, h2, h3, h4, h5 {
+    font-family: 'Berkshire Swash', cursive;
+  }
+  p {
+    font-size: 20px;
+    color: $scan-bg;
+  }
+}
