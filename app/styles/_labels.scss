@@ -10,7 +10,9 @@
   text-transform: uppercase;
 }
 .signatures-label {
-  background: $signatures-color;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .tour-label {
 
