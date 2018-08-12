@@ -3,9 +3,13 @@
       .page-metadata-grid {
         margin: 0 10%;
       }
-    }
+      .col-sm-4 {
+        min-height: 550px;
+        position: relative;
 
-}
+      }
+    }
+  }
 
 .page-modal {
   position: absolute;

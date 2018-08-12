@@ -31,9 +31,7 @@ export class Page extends React.Component {
               <Label bsClass="metadata-label category-label" style={{ background: color }}>
                 <Glyphicon glyph="tag" /> {category}
               </Label>
-              <Label bsClass="metadata-label signatures-label">
-                <Glyphicon glyph="info-sign" /> {signatures}
-              </Label>
+
               { tour ? <Label
                 bsClass="metadata-label tour-label"
                 onClick={() => this.props.toggleTour(tour, tourSide)}
@@ -41,6 +39,9 @@ export class Page extends React.Component {
                 <Glyphicon glyph="star" /> Start Tour
               </Label>
               : <span>&nbsp;</span> }
+              <Label bsClass="metadata-label signatures-label">
+                <Glyphicon glyph="info-sign" /> {signatures}
+              </Label>
             </Col>
             {
             pos === 'verso' && <Col sm={8}>{pageImage}</Col>
