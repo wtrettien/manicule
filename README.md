@@ -85,6 +85,8 @@ There is a utility to convert from a CSV to a JSON file in the project:
 
 *index* should begin at 1 and increase for each page.
 
+The names of the categories are mapped to colors; if the category names change or new categories are added, update the color mapping here: https://github.com/lizadaly/used-books-reader/blob/master/app/utils/metadata.js#L8 
+
 `structure.xml` constains information about the binding structure of the work, including which pages are conjoined or inserted.
 
 ### The tour
