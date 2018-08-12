@@ -10,7 +10,7 @@ import PageImage from './page-image'
 export class Page extends React.Component {
 
   render() {
-    const { edition, num, category, signatures, color, pos } = this.props
+    const { edition, num, category, signatures, color, pos, description } = this.props
     const tour = getTourForPage(edition, num)
     // The tour, if it exists, should open on the opposite side of the current page
     const tourSide = pos === 'verso' ? 'recto' : 'verso'
@@ -39,6 +39,10 @@ export class Page extends React.Component {
                 <Glyphicon glyph="star" /> Start Tour
               </Label>
               : <span>&nbsp;</span> }
+
+              <Label bsClass="metadata-label description-label">
+                {description}
+              </Label>
               <Label bsClass="metadata-label signatures-label">
                 <Glyphicon glyph="info-sign" /> {signatures}
               </Label>
@@ -60,6 +64,7 @@ Page.propTypes = {
   category: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   signatures: PropTypes.string.isRequired,
+  description: PropTypes.string,
   pos: PropTypes.string,
   toggleZoom: PropTypes.func,
   toggleTour: PropTypes.func,
