@@ -2,91 +2,11 @@
   {
     "item": 1,
     "page": 7,
-    "images": ["0007-1.jpg"]
+    "images": [""]
   },
   {
     "item": 2,
     "page": 13,
-    "images": ["0013-1.jpg","0013-2.jpg"]
-  },
-  {
-    "item": 3,
-    "page": 31,
-    "images": [""]
-  },
-  {
-    "item": 4,
-    "page": 32,
-    "images": [""]
-  },
-  {
-    "item": 5,
-    "page": 33,
-    "images": [""]
-  },
-  {
-    "item": 6,
-    "page": 59,
-    "images": ["0059-1.jpg","0059-1.jpg"]
-  },
-  {
-    "item": 7,
-    "page": 73,
-    "images": ["0073-1.jpg"]
-  },
-  {
-    "item": 8,
-    "page": 85,
-    "images": [""]
-  },
-  {
-    "item": 9,
-    "page": 92,
-    "images": [""]
-  },
-  {
-    "item": 10,
-    "page": 99,
-    "images": [""]
-  },
-  {
-    "item": 11,
-    "page": 121,
-    "images": [""]
-  },
-  {
-    "item": 12,
-    "page": 131,
-    "images": [""]
-  },
-  {
-    "item": 13,
-    "page": 161,
-    "images": [""]
-  },
-  {
-    "item": 14,
-    "page": 170,
-    "images": [""]
-  },
-  {
-    "item": 15,
-    "page": 279,
-    "images": [""]
-  },
-  {
-    "item": 16,
-    "page": 309,
-    "images": [""]
-  },
-  {
-    "item": 17,
-    "page": 320,
-    "images": [""]
-  },
-  {
-    "item": 18,
-    "page": 345,
     "images": [""]
   }
 ]
