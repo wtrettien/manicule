@@ -11,8 +11,8 @@ import SiteContainer from '../SiteContainer'
 import MapView from '../../components/map-view'
 import { setEdition } from '../../reducers/edition'
 
-import im1 from '../../tour/penn/images/0013-1.jpg'
-import im2 from '../../tour/penn/images/0007-1.jpg'
+import im1 from '../../tour/penn/images/001.jpg'
+import im2 from '../../tour/penn/images/002.jpg'
 
 export class HomePage extends React.Component {
   constructor(props) {
@@ -40,15 +40,15 @@ export class HomePage extends React.Component {
                        </h1>
                     <img src={im2} className="img-circle" width="200" alt="Portrait of Benlowes" style={{ float: 'right' }} />
                     <p>
-                        Edward Benlowes was an odd gentleman, obsessed with strange forms of poetry and language games—chronograms,
-                        pattern poems, emblems, and so on. He also was interested in the technologies of printing and experimented
-                        with them [...]
+                        Welcome to your website! This is the text that appears on your homepage.
                       </p>
                     <img src={im1} className="img-rounded" width="200" alt="Engraving of a masked woman" style={{ float: 'left' }} />
                     <p>
-                       Benlowes’s masterpiece was <i>Theophila</i>, a book-length poem about the progress of the soul (figured as the woman Theophila) to heaven. It was published in 1652.
-                      </p>
-
+						The images here have been randomly chosen from the Penn in Hand website, which provides access to high-resolution facsimiles of manuscripts held at the University of Pennsylvania. You can change the images by uploading new images to a directory in your project and changing the "im1" or "im2" variables above to point to them.
+                    </p>
+					<p>
+						You can also add new paragraphs, new images, or move around the homepage elements by altering the "index.js" file in /app/containers/HomePage/.
+					</p>
                     <p className="clear"></p>
 
                   </div>
@@ -56,7 +56,7 @@ export class HomePage extends React.Component {
                 <Col sm={4}>
                   <ListGroup>
                     <ListGroupItem> <Link to="/reader">
-                      <Glyphicon glyph="zoom-in" /> Tour through this edition of Theophila</Link></ListGroupItem>
+                      <Glyphicon glyph="bookmark" /> Tour through this edition of Theophila</Link></ListGroupItem>
 
                     <ListGroupItem >
                       <Link to="/structure"> <Glyphicon glyph="book" /> Explore the book‘s physical structure</Link></ListGroupItem>
