@@ -36,11 +36,11 @@ export class HomePage extends React.Component {
                 <Col sm={8}>
                   <div className="home-text">
                     <h1>
-                      <i>Used</i> Books
+                      Welcome
                        </h1>
                     <img src={im2} className="img-circle" width="200" alt="Portrait of Benlowes" style={{ float: 'right' }} />
                     <p>
-                        Welcome to your website! This is the text that appears on your homepage.
+                        This is the text that appears on your homepage.
                       </p>
                     <img src={im1} className="img-rounded" width="200" alt="Engraving of a masked woman" style={{ float: 'left' }} />
                     <p>
