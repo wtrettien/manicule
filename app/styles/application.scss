@@ -35,6 +35,10 @@ $default-width: 95%;  // For everything but the container
   .navbar-brand {
     font-family: 'Berkshire Swash', cursive !important;
     font-size: 30px;
+    a {
+        color: oldlace !important;
+
+    }
   }
 }
 body {
