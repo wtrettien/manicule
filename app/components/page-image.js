@@ -13,6 +13,7 @@ export const getImageUrl = (edition, num, thumbnail = false) => {
 const PageImage = ({ edition, num, toggleZoom }) => {
   const img = getImageUrl(edition, num)
   return (
+  
     <div>
       <Image src={img} alt="" responsive onClick={() => toggleZoom(img)} />
     </div>

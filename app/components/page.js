@@ -25,18 +25,22 @@ export class Page extends React.Component {
         <div className="page-metadata">
           <Row>
             {
-            pos === 'recto' && <Col sm={8}>{pageImage}</Col>
+            pos === 'recto' && 
+            	<Col sm={8}>
+            		{pageImage}
+            		<Label bsClass="metadata-label category-label" style={{ background: color }}>
+           		 		{category}
+            	    </Label>
+            	</Col>
             }
             <Col sm={4}>
-              <Label bsClass="metadata-label category-label" style={{ background: color }}>
-                <Glyphicon glyph="tag" /> {category}
-              </Label>
 
               { tour ? <Label
                 bsClass="metadata-label tour-label"
                 onClick={() => this.props.toggleTour(tour, tourSide)}
+                style={{ color: color }}
               >
-                <Glyphicon glyph="star" /> Start Tour
+                <Glyphicon glyph="bookmark" />
               </Label>
               : <span>&nbsp;</span> }
 
@@ -44,13 +48,18 @@ export class Page extends React.Component {
                 {description}
               </Label>
               <Label bsClass="metadata-label signatures-label">
-                <Glyphicon glyph="info-sign" /> {signatures}
+                {signatures}
               </Label>
             </Col>
             {
-            pos === 'verso' && <Col sm={8}>{pageImage}</Col>
-          }
-
+            pos === 'verso' && 
+            	<Col sm={8}>
+            		{pageImage}
+            		<Label bsClass="metadata-label category-label" style={{ background: color }}>
+           		 		{category}
+            	    </Label>
+            	</Col>
+            }
           </Row>
         </div>
       </div>

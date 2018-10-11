@@ -17,7 +17,7 @@ const Thumbnail = ({ pageData, edition, currentPage }) => {
   const tour = getTourForPage(edition, page)
 
   const tourLabel = tour ? (<Label bsClass="metadata-label tour-label has-tour">
-    <Glyphicon glyph="star" /> Tour
+   <span style={{ color: `${color}` }}><Glyphicon glyph="bookmark" /></span>
       </Label>) : null
 
   return (

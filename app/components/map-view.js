@@ -31,9 +31,9 @@ export class MapView extends React.Component {
                         ${tour ? 'has-tour' : ''}
                         map-block
                         `}
-                      style={{ background: tour ? 'inherit' : page.color, color: page.color }}
+                      style={{ background: page.color, color: page.color }}
 
-                    >{ tour ? <Glyphicon glyph="star" /> : '\u00A0'}</span>
+                    >{ tour ? <Glyphicon glyph="bookmark" /> : '\u00A0'}</span>
                   </Link>
                 </OverlayTrigger>
 

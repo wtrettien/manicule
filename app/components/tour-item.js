@@ -19,31 +19,35 @@ const TourItem = ({ item, toggleTour, edition, metadata, side }) => {
 
   const prevLink = hasPrev ? (
     <Link to={`/reader/${edition}/${metadata[indexIntoTourData - 1].page}`} className="book-nav left">
-      <Glyphicon glyph="arrow-left" /> Previous Tour </Link>) : null
+    	<Glyphicon glyph="arrow-left" /> Previous Tour Stop</Link>) : null
 
-  const nextLink = hasNext ? (<Link to={`/reader/${edition}/${metadata[indexIntoTourData + 1].page}`}className="book-nav right" >
-    Next Tour <Glyphicon glyph="arrow-right" /></Link>) : null
+  const nextLink = hasNext ? (<Link to={`/reader/${edition}/${metadata[indexIntoTourData + 1].page}`} className="book-nav right">
+     Next Tour Stop <Glyphicon glyph="arrow-right" /></Link>) : null
 
-  const tourNav = (
-    <div className="tour-nav">
-      <Row>
-        <Col sm={5}>
-          {prevLink}
-        </Col>
-        <Col sm={5}>
-          {nextLink}
-        </Col>
-        <Col sm={2}>
+  const tourExit = (
+    <div className="tour-exit">
           <Button className="close-modal" onClick={() => toggleTour({ item: undefined }, undefined)}>
             <Glyphicon glyph="remove" />
           </Button>
+    </div>
+  )
+  
+  const tourNav = (
+    <div className="tour-nav">
+      <Row>
+        <Col sm={6}>
+          {prevLink}
+        </Col>
+        <Col sm={6}>
+         {nextLink}
         </Col>
       </Row>
     </div>
   )
+  
   return (
     <Panel bsClass="tour-panel" className={side}>
-      {tourNav}
+      {tourExit}
       <div className="text" dangerouslySetInnerHTML={{ __html: html }} />
       {tourNav}
     </Panel>
