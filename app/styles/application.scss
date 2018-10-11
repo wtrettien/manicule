@@ -25,13 +25,8 @@ $default-width: 95%;  // For everything but the container
 }
 .navbar-inverse {
   padding: 0 5%;
-  background: linear-gradient(to bottom,
-    lighten($red-color, 5%) 0%,
-    lighten($red-color, 0%) 80%,
-    darken($red-color, 5%) 100%);
-
   a {
-    color: oldlace !important;
+//    color: oldlace !important;
 
   }
   .navbar-header li {

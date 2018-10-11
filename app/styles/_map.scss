@@ -8,20 +8,23 @@
 .map-blocks {
   width: $default-width;
   margin: auto;
+  text-align:center;
 
   .map-block {
     display: inline-block;
-    width: 20px;
+    width: 3px;
     height: 20px;
     border: 1px solid $scan-bg;
     text-align: center;
     &.current-page {
       border: 1px solid $a-light-color;
+    box-shadow: 1px 1px 2px 2px #fff;
     }
     .glyphicon {
-      line-height: 1;
-      top: 2px;
-      left: 1px;
+      line-height: .5;
+      font-size: .5em;
+      top: 12px;
+      left: -3px;
     }
   }
 

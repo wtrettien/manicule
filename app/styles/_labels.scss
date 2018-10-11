@@ -2,27 +2,30 @@
 
 .metadata-label {
   display: block;
-  padding: .75em;
-  text-align: center;
+  padding: .1em;
+  text-align: left;
   color: $a-light-color;
 }
 .category-label {
   text-transform: uppercase;
+  color: $tour-color;
+  text-align: center;
 }
 .signatures-label {
   position: absolute;
   bottom: 0;
   width: 100%;
+  color: $faded;
+  text-align: center;
 }
 .description-label {
   font-style: italic;
+  
 }
 .tour-label {
-
-  background: $tour-color;
   text-transform: uppercase;
+  text-align: center;
   a {
-    color: $a-light-color;
   }
   cursor: pointer;
 

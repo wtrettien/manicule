@@ -1,15 +1,13 @@
 // The structure view
 .structure {
 
-  background: lighten($page-bg, 90%);
+  background: transparent;
+  color: $a-light-color;
   padding: 0 2%;
 
   .structure-nav {
     position: fixed;
     right: 5%;
-  }
-  .row {
-    border-bottom: 8px solid white;
   }
   .col-md-8 {
     background:linear-gradient(to right,
@@ -37,10 +35,10 @@
         top: -50px;
 
         marker {
-          fill: rgb(2,200,90);
+          fill: $red-color;
         }
         line {
-          stroke: rgb(2,200,90);
+          stroke: $red-color;
           stroke-width: 2px;
           marker-end: url(#triangle);
 
@@ -52,6 +50,6 @@
 // The quire arcs
 .jtk-connector, .jtk-endpoint {
   path {
-    stroke: darkgray;
+    stroke: lightgray;
   }
 }
