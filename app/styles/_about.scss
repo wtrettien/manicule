@@ -2,14 +2,29 @@
 
 .about {
   padding: 2% 5% 10% 5%;
-  background: transparent;
-  h1, h2, h3, h4, h5 {
+  background: oldlace;
+  border-radius: 20px;
+  h1 {
     font-family: 'Berkshire Swash', cursive;
-    color: $red-color;
+  	color: rgb(56,56,56);
+  	border-bottom: 2px double $homepage-accent;
+  }
+  h2, h3, h4, h5 {
+  	color: rgb(56,56,56);
   }
   p {
     font-size: 20px;
-    color: $a-light-color;
+    color: $tour-color;
     font-family: Times New Roman, serif;
+  }
+  .indent{
+  	margin-left: 30px;
+  }
+  .accent{
+  	color: $homepage-accent;
+  }
+  img{
+  	margin:auto;
+  	display:block;
   }
 }

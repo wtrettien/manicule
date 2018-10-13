@@ -2,10 +2,10 @@
 
 .home {
   [class*="col-"] {
-
     p {
       font-size: 20px;
       color: $a-light-color;
+      margin-left: 25px;
     }
   }
   img {
@@ -18,25 +18,28 @@
     }
   }
   .home-text {
-      background: rgba(20, 20, 20, 0.7);
+	  color: $tour-color;
       padding: 2em;
       min-height: 120vh;
+      border-radius: 20px;	
   }
 
   .list-group {
     clear: both;
     margin-top: 4em;
+
+
   }
   .list-group-item {
-    background: inherit;
     font-family: Helvetica, sans-serif;
     font-size: 15px;
-    background: rgba(20,20, 20, 0.6);
-    border: rgba(20,20, 20, 1);
+    background: $homepage-accent;
+    border: 0px;
     a {
-      color: $a-light-color;
+      color: $tour-color;
+
       .glyphicon {
-        color: lightsteelblue;
+        color: oldlace;
         font-size: 30px;
         position: relative;
         top: 10px;
@@ -48,8 +51,13 @@
 
   h1 {
     font-family: 'Berkshire Swash', cursive;
-    color: lightsteelblue;
-    font-size: 100px;
+    border-bottom: 2px double $homepage-accent;
+    font-size: 80px;
+    color: $a-light-color;
+  }
+  h2{
+	color: $homepage-accent;
+	margin-left: 20px;
   }
 }
 
