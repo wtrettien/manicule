@@ -6,9 +6,14 @@ const testData = require('../data/test/pages.json')
 const testTour = require('../tour/test/tour.json')
 
 const categoryColors = {
-  flyleaf: 'RebeccaPurple',
-  'a category you choose': '#3366cc',
-  'another category': '#dc3912'
+  flyleaf: '#000000',
+  'Reeve’s Tale': '#2550a1',
+  'Cook’s Tale': '#658539',
+  'Man of Law’s Tale': '#963f39',
+  'Canon’s Yeoman’s Tale': '#876331',
+  'Tale of Sir Thopas': '#b09e8d',
+  'Parson’s Tale': '#cae1ed',
+  'Squire’s Tale': '#365414'
 }
 
 
