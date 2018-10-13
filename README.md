@@ -1,4 +1,4 @@
-# <img src="app/images/icon-72x72.png">Manicule
+# <img src="app/images/favicon.ico">Manicule
 
 A standalone React/Redux web application for exploring unique manuscripts.
 
