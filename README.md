@@ -1,4 +1,4 @@
-<img src="app/images/manicule.png">
+<img src="app/images/manicule.png" style="width: 50%;height:auto">
 
 A standalone React/Redux web application for exploring unique manuscripts.
 
