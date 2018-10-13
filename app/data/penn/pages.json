@@ -1,142 +1,163 @@
 [
   {
     "index": 1,
-    "signatures": "endpaper",
+    "signatures": "",
     "pagenum": "",
-    "category": "flyleaf",
-    "description": "☞ You can write some annotations here."
+    "category": "",
+    "description": ""
   },
   {
     "index": 2,
-    "signatures": "endpaper",
-    "pagenum": "",
-    "category": "flyleaf",
-    "description": ""
+    "signatures": "",
+    "pagenum": "1",
+    "category": "Reeve’s Tale",
+    "description": "Lines 4246-4283"
   },
   {
     "index": 3,
     "signatures": "flyleaf",
-    "pagenum": "",
-    "category": "flyleaf",
-    "description": "☞ Here is another example of a description."
+    "pagenum": "2",
+    "category": "Reeve’s Tale",
+    "description": "Lines 4284-4321."
   },
   {
     "index": 4,
     "signatures": "A1r",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "3",
+    "category": "Cook’s Tale",
+    "description": "Lines 4322-4356"
   },
   {
     "index": 5,
     "signatures": "A1v",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "4",
+    "category": "Cook’s Tale",
+    "description": "Lines 4357-4372"
   },
   {
     "index": 6,
     "signatures": "A2r",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": "☞ And here is yet another example."
+    "pagenum": "5",
+    "category": "Man of Law’s Tale",
+    "description": "Lines 95-98 above the illumination, lines 99-105 would have been below"
   },
   {
     "index": 7,
     "signatures": "A2v",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "6",
+    "category": "Man of Law’s Tale",
+    "description": "Lines 106-140"
   },
   {
     "index": 8,
     "signatures": "A3r",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": "."
+    "pagenum": "7",
+    "category": "Man of Law’s Tale",
+    "description": "Lines 211-245"
   },
   {
     "index": 9,
     "signatures": "A3v",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "8",
+    "category": "Man of Law’s Tale",
+    "description": "Lines 245-280"
   },
   {
     "index": 10,
     "signatures": "A4r",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "9",
+    "category": "Man of Law’s Tale",
+    "description": "Lines 316-350"
   },
   {
     "index": 11,
     "signatures": "A4v",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "10",
+    "category": "Man of Law’s Tale",
+    "description": "Lines 1051-1085"
   },
   {
     "index": 12,
     "signatures": "B1r",
-    "pagenum": "",
-    "category": "another category",
-    "description": ""
+    "pagenum": "11",
+    "category": "Man of Law’s Tale",
+    "description": "Lines 1086-1120"
   },
   {
     "index": 13,
     "signatures": "B1v",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "12",
+    "category": "Squire’s Tale",
+    "description": "Lines 57-94"
   },
   {
     "index": 14,
     "signatures": "B2r",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "13",
+    "category": "Squire’s Tale",
+    "description": "Lines 95-132"
   },
   {
     "index": 15,
     "signatures": "B2v",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "14",
+    "category": "Canon’s Yeoman’s Tale",
+    "description": "Lines 1091-1128"
   },
   {
     "index": 16,
     "signatures": "B3r",
-    "pagenum": "",
-    "category": "another category",
-    "description": ""
+    "pagenum": "15",
+    "category": "Canon’s Yeoman’s Tale",
+    "description": "Lines 1129-1167"
   },
   {
     "index": 17,
     "signatures": "B3v",
-    "pagenum": "",
-    "category": "a category you choose",
+    "pagenum": "16",
+    "category": "Canon’s Yeoman’s Tale",
     "description": ""
   },
   {
     "index": 18,
     "signatures": "B4r",
-    "pagenum": "",
-    "category": "a category you choose",
-    "description": ""
+    "pagenum": "17",
+    "category": "Tale of Sir Thopas",
+    "description": "Lines 846-883"
   },
   {
     "index": 19,
     "signatures": "B4v",
-    "pagenum": "",
-    "category": "flyleaf",
-    "description": ""
+    "pagenum": "18",
+    "category": "Tale of Sir Thopas",
+    "description": "Lines 884-922"
   },
   {
     "index": 20,
     "signatures": "endpaper",
-    "pagenum": "",
-    "category": "flyleaf",
+    "pagenum": "19",
+    "category": "Parson’s Tale",
+    "description": ""
+  },
+  {
+    "index": 21,
+    "signatures": "endpaper",
+    "pagenum": "20",
+    "category": "Parson’s Tale",
+    "description": ""
+  },
+  {
+    "index": 22,
+    "signatures": "endpaper",
+    "pagenum": "21",
+    "category": "Parson’s Tale",
+    "description": ""
+  },
+  {
+    "index": 23,
+    "signatures": "endpaper",
+    "pagenum": "22",
+    "category": "Parson’s Tale",
     "description": ""
   }
 ]
