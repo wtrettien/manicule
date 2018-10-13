@@ -1,4 +1,5 @@
-## Used Books reader
+## <img src="app/images/manicule.png">Manicule
+
 
 A standalone React/Redux web application for exploring unique manuscripts.
 
