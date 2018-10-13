@@ -85,7 +85,16 @@ There is a utility to convert from a CSV to a JSON file in the project:
 
 *index* should begin at 1 and increase for each page.
 
-The names of the categories are mapped to colors; if the category names change or new categories are added, update the color mapping here: https://github.com/lizadaly/used-books-reader/blob/master/app/utils/metadata.js#L8 
+#### Categories
+
+Categories help organize, annotate, and visualize the structure of the book. Every page is marked with a category in `pages.json`. The editors determines the categories based on what she wants to share with her edition.
+
+For instance, if she were most interested in marking the presence of marginalia in the book, she might use only two categories: “page” and “annotated page.” These categories would appear as two different colors in the birds-eye view and would mark the bottom of the facsimile in the filmstrip and book browser. The name of the categories appears at the bottom of the facsimile browser, as well. 
+
+In addition to these main categories, you might want to mark a secondary category or add an additional descriptor to the page. This is optional, and should be added to the “description” attribute of the page in `pages.json`. If a description is added, it will appear as marginalia beside the page in the facsimile browser. 
+
+To change the categories and their colors, update the color mapping here: https://github.com/lizadaly/used-books-reader/blob/master/app/utils/metadata.js#L8 
+The categories named here so should match the categories used in `pages.json`.
 
 `structure.xml` constains information about the binding structure of the work, including which pages are conjoined or inserted.
 
