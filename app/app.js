@@ -44,7 +44,7 @@ import App from '../app/containers/App'
 
 // Create redux store with history
 const initialState = {}
-const history = createHistory({ basename: 'usedbooks' })
+const history = createHistory({ basename: 'manicule' })
 const store = configureStore(initialState, history)
 const MOUNT_NODE = document.getElementById('app')
 
