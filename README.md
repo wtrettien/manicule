@@ -121,4 +121,10 @@ There is an `images` folder in the tour which contains cut-out detailed images o
 
 ### Structure
 
-`structure.xml` constains information about the binding structure of the work, including which pages are conjoined or inserted.
+`structure.xml` contains information about the format of the work, including which pages are conjoined, gathered, or inserted. It follows the data model used by <a href="https://github.com/leoba/VisColl">VisColl</a>, a project for visualizing the physical collation of a manuscript.
+
+## Credits
+
+This app was built and designed by Liza Daly and Whitney Trettien, with support from the Price Lab for Digital Humanities at the University of Pennsylvania. We have also benefited from the input, generosity, and open data of the Kislak Center for Special Collections, Rare Books, and Manuscripts and the Schoenberg Institute for Manuscript Studies. 
+
+Get in touch and let us know how you use it!
