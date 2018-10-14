@@ -1,6 +1,6 @@
 <img src="app/images/manicule.png">
 
-Demo: <a href="http://digitalbookhistory.com/manicule">http://digitalbookhistory.com/manicule</a>s
+Demo: <a href="http://digitalbookhistory.com/manicule">http://digitalbookhistory.com/manicule</a>
 
 Manicule is a standalone React/Redux web application for presenting unique printed books and manuscripts in digital facsimile. It allows editors to:
 
