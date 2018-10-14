@@ -1,6 +1,14 @@
 <img src="app/images/manicule.png" style="border-radius: 20px;">
 
-A standalone React/Redux web application for exploring unique manuscripts.
+Manicule is a standalone React/Redux web application for presenting unique printed books and manuscripts in digital facsimile. It allows editors to:
+
+☞ build guided tours through a book’s distinguishing features;
+
+☞ annotate the edges of interesting pages with extra information;
+
+☞ categorize and color-code each page in the facsimile, giving a bird’s-eye view of a book’s main elements;
+
+☞ and visualize the book’s structure.
 
 <img src="https://travis-ci.org/lizadaly/used-books-reader.svg?branch=master" alt="Build status">
 
@@ -126,5 +134,9 @@ There is an `images` folder in the tour which contains cut-out detailed images o
 ## Credits
 
 This app was built and designed by Liza Daly and Whitney Trettien, with support from the Price Lab for Digital Humanities at the University of Pennsylvania. We have also benefited from the input, generosity, and open data of the Kislak Center for Special Collections, Rare Books, and Manuscripts and the Schoenberg Institute for Manuscript Studies. 
+
+Our manicule icon comes from page 365 of the records of Christian Lehman, a notary who lived in Germantown and Philadelphia in the late eighteenth and early nineteenth centuries. It is MS Codex 1713 at the University of Pennsylvania. Visit the pointing hand its original habitat <a href="http://dla.library.upenn.edu/dla/medren/pageturn.html?q=manicules&id=MEDREN_9963989553503681&rotation=0&fq=century_facet%3A%2219th%20century%22&currentpage=372">here</a>. 
+
+http://dla.library.upenn.edu/dla/medren/pageturn.html?q=manicules&id=MEDREN_9963989553503681&rotation=0&fq=century_facet%3A%2219th%20century%22&currentpage=372
 
 Get in touch and let us know how you use it!
