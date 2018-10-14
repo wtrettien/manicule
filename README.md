@@ -123,6 +123,12 @@ In addition to these main categories, you can  mark a secondary category or add 
 
 To change the categories and their colors, update the color mapping in /app/utils/metadata.js. The categories named here so should match the categories used in `pages.json`. 
 
+#### Map
+
+The color-coded bar on the right of the homepage and below the filmstrip on the reader is called the `map` in the code. It offers a quick, color-coded overview of the book by categories.
+
+The demo has the map boxes set to 15px width. If your book is longer, you may want to reduce these to thinner bars, so the map fits on one line. You can also expand them to form squares that align more like a grid. To change these styles, alter the `map-blocks` class in `_map.scss`.
+
 ### Building a tour
 
 The `tour` directory contains information about the tour overlay (rendered as a bookmark on the fascimile and filmstrip view).
