@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
 import cc from '../../images/cc.svg'
 import by from '../../images/by.svg'
+import manic from '../../images/manicule-white.png'
 
 export default class SiteContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -18,7 +19,7 @@ export default class SiteContainer extends React.Component { // eslint-disable-l
         <Navbar inverse>
           <Navbar.Header>
             <Navbar.Brand>
-              <NavItem componentClass={Link} to="/" href="/">Used Books</NavItem></Navbar.Brand>
+            	<NavItem componentClass={Link} to="/" href="/"><img src={manic} alt="manicule" style={{ height: '1em' }} /> Manicule</NavItem></Navbar.Brand>
           </Navbar.Header>
           <Nav>
             <NavItem componentClass={Link} to="/reader" href="/reader">
