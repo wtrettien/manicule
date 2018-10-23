@@ -64,7 +64,7 @@ npm run test
 
 All the tests should pass. If not, don't commit your change to master!
 
-## Deploying the application to production
+# Deploying the application to production
 
 To deploy manually, first _build_ the application, then copy the contents of the build folder:
 
@@ -74,11 +74,17 @@ npm run build
 
 This will create a folder called `build`. Everything inside that should be copied to your production host in a folder named `manicule`. 
 
-## Building your book
+To ensure that the URLs of individual pages are shareable, you also need to copy the .htaccess file in the /app folder to the `manicule` folder on your production host. If you are not using HTTPS, comment out lines 22 and 28 before copying it. There is also a config file available for nginx in the app folder, if you are not using Apache.
+
+## Changing the root folder
+
+Note that the app expects that you'll be uploading your files to a directory called `manicule`, and your site won't work if you upload it to a directory with another name without some further manipulation. The easiest way to make this change is to perform a find and replace for `manicule` across all files in your `build` folder. Then change this directory in line 42 of the .htaccess file. 
+
+# Building your book
 
 The source code is loaded with a demo manuscript (Rosenbach MS 1084/2). You can begin building your own projects by switching out the demo manuscript for your own book.
 
-### Loading the facsimile
+## Loading the facsimile
 
 Page images are stored in app/images/book/{edition - this is 'penn' by default}/images. Thumbnails are in the `thumbnails` folder within this directory. 
 
@@ -86,7 +92,7 @@ File names should begin with 0001.jpg for the first verso of the first spread (a
  
 Files should be not be archival TIFFs but web-ready JPGs.  
 
-### Updating the pages data 
+## Updating the pages data 
 
 Data files pertaining to the structure and metadata of the manuscript itself are in `data`. Each copy (the code calls these 'editions') will have a folder at the top:
 
@@ -115,7 +121,7 @@ It easiest to work from a spreadsheet and convert the CSV to a JSON after you've
 ```
  ./node_modules/csvtojson/bin/csvtojson <csvfile.csv> > <jsonfile.json>
  ```
-#### Categories
+### Categories
 
 Categories help organize, annotate, and visualize the structure of the book. Every page is marked with a category in `pages.json`. The editors determines the categories based on what she wants to share with her edition.
 
@@ -125,13 +131,13 @@ In addition to these main categories, you can  mark a secondary category or add 
 
 To change the categories and their colors, update the color mapping in /app/utils/metadata.js. The categories named here so should match the categories used in `pages.json`. 
 
-#### Map
+### Map
 
 The color-coded bar on the right of the homepage and below the filmstrip on the reader is called the `map` in the code. It offers a quick, color-coded overview of the book by categories.
 
 The demo has the map boxes set to 15px width. If your book is longer, you may want to reduce these to thinner bars, so the map fits on one line. You can also expand them to form squares that align more like a grid. To change these styles, alter the `map-blocks` class in `_map.scss`.
 
-### Building a tour
+## Building a tour
 
 The `tour` directory contains information about the tour overlay (rendered as a bookmark on the fascimile and filmstrip view).
 
@@ -143,11 +149,11 @@ The `item` attribute in the JSON file should run sequentially from 1 to n. This 
 
 There is an `images` folder in the tour which contains cut-out detailed images of those referenced by the tour, but this is currently unused.
 
-### Structure
+## Structure
 
 `structure.xml` contains information about the format of the work, including which pages are conjoined, gathered, or inserted. It follows the data model used by <a href="https://github.com/leoba/VisColl">VisColl</a>, a project for visualizing the physical collation of a manuscript.
 
-## Credits
+# Credits
 
 This app was built and designed by Liza Daly and Whitney Trettien, with support from the Price Lab for Digital Humanities at the University of Pennsylvania. We have also benefited from the input, generosity, and open data of the Kislak Center for Special Collections, Rare Books, and Manuscripts and the Schoenberg Institute for Manuscript Studies. 
 
