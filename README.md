@@ -66,19 +66,19 @@ All the tests should pass. If not, don't commit your change to master!
 
 # Deploying the application to production
 
-To deploy manually, first _build_ the application, then copy the contents of the build folder:
+It's easiest to edit the application while running it locally. After you're done building the book (more on that below), you'll want to upload your site to your host server. To deploy the application manually, first _build_ it using this command:
 
 ```
 npm run build
 ```
 
-This will create a folder called `build`. Everything inside that should be copied to your production host in a folder named `manicule`. 
+This will create a folder called `build`. Everything inside that folder should be copied to your production host in a folder named `manicule`. 
 
 To ensure that the URLs of individual pages are shareable, you also need to copy the .htaccess file in the /app folder to the `manicule` folder on your production host. If you are not using HTTPS, comment out lines 22 and 28 before copying it. There is also a config file available for nginx in the app folder, if you are not using Apache.
 
 ## Changing the root folder
 
-Note that the app expects that you'll be uploading your files to a directory called `manicule`, and your site won't work if you upload it to a directory with another name without some further manipulation. The easiest way to make this change is to perform a find and replace for `manicule` across all files in your `build` folder. Then change this directory in line 42 of the .htaccess file. 
+Note that the app expects that you'll be uploading your files to a directory called `manicule`, and your site won't work if you upload it to a directory with another name without some further manipulation. One easy way to make this change: perform a find and replace for `manicule` across all files in your `build` folder. Then change this directory in line 42 of the .htaccess file. 
 
 # Building your book
 
