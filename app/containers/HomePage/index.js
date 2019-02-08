@@ -62,7 +62,7 @@ export class HomePage extends React.Component {
 					Images of and information about this manuscript (MS 1084/2) were accessed via <a href="http://openn.library.upenn.edu/Data/0028/html/ms_1084_002.html">OPenn</a>, a repository of CC-licensed high-resolution images of cultural heritage materials along with machine-readable descriptive and technical metadata.
 					</p>
 					<p>
-					For instructions on how to install and play with this demo, please see the README of the source code: <a href="https://github.com/lizadaly/manicule">https://github.com/lizadaly/manicule</a>
+					For instructions on how to install and play with this demo, please see the README of the source code: <a href="https://github.com/wtrettien/manicule">https://github.com/wtrettien/manicule</a>
 					</p>
                     <p className="clear"></p>
 
@@ -70,7 +70,7 @@ export class HomePage extends React.Component {
                 </Col>
                 <Col sm={4}>
                   <ListGroup>
-                    <ListGroupItem> <Link to="/reader">
+                    <ListGroupItem> <Link to="/reader/penn/5">
                       <Glyphicon glyph="bookmark" /> Tour this edition</Link>
                     </ListGroupItem>
                     <ListGroupItem >
