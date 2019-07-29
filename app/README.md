@@ -34,7 +34,7 @@ It should run for a long time and then complete.
 npm start
 ```
 
-This will run the application as http://localhost:3000/usedbooks/
+This will run the application as http://localhost:3000/manicule/
 
 ## Running the test suite
 
