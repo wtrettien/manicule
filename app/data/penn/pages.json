@@ -8,156 +8,3243 @@
   },
   {
     "index": 2,
-    "signatures": "1r",
-    "pagenum": "1",
-    "category": "Reeve’s Tale",
-    "description": "Lines 4246-4283"
+    "signatures": "front cover",
+    "pagenum": "",
+    "category": "Binding",
+    "description": ""
   },
   {
     "index": 3,
-    "signatures": "1v",
-    "pagenum": "2",
-    "category": "Reeve’s Tale",
-    "description": "Lines 4284-4321."
+    "signatures": "inside front cover",
+    "pagenum": "",
+    "category": "Binding",
+    "description": "The inside of the front cover contains a 'ghost image' of the original first leaf. Residual ink provides a mirror image of text that was lost when this leaf was trimmed to a stub."
   },
   {
     "index": 4,
-    "signatures": "2r",
-    "pagenum": "3",
-    "category": "Cook’s Tale",
-    "description": "Lines 4322-4356"
+    "signatures": "I recto] (Stub)",
+    "pagenum": "",
+    "category": "Binding",
+    "description": ""
   },
   {
     "index": 5,
-    "signatures": "2v",
-    "pagenum": "4",
-    "category": "Cook’s Tale",
-    "description": "Lines 4357-4372"
+    "signatures": "I verso] (Stub)",
+    "pagenum": "",
+    "category": "Binding",
+    "description": ""
   },
   {
     "index": 6,
-    "signatures": "3r",
-    "pagenum": "5",
-    "category": "Man of Law’s Tale",
-    "description": "Lines 95-98 above the illumination, lines 99-105 would have been below"
+    "signatures": "Fol. 1r",
+    "pagenum": "",
+    "category": "Doodles",
+    "description": "A small human figure and alphabet practice. In this period, i and j were considered variant forms of the same letter, as were u and v."
   },
   {
     "index": 7,
-    "signatures": "3v",
-    "pagenum": "6",
-    "category": "Man of Law’s Tale",
-    "description": "Lines 106-140"
+    "signatures": "Fol. 1v",
+    "pagenum": 1,
+    "category": "Blank",
+    "description": ""
   },
   {
     "index": 8,
-    "signatures": "4r",
-    "pagenum": "7",
-    "category": "Man of Law’s Tale",
-    "description": "Lines 211-245"
+    "signatures": "Fol. 2r",
+    "pagenum": 2,
+    "category": "Doodles",
+    "description": "Beneath these whimsical drawings of gardens, birds, humans, and doors is the name 'Vitvs' ('Vitus' in modern orthography), a variant of 'Veit.' This inscription was likely produced by a young Veit Engelhard Holtzschuher (1581-1656)."
   },
   {
     "index": 9,
-    "signatures": "4v",
-    "pagenum": "8",
-    "category": "Man of Law’s Tale",
-    "description": "Lines 245-280"
+    "signatures": "Fol. 2v",
+    "pagenum": 3,
+    "category": "Doodles",
+    "description": "Additional drawings of trees and doors, continued from the previous page."
   },
   {
     "index": 10,
-    "signatures": "5r",
-    "pagenum": "9",
-    "category": "Man of Law’s Tale",
-    "description": "Lines 316-350"
+    "signatures": "Fol. 3r",
+    "pagenum": 4,
+    "category": "Blank",
+    "description": ""
   },
   {
     "index": 11,
-    "signatures": "5v",
-    "pagenum": "10",
-    "category": "Man of Law’s Tale",
-    "description": "Lines 1051-1085"
+    "signatures": "Fol. 3v",
+    "pagenum": 5,
+    "category": "Doodles",
+    "description": "Alphabet practice and the name 'Veit engel,' short for Veit Engelhard Holtzschuher (1581-1656), who inscribed this leaf around the year 1589."
   },
   {
     "index": 12,
-    "signatures": "6r",
-    "pagenum": "11",
-    "category": "Man of Law’s Tale",
-    "description": "Lines 1086-1120"
+    "signatures": "Fol. 4r",
+    "pagenum": 6,
+    "category": "Blank",
+    "description": ""
   },
   {
     "index": 13,
-    "signatures": "6v",
-    "pagenum": "12",
-    "category": "Squire’s Tale",
-    "description": "Lines 57-94"
+    "signatures": "Fol. 4v",
+    "pagenum": 7,
+    "category": "Doodles",
+    "description": "Human figures and ink blots."
   },
   {
     "index": 14,
-    "signatures": "7r",
-    "pagenum": "13",
-    "category": "Squire’s Tale",
-    "description": "Lines 95-132"
+    "signatures": "Fol.  5r",
+    "pagenum": 8,
+    "category": "Blank",
+    "description": ""
   },
   {
     "index": 15,
-    "signatures": "7v",
-    "pagenum": "14",
-    "category": "Canon’s Yeoman’s Tale",
-    "description": "Lines 1091-1128"
+    "signatures": "Fol.  5v",
+    "pagenum": 9,
+    "category": "Doodles",
+    "description": ""
   },
   {
     "index": 16,
-    "signatures": "8r",
-    "pagenum": "15",
-    "category": "Canon’s Yeoman’s Tale",
-    "description": "Lines 1129-1167"
+    "signatures": "Fol.  6r",
+    "pagenum": 10,
+    "category": "Doodles",
+    "description": "Alphabet and Latin practice."
   },
   {
     "index": 17,
-    "signatures": "8v",
-    "pagenum": "16",
-    "category": "Canon’s Yeoman’s Tale",
+    "signatures": "Fol.  6v",
+    "pagenum": 11,
+    "category": "Blank",
     "description": ""
   },
   {
     "index": 18,
-    "signatures": "9r",
-    "pagenum": "17",
-    "category": "Tale of Sir Thopas",
-    "description": "Lines 846-883"
+    "signatures": "Fol.  7r",
+    "pagenum": 12,
+    "category": "Blank",
+    "description": ""
   },
   {
     "index": 19,
-    "signatures": "9v",
-    "pagenum": "18",
-    "category": "Tale of Sir Thopas",
-    "description": "Lines 884-922"
+    "signatures": "Fol.  7v",
+    "pagenum": 13,
+    "category": "Doodles",
+    "description": "Alphabet practice."
   },
   {
     "index": 20,
-    "signatures": "10r",
-    "pagenum": "19",
-    "category": "Parson’s Tale",
-    "description": ""
+    "signatures": "Fol.  8r",
+    "pagenum": 14,
+    "category": "Doodles",
+    "description": "Alphabet practice."
   },
   {
     "index": 21,
-    "signatures": "10v",
-    "pagenum": "20",
-    "category": "Parson’s Tale",
-    "description": ""
+    "signatures": "Fol.  8v",
+    "pagenum": 15,
+    "category": "Doodles",
+    "description": "The year '1478' and an ink blot created by an attempt to add an initial 'D' on the next page."
   },
   {
     "index": 22,
-    "signatures": "11r",
-    "pagenum": "21",
-    "category": "Parson’s Tale",
-    "description": ""
+    "signatures": "Fol.  9r",
+    "pagenum": 16,
+    "category": "Prognostication",
+    "description": "A German translation of a popular text by Johannes Lichtenberger (d. 1503), originally published as Prognosticatio in latino (Heidelberg: Heinrich Knoblochtzer, 1488). A finding tab marks the first section of the book with a roman numeral I."
   },
   {
     "index": 23,
-    "signatures": "11v",
-    "pagenum": "22",
-    "category": "Parson’s Tale",
+    "signatures": "Fol.  9v",
+    "pagenum": 17,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 24,
+    "signatures": "Fol.  10r",
+    "pagenum": 18,
+    "category": "Prognostication",
+    "description": "The scribe uses red underlining to indicate where previous authorities are being cited (e.g. 'Brigitam,' or Birgitta of Sweden, in line 13 of fol. 10r)."
+  },
+  {
+    "index": 25,
+    "signatures": "Fol.  10v",
+    "pagenum": 19,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 26,
+    "signatures": "Fol.  11r",
+    "pagenum": 20,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 27,
+    "signatures": "Fol.  11v",
+    "pagenum": 21,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 28,
+    "signatures": "Fol.  12r",
+    "pagenum": 22,
+    "category": "Prognostication",
+    "description": "These ornate initial letters indicate new sections of the text."
+  },
+  {
+    "index": 29,
+    "signatures": "Fol.  12v",
+    "pagenum": 23,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 30,
+    "signatures": "Fol.  13r",
+    "pagenum": 24,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 31,
+    "signatures": "Fol.  13v",
+    "pagenum": 25,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 32,
+    "signatures": "Fol.  14r",
+    "pagenum": 26,
+    "category": "Prognostication",
+    "description": "The rubricated text in the middle of this page describes the author kneeling after writing, with his hands clasped together in prayer: 'Da sol stan der maister vnd macher dicz Buch- / lins knyende vnd mit zusamen gelegten henn- / den petten das nachgeschriben gebeth.' This text is derived from a caption in print editions, although the image to which it refers is absent."
+  },
+  {
+    "index": 33,
+    "signatures": "Fol.  14v",
+    "pagenum": 27,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 34,
+    "signatures": "Fol.  15r",
+    "pagenum": 28,
+    "category": "Prognostication",
+    "description": "Like fol. 14r and many other pages in the Prognosticatio (e.g. 18v, 19r), this page includes a rubricated caption for an image that is absent from this copy of the text. After this rubric, Lichtenberger begins to discuss the November 1484 conjunction of Jupiter and Saturn."
+  },
+  {
+    "index": 35,
+    "signatures": "Fol.  15v",
+    "pagenum": 29,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 36,
+    "signatures": "Fol.  16r",
+    "pagenum": 30,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 37,
+    "signatures": "Fol.  16v",
+    "pagenum": 31,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 38,
+    "signatures": "Fol.  17r",
+    "pagenum": 32,
+    "category": "Prognostication",
+    "description": "The rubricated heading at the top of this page ('Das erst Capitel') indicates the beginning of the first chapter of this section, followed by the second chapter at the bottom of the page."
+  },
+  {
+    "index": 39,
+    "signatures": "Fol.  17v",
+    "pagenum": 33,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 40,
+    "signatures": "Fol.  18r",
+    "pagenum": 34,
+    "category": "Prognostication",
+    "description": "References to the prophets Joachim of Fiore, Jeremiah, and Birgitta of Sweden."
+  },
+  {
+    "index": 41,
+    "signatures": "Fol.  18v",
+    "pagenum": 35,
+    "category": "Prognostication",
+    "description": "This page addresses Birgitta of Sweden's Revelations coelestes."
+  },
+  {
+    "index": 42,
+    "signatures": "Fol.  19r",
+    "pagenum": 36,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 43,
+    "signatures": "Fol.  19v",
+    "pagenum": 37,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 44,
+    "signatures": "Fol.  20r",
+    "pagenum": 38,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 45,
+    "signatures": "Fol.  20v",
+    "pagenum": 39,
+    "category": "Prognostication",
+    "description": "Many of the prophecies on these pages feature eagles, the symbol of the Holy Roman Empire."
+  },
+  {
+    "index": 46,
+    "signatures": "Fol.  21r",
+    "pagenum": 40,
+    "category": "Prognostication",
+    "description": "Immediately below the rubricated image caption on this page is a reference to a prophecy by 'Brother Reynhart the Lollard.' Lollards were pre-Reformation Christian heretics; the term is usually applied to reformers who believed in vernacular translations of the Bible and consubstantiation of the Eucharist while refusing the Cult of the Saints."
+  },
+  {
+    "index": 47,
+    "signatures": "Fol.  21v",
+    "pagenum": 41,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 48,
+    "signatures": "Fol.  22r",
+    "pagenum": 42,
+    "category": "Prognostication",
+    "description": "References to Brother Reynhart and Joachim of Fiore."
+  },
+  {
+    "index": 49,
+    "signatures": "Fol.  22v",
+    "pagenum": 43,
+    "category": "Prognostication",
+    "description": "This chapter addresses German political and ecclesiastical authorities. Red marks in lines 5-8 and following, the ancestors of the modern pilcrow, divide the text into subsections."
+  },
+  {
+    "index": 50,
+    "signatures": "Fol.  23r",
+    "pagenum": 44,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 51,
+    "signatures": "Fol.  23v",
+    "pagenum": 45,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 52,
+    "signatures": "Fol.  24r",
+    "pagenum": 46,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 53,
+    "signatures": "Fol.  24v",
+    "pagenum": 47,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 54,
+    "signatures": "Fol.  25r",
+    "pagenum": 48,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 55,
+    "signatures": "Fol.  25v",
+    "pagenum": 49,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 56,
+    "signatures": "Fol.  26r",
+    "pagenum": 50,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 57,
+    "signatures": "Fol.  26v",
+    "pagenum": 51,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 58,
+    "signatures": "Fol.  27r",
+    "pagenum": 52,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 59,
+    "signatures": "Fol.  27v",
+    "pagenum": 53,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 60,
+    "signatures": "Fol.  28r",
+    "pagenum": 54,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 61,
+    "signatures": "Fol.  28v",
+    "pagenum": 55,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 62,
+    "signatures": "Fol.  29r",
+    "pagenum": 56,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 63,
+    "signatures": "Fol.  29v",
+    "pagenum": 57,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 64,
+    "signatures": "Fol.  30r",
+    "pagenum": 58,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 65,
+    "signatures": "Fol.  30v",
+    "pagenum": 59,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 66,
+    "signatures": "Fol.  31r",
+    "pagenum": 60,
+    "category": "Prognostication",
+    "description": "Equivalent pages in early editions of the Prognosticatio include an image of three chickens, as the second rubricated header indicates ('Hic süllen stan dreÿ hanen…')."
+  },
+  {
+    "index": 67,
+    "signatures": "Fol.  31v",
+    "pagenum": 61,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 68,
+    "signatures": "Fol.  32r",
+    "pagenum": 62,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 69,
+    "signatures": "Fol.  32v",
+    "pagenum": 63,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 70,
+    "signatures": "Fol.  33r",
+    "pagenum": 64,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 71,
+    "signatures": "Fol.  33v",
+    "pagenum": 65,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 72,
+    "signatures": "Fol.  34r",
+    "pagenum": 66,
+    "category": "Prognostication",
+    "description": "The words in the lower right-hand margin are additions to the main text, to be inserted where indicated by a cross sign."
+  },
+  {
+    "index": 73,
+    "signatures": "Fol.  34v",
+    "pagenum": 67,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 74,
+    "signatures": "Fol.  35r",
+    "pagenum": 68,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 75,
+    "signatures": "Fol.  35v",
+    "pagenum": 69,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 76,
+    "signatures": "Fol.  36r",
+    "pagenum": 70,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 77,
+    "signatures": "Fol.  36v",
+    "pagenum": 71,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 78,
+    "signatures": "Fol.  37r",
+    "pagenum": 72,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 79,
+    "signatures": "Fol.  37v",
+    "pagenum": 73,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 80,
+    "signatures": "Fol.  38r",
+    "pagenum": 74,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 81,
+    "signatures": "Fol.  38v",
+    "pagenum": 75,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 82,
+    "signatures": "Fol.  39r",
+    "pagenum": 76,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 83,
+    "signatures": "Fol.  39v",
+    "pagenum": 77,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 84,
+    "signatures": "Fol.  40r",
+    "pagenum": 78,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 85,
+    "signatures": "Fol.  40v",
+    "pagenum": 79,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 86,
+    "signatures": "Fol.  41r",
+    "pagenum": 80,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 87,
+    "signatures": "Fol.  41v",
+    "pagenum": 81,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 88,
+    "signatures": "Fol.  42r",
+    "pagenum": 82,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 89,
+    "signatures": "Fol.  42v",
+    "pagenum": 83,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 90,
+    "signatures": "Fol.  43r",
+    "pagenum": 84,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 91,
+    "signatures": "Fol.  43v",
+    "pagenum": 85,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 92,
+    "signatures": "Fol.  44r",
+    "pagenum": 86,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 93,
+    "signatures": "Fol.  44v",
+    "pagenum": 87,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 94,
+    "signatures": "Fol.  45r",
+    "pagenum": 88,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 95,
+    "signatures": "Fol.  45v",
+    "pagenum": 89,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 96,
+    "signatures": "Fol.  46r",
+    "pagenum": 90,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 97,
+    "signatures": "Fol.  46v",
+    "pagenum": 91,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 98,
+    "signatures": "Fol.  47r",
+    "pagenum": 92,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 99,
+    "signatures": "Fol.  47v",
+    "pagenum": 93,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 100,
+    "signatures": "Fol.  48r",
+    "pagenum": 94,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 101,
+    "signatures": "Fol.  48v",
+    "pagenum": 95,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 102,
+    "signatures": "Fol.  49r",
+    "pagenum": 96,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 103,
+    "signatures": "Fol.  49v",
+    "pagenum": 97,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 104,
+    "signatures": "Fol.  50r",
+    "pagenum": 98,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 105,
+    "signatures": "Fol.  50v",
+    "pagenum": 99,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 106,
+    "signatures": "Fol.  51r",
+    "pagenum": 100,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 107,
+    "signatures": "Fol.  51v",
+    "pagenum": 101,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 108,
+    "signatures": "Fol.  52r",
+    "pagenum": 102,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 109,
+    "signatures": "Fol.  52v",
+    "pagenum": 103,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 110,
+    "signatures": "Fol.  53r",
+    "pagenum": 104,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 111,
+    "signatures": "Fol.  53v",
+    "pagenum": 105,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 112,
+    "signatures": "Fol.  54r",
+    "pagenum": 106,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 113,
+    "signatures": "Fol.  54v",
+    "pagenum": 107,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 114,
+    "signatures": "Fol.  55r",
+    "pagenum": 108,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 115,
+    "signatures": "Fol.  55v",
+    "pagenum": 109,
+    "category": "Prognostication",
+    "description": "Beginning on this page, the last chapter of Lichtenberger's text deals with the 'climates' of upcoming years, inclulding their effects on human health and activities."
+  },
+  {
+    "index": 116,
+    "signatures": "Fol.  56r",
+    "pagenum": 110,
+    "category": "Prognostication",
+    "description": "The top half of this page repeats the text from the bottom half of the previous page, and was presumably cancelled when the scribe or rubricator realized that it had been copied twice. It was common for scribes to accidentally copy the same word or phrase twice, but less common for an entire section of text to be doubled."
+  },
+  {
+    "index": 117,
+    "signatures": "Fol.  56v",
+    "pagenum": 111,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 118,
+    "signatures": "Fol.  57r",
+    "pagenum": 112,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 119,
+    "signatures": "Fol.  57v",
+    "pagenum": 113,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 120,
+    "signatures": "Fol.  58r",
+    "pagenum": 114,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 121,
+    "signatures": "Fol.  58v",
+    "pagenum": 115,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 122,
+    "signatures": "Fol.  59r",
+    "pagenum": 116,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 123,
+    "signatures": "Fol.  59v",
+    "pagenum": 117,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 124,
+    "signatures": "Fol.  60r",
+    "pagenum": 118,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 125,
+    "signatures": "Fol.  60v",
+    "pagenum": 119,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 126,
+    "signatures": "Fol.  61r",
+    "pagenum": 120,
+    "category": "Prognostication",
+    "description": ""
+  },
+  {
+    "index": 127,
+    "signatures": "Fol.  61v",
+    "pagenum": 121,
+    "category": "Prognostication",
+    "description": "The colophon beginning in line 7 reads: “Geben in der vinstern gassen vnder dem gespenten Aichpaum Im Iar m cccc lxxx viij am ersten tag des Apprillen durch den pilgrim Ruth der in den wellden verporgen ligt des augen sind dunckel word[e]n Der Griffel zittert vor allter Got welle wol den guten vnd den schweczern alls sy verdienen.”"
+  },
+  {
+    "index": 128,
+    "signatures": "Fol.  62r",
+    "pagenum": 122,
+    "category": "Time and Calendars",
+    "description": "A table containing Latin and German names of the Northern and Southern zodiac signs, and the beginning of a chapter from Regiomontanus's Calendarium (Nuremberg, 1474) on variations in the lengths of days and nights, with a leather finding tab marked 'II."
+  },
+  {
+    "index": 129,
+    "signatures": "Fol.  62v",
+    "pagenum": 123,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 130,
+    "signatures": "Fol.  63r",
+    "pagenum": 124,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 131,
+    "signatures": "Fol.  63v",
+    "pagenum": 125,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 132,
+    "signatures": "Fol.  64r",
+    "pagenum": 126,
+    "category": "Time and Calendars",
+    "description": "A section discussing how to tell time with the 'horologio horizontali' (essentially a plan for a sundial), to be used alongside fol. 70r."
+  },
+  {
+    "index": 133,
+    "signatures": "Fol.  64v",
+    "pagenum": 127,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 134,
+    "signatures": "Fol.  65r",
+    "pagenum": 128,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 135,
+    "signatures": "Fol.  65v",
+    "pagenum": 129,
+    "category": "Time and Calendars",
+    "description": "Dittography (incorrect repetition of a word/phrase) and correction in line 22."
+  },
+  {
+    "index": 136,
+    "signatures": "Fol.  66r",
+    "pagenum": 130,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 137,
+    "signatures": "Fol.  66v",
+    "pagenum": 131,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 138,
+    "signatures": "Fol.  67r",
+    "pagenum": 132,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 139,
+    "signatures": "Fol.  67v",
+    "pagenum": 133,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 140,
+    "signatures": "Fol.  68r",
+    "pagenum": 134,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 141,
+    "signatures": "Fol.  68v",
+    "pagenum": 135,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 142,
+    "signatures": "Fol.  69r",
+    "pagenum": 136,
+    "category": "Time and Calendars",
+    "description": "Associations between the planets and the days of the week. This system links the Germanic pantheon with the Greco-Roman one. For example, in many Germanic cultures, Tuesday is named for the war god Tiw, and is also associated with Mars. Similarly, Thursday, named for Thor, is associated with Jupiter."
+  },
+  {
+    "index": 143,
+    "signatures": "Fol.  69v",
+    "pagenum": 137,
+    "category": "Time and Calendars",
+    "description": "The rubricated punctuation mark appearing in lines 2, 4, and 5 is a punctus elevatus, denoting a major pause roughly equivalent to that of a modern semicolon."
+  },
+  {
+    "index": 144,
+    "signatures": "Fol.  70r",
+    "pagenum": 138,
+    "category": "Time and Calendars",
+    "description": "A time-telling instrument described on fol. 64r and following."
+  },
+  {
+    "index": 145,
+    "signatures": "Fol.  70v",
+    "pagenum": 139,
+    "category": "Time and Calendars",
+    "description": "An instrument used to determine the current solar time, which would originally have included a pointer on the right side, beneath the damaged 'Scala Latitudinum."
+  },
+  {
+    "index": 146,
+    "signatures": "Fol.  71r",
+    "pagenum": 140,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 147,
+    "signatures": "Fol.  71v",
+    "pagenum": 141,
+    "category": "Time and Calendars",
+    "description": "A table of years from 1477-1531 when the 'ecclesiastical' date of Easter differs from its 'true' date, as calculated using the vernal equinox and the opposition of the sun and the moon."
+  },
+  {
+    "index": 148,
+    "signatures": "Fol.  72r",
+    "pagenum": 142,
+    "category": "Time and Calendars",
+    "description": "At the bottom of this table is the Latinized name used by Regiomontanus during his lifetime, 'Ioannis De Monteregio.' 'Regiomontanus' was first used by Philip Melanchthon in 1534."
+  },
+  {
+    "index": 149,
+    "signatures": "Fol.  72v",
+    "pagenum": 143,
+    "category": "Time and Calendars",
+    "description": "Brief descriptions of golden numbers and dominical letters."
+  },
+  {
+    "index": 150,
+    "signatures": "Fol.  73r",
+    "pagenum": 144,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 151,
+    "signatures": "Fol.  73v",
+    "pagenum": 145,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 152,
+    "signatures": "Fol.  74r",
+    "pagenum": 146,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 153,
+    "signatures": "Fol.  74v",
+    "pagenum": 147,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 154,
+    "signatures": "Fol.  75r",
+    "pagenum": 148,
+    "category": "Time and Calendars",
+    "description": "A calendar for Augsburg, dated '1478' on a leather finding tab. Generally, headings in this calendar are in Latin and discursive text in German, with some exceptions."
+  },
+  {
+    "index": 155,
+    "signatures": "Fol.  75v",
+    "pagenum": 149,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 156,
+    "signatures": "Fol.  76r",
+    "pagenum": 150,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 157,
+    "signatures": "Fol.  76v",
+    "pagenum": 151,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 158,
+    "signatures": "Fol.  77r",
+    "pagenum": 152,
+    "category": "Time and Calendars",
+    "description": "Beginning of February. Many pages in this calendar appear to have been annotated at several points in time."
+  },
+  {
+    "index": 159,
+    "signatures": "Fol.  77v",
+    "pagenum": 153,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 160,
+    "signatures": "Fol.  78r",
+    "pagenum": 154,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 161,
+    "signatures": "Fol.  78v",
+    "pagenum": 155,
+    "category": "Time and Calendars",
+    "description": "Beginning of March."
+  },
+  {
+    "index": 162,
+    "signatures": "Fol.  79r",
+    "pagenum": 156,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 163,
+    "signatures": "Fol.  79v",
+    "pagenum": 157,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 164,
+    "signatures": "Fol.  80r",
+    "pagenum": 158,
+    "category": "Time and Calendars",
+    "description": "Beginning of April."
+  },
+  {
+    "index": 165,
+    "signatures": "Fol.  80v",
+    "pagenum": 159,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 166,
+    "signatures": "Fol.  81r",
+    "pagenum": 160,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 167,
+    "signatures": "Fol.  81v",
+    "pagenum": 161,
+    "category": "Time and Calendars",
+    "description": "Beginning of May."
+  },
+  {
+    "index": 168,
+    "signatures": "Fol.  82r",
+    "pagenum": 162,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 169,
+    "signatures": "Fol.  82v",
+    "pagenum": 163,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 170,
+    "signatures": "Fol.  83r",
+    "pagenum": 164,
+    "category": "Time and Calendars",
+    "description": "Beginning of June."
+  },
+  {
+    "index": 171,
+    "signatures": "Fol.  83v",
+    "pagenum": 165,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 172,
+    "signatures": "Fol.  84r",
+    "pagenum": 166,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 173,
+    "signatures": "Fol.  84v",
+    "pagenum": 167,
+    "category": "Time and Calendars",
+    "description": "Beginnng of July."
+  },
+  {
+    "index": 174,
+    "signatures": "Fol.  85r",
+    "pagenum": 168,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 175,
+    "signatures": "Fol.  85v",
+    "pagenum": 169,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 176,
+    "signatures": "Fol.  86r",
+    "pagenum": 170,
+    "category": "Time and Calendars",
+    "description": "Beginning of August."
+  },
+  {
+    "index": 177,
+    "signatures": "Fol.  86v",
+    "pagenum": 171,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 178,
+    "signatures": "Fol.  87r",
+    "pagenum": 172,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 179,
+    "signatures": "Fol.  87v",
+    "pagenum": 173,
+    "category": "Time and Calendars",
+    "description": "Beginning of September."
+  },
+  {
+    "index": 180,
+    "signatures": "Fol.  88r",
+    "pagenum": 174,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 181,
+    "signatures": "Fol.  88v",
+    "pagenum": 175,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 182,
+    "signatures": "Fol.  89r",
+    "pagenum": 176,
+    "category": "Time and Calendars",
+    "description": "Beginning of October."
+  },
+  {
+    "index": 183,
+    "signatures": "Fol.  89v",
+    "pagenum": 177,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 184,
+    "signatures": "Fol.  90r",
+    "pagenum": 178,
+    "category": "Time and Calendars",
+    "description": "The red ink appears to have damaged this page."
+  },
+  {
+    "index": 185,
+    "signatures": "Fol.  90v",
+    "pagenum": 179,
+    "category": "Time and Calendars",
+    "description": "Beginning of November."
+  },
+  {
+    "index": 186,
+    "signatures": "Fol.  91r",
+    "pagenum": 180,
+    "category": "Time and Calendars",
+    "description": "Line 2 on this page, 'Sol in sagitario,' speaks to the coexistence of liturgical and astrological temporalities in medieval calendars."
+  },
+  {
+    "index": 187,
+    "signatures": "Fol.  91v",
+    "pagenum": 181,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 188,
+    "signatures": "Fol.  92r",
+    "pagenum": 182,
+    "category": "Time and Calendars",
+    "description": "Beginning of December."
+  },
+  {
+    "index": 189,
+    "signatures": "Fol.  92v",
+    "pagenum": 183,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 190,
+    "signatures": "Fol.  93r",
+    "pagenum": 184,
+    "category": "Time and Calendars",
+    "description": "At the top of this page is 'Natiuitas ih[es]u [christ]i,' or Christmas, using conventional abbreviations for 'Jesus Christ' drawn from the Latin and Greek alphabets."
+  },
+  {
+    "index": 191,
+    "signatures": "Fol.  93v",
+    "pagenum": 185,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 192,
+    "signatures": "Fol.  94r",
+    "pagenum": 186,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 193,
+    "signatures": "Fol.  94v",
+    "pagenum": 187,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 194,
+    "signatures": "Fol.  95r",
+    "pagenum": 188,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 195,
+    "signatures": "Fol.  95v",
+    "pagenum": 189,
+    "category": "Doodles",
+    "description": "Alphabet practice and proverbs copied by Veit: 'Von Mir Veito Engelharto Holtz- / schuhero Noricus: / Mens pia mens hilaris mens libera / et artis amatrix / Hae sunt diuitiae quas Studios[us] habet / 1589 / Wer Gott Vertraut / Hat Wol Gebaut / In Himell Vnt Auf Erden.'"
+  },
+  {
+    "index": 196,
+    "signatures": "Fol.  96r",
+    "pagenum": 190,
+    "category": "Doodles",
+    "description": "Cancelled inscriptions by Veit (including 'Vom hern Veit Engelhart Holtzschu- / her Noricus') and alphabet practice."
+  },
+  {
+    "index": 197,
+    "signatures": "Fol.  96v",
+    "pagenum": 191,
+    "category": "Doodles",
+    "description": "Latin and Greek letter practice."
+  },
+  {
+    "index": 198,
+    "signatures": "Fol.  97r",
+    "pagenum": 192,
+    "category": "Time and Calendars",
+    "description": "A portion of Regiomontanus's Calendarium based on a Venetian edition from 1478, with a leather finding tab marked 'III."
+  },
+  {
+    "index": 199,
+    "signatures": "Fol.  97v",
+    "pagenum": 193,
+    "category": "Time and Calendars",
+    "description": "From 97v to 109r, versos have tables for the new and full moon in the years 1475, 1494, and 1513, while rectos have a calendar that includes astronomical information."
+  },
+  {
+    "index": 200,
+    "signatures": "Fol.  98r",
+    "pagenum": 194,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 201,
+    "signatures": "Fol.  98v",
+    "pagenum": 195,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 202,
+    "signatures": "Fol.  99r",
+    "pagenum": 196,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 203,
+    "signatures": "Fol.  99v",
+    "pagenum": 197,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 204,
+    "signatures": "Fol.  100r",
+    "pagenum": 198,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 205,
+    "signatures": "Fol.  100v",
+    "pagenum": 199,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 206,
+    "signatures": "Fol.  101r",
+    "pagenum": 200,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 207,
+    "signatures": "Fol.  101v",
+    "pagenum": 201,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 208,
+    "signatures": "Fol.  102r",
+    "pagenum": 202,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 209,
+    "signatures": "Fol.  102v",
+    "pagenum": 203,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 210,
+    "signatures": "Fol.  103r",
+    "pagenum": 204,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 211,
+    "signatures": "Fol.  103v",
+    "pagenum": 205,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 212,
+    "signatures": "Fol.  104r",
+    "pagenum": 206,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 213,
+    "signatures": "Fol.  104v",
+    "pagenum": 207,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 214,
+    "signatures": "Fol.  105r",
+    "pagenum": 208,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 215,
+    "signatures": "Fol.  105v",
+    "pagenum": 209,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 216,
+    "signatures": "Fol.  106r",
+    "pagenum": 210,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 217,
+    "signatures": "Fol.  106v",
+    "pagenum": 211,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 218,
+    "signatures": "Fol.  107r",
+    "pagenum": 212,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 219,
+    "signatures": "Fol.  107v",
+    "pagenum": 213,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 220,
+    "signatures": "Fol.  108r",
+    "pagenum": 214,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 221,
+    "signatures": "Fol.  108v",
+    "pagenum": 215,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 222,
+    "signatures": "Fol.  109r",
+    "pagenum": 216,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 223,
+    "signatures": "Fol.  109v",
+    "pagenum": 217,
+    "category": "Time and Calendars",
+    "description": "Many editions of Regiomontanus’s Calendarium included a 'tabula regionum' like this one, i.e. a table comparing time allowances and latitudes for different locations, allowing readers to adapt the calculations in the Calendarium to other places."
+  },
+  {
+    "index": 224,
+    "signatures": "Fol.  110r",
+    "pagenum": 218,
+    "category": "Stars and Planets",
+    "description": "Diagrams of eclipses predicted between 1475 and 1479."
+  },
+  {
+    "index": 225,
+    "signatures": "Fol.  110v",
+    "pagenum": 219,
+    "category": "Stars and Planets",
+    "description": "Eclipse diagrams, 1479-82."
+  },
+  {
+    "index": 226,
+    "signatures": "Fol.  111r",
+    "pagenum": 220,
+    "category": "Stars and Planets",
+    "description": "Eclipse diagrams, 1483-87."
+  },
+  {
+    "index": 227,
+    "signatures": "Fol.  111v",
+    "pagenum": 221,
+    "category": "Stars and Planets",
+    "description": "Eclipse diagrams, 1487-91."
+  },
+  {
+    "index": 228,
+    "signatures": "Fol.  112r",
+    "pagenum": 222,
+    "category": "Stars and Planets",
+    "description": "Eclipse diagrams, 1493-97."
+  },
+  {
+    "index": 229,
+    "signatures": "Fol.  112v",
+    "pagenum": 223,
+    "category": "Stars and Planets",
+    "description": "Eclipse diagrams, 1497-1504."
+  },
+  {
+    "index": 230,
+    "signatures": "Fol.  113r",
+    "pagenum": 224,
+    "category": "Stars and Planets",
+    "description": "Eclipse diagrams, 1505-13."
+  },
+  {
+    "index": 231,
+    "signatures": "Fol.  113v",
+    "pagenum": 225,
+    "category": "Stars and Planets",
+    "description": "Eclipse diagrams, 1515-18. A folio may be missing at this point, as early editions included the years up to 1530."
+  },
+  {
+    "index": 232,
+    "signatures": "Fol.  114r",
+    "pagenum": 226,
+    "category": "Time and Calendars",
+    "description": "Instrvmentvm Horarvm Ineqvalium.' This folio consists of two pieces of paper pasted together."
+  },
+  {
+    "index": 233,
+    "signatures": "Fol.  114v",
+    "pagenum": 227,
+    "category": "Stars and Planets",
+    "description": "An instrument, titled 'Instrvmentvm Veri Motvs Lvnae,' that depicts the motion of the moon. This folio consists of two pieces of paper pasted together."
+  },
+  {
+    "index": 234,
+    "signatures": "Fol.  115r",
+    "pagenum": 228,
+    "category": "Time and Calendars",
+    "description": "Golden numbers and dominical letters, as on 72r."
+  },
+  {
+    "index": 235,
+    "signatures": "Fol.  115v",
+    "pagenum": 229,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 236,
+    "signatures": "Fol.  116r",
+    "pagenum": 230,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 237,
+    "signatures": "Fol.  116v",
+    "pagenum": 231,
+    "category": "Time and Calendars",
+    "description": "Tabvla Festorvm Mobilivm' (Table of Moveable Feasts)."
+  },
+  {
+    "index": 238,
+    "signatures": "Fol.  117r",
+    "pagenum": 232,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 239,
+    "signatures": "Fol.  117v",
+    "pagenum": 233,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 240,
+    "signatures": "Fol.  118r",
+    "pagenum": 234,
+    "category": "Stars and Planets",
+    "description": "An explanation of lunar eclipses."
+  },
+  {
+    "index": 241,
+    "signatures": "Fol.  118v",
+    "pagenum": 235,
+    "category": "Time and Calendars",
+    "description": "Beginning of a section titled 'De Loco Solis Vero' (On the True Position of the Sun)."
+  },
+  {
+    "index": 242,
+    "signatures": "Fol.  119r",
+    "pagenum": 236,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 243,
+    "signatures": "Fol.  119v",
+    "pagenum": 237,
+    "category": "Time and Calendars",
+    "description": "Beginning of a section titled 'De Loco Lvnae Vero' (On the True Position of the Moon)."
+  },
+  {
+    "index": 244,
+    "signatures": "Fol.  120r",
+    "pagenum": 238,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 245,
+    "signatures": "Fol.  120v",
+    "pagenum": 239,
+    "category": "Time and Calendars",
+    "description": "The text in the margin is intended to be added where indicated by a cross sign (in the third line after the table)."
+  },
+  {
+    "index": 246,
+    "signatures": "Fol.  121r",
+    "pagenum": 240,
+    "category": "Stars and Planets",
+    "description": "Descriptions of the attributes of the twelve signs (e.g. Aries is a hot and dry fire sign)."
+  },
+  {
+    "index": 247,
+    "signatures": "Fol.  121v",
+    "pagenum": 241,
+    "category": "Stars and Planets",
+    "description": "Descriptions of the attributes of the twelve signs (Capricorn-Pisces)."
+  },
+  {
+    "index": 248,
+    "signatures": "Fol.  122r",
+    "pagenum": 242,
+    "category": "Time and Calendars",
+    "description": "More information about golden numbers and the 19-year period known as the Metonic cycle."
+  },
+  {
+    "index": 249,
+    "signatures": "Fol.  122v",
+    "pagenum": 243,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 250,
+    "signatures": "Fol.  123r",
+    "pagenum": 244,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 251,
+    "signatures": "Fol.  123v",
+    "pagenum": 245,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 252,
+    "signatures": "Fol.  124r",
+    "pagenum": 246,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 253,
+    "signatures": "Fol.  124v",
+    "pagenum": 247,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 254,
+    "signatures": "Fol.  125r",
+    "pagenum": 248,
+    "category": "Doodles",
+    "description": "All of the text on this page has been cancelled except for the year: '1582 / Veit georg Holtz Schuher / von nürnberg / Anno Domini.'"
+  },
+  {
+    "index": 255,
+    "signatures": "Fol.  125v",
+    "pagenum": 249,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 256,
+    "signatures": "Fol.  126r",
+    "pagenum": 250,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 257,
+    "signatures": "Fol.  126v",
+    "pagenum": 251,
+    "category": "Doodles",
+    "description": "Doodles based on the alphabet."
+  },
+  {
+    "index": 258,
+    "signatures": "Fol.  127r",
+    "pagenum": 252,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 259,
+    "signatures": "Fol.  127v",
+    "pagenum": 253,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 260,
+    "signatures": "Fol.  128r",
+    "pagenum": 254,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 261,
+    "signatures": "Fol.  128v",
+    "pagenum": 255,
+    "category": "Doodles",
+    "description": "Alphabet practice."
+  },
+  {
+    "index": 262,
+    "signatures": "Fol.  129r",
+    "pagenum": 256,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 263,
+    "signatures": "Fol.  129v",
+    "pagenum": 257,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 264,
+    "signatures": "Fol.  130r",
+    "pagenum": 258,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 265,
+    "signatures": "Fol.  130v",
+    "pagenum": 259,
+    "category": "Doodles",
+    "description": "'Veit Görg.'"
+  },
+  {
+    "index": 266,
+    "signatures": "Fol.  131r",
+    "pagenum": 260,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 267,
+    "signatures": "Fol.  131v",
+    "pagenum": 261,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 268,
+    "signatures": "Fol.  132r",
+    "pagenum": 262,
+    "category": "Time and Calendars",
+    "description": "The preface of a lunar and solar calendar for the diocese of Augsburg. Marked with a leather finding tab ('IV')."
+  },
+  {
+    "index": 269,
+    "signatures": "Fol.  132v",
+    "pagenum": 263,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 270,
+    "signatures": "Fol.  133r",
+    "pagenum": 264,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 271,
+    "signatures": "Fol.  133v",
+    "pagenum": 265,
+    "category": "Time and Calendars",
+    "description": "Text has been cancelled and emended."
+  },
+  {
+    "index": 272,
+    "signatures": "Fol.  134r",
+    "pagenum": 266,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 273,
+    "signatures": "Fol.  134v",
+    "pagenum": 267,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 274,
+    "signatures": "Fol.  135r",
+    "pagenum": 268,
+    "category": "Time and Calendars",
+    "description": "Notes in Latin have been added in another hand."
+  },
+  {
+    "index": 275,
+    "signatures": "Fol.  135v",
+    "pagenum": 269,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 276,
+    "signatures": "Fol.  136r",
+    "pagenum": 270,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 277,
+    "signatures": "Fol.  136v",
+    "pagenum": 271,
+    "category": "Time and Calendars",
+    "description": "From 136v to 143v, versos have a lunar calendar and rectos have a very incomplete solar calendar."
+  },
+  {
+    "index": 278,
+    "signatures": "Fol.  137r",
+    "pagenum": 272,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 279,
+    "signatures": "Fol.  137v",
+    "pagenum": 273,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 280,
+    "signatures": "Fol.  138r",
+    "pagenum": 274,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 281,
+    "signatures": "Fol.  138v",
+    "pagenum": 275,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 282,
+    "signatures": "Fol.  139r",
+    "pagenum": 276,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 283,
+    "signatures": "Fol.  139v",
+    "pagenum": 277,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 284,
+    "signatures": "Fol.  140r",
+    "pagenum": 278,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 285,
+    "signatures": "Fol.  140v",
+    "pagenum": 279,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 286,
+    "signatures": "Fol.  141r",
+    "pagenum": 280,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 287,
+    "signatures": "Fol.  141v",
+    "pagenum": 281,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 288,
+    "signatures": "Fol.  142r",
+    "pagenum": 282,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 289,
+    "signatures": "Fol.  142v",
+    "pagenum": 283,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 290,
+    "signatures": "Fol.  143r",
+    "pagenum": 284,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 291,
+    "signatures": "Fol.  143v",
+    "pagenum": 285,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 292,
+    "signatures": "Fol.  144r",
+    "pagenum": 286,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 293,
+    "signatures": "Fol.  144v",
+    "pagenum": 287,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 294,
+    "signatures": "Fol.  145r",
+    "pagenum": 288,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 295,
+    "signatures": "Fol.  145v",
+    "pagenum": 289,
+    "category": "Time and Calendars",
+    "description": "Astrological chart using antiquated terms for certain months (e.g. 'Brachmo[nat]' for June)."
+  },
+  {
+    "index": 296,
+    "signatures": "Fol.  146r",
+    "pagenum": 290,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 297,
+    "signatures": "Fol.  146v",
+    "pagenum": 291,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 298,
+    "signatures": "Fol.  147r",
+    "pagenum": 292,
+    "category": "Stars and Planets",
+    "description": "The top rubric is in German, and introduces the text that follows as a preface on the twelve zodiac signs: 'Ein vorred vber die / zwelf zaichen des hy- / mels hernachgeschri- / ben.' The final rubric on this page is in Latin: 'Regimen duodecim Signorum' (the Rule of the Twelve Signs). Marked with a leather finding tab ('V')."
+  },
+  {
+    "index": 299,
+    "signatures": "Fol.  147v",
+    "pagenum": 293,
+    "category": "Stars and Planets",
+    "description": "Rubric: 'Von der natur vnd aigenschaft des Wi- ders' (On the Nature and Property of Aries). Several pages have been lost after this point, likely containing information on the signs from Aries through Libra."
+  },
+  {
+    "index": 300,
+    "signatures": "Fol.  148r",
+    "pagenum": 294,
+    "category": "Stars and Planets",
+    "description": "The section on Scorpio begins with a rubricated title and an illustration."
+  },
+  {
+    "index": 301,
+    "signatures": "Fol.  148v",
+    "pagenum": 295,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 302,
+    "signatures": "Fol.  149r",
+    "pagenum": 296,
+    "category": "Stars and Planets",
+    "description": "Beginning of the section on the Archer (i.e. Sagittarius)."
+  },
+  {
+    "index": 303,
+    "signatures": "Fol.  149v",
+    "pagenum": 297,
+    "category": "Stars and Planets",
+    "description": "Conclusion of the section on Sagittarius and beginning of Capricorn."
+  },
+  {
+    "index": 304,
+    "signatures": "Fol.  150r",
+    "pagenum": 298,
+    "category": "Stars and Planets",
+    "description": "On Capricorn, with a damaged illustration."
+  },
+  {
+    "index": 305,
+    "signatures": "Fol.  150v",
+    "pagenum": 299,
+    "category": "Stars and Planets",
+    "description": "Beginning of the section on the 'Wassermanne' (Aquarius)."
+  },
+  {
+    "index": 306,
+    "signatures": "Fol.  151r",
+    "pagenum": 300,
+    "category": "Stars and Planets",
+    "description": "Beginning of the section on the 'Visch' (Pisces)."
+  },
+  {
+    "index": 307,
+    "signatures": "Fol.  151v",
+    "pagenum": 301,
+    "category": "Stars and Planets",
+    "description": "Conclusion of the treatise on the twelve signs."
+  },
+  {
+    "index": 308,
+    "signatures": "Fol.  152r",
+    "pagenum": 302,
+    "category": "Time and Calendars",
+    "description": "This text on the influence of each month on humans begins with January, and is marked with a leather finding tab ('VI')."
+  },
+  {
+    "index": 309,
+    "signatures": "Fol.  152v",
+    "pagenum": 303,
+    "category": "Time and Calendars",
+    "description": "February; March."
+  },
+  {
+    "index": 310,
+    "signatures": "Fol.  153r",
+    "pagenum": 304,
+    "category": "Time and Calendars",
+    "description": "April."
+  },
+  {
+    "index": 311,
+    "signatures": "Fol.  153v",
+    "pagenum": 305,
+    "category": "Time and Calendars",
+    "description": "May; June."
+  },
+  {
+    "index": 312,
+    "signatures": "Fol.  154r",
+    "pagenum": 306,
+    "category": "Time and Calendars",
+    "description": "July; August."
+  },
+  {
+    "index": 313,
+    "signatures": "Fol.  154v",
+    "pagenum": 307,
+    "category": "Time and Calendars",
+    "description": "September; October."
+  },
+  {
+    "index": 314,
+    "signatures": "Fol.  155r",
+    "pagenum": 308,
+    "category": "Time and Calendars",
+    "description": "November."
+  },
+  {
+    "index": 315,
+    "signatures": "Fol.  155v",
+    "pagenum": 309,
+    "category": "Time and Calendars",
+    "description": "December."
+  },
+  {
+    "index": 316,
+    "signatures": "Fol.  156r",
+    "pagenum": 310,
+    "category": "Stars and Planets",
+    "description": "The beginning of another text on the zodiac signs and their effects on humans, including the specificities of the three parts (decades) of each sign. (German opening rubric: 'Von den zwelf zaichen der himel, vnd ye- / des zaichen getailt in drew tail, vnd we- / licher mensch in yedem tail geborn wird, / was natur vnd aigenschaft der selb mensch / an im hab, vnd gewynne. Zum ersten von / der natur vnd aigenschaft des widers.')"
+  },
+  {
+    "index": 317,
+    "signatures": "Fol.  156v",
+    "pagenum": 311,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 318,
+    "signatures": "Fol.  157r",
+    "pagenum": 312,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 319,
+    "signatures": "Fol.  157v",
+    "pagenum": 313,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 320,
+    "signatures": "Fol.  158r",
+    "pagenum": 314,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Taurus ('der Stier')."
+  },
+  {
+    "index": 321,
+    "signatures": "Fol.  158v",
+    "pagenum": 315,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 322,
+    "signatures": "Fol.  159r",
+    "pagenum": 316,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 323,
+    "signatures": "Fol.  159v",
+    "pagenum": 317,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Gemini ('die Zwiling')."
+  },
+  {
+    "index": 324,
+    "signatures": "Fol.  160r",
+    "pagenum": 318,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 325,
+    "signatures": "Fol.  160v",
+    "pagenum": 319,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 326,
+    "signatures": "Fol.  161r",
+    "pagenum": 320,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Cancer ('der Krepps')."
+  },
+  {
+    "index": 327,
+    "signatures": "Fol.  161v",
+    "pagenum": 321,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 328,
+    "signatures": "Fol.  162r",
+    "pagenum": 322,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Leo ('der Leo')."
+  },
+  {
+    "index": 329,
+    "signatures": "Fol.  162v",
+    "pagenum": 323,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 330,
+    "signatures": "Fol.  163r",
+    "pagenum": 324,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Virgo ('der Junckfravv/Junckfrawen')."
+  },
+  {
+    "index": 331,
+    "signatures": "Fol.  163v",
+    "pagenum": 325,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 332,
+    "signatures": "Fol.  164r",
+    "pagenum": 326,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Libra ('der wag')."
+  },
+  {
+    "index": 333,
+    "signatures": "Fol.  164v",
+    "pagenum": 327,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 334,
+    "signatures": "Fol.  165r",
+    "pagenum": 328,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Scorpio ('der Scorpion')."
+  },
+  {
+    "index": 335,
+    "signatures": "Fol.  165v",
+    "pagenum": 329,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Sagittarius ('der Schutz')."
+  },
+  {
+    "index": 336,
+    "signatures": "Fol.  166r",
+    "pagenum": 330,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 337,
+    "signatures": "Fol.  166v",
+    "pagenum": 331,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Capricorn ('der Stambock')."
+  },
+  {
+    "index": 338,
+    "signatures": "Fol.  167r",
+    "pagenum": 332,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 339,
+    "signatures": "Fol.  167v",
+    "pagenum": 333,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Aquarius ('der Wasserman'), with increasingly ornate rubricated letters."
+  },
+  {
+    "index": 340,
+    "signatures": "Fol.  168r",
+    "pagenum": 334,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 341,
+    "signatures": "Fol.  168v",
+    "pagenum": 335,
+    "category": "Stars and Planets",
+    "description": "Beginning of the discussion of Pisces ('der Visch')."
+  },
+  {
+    "index": 342,
+    "signatures": "Fol.  169r",
+    "pagenum": 336,
+    "category": "Time and Calendars",
+    "description": "End of the text on the signs and beginning of a text on the days of the week, with Monday ('Montag') farther down on the page."
+  },
+  {
+    "index": 343,
+    "signatures": "Fol.  169v",
+    "pagenum": 337,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 344,
+    "signatures": "Fol.  170r",
+    "pagenum": 338,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 345,
+    "signatures": "Fol.  170v",
+    "pagenum": 339,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 346,
+    "signatures": "Fol.  171r",
+    "pagenum": 340,
+    "category": "Time and Calendars",
+    "description": "Further discussion of the days of the week: Sonntage; Montag; Afftermontag; Mitwochen; Donrstag (Sunday; Monday; Tuesday; Wednesday; Thursday)."
+  },
+  {
+    "index": 347,
+    "signatures": "Fol.  171v",
+    "pagenum": 341,
+    "category": "Time and Calendars",
+    "description": "Conclusion of the days of the week: Freytag; Sambstag (Friday; Saturday). Beginning of a description of the appropriate labours for each month of the year."
+  },
+  {
+    "index": 348,
+    "signatures": "Fol.  172r",
+    "pagenum": 342,
+    "category": "Time and Calendars",
+    "description": "Labours for February (which was simply keeping warm); March; April."
+  },
+  {
+    "index": 349,
+    "signatures": "Fol.  172v",
+    "pagenum": 343,
+    "category": "Time and Calendars",
+    "description": "May; June; July."
+  },
+  {
+    "index": 350,
+    "signatures": "Fol.  173r",
+    "pagenum": 344,
+    "category": "Time and Calendars",
+    "description": "August; September; October."
+  },
+  {
+    "index": 351,
+    "signatures": "Fol.  173v",
+    "pagenum": 345,
+    "category": "Time and Calendars",
+    "description": "November; December. Beginning of a section on planetary influences and the weather."
+  },
+  {
+    "index": 352,
+    "signatures": "Fol.  174r",
+    "pagenum": 346,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 353,
+    "signatures": "Fol.  174v",
+    "pagenum": 347,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 354,
+    "signatures": "Fol.  175r",
+    "pagenum": 348,
+    "category": "Time and Calendars",
+    "description": "Descriptions of the influences of the months on humans."
+  },
+  {
+    "index": 355,
+    "signatures": "Fol.  175v",
+    "pagenum": 349,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 356,
+    "signatures": "Fol.  176r",
+    "pagenum": 350,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 357,
+    "signatures": "Fol.  176v",
+    "pagenum": 351,
+    "category": "Time and Calendars",
+    "description": ""
+  },
+  {
+    "index": 358,
+    "signatures": "Fol.  177r",
+    "pagenum": 352,
+    "category": "Doodles",
+    "description": "Inscription of 'Veit' in the top margin."
+  },
+  {
+    "index": 359,
+    "signatures": "Fol.  177v",
+    "pagenum": 353,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 360,
+    "signatures": "Fol.  178r",
+    "pagenum": 354,
+    "category": "Stars and Planets",
+    "description": "The medallion on this page shows Ursa Major (the Great Bear), the first constellation enumerated by Michael Scotus in his Liber introductorius. The text attributes its German-language descriptions of Scotus's constellations to Kaspar Engelsüss. Marked with a leather finding tab ('VII')."
+  },
+  {
+    "index": 361,
+    "signatures": "Fol.  178v",
+    "pagenum": 355,
+    "category": "Stars and Planets",
+    "description": "Ursa Minor (the Little Bear) and Draco (the Dragon). Several pages have been removed after this folio, and eleven constellations from Michael Scotus's list are missing from this manuscript."
+  },
+  {
+    "index": 362,
+    "signatures": "Fol.  179r",
+    "pagenum": 356,
+    "category": "Stars and Planets",
+    "description": "This constellation (Triangulum) falls between Aries and Pisces. Absent from the page is an illustration of a hen with chicks (likely the Pleiades)."
+  },
+  {
+    "index": 363,
+    "signatures": "Fol.  179v",
+    "pagenum": 357,
+    "category": "Stars and Planets",
+    "description": "Two summer constellations: Lyra (the Lyre, damaged) and a charmingly realistic Cygnus (the Swan)."
+  },
+  {
+    "index": 364,
+    "signatures": "Fol.  180r",
+    "pagenum": 358,
+    "category": "Stars and Planets",
+    "description": "On the left is Vultur Volans (the Flying Vulture), corresponding to the modern constellation Aquila (the Eagle). On the right is Vultur Cadens (the Falling Vulture), a common Roman name for Lyra, although Scotus includes both."
+  },
+  {
+    "index": 365,
+    "signatures": "Fol.  180v",
+    "pagenum": 359,
+    "category": "Stars and Planets",
+    "description": "Many artists in this period depicted Cetus (the Whale or Sea Monster) with a humanlike head, making this striking image nonetheless quite conventional. The same cannot be said of this drawing of Delphinus (the Dolphin), which resembles a goat-hedgehog hybrid."
+  },
+  {
+    "index": 366,
+    "signatures": "Fol.  181r",
+    "pagenum": 360,
+    "category": "Stars and Planets",
+    "description": "Argo Navis; Astronothus (a term for the Southern Pole, represented as a church building); “Jacobusstraße” (Jacob’s Road, possibly related to the Milky Way)."
+  },
+  {
+    "index": 367,
+    "signatures": "Fol.  181v",
+    "pagenum": 361,
+    "category": "Stars and Planets",
+    "description": "Piscis Austrinus (the Great Fish) and Puteus (the Altar)."
+  },
+  {
+    "index": 368,
+    "signatures": "Fol.  182r",
+    "pagenum": 362,
+    "category": "Stars and Planets",
+    "description": "Centaurus, with a gash cut into the face; Corvus atop Hydra. Corvus has been damaged by a reader cutting out Canis Minor on the verso."
+  },
+  {
+    "index": 369,
+    "signatures": "Fol.  182v",
+    "pagenum": 363,
+    "category": "Stars and Planets",
+    "description": "Remnants of Canis Minor, which has been cut out of the book; Tarabellum (the Drill, a constellation invented by Michael Scotus)."
+  },
+  {
+    "index": 370,
+    "signatures": "Fol.  183r",
+    "pagenum": 364,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 371,
+    "signatures": "Fol.  183v",
+    "pagenum": 365,
+    "category": "Stars and Planets",
+    "description": "A treatise on the seven planets, beginning with the farthest from Earth that was known during this period (Saturn). In the Middle Ages, the 'seven planets' included the sun and moon, but not Uranus or Neptune, which were discovered in the eighteenth and nineteenth centuries, respectively. All of the illustrations in this text have been cut out of the manuscript."
+  },
+  {
+    "index": 372,
+    "signatures": "Fol.  184r",
+    "pagenum": 366,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 373,
+    "signatures": "Fol.  184v",
+    "pagenum": 367,
+    "category": "Stars and Planets",
+    "description": "Description of Jupiter."
+  },
+  {
+    "index": 374,
+    "signatures": "Fol.  185r",
+    "pagenum": 368,
+    "category": "Stars and Planets",
+    "description": "Description of Mars."
+  },
+  {
+    "index": 375,
+    "signatures": "Fol.  185v",
+    "pagenum": 369,
+    "category": "Stars and Planets",
+    "description": "Likely the beginning of a description of the sun."
+  },
+  {
+    "index": 376,
+    "signatures": "Fol.  186r",
+    "pagenum": 370,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 377,
+    "signatures": "Fol.  186v",
+    "pagenum": 371,
+    "category": "Stars and Planets",
+    "description": "Likely the beginning of a description of Venus. The removal of two illustrations on this folio has considerably damaged the text."
+  },
+  {
+    "index": 378,
+    "signatures": "Fol.  187r",
+    "pagenum": 372,
+    "category": "Stars and Planets",
+    "description": "Description of Mercury."
+  },
+  {
+    "index": 379,
+    "signatures": "Fol.  187v",
+    "pagenum": 373,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 380,
+    "signatures": "Fol.  188r",
+    "pagenum": 374,
+    "category": "Stars and Planets",
+    "description": "Description of the moon."
+  },
+  {
+    "index": 381,
+    "signatures": "Fol.  188v",
+    "pagenum": 375,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 382,
+    "signatures": "Fol.  189r",
+    "pagenum": 376,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 383,
+    "signatures": "Fol.  189v",
+    "pagenum": 377,
+    "category": "Stars and Planets",
+    "description": ""
+  },
+  {
+    "index": 384,
+    "signatures": "Fol.  190r",
+    "pagenum": 378,
+    "category": "Medicine",
+    "description": "This page contains a brief summary of the four 'complexions' (or temperaments) in humoral theory: Choleric (named for yellow bile; hot and dry), Sanguine (named for blood; hot and wet), Phlegmatic (phlegm; cold and dry), and Melancholic (black bile; cold and wet)."
+  },
+  {
+    "index": 385,
+    "signatures": "Fol.  190v",
+    "pagenum": 379,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 386,
+    "signatures": "Fol.  191r",
+    "pagenum": 380,
+    "category": "Doodles",
+    "description": "A reference to the year '1589."
+  },
+  {
+    "index": 387,
+    "signatures": "Fol.  191v",
+    "pagenum": 381,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 388,
+    "signatures": "Fol.  192r",
+    "pagenum": 382,
+    "category": "Doodles",
+    "description": "A reference to the year '1589."
+  },
+  {
+    "index": 389,
+    "signatures": "Fol.  192v",
+    "pagenum": 383,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 390,
+    "signatures": "Fol.  193r",
+    "pagenum": 384,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 391,
+    "signatures": "Fol.  193v",
+    "pagenum": 385,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 392,
+    "signatures": "Fol.  194r",
+    "pagenum": 386,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 393,
+    "signatures": "Fol.  194v",
+    "pagenum": 387,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 394,
+    "signatures": "Fol.  195r",
+    "pagenum": 388,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 395,
+    "signatures": "Fol.  195v",
+    "pagenum": 389,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 396,
+    "signatures": "Fol.  196r",
+    "pagenum": 390,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 397,
+    "signatures": "Fol.  196v",
+    "pagenum": 391,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 398,
+    "signatures": "Fol.  197r",
+    "pagenum": 392,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 399,
+    "signatures": "Fol.  197v",
+    "pagenum": 393,
+    "category": "Doodles",
+    "description": "The manicule on this page points to the beginning of the next text."
+  },
+  {
+    "index": 400,
+    "signatures": "Fol.  198r",
+    "pagenum": 394,
+    "category": "Medicine",
+    "description": "A medical text in the Regimen sanitatis genre, describing holistic methods of preserving health and warding off disease, with a leather finding tab ('VIII')."
+  },
+  {
+    "index": 401,
+    "signatures": "Fol.  198v",
+    "pagenum": 395,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 402,
+    "signatures": "Fol.  199r",
+    "pagenum": 396,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 403,
+    "signatures": "Fol.  199v",
+    "pagenum": 397,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 404,
+    "signatures": "Fol.  200r",
+    "pagenum": 398,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 405,
+    "signatures": "Fol.  200v",
+    "pagenum": 399,
+    "category": "Medicine",
+    "description": "The text begins to address each part of the body in turn, beginning with the forehead ('der Stirn,' col. 2, line 2) and other parts of the head."
+  },
+  {
+    "index": 406,
+    "signatures": "Fol.  201r",
+    "pagenum": 400,
+    "category": "Medicine",
+    "description": "Includes passages on the eyes, ears, and nose."
+  },
+  {
+    "index": 407,
+    "signatures": "Fol.  201v",
+    "pagenum": 401,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 408,
+    "signatures": "Fol.  202r",
+    "pagenum": 402,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 409,
+    "signatures": "Fol.  202v",
+    "pagenum": 403,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 410,
+    "signatures": "Fol.  203r",
+    "pagenum": 404,
+    "category": "Medicine",
+    "description": "Having dealt with arms on the previous folio (e.g. 'der Rechten hand' in the first rubricated line on fol. 202v), the text proceeds to legs, including the knee and the large toes ('den grossen zehen,' second rubric in col. 2). Information about the small toes is found on the verso."
+  },
+  {
+    "index": 411,
+    "signatures": "Fol.  203v",
+    "pagenum": 405,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 412,
+    "signatures": "Fol.  204r",
+    "pagenum": 406,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 413,
+    "signatures": "Fol.  204v",
+    "pagenum": 407,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 414,
+    "signatures": "Fol.  205r",
+    "pagenum": 408,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 415,
+    "signatures": "Fol.  205v",
+    "pagenum": 409,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 416,
+    "signatures": "Fol.  206r",
+    "pagenum": 410,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 417,
+    "signatures": "Fol.  206v",
+    "pagenum": 411,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 418,
+    "signatures": "Fol.  207r",
+    "pagenum": 412,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 419,
+    "signatures": "Fol.  207v",
+    "pagenum": 413,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 420,
+    "signatures": "Fol.  208r",
+    "pagenum": 414,
+    "category": "Medicine",
+    "description": "Precautions and remedies against pestilence."
+  },
+  {
+    "index": 421,
+    "signatures": "Fol.  208v",
+    "pagenum": 415,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 422,
+    "signatures": "Fol.  209r",
+    "pagenum": 416,
+    "category": "Medicine",
+    "description": ""
+  },
+  {
+    "index": 423,
+    "signatures": "Fol.  209v",
+    "pagenum": 417,
+    "category": "Medicine",
+    "description": "The text concludes with a Latin explicit: 'Et sic e[st] finis isti[us] libelli de regimine sanitatis contra pestilenciam.' (And so is ended this little book about the health regimen against pestilence.)"
+  },
+  {
+    "index": 424,
+    "signatures": "Fol.  210r",
+    "pagenum": 418,
+    "category": "Time and Calendars",
+    "description": "Tabula regionum, like fol. 109v. A leather finding tab marks this as the final section of the codex ('IX')."
+  },
+  {
+    "index": 425,
+    "signatures": "Fol.  210v",
+    "pagenum": 419,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 426,
+    "signatures": "Fol. 211r",
+    "pagenum": 420,
+    "category": "Doodles",
+    "description": ""
+  },
+  {
+    "index": 427,
+    "signatures": "Unlabeled",
+    "pagenum": 421,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 428,
+    "signatures": "Unlabeled",
+    "pagenum": 422,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 429,
+    "signatures": "Unlabeled",
+    "pagenum": 423,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 430,
+    "signatures": "Unlabeled",
+    "pagenum": 424,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 431,
+    "signatures": "Unlabeled",
+    "pagenum": 425,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 432,
+    "signatures": "Unlabeled",
+    "pagenum": 426,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 433,
+    "signatures": "Unlabeled",
+    "pagenum": 427,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 434,
+    "signatures": "Unlabeled",
+    "pagenum": 428,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 435,
+    "signatures": "Unlabeled",
+    "pagenum": 429,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 436,
+    "signatures": "Unlabeled",
+    "pagenum": 430,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 437,
+    "signatures": "Unlabeled",
+    "pagenum": 431,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 438,
+    "signatures": "Unlabeled",
+    "pagenum": 432,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 439,
+    "signatures": "Unlabeled",
+    "pagenum": 433,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 440,
+    "signatures": "Unlabeled",
+    "pagenum": 434,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 441,
+    "signatures": "Unlabeled",
+    "pagenum": 435,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 442,
+    "signatures": "Unlabeled",
+    "pagenum": 436,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 443,
+    "signatures": "Unlabeled",
+    "pagenum": 437,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 444,
+    "signatures": "Unlabeled",
+    "pagenum": 438,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 445,
+    "signatures": "Unlabeled",
+    "pagenum": 439,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 446,
+    "signatures": "Unlabeled",
+    "pagenum": 440,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 447,
+    "signatures": "Unlabeled",
+    "pagenum": 441,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 448,
+    "signatures": "Unlabeled",
+    "pagenum": 442,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 449,
+    "signatures": "Fol. 222v",
+    "pagenum": 443,
+    "category": "Doodles",
+    "description": "The text here appears to indicate when this book was annotated: 'Anno 1589 Juli'."
+  },
+  {
+    "index": 450,
+    "signatures": "Fol. 223r",
+    "pagenum": 444,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 451,
+    "signatures": "Fol. 223v",
+    "pagenum": 445,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 452,
+    "signatures": "Fol. 224r",
+    "pagenum": 446,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 453,
+    "signatures": "Fol. 224v",
+    "pagenum": 447,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 454,
+    "signatures": "Fol. 225r",
+    "pagenum": 448,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 455,
+    "signatures": "Fol. 225v",
+    "pagenum": 449,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 456,
+    "signatures": "Fol. 226r",
+    "pagenum": 450,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 457,
+    "signatures": "Fol. 226v",
+    "pagenum": 451,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 458,
+    "signatures": "Fol. 227r",
+    "pagenum": 452,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 459,
+    "signatures": "Fol. 227v",
+    "pagenum": 453,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 460,
+    "signatures": "Flyleaf 1 recto",
+    "pagenum": 454,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 461,
+    "signatures": "Flyleaf 1 verso",
+    "pagenum": 455,
+    "category": "Blank",
+    "description": ""
+  },
+  {
+    "index": 462,
+    "signatures": "Inside back cover",
+    "pagenum": 456,
+    "category": "Binding",
+    "description": "Like the inside of the front cover, this board contains a ghost image of the former final folio, now a stub."
+  },
+  {
+    "index": 463,
+    "signatures": "Back cover",
+    "pagenum": 457,
+    "category": "Binding",
+    "description": ""
+  },
+  {
+    "index": 464,
+    "signatures": "blank",
+    "pagenum": 458,
+    "category": "",
     "description": ""
   }
 ]
