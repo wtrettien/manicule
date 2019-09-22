@@ -11,8 +11,10 @@ import SiteContainer from '../SiteContainer'
 import MapView from '../../components/map-view'
 import { setEdition } from '../../reducers/edition'
 
-import im1 from '../../images/manoflaw.jpg'
-import im2 from '../../images/page.png'
+import im1 from '../../images/birds.png'
+import im2 from '../../images/eclipses.jpg'
+import im3 from '../../images/cygnus.jpg'
+import im4 from '../../images/holzschuher.jpg'
 
 export class HomePage extends React.Component {
   constructor(props) {
@@ -34,35 +36,23 @@ export class HomePage extends React.Component {
               <Row>
                 <Col sm={8}>
                   <div className="home-text">
-                  	<h1>Canterbury Tales</h1>
-                  	<h2>Rosenbach MS 1084/2 (ca 1440)</h2>
-                    <img src={im1} className="img-circle" width="200" alt="drawing of the Man of Law" style={{ float: 'right' }} />
+                  	<h1>An Astronomical Anthology</h1>
+                  	<h2>UPenn LJS 445 (c. 1440)</h2>
+                    <img src={im1} width="400" alt="drawing of the Man of Law" style={{ float: 'right' }} />
                     <p>
-                    This manuscript is an eleven-leaf fragment of Geoffrey Chaucer’s <i>The Canterbury Tales</i>, held at the Rosenbach in Philadelphia, Pennsylvania. It includes portions of the <span style={{
-            backgroundColor: '#2550a1',
-          }}>Reeve’s Tale</span>, the <span style={{
-            backgroundColor: '#658539',
-          }}>Cook’s Tale</span>, the <span style={{
-            backgroundColor: '#963f39',          
-          }}>Man of Law’s Tale</span>, the <span style={{
-            backgroundColor: '#365414',          
-          }}>Squire’s Tale</span>, the <span style={{
-            backgroundColor: '#876331',          
-          }}>Canon’s Yeoman’s Tale</span>, the <span style={{
-            backgroundColor: '#b09e8d',          
-          }}>Tale of Sir Thopas</span>, and the <span style={{
-            backgroundColor: '#cae1ed',          
-          }}>Parson’s Tale</span>. These leaves along with two leaves in the John Rylands Library (English MS. 63) are all that survive of the “Oxford Manuscript.”
+                   A late-fifteenth-century astronomical anthology, LJS 445 contains a diverse array of texts that reveal the importance of astronomical principles for a range of medieval pursuits, as well as the fluidity of the boundary between manuscript and early print. Encompassing topics such as medicine, calendrical calculation, and prognostication, this sizeable codex includes material from three print volumes: Johannes Lichtenberger’s <i>Prognosticatio</i>, a book of astronomical predictions first published in 1488, and two editions of Johannes Regiomontanus’s <i>Calendarium</i>, both from the 1470s. In many cases, the scribe reproduces the characteristics of these editions, including title pages and image captions. Yet the layouts and illustrations of LJS 445 also draw on long-standing manuscript traditions and benefit from the greater flexibility of handwritten texts in this period, such as the potential for artists to create richly colored images and moveable volvelles.
                     </p>
                     <p>
-                    <img src={im2} width="200" alt="drawing of the Man of Law" style={{ float: 'left' }} />
-					 This website serves as a demo of the <a href="https://github.com/wtrettien/manicule">Manicule web app</a> for exploring unique books and manuscripts. The <b>Browse</b> view allows you to read the fragments in order, following the modern pagination on the leaves and bifolia. Marginal notes beside each facsimile page indicate which lines from <i>The Canterbury Tales</i> are present; these notes can be changed by altering the <b>description</b> attribute in <b>pages.json</b>. Color-coded categories indicate which tale is present; these categories can also be changed in <b>pages.json</b> and the colors updated in <b>metadata.js</b>. (They have been added by hand to the paragraph above, to demonstrate how to add styles to this text.) The <b>Structure</b> view shows where these fragments are conjoined, or not. This data is stored in <b>structure.xml</b>, which visualizes the format of a book using the <a href="https://github.com/leoba/VisColl">VisColl</a> data model. 
+                    <img src={im2} width="300" alt="drawing of the Man of Law" style={{ float: 'left' }} />
+					 Currently held at the Kislak Center for Special Collections, Rare Books and Manuscripts at the University of Pennsylvania in Philadelphia, LJS 445 can be traced to Bavaria, and particularly to two of the sons of a Nuremberg patrician, Georg Veit (1573-1606) and Veit Engelhard (1581-1656) Holtzschuher. With its irregular quiring and partial copies of certain texts, this codex was likely rebound at least once in its history. Composed of 227 leaves with modern finding tabs, it also contains many signs of use, including spaces where images have been extracted, whimsical doodles, and shaky inscriptions by children learning the alphabet.
                     </p>
 					<p>
-					Images of and information about this manuscript (MS 1084/2) were accessed via <a href="http://openn.library.upenn.edu/Data/0028/html/ms_1084_002.html">OPenn</a>, a repository of CC-licensed high-resolution images of cultural heritage materials along with machine-readable descriptive and technical metadata.
+					This interactive facsimile of LJS 445 is designed to provide a comprehensive introduction to the many remarkable features of this manuscript. Click on <a href="http://aylinmalcolm.com/ljs445/reader">“Browse”</a> to scroll through its pages sequentially, or use the <a href="http://aylinmalcolm.com/ljs445/reader/8">“Tour this edition”</a> option to view a series of “tour stops” highlighting some of its more unusual characteristics. Marginal notes describe the contents of notable pages of this facsimile. Color-coded categories provide information about the content of each page and the thematic composition of the book, although these categories should be regarded as approximations of concepts that were in fact interconnected, given the medieval world view of celestial bodies as exerting influences on terrestrial ones. Finally, the <a href="http://aylinmalcolm.com/ljs445/structure">Structure</a> view uses the VisColl data model to depict the physical makeup of this book, including quires of different sizes as well as missing and inserted leaves.
 					</p>
+					<h2>About the Editor</h2>
 					<p>
-					For instructions on how to install and play with this demo, please see the README of the source code: <a href="https://github.com/wtrettien/manicule">https://github.com/wtrettien/manicule</a>
+					<img src={im3} width="300" alt="drawing of the Man of Law" style={{ float: 'right' }} />
+Aylin Malcolm is a Ph.D. candidate in English at the University of Pennsylvania, with research interests in late medieval poetry, the history of ecological science, and manuscript studies. To find out more about Aylin’s work, visit <a href="http://aylinmalcolm.com">aylinmalcolm.com</a>. Please direct all questions and feedback concerning this edition to Aylin at <a href="mailto: malcolma@sas.upenn.edu">malcolma@sas.upenn.edu</a>.
 					</p>
                     <p className="clear"></p>
 
@@ -78,6 +68,8 @@ export class HomePage extends React.Component {
                     </ListGroupItem>
                   </ListGroup>
                   <MapView currentPage={0} />
+                  <img src={im4} width="300" alt="engraved portrait of Holzschuher" style={{ float: 'right' }} />
+                  <p style={{ opacity: '.5' }}><i>An engraved portrait of Veit Engelhard Holzschuher as an adult. Holzchuher was eight years old when he owned and annotated this book.</i></p> 
 
                 </Col>
               </Row>

@@ -12,9 +12,10 @@
 
   .map-block {
     display: inline-block;
-    width: 13px;
+    width: 8px;
     height: 20px;
-    border: 1px solid $scan-bg;
+    border-left: 2px solid $scan-bg;
+    border-bottom: 2px solid $scan-bg;
     text-align: center;
     &.current-page {
       border: 2px solid $a-light-color;
