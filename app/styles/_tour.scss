@@ -3,7 +3,7 @@
 .tour-panel {
     position: absolute;
     z-index: 2;
-    overflow-y: auto;
+    overflow-y: scroll;
     background: $a-light-color;
     line-height: 1.3em;
     color: $scan-bg;
