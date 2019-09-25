@@ -6,14 +6,14 @@ const testData = require('../data/test/pages.json')
 const testTour = require('../tour/test/tour.json')
 
 const categoryColors = {
-  Binding: '#000000',
-  Doodles: '#2550a1',
-  Blank: '#658539',
-  Prognostication: '#963f39',
-  'Time and Calendars': '#876331',
-  'Stars and Planets': '#b09e8d',
-  Constellations: '#cae1ed',
-  Medicine: '#365414'
+  flyleaf: '#000000',
+  'Reeve’s Tale': '#2550a1',
+  'Cook’s Tale': '#658539',
+  'Man of Law’s Tale': '#963f39',
+  'Canon’s Yeoman’s Tale': '#876331',
+  'Tale of Sir Thopas': '#b09e8d',
+  'Parson’s Tale': '#cae1ed',
+  'Squire’s Tale': '#365414'
 }
 
 
