@@ -28,17 +28,27 @@ Manicule is a standalone React/Redux web application for presenting unique print
 
 Install the package manager `brew` by going to https://brew.sh/ and following the instruction from a Terminal window.
 
-When that completes, from a Terminal, install `npm`:
+When that completes, from a Terminal, install Node Version Manager:
 
 ```
-brew install npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+```
+
+Manicule requires Node 12, which is an older version. Use Node Version Manager to download version 12:
+
+```
+nvm install 12.22
+```
+
+Finally, install `libsass` using `brew`:
+
+```
 brew install libsass
 ```
 
 If the have these packages but they aren't the latest version, upgrade them:
 
 ```
-brew upgrade npm
 brew upgrade libsass
 ```
 
@@ -48,7 +58,9 @@ When _that_ completes, you should be ready to install the reader application its
 2. In a Terminal window, from the directory where you installed the repo:
 
 ```
+nvm use  # This should switch you to Node version 12
 npm install
+npm run build:dll  # You should only need to do this once
 ```
 
 It should run for a long time and then complete.
@@ -56,6 +68,7 @@ It should run for a long time and then complete.
 ## Running the application locally (every time)
 
 ```
+nvm use
 npm start
 ```
 
@@ -116,9 +129,9 @@ This is usually derived from a spreadsheet with the following columns:
 
 `index`: this begins at 1 and increases sequentially, aligning with the file names of the pages
 
- `signatures`: the bibliographic signatures, to be loaded in  in the bottom right and left margins of the facsimile reader
+`signatures`: the bibliographic signatures, to be loaded in in the bottom right and left margins of the facsimile reader
 
- `pagenum`: the page number as it appears in the book
+`pagenum`: the page number as it appears in the book
 
 `category`: the page's category (more on these below)
 
@@ -128,14 +141,15 @@ It easiest to work from a spreadsheet and convert the CSV to a JSON after you've
 
 ```
  ./node_modules/csvtojson/bin/csvtojson <csvfile.csv> > <jsonfile.json>
- ```
+```
+
 ### Categories
 
 Categories help organize, annotate, and visualize the structure of the book. Every page is marked with a category in `pages.json`. The editors determines the categories based on what she wants to share with her edition.
 
 For instance, if she were most interested in marking the presence of marginalia in the book, she might use only two categories: `page` and `marginalia.` These categories would appear as two different colors in the map view and would mark the bottom of the facsimile in the filmstrip and book browser. The name of a page's category appears at the bottom of the facsimile browser, as well.
 
-In addition to these main categories, you can  mark a secondary category or add an additional descriptor to the page. This is optional, and should be added to the `description` attribute in `pages.json`. If a description is added, it will appear as marginalia beside the page in the facsimile browser.
+In addition to these main categories, you can mark a secondary category or add an additional descriptor to the page. This is optional, and should be added to the `description` attribute in `pages.json`. If a description is added, it will appear as marginalia beside the page in the facsimile browser.
 
 To change the categories and their colors, update the color mapping in /app/utils/metadata.js. The categories named here so should match the categories used in `pages.json`.
 
