@@ -108,7 +108,7 @@ const HomePage = () => {
                                         <b>description</b> attribute in <b>pages.json</b>.
                                         Color-coded categories indicate which tale is present; these
                                         categories can also be changed in <b>pages.json</b> and the
-                                        colors updated in <b>metadata.js</b>. (They have been added
+                                        colors updated in <b>metadata.ts</b>. (They have been added
                                         by hand to the paragraph above, to demonstrate how to add
                                         styles to this text.) The <b>Structure</b> view shows where
                                         these fragments are conjoined, or not. This data is stored

@@ -5,7 +5,8 @@ import defaultTour from '../tour/default/tour.json'
 import testData from '../data/test/pages.json'
 import testTour from '../tour/test/tour.json'
 
-const categoryColors = {
+console.log(defaultStructure)
+const categoryColors: Record<string, string> = {
     flyleaf: '#000000',
     'Reeve’s Tale': '#2550a1',
     'Cook’s Tale': '#658539',
@@ -40,19 +41,40 @@ export const getCurrentQuire = (edition: EditionName, pageIndex: number) => {
     return { quire, page }
 }
 
+export type Page = {
+    index: number
+    signatures: string
+    pagenum: string
+    category: string
+    description: string
+    color?: string
+}
+
+export type PageData = Record<number, Page>
+
+
 // get all of the information about the individual pages in the book
-export const getPageData = (pageData) => {
-    const data = []
-    pageData.forEach((p) => {
+export const getPageData = (pages: Page[]) => {
+    let data: Page[] = []
+
+    pages.forEach((p) => {
         const item = Object.assign({ color: '' }, p)
         item.color = categoryColors[item.category]
-        data[parseInt(item.index, 10)] = item
+        data[item.index] = item
     })
     return data
 }
 
+export type TourData = TourItem[]
+
+export interface TourItem {
+    item: number
+    page: number
+    images: string[]
+}
+
 // Given an edition, find any possible tour data for a page
-export const getTourForPage = (edition, page) => {
+export const getTourForPage = (edition: EditionName, page: number) => {
     const tour = metadata[edition].tour
     const data = tour.filter((item) => item.page === page)[0]
     return data
@@ -60,10 +82,38 @@ export const getTourForPage = (edition, page) => {
 
 export type Metadata = Record<string, MetadataRecord>
 
+export interface LeafPage {
+    "$": {
+        index: string
+        pagenum: string
+        side: "r" | "v"
+    }
+}
+export interface Leaf {
+    "$": {
+        n: string
+        mode: string
+        single: "true" | "false"
+        folio_number: string
+        conjoin: string
+    }
+    page: LeafPage[]
+}
+export interface Quire {
+    leaf: Leaf[]
+}
+
+export interface Structure {
+    url?: string
+    title?: string
+    author?: string
+    source?: string
+    quire: Quire[]
+}
 export type MetadataRecord = {
-    structure: any
-    pages: any
-    tour: any
+    structure: Structure
+    pages: PageData
+    tour: TourData
 }
 
 export const metadata:Metadata = {

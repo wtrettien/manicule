@@ -1,4 +1,16 @@
 [
-{"index":"1","signatures":"[inside front cover]","pagenum":"","category":"flyleaf"},
-{"index":"2","signatures":"[flyleaf]","pagenum":"","category":"engraving"}
+    {
+        "index": 1,
+        "signatures": "[inside front cover]",
+        "pagenum": "",
+        "category": "flyleaf",
+        "description": ""
+    },
+    {
+        "index": 2,
+        "signatures": "[flyleaf]",
+        "pagenum": "",
+        "category": "engraving",
+        "description": ""
+    }
 ]

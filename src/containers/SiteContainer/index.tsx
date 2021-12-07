@@ -9,16 +9,7 @@ import cc from '../../images/cc.svg'
 import by from '../../images/by.svg'
 import manic from '../../images/manicule-white.png'
 
-import { metadata } from '../../utils/metadata'
-
-// TODO move to a types file
-export type Page = {
-    index: number
-    signatures: string
-    pagenum: string
-    category: string
-    description: string
-}
+import { metadata, Page } from '../../utils/metadata'
 
 interface EditionContextProps {
     edition: string
