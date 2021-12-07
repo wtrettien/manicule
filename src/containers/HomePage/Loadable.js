@@ -4,6 +4,6 @@ import React from 'react'
 import LoadingPage from '../LoadingPage'
 
 export default Loadable({
-  loader: () => import('./index'),
-  loading: () => <LoadingPage />,
+    loader: () => import('./index'),
+    loading: () => <LoadingPage />
 })

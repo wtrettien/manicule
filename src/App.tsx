@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './images/cc.svg'
-import './App.css'
+import { Route, Routes } from 'react-router-dom'
+
+import HomePage from './containers/HomePage/Loadable'
+const DEFAULT_EDITION = 'penn'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage edition={DEFAULT_EDITION} />} />
+    </Routes>
   );
 }
 
-export default App;
+export default App
