@@ -2,6 +2,8 @@ import React from 'react';
 import {   BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import HomePage from './containers/HomePage/Loadable'
+import './styles/application.scss'
+
 const DEFAULT_EDITION = 'penn'
 
 function App() {

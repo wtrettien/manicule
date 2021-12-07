@@ -2,10 +2,6 @@
 
 $grid-gutter-width: 0px !default;
 
-// Magic something something webpack
-$bootstrap-sass-asset-helper: true;
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-
 $default-width: 95%;  // For everything but the container
 
 @import "colors";
