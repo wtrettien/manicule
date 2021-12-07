@@ -10,9 +10,11 @@
     "@types/node": "^12.20.37",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "bootstrap": "^3.4.1",
     "react": "^17.0.2",
     "react-bootstrap": "^0.33.1",
     "react-dom": "^17.0.2",
+    "react-loadable": "^5.5.0",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "typescript": "^4.5.2",
@@ -41,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-bootstrap": "^0.32.28"
   }
 }
