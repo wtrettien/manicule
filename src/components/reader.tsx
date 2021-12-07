@@ -1,4 +1,5 @@
 // Reader for the book
+import { timingSafeEqual } from 'crypto'
 import React from 'react'
 // import { Motion, spring, presets } from 'react-motion'
 
@@ -7,15 +8,13 @@ import { Link } from 'react-router-dom'
 import { EditionContext } from '../containers/SiteContainer'
 
 import { setTourItem } from '../reducers/tour-item'
-import { getTourForPage } from '../utils/metadata'
-// import Page from './page'
+import { getTourForPage, TourData, TourItem } from '../utils/metadata'
+import Page from './page'
 // import PageZoom from './page-zoom'
 // import TourItem from './tour-item'
 
 interface ReaderProps {
-    pages: any
     page: number
-    setTourItem: any
 }
 interface ReaderState {
     zoomUrl?: string
@@ -38,7 +37,7 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
             tourSide: undefined
         }
     }
-    componentWillReceiveProps(props: ReaderProps) {
+    UNSAFE_componentWillReceiveProps(props: ReaderProps) {
         // // When the page loads, if the tour modal is open, update it
         // if (this.state.tour.item !== undefined) {
         //     const tour = getTourForPage(props.edition, props.page)
@@ -55,16 +54,16 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
     }
 
     getPage(page: pageNum, leaf: any) {
+        console.log('Page: ', page)
         if (page && page > 0) {
             return (
-                <></>
-                // <Page
-                //     num={page}
-                //     pos={leaf}
-                //     toggleZoom={this.toggleZoom}
-                //     toggleTour={this.toggleTour}
-                //     {...this.props.pages[page]}
-                // />
+                <Page
+                    num={page}
+                    pos={leaf}
+                    toggleZoom={this.toggleZoom}
+                    toggleTour={this.toggleTour}
+                    {...this.context.pages[page]}
+                />
             )
         }
         return null
@@ -91,15 +90,15 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
             zoomUrl: url
         })
     }
-    // toggleTour = (tour, tourSide) => {
-    //     this.props.setTourItem(tour.item)
-    //     this.setState({
-    //         tour,
-    //         tourSide
-    //     })
-    // }
+    toggleTour = (tour: TourItem, tourSide: string) => {
+        // this.props.setTourItem(tour.item)
+        this.setState({
+            tour,
+            tourSide
+        })
+    }
     hasNextPage() {
-        return this.props.page < this.props.pages.length - 1 // Subtract one for the extra element
+        return this.props.page < this.context.pages.length - 1 // Subtract one for the extra element
     }
 
     hasPrevPage() {
@@ -123,16 +122,17 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
     //showTour = (side) => <TourItem toggleTour={this.toggleTour} side={side} />
 
     render() {
-        const nextPage = Math.max(this.props.page + 2, 1)
-        const prevPage = Math.min(this.props.page - 2, this.props.pages.length)
-        const verso: pageNum = this.props.page
+        const { page = 1 } = this.props
+        const nextPage = Math.max(page + 2, 1)
+        const prevPage = Math.min(page - 2, this.context.pages.length)
+        const verso: pageNum = page
         let recto: pageNum = verso + 1
-        if (recto >= this.props.pages.length) {
+        if (recto >= this.context.pages.length) {
             recto = null
         }
 
         return (
-            <div>
+            <>
                 {/* {this.state.zoomUrl ? this.showZoom() : null} */}
 
                 <div className="book-pagination">
@@ -152,7 +152,7 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
                         {this.getPage(recto, 'recto')}
                     </Col>
                 </Row>
-            </div>
+            </>
         )
     }
 }

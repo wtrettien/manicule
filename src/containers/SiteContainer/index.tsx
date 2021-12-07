@@ -4,33 +4,32 @@ import 'bootstrap/dist/css/bootstrap-theme.css'
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar } from 'react-bootstrap'
 import cc from '../../images/cc.svg'
 import by from '../../images/by.svg'
 import manic from '../../images/manicule-white.png'
 
-import { metadata, Page } from '../../utils/metadata'
+import { metadata, PageData, Structure, TourData, EditionName } from '../../utils/metadata'
 
 interface EditionContextProps {
-    edition: string
-    pages: Page[]
-    structure: any
-    tour: any
+    edition: EditionName
+    pages: PageData
+    structure: Structure
+    tour: TourData
 }
 
 export const EditionContext = React.createContext<Partial<EditionContextProps>>({})
 
 const SiteContainer: React.FC = ({ children }) => {
     let { editionName } = useParams()
-    editionName = editionName || 'default'
-
+    const edition = editionName || 'default'
+    const { pages, structure, tour } = metadata[edition]
     const context = {
-        edition: editionName,
-        pages: metadata[editionName].pages as Page[],
-        structure: null,
-        tour: null
+        edition,
+        pages,
+        structure,
+        tour
     }
-
     return (
         <EditionContext.Provider value={context}>
             <div className="page-container">
@@ -45,9 +44,9 @@ const SiteContainer: React.FC = ({ children }) => {
                             </li>
                         </Navbar.Brand>
                     </Navbar.Header>
-                    <Nav>
+                    <ul className="nav navbar-nav">
                         <li>
-                            <Link to="/reader">Browse</Link>
+                            <Link to={`/reader`}>Browse</Link>
                         </li>
                         <li>
                             <Link to="/structure">Structure</Link>
@@ -55,7 +54,7 @@ const SiteContainer: React.FC = ({ children }) => {
                         <li>
                             <Link to="/about">About</Link>
                         </li>
-                    </Nav>
+                    </ul>
                 </Navbar>
                 {children}
 
