@@ -141,7 +141,7 @@ const HomePage = () => {
                                 <ListGroup>
                                     <ListGroupItem>
                                         {' '}
-                                        <Link to="/reader/penn/5">
+                                        <Link to="/reader/default/5">
                                             <Glyphicon glyph="bookmark" /> Tour this edition
                                         </Link>
                                     </ListGroupItem>

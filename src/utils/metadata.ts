@@ -1,9 +1,9 @@
-const pennStructure = require('../data/penn/structure.xml')
-const pennData = require('../data/penn/pages.json')
-const pennTour = require('../tour/penn/tour.json')
+import defaultStructure from '../data/default/structure.xml'
+import defaultData from '../data/default/pages.json'
+import defaultTour from '../tour/default/tour.json'
 
-const testData = require('../data/test/pages.json')
-const testTour = require('../tour/test/tour.json')
+import testData from '../data/test/pages.json'
+import testTour from '../tour/test/tour.json'
 
 const categoryColors = {
     flyleaf: '#000000',
@@ -16,8 +16,10 @@ const categoryColors = {
     'Squire’s Tale': '#365414'
 }
 
+export type EditionName = string
+
 // Get the current quire from the page structure for the current verso page
-export const getCurrentQuire = (edition, pageIndex) => {
+export const getCurrentQuire = (edition: EditionName, pageIndex: number) => {
     const quires = metadata[edition].structure.quire
     let quire
     let page
@@ -56,11 +58,19 @@ export const getTourForPage = (edition, page) => {
     return data
 }
 
-export const metadata = {
-    penn: {
-        structure: pennStructure.book,
-        pages: getPageData(pennData),
-        tour: pennTour
+export type Metadata = Record<string, MetadataRecord>
+
+export type MetadataRecord = {
+    structure: any
+    pages: any
+    tour: any
+}
+
+export const metadata:Metadata = {
+    default: {
+        structure: defaultStructure.book,
+        pages: getPageData(defaultData),
+        tour: defaultTour
     },
     test: {
         structure: {
