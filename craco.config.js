@@ -4,7 +4,7 @@ module.exports = {
     webpack: {
         configure: (webpackConfig) => {
             webpackConfig.resolve.extensions.push('.xml')
-
+            webpackConfig.resolve.extensions.push('.html')
             const xmlLoader = {
                 loader: require.resolve('xml-loader'),
                 test: /\.xml$/,

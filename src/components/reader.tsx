@@ -1,5 +1,4 @@
 // Reader for the book
-import { timingSafeEqual } from 'crypto'
 import React from 'react'
 // import { Motion, spring, presets } from 'react-motion'
 

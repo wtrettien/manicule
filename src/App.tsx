@@ -4,15 +4,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './containers/HomePage'
 import ReaderPage from './containers/ReaderPage'
 import SiteContainer from './containers/SiteContainer'
-
-import './styles/application.scss'
+import About from './containers/AboutPage'
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route
-                    path="/"
+                    path=""
                     element={
                         <SiteContainer>
                             <HomePage />
@@ -20,7 +19,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="/reader/:editionName/:pageString"
+                    path="reader/:editionName/:pageString"
                     element={
                         <SiteContainer>
                             <ReaderPage />
@@ -28,10 +27,18 @@ function App() {
                     }
                 />
                 <Route
-                    path="/reader"
+                    path="reader"
                     element={
                         <SiteContainer>
                             <ReaderPage />
+                        </SiteContainer>
+                    }
+                />
+                <Route
+                    path="about"
+                    element={
+                        <SiteContainer>
+                            <About />
                         </SiteContainer>
                     }
                 />
