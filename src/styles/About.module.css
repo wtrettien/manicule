@@ -1,0 +1,26 @@
+.about {
+    padding: 2% 5% 10% 5%;
+    background: oldlace;
+    border-radius: 20px;
+}
+.about h1 {
+    color: rgb(56, 56, 56);
+    border-bottom: 2px double 8ea667;
+    font-size: 3em;
+}
+
+.about p {
+    font-size: 20px;
+    color: black;
+}
+
+.about h3 {
+    margin-left: 30px;
+}
+.accent {
+    color: 8ea667;
+}
+.about img {
+    margin: auto;
+    display: block;
+}

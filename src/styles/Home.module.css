@@ -1,0 +1,50 @@
+.home {
+    background-size: cover;
+}
+.home img {
+    margin: 10px;
+    filter: brightness(1.5) grayscale(40%);
+    padding: 15px;
+}
+.imgCircle {
+    border-top: 1px dashed darkgray;
+    border-bottom: 1px dashed darkgray;
+    border-radius: 50%;
+}
+
+.homeText {
+    padding: 2em;
+    min-height: 120vh;
+    border-radius: 20px;
+}
+
+.home ol {
+    margin-top: 4em;
+    background: #8ea667;
+    list-style-type: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+    padding-left: 0;
+}
+
+.home ol li {
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+    border: 0px;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+}
+.home li a {
+    color: black !important;
+}
+.home li span {
+    /* Glyphicons */
+    color: oldlace !important;
+    font-size: 30px;
+    position: relative;
+    top: 10px;
+    padding-right: 20px;
+    margin-bottom: 0.5em;
+}

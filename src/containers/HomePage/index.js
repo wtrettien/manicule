@@ -3,28 +3,25 @@ import 'bootstrap/dist/css/bootstrap-theme.css'
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap'
+import { Grid, Row, Col, Glyphicon } from 'react-bootstrap'
 
 import im1 from '../../images/manoflaw.jpg'
 import im2 from '../../images/page.png'
+import styles from '../../styles/Home.module.css'
 
 const HomePage = () => {
     return (
-        <Grid
-            className="home"
-            style={{
-                backgroundSize: 'cover'
-            }}>
+        <Grid className={styles.home}>
             <Row>
                 <Col>
                     <Row>
                         <Col sm={8}>
-                            <div className="home-text">
+                            <div className={styles.homeText}>
                                 <h1>Canterbury Tales</h1>
                                 <h2>Rosenbach MS 1084/2 (ca 1440)</h2>
                                 <img
                                     src={im1}
-                                    className="img-circle"
+                                    className={styles.imgCircle}
                                     width="200"
                                     alt="drawing of the Man of Law"
                                     style={{ float: 'right' }}
@@ -134,21 +131,19 @@ const HomePage = () => {
                             </div>
                         </Col>
                         <Col sm={4}>
-                            <ListGroup>
-                                <ListGroupItem>
-                                    {' '}
+                            <ol>
+                                <li>
                                     <Link to="/reader/default/5">
                                         <Glyphicon glyph="bookmark" /> Tour this edition
                                     </Link>
-                                </ListGroupItem>
-                                <ListGroupItem>
+                                </li>
+                                <li>
                                     <Link to="/structure">
-                                        {' '}
                                         <Glyphicon glyph="book" /> Explore the book‘s physical
                                         structure
                                     </Link>
-                                </ListGroupItem>
-                            </ListGroup>
+                                </li>
+                            </ol>
                             {/* <MapView currentPage={0} /> */}
                         </Col>
                     </Row>

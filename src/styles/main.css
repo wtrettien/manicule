@@ -1,0 +1,44 @@
+body {
+    background: radial-gradient(ellipse farthest-corner, #333 0, #0d0d0d 100%);
+    min-height: 100vh;
+}
+
+p {
+    font-size: 20px;
+    color: oldlace;
+}
+h1 {
+    font-family: 'Berkshire Swash', cursive;
+    border-bottom: 2px double #8ea667;
+    font-size: 80px;
+    color: oldlace;
+}
+
+h2 {
+    color: #8ea667;
+    margin-left: 20px;
+}
+h3,
+h4,
+h5 {
+    color: rgb(56, 56, 56);
+}
+
+footer {
+    height: 10vh;
+    color: oldlace;
+    padding: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+footer a {
+    color: oldlace !important;
+    text-decoration: underline;
+}
+
+button.close-modal {
+    background: black;
+    color: oldlace;
+    border: oldlace;
+}
