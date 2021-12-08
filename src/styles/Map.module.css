@@ -1,0 +1,23 @@
+.blocks {
+    width: 95%;
+    margin: auto;
+    text-align: center;
+}
+
+.block {
+    display: inline-block;
+    width: 13px;
+    height: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.currentPage {
+    border: 2px solid oldlace;
+}
+.glyphicon {
+    line-height: 0.5;
+    font-size: 0.5em;
+    top: 12px;
+    left: -3px;
+}

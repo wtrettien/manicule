@@ -5,6 +5,8 @@ import { OverlayTrigger, Tooltip, Glyphicon } from 'react-bootstrap'
 import { EditionName, getTourForPage, Page } from '../utils/metadata'
 import { EditionContext } from '../containers/SiteContainer'
 
+import styles from '../styles/Map.module.css'
+
 interface MapViewProps {
     page: number
 }
@@ -14,7 +16,7 @@ const MapView = ({ page }: MapViewProps) => {
     const edition = context.edition as EditionName
 
     return (
-        <div className="map-blocks">
+        <div className={styles.blocks}>
             {pages.map((p) => {
                 const tour = getTourForPage(edition, p.index)
                 return (
@@ -25,12 +27,16 @@ const MapView = ({ page }: MapViewProps) => {
                             <Link to={`/reader/${edition}/${p.index}`}>
                                 <span
                                     className={`
-                        ${p.index === page ? 'current-page' : ''}
+                        ${p.index === page ? styles.currentPage : ''}
                         ${tour ? 'has-tour' : ''}
-                        map-block
+                        ${styles.block}
                         `}
                                     style={{ background: p.color, color: p.color }}>
-                                    {tour ? <Glyphicon glyph="bookmark" /> : '\u00A0'}
+                                    {tour ? (
+                                        <Glyphicon className={styles.glyphicon} glyph="bookmark" />
+                                    ) : (
+                                        '\u00A0'
+                                    )}
                                 </span>
                             </Link>
                         </OverlayTrigger>

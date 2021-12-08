@@ -154,7 +154,7 @@ export const NavArrow = ({ dir, onTriggerScroll, onTriggerEnd }: NavArrowProps) 
         <div
             role="link"
             tabIndex={0}
-            className="button"
+            className={styles.button}
             onMouseDown={() => onTriggerScroll(dir)}
             onMouseUp={onTriggerEnd}>
             {dir === 'prev' ? '≪' : '≫'}

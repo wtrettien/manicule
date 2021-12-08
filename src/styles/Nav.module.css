@@ -2,31 +2,6 @@
     min-height: 125px;
 }
 
-/* .nav-group .navThumbnail, .quire .navThumbnail
-.quire {
-    {
-        display: inline-block;
-        border: 0;
-        margin: 5px 0 5px 5px;
-        a {
-            display: inline-block;
-        }
-        button {
-            height: 85px;
-            width: 85px;
-            filter: brightness(1.4) grayscale(100%);
-            background-position: center center;
-        }
-
-        &.recto {
-            border-left: 2px solid white;
-            margin: 5px 5px 5px 0;
-        }
-        &.is-current button {
-            filter: brightness(1.4) grayscale(0%);
-        }
-    }
-} */
 .navStripContainer {
     margin: 20px auto;
     width: 95%;
@@ -39,7 +14,7 @@
     overflow-x: scroll;
     margin: auto;
 }
-.navGroup .btngroup {
+.navGroup > div {
     position: absolute;
     white-space: nowrap;
 }
@@ -62,17 +37,14 @@
     right: 0;
     z-index: 1;
 }
+.button {
+    display: inline-block;
+    width: 100%;
+}
 .next .button {
     text-align: right;
-    display: inline-block;
     padding-right: 10px;
-    width: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        rgba(black, 0.8) 40%,
-        rgba(black, 1) 80%
-    );
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, 0), rgba(0, 0, 0, 0.8) 40%, #000 80%);
 }
 .prev {
     left: 0;
@@ -80,14 +52,6 @@
 }
 .prev .button {
     text-align: left;
-    width: 100%;
-    display: inline-block;
     padding-left: 10px;
-
-    background: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0),
-        rgba(black, 0.8) 40%,
-        rgba(black, 1) 80%
-    );
+    background: linear-gradient(270deg, hsla(0, 0%, 100%, 0), rgba(0, 0, 0, 0.8) 40%, #000 80%);
 }
