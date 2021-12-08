@@ -4,6 +4,7 @@ import { OverlayTrigger, Tooltip, Button, Glyphicon } from 'react-bootstrap'
 
 import { EditionName, getTourForPage, Page } from '../utils/metadata'
 import { getImageUrl } from './page-image'
+import styles from '../styles/Thumbnail.module.css'
 
 interface ThumbnailProps {
     pageData: Page
@@ -16,8 +17,8 @@ const Thumbnail = ({ pageData, edition, currentPage }: ThumbnailProps) => {
     const pos = index % 2 === 0 ? 'recto' : 'verso'
     const img = getImageUrl(edition, index, true)
 
-    const cls = `nav-thumbnail thumbnail-${index} ${pos} ${
-        index === currentPage || index === currentPage + 1 ? 'is-current' : ''
+    const cls = `${styles.navThumbnail} thumbnail-${index} ${pos} ${
+        index === currentPage || index === currentPage + 1 ? styles.isCurrent : ''
     }`
     const tour = getTourForPage(edition, index)
 
@@ -35,14 +36,14 @@ const Thumbnail = ({ pageData, edition, currentPage }: ThumbnailProps) => {
                 key={pageData.index}
                 placement="top"
                 overlay={
-                    <Tooltip>
+                    <Tooltip id={index as unknown as string}>
                         {signatures} - {category}
                     </Tooltip>
                 }>
                 <Link to={`/reader/${edition}/${index}`}>
                     <Button
                         id={`page-${index}`}
-                        bsClass="page-thumbnail"
+                        bsClass={styles.thumbnailImage}
                         style={{ backgroundImage: `url(${img.default})` }}></Button>
                     {tourLabel}
                 </Link>

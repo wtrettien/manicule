@@ -1,0 +1,23 @@
+.navThumbnail {
+    display: inline-block;
+    border: 0;
+    margin: 5px 0 5px 5px;
+}
+.navThumbnail a {
+    display: inline-block;
+}
+.navThumbnail button {
+    height: 85px;
+    width: 85px;
+    filter: brightness(1.4) grayscale(100%);
+    background-position: center center;
+}
+.recto {
+    border-left: 2px solid white;
+    margin: 5px 5px 5px 0;
+}
+.isCurrent a button {
+    filter: brightness(1.4) grayscale(0%);
+}
+.thumbnailImage {
+}

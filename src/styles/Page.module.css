@@ -1,0 +1,43 @@
+.metadata div {
+    min-height: 550px;
+    position: relative;
+}
+/*
+  .metadata .tour
+      .tour-label{
+      	.glyphicon{
+      		line-height:3em;
+     		font-size: 3em;
+      	}
+      }
+    }
+  } */
+
+/* Used in zoom: .page-modal {
+    position: absolute;
+    top: 5vw;
+    left: 5vw;
+    right: 5vw;
+    z-index: 99;
+}
+
+    .well {
+        margin: 0;
+    }
+    p {
+        text-align: center;
+        button {
+            margin-left: 2em;
+        }
+    }
+    .img-container {
+        overflow: auto;
+        width: 100%;
+        height: 90vh;
+        img {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+} */

@@ -4,13 +4,17 @@ import React from 'react'
 
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
 import { EditionContext } from '../containers/SiteContainer'
 
 import { setTourItem } from '../reducers/tour-item'
 import { getTourForPage, TourData, TourItem } from '../utils/metadata'
+
 import Page from './page'
 // import PageZoom from './page-zoom'
 // import TourItem from './tour-item'
+
+import styles from '../styles/Reader.module.css'
 
 interface ReaderProps {
     page: number
@@ -53,7 +57,6 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
     }
 
     getPage(page: pageNum, leaf: any) {
-        console.log('Page: ', page)
         if (page && page > 0) {
             return (
                 <Page
@@ -71,13 +74,17 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
     getLink(page: pageNum, dir: pageDir) {
         if (dir === 'prev' && this.hasPrevPage()) {
             return (
-                <Link to={`/reader/${this.context.edition}/${page}`} className="book-nav left">
+                <Link
+                    to={`/reader/${this.context.edition}/${page}`}
+                    className={`${styles.bookNav} ${styles.left}`}>
                     <Glyphicon glyph="arrow-left" /> Previous Spread
                 </Link>
             )
         } else if (dir === 'next' && this.hasNextPage()) {
             return (
-                <Link to={`/reader/${this.context.edition}/${page}`} className="book-nav right">
+                <Link
+                    to={`/reader/${this.context.edition}/${page}`}
+                    className={`${styles.bookNav} ${styles.right}`}>
                     Next Spread <Glyphicon glyph="arrow-right" />
                 </Link>
             )
@@ -131,27 +138,25 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
         }
 
         return (
-            <>
+            <div className={styles.bookContainer}>
                 {/* {this.state.zoomUrl ? this.showZoom() : null} */}
 
-                <div className="book-pagination">
-                    <Row>
-                        <Col sm={6}>{this.getLink(prevPage, 'prev')}</Col>
-                        <Col sm={6}>{this.getLink(nextPage, 'next')}</Col>
-                    </Row>
-                </div>
+                <Row>
+                    <Col sm={6}>{this.getLink(prevPage, 'prev')}</Col>
+                    <Col sm={6}>{this.getLink(nextPage, 'next')}</Col>
+                </Row>
 
-                <Row className="reader-grid">
+                <Row>
                     {/* {this.state.tour.item !== undefined ? this.showTour(this.state.tourSide) : null} */}
 
-                    <Col sm={6} className="verso">
+                    <Col sm={6} className={styles.verso}>
                         {this.getPage(verso, 'verso')}
                     </Col>
-                    <Col sm={6} className="recto">
+                    <Col sm={6} className={styles.recto}>
                         {this.getPage(recto, 'recto')}
                     </Col>
                 </Row>
-            </>
+            </div>
         )
     }
 }

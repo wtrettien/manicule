@@ -42,3 +42,32 @@ button.close-modal {
     color: oldlace;
     border: oldlace;
 }
+
+.metadata-label {
+    display: block;
+    padding: 0.1em;
+    text-align: left;
+    color: oldlace;
+}
+.category-label {
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+}
+.signatures-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: rgb(138, 133, 125);
+    text-align: center;
+}
+.description-label {
+    font-style: italic;
+}
+.tour-label {
+    text-transform: uppercase;
+    text-align: center;
+}
+.tour-label a {
+    cursor: pointer;
+}

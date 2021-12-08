@@ -6,6 +6,8 @@ import { getTourForPage } from '../utils/metadata'
 import PageImage from './page-image'
 import { EditionContext } from '../containers/SiteContainer'
 
+import styles from '../styles/Page.module.css'
+
 interface PageProps {
     num: number
     category: string
@@ -35,8 +37,8 @@ const Page = ({
     const pageImage = <PageImage num={num} edition={edition} toggleZoom={toggleZoom} />
 
     return (
-        <div className="page-panel">
-            <div className="page-metadata">
+        <div className={styles.panel}>
+            <div className={styles.metadata}>
                 <Row>
                     {pos === 'recto' && (
                         <Col sm={8}>

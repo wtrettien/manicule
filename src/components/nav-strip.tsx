@@ -6,6 +6,7 @@ import { Well, ButtonGroup } from 'react-bootstrap'
 import Thumbnail from './thumbnail'
 import { EditionName, Page } from '../utils/metadata'
 import { pageDir } from './reader'
+import styles from '../styles/Nav.module.css'
 
 const OFFSET_SPEED = 400 // Pixels by which the filmstrip nav will slide on each keypress
 
@@ -97,18 +98,20 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
     }
     computeCenteredPage(currentPage: number) {
         // Take the natural horizontal position of the current page element...
-        let offset = 100
-        const currentThumbnail = document.getElementsByClassName(`.thumbnail-${currentPage + 1}`)[0]
-        // if (currentThumbnail.position()) {
-        //     offset = currentThumbnail.position().left
-        //     offset -= $('.nav-group').width() / 2 // divide the current filmstrip in half
-        // }
-        return offset
+        const currentThumbnail = document.getElementsByClassName(
+            `.thumbnail-${currentPage + 1}`
+        )[0] as HTMLElement
+        if (currentThumbnail) {
+            const offset = currentThumbnail.offsetLeft
+            const group = document.getElementsByClassName(styles.navGroup)[0] as HTMLElement
+            return offset - group.clientWidth / 2
+        }
+        return -1
     }
 
     render() {
         return (
-            <div className="nav-strip-container">
+            <div className={styles.navStripContainer}>
                 {this.props.currentPage > 1 && (
                     <NavArrow
                         dir="prev"
@@ -122,7 +125,7 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
                     style={{ offset: spring(this.state.offset, presets.stiff) }}>
                     {this.onScroll}
                 </Motion> */}
-                <Well bsClass="nav-group">
+                <Well bsClass={styles.navGroup}>
                     <NavGroup
                         data={this.state.items}
                         currentPage={this.props.currentPage}
@@ -147,7 +150,7 @@ interface NavArrowProps {
     onTriggerEnd: any
 }
 export const NavArrow = ({ dir, onTriggerScroll, onTriggerEnd }: NavArrowProps) => (
-    <div className={`nav-strip-button ${dir}`}>
+    <div className={`${styles.navStripButton} ${dir === 'next' ? styles.next : styles.prev}`}>
         <div
             role="link"
             tabIndex={0}

@@ -6,7 +6,7 @@ import { useParams } from 'react-router'
 import { Row, Col } from 'react-bootstrap'
 
 import Reader from '../../components/reader'
-import SiteContainer, { EditionContext } from '../SiteContainer'
+import { EditionContext } from '../SiteContainer'
 
 import NavStrip from '../../components/nav-strip'
 import { Page } from '../../utils/metadata'
