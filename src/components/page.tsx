@@ -2,7 +2,7 @@
 import React from 'react'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 
-import { getTourForPage } from '../utils/metadata'
+import { Page } from '../utils/metadata'
 import PageImage from './page-image'
 import { EditionContext } from '../containers/SiteContainer'
 
@@ -18,7 +18,7 @@ interface PageProps {
     toggleZoom: any
     toggleTour: any
 }
-const Page = ({
+const PageViewer = ({
     num,
     category,
     signatures,
@@ -30,8 +30,9 @@ const Page = ({
 }: PageProps) => {
     const context = React.useContext(EditionContext)
     const edition = context.edition as string
+    const pageData = (context.pages as Page[])[num]
+    const tour = pageData.tourItem
 
-    const tour = getTourForPage(edition, num)
     // The tour, if it exists, should open on the opposite side of the current page
     const tourSide = pos === 'verso' ? 'recto' : 'verso'
     const pageImage = <PageImage num={num} edition={edition} toggleZoom={toggleZoom} />
@@ -81,4 +82,4 @@ const Page = ({
     )
 }
 
-export default Page
+export default PageViewer

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { OverlayTrigger, Tooltip, Button, Glyphicon } from 'react-bootstrap'
 
-import { EditionName, getTourForPage, Page } from '../utils/metadata'
+import { EditionName, Page } from '../utils/metadata'
 import { getImageUrl } from './page-image'
 import styles from '../styles/Thumbnail.module.css'
 
@@ -20,7 +20,7 @@ const Thumbnail = ({ pageData, edition, page }: ThumbnailProps) => {
     const cls = `${styles.navThumbnail} thumbnail-${index} ${pos} ${
         index === page || index === page + 1 ? styles.isCurrent : ''
     }`
-    const tour = getTourForPage(edition, index)
+    const tour = pageData.tourItem
 
     const tourLabel = tour ? (
         <label className="metadata-label tour-label has-tour">

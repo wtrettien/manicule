@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { OverlayTrigger, Tooltip, Glyphicon } from 'react-bootstrap'
 
-import { EditionName, getTourForPage, Page } from '../utils/metadata'
+import { EditionName, Page } from '../utils/metadata'
 import { EditionContext } from '../containers/SiteContainer'
 
 import styles from '../styles/Map.module.css'
@@ -18,7 +18,7 @@ const MapView = ({ page }: MapViewProps) => {
     return (
         <div className={styles.blocks}>
             {pages.map((p) => {
-                const tour = getTourForPage(edition, p.index)
+                const tour = p.tourItem
                 return (
                     <span key={p.index} style={{ display: 'inline-block' }}>
                         <OverlayTrigger

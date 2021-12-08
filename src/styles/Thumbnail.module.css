@@ -21,4 +21,5 @@
 }
 .thumbnailImage {
     /* Reset for Bootstrap button style */
+    opacity: 1;
 }

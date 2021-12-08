@@ -48,19 +48,22 @@ export type Page = {
     category: string
     description: string
     color?: string
+    tourItem?: TourItem
 }
 
 export type PageData = Record<number, Page>
 
 
 // get all of the information about the individual pages in the book
-export const getPageData = (pages: Page[]) => {
+export const getPageData = (pages: Page[], tour: TourData) => {
     let data: Page[] = []
 
     pages.forEach((p) => {
-        const item = Object.assign({ color: '' }, p)
-        item.color = categoryColors[item.category]
-        data[item.index] = item
+        const page: Page = Object.assign({ color: '', tourItem: undefined }, p)
+        page.color = categoryColors[page.category]
+        page.tourItem = getTourForPage(tour, page.index)
+        data[page.index] = page
+
     })
     return data
 }
@@ -74,14 +77,14 @@ export interface TourItem {
 }
 
 // Given an edition, find any possible tour data for a page
-export const getTourForPage = (edition: EditionName, page: number) => {
-    const tour = metadata[edition].tour
+export const getTourForPage = (tour: TourData, page: number) => {
     const data = tour.filter((item) => item.page === page)[0]
     return data
 }
 
 export type Metadata = Record<string, MetadataRecord>
 
+export type Side = "recto" | "verso"
 export interface LeafPage {
     "$": {
         index: string
@@ -116,17 +119,18 @@ export type MetadataRecord = {
     tour: TourData
 }
 
-export const metadata:Metadata = {
+export const metadata: Metadata = {
     default: {
         structure: defaultStructure.book,
-        pages: getPageData(defaultData),
+        pages: getPageData(defaultData, defaultTour),
         tour: defaultTour
     },
     test: {
         structure: {
             quire: []
         },
-        pages: getPageData(testData),
+        pages: getPageData(testData, testTour),
         tour: testTour
+
     }
 }

@@ -7,12 +7,11 @@ import { Link } from 'react-router-dom'
 
 import { EditionContext } from '../containers/SiteContainer'
 
-import { setTourItem } from '../reducers/tour-item'
-import { getTourForPage, TourData, TourItem } from '../utils/metadata'
+import { Side, TourItem } from '../utils/metadata'
 
 import Page from './page'
 // import PageZoom from './page-zoom'
-// import TourItem from './tour-item'
+import Tour from './tour'
 
 import styles from '../styles/Reader.module.css'
 
@@ -97,7 +96,6 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
         })
     }
     toggleTour = (tour: TourItem, tourSide: string) => {
-        // this.props.setTourItem(tour.item)
         this.setState({
             tour,
             tourSide
@@ -125,10 +123,14 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
     //         )}
     //     </Motion>
     // )
-    //showTour = (side) => <TourItem toggleTour={this.toggleTour} side={side} />
+    showTour = (item: TourItem, side: Side) => (
+        <Tour side={side} item={item} toggleTour={this.toggleTour} />
+    )
 
     render() {
         const { page = 1 } = this.props
+        const pageData = this.context.pages[page]
+
         const nextPage = Math.max(page + 2, 1)
         const prevPage = Math.min(page - 2, this.context.pages.length)
         const verso: pageNum = page
@@ -136,7 +138,7 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
         if (recto >= this.context.pages.length) {
             recto = null
         }
-
+        console.log('tour:', pageData)
         return (
             <div className={styles.bookContainer}>
                 {/* {this.state.zoomUrl ? this.showZoom() : null} */}
@@ -147,7 +149,9 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
                 </Row>
 
                 <Row>
-                    {/* {this.state.tour.item !== undefined ? this.showTour(this.state.tourSide) : null} */}
+                    {pageData.tourItem !== undefined
+                        ? this.showTour(pageData.tourItem, page === verso ? 'verso' : 'recto')
+                        : null}
 
                     <Col sm={6} className={styles.verso}>
                         {this.getPage(verso, 'verso')}
