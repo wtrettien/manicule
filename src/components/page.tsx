@@ -1,23 +1,10 @@
 // Viewer for a single page (of a spread)
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Row, Col, Label, Glyphicon } from 'react-bootstrap'
+import { Row, Col, Glyphicon } from 'react-bootstrap'
 
 import { getTourForPage } from '../utils/metadata'
 import PageImage from './page-image'
 import { EditionContext } from '../containers/SiteContainer'
-
-// Page.propTypes = {
-//   edition: PropTypes.string.isRequired,
-//   num: PropTypes.number.isRequired,
-//   category: PropTypes.string.isRequired,
-//   color: PropTypes.string.isRequired,
-//   signatures: PropTypes.string.isRequired,
-//   description: PropTypes.string,
-//   pos: PropTypes.string,
-//   toggleZoom: PropTypes.func,
-//   toggleTour: PropTypes.func
-// }
 
 interface PageProps {
     num: number
