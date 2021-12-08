@@ -11,7 +11,7 @@ import styles from '../styles/Nav.module.css'
 const OFFSET_SPEED = 400 // Pixels by which the filmstrip nav will slide on each keypress
 
 interface NavStripProps {
-    currentPage: number
+    page: number
     pages: Page[]
     edition: EditionName
 }
@@ -29,20 +29,20 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
     constructor(props: NavStripProps) {
         super(props)
 
-        const { currentPage } = props
+        const { page } = props
         const before = Array.from(
-            { length: currentPage - 1 },
-            (v, k) => props.pages[currentPage - 1 - k]
+            { length: page - 1 },
+            (v, k) => props.pages[page - 1 - k]
         ).reverse()
 
         const after = Array.from(
-            { length: props.pages.length - currentPage - 2 },
-            (v, k) => props.pages[currentPage + 2 + k]
+            { length: props.pages.length - page - 2 },
+            (v, k) => props.pages[page + 2 + k]
         )
-        const current = [props.pages[currentPage]]
-        if (props.pages[currentPage + 1]) {
+        const current = [props.pages[page]]
+        if (props.pages[page + 1]) {
             // Is there one more page? If so add it to the current spread
-            current.push(props.pages[currentPage + 1])
+            current.push(props.pages[page + 1])
         }
         let items = before.concat(current)
         if (after) {
@@ -61,12 +61,12 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
     componentDidMount() {
         this.setState({
             // eslint-disable-line react/no-did-mount-set-state
-            offset: this.computeCenteredPage(this.props.currentPage)
+            offset: this.computeCenteredPage(this.props.page)
         })
     }
     UNSAFE_componentWillReceiveProps(newProps: NavStripProps) {
         this.setState({
-            offset: this.computeCenteredPage(newProps.currentPage),
+            offset: this.computeCenteredPage(newProps.page),
             lastOffset: this.state.offset
         })
     }
@@ -96,10 +96,10 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
         clearTimeout(this.scrollTimeout)
         this.scrollCounter = 100
     }
-    computeCenteredPage(currentPage: number) {
+    computeCenteredPage(page: number) {
         // Take the natural horizontal position of the current page element...
         const currentThumbnail = document.getElementsByClassName(
-            `.thumbnail-${currentPage + 1}`
+            `.thumbnail-${page + 1}`
         )[0] as HTMLElement
         if (currentThumbnail) {
             const offset = currentThumbnail.offsetLeft
@@ -112,7 +112,7 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
     render() {
         return (
             <div className={styles.navStripContainer}>
-                {this.props.currentPage > 1 && (
+                {this.props.page > 1 && (
                     <NavArrow
                         dir="prev"
                         onTriggerScroll={this.onTriggerScroll}
@@ -128,11 +128,11 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
                 <Well bsClass={styles.navGroup}>
                     <NavGroup
                         data={this.state.items}
-                        currentPage={this.props.currentPage}
+                        page={this.props.page}
                         edition={this.props.edition}
                     />
                 </Well>
-                {this.props.currentPage < this.state.items.length && (
+                {this.props.page < this.state.items.length && (
                     <NavArrow
                         dir="next"
                         onTriggerScroll={this.onTriggerScroll}
@@ -164,13 +164,13 @@ export const NavArrow = ({ dir, onTriggerScroll, onTriggerEnd }: NavArrowProps) 
 
 interface NavGroupProps {
     data: any
-    currentPage: number
+    page: number
     edition: EditionName
 }
-const NavGroup = ({ data, currentPage, edition }: NavGroupProps) => (
+const NavGroup = ({ data, page, edition }: NavGroupProps) => (
     <ButtonGroup>
         {data.map((p: any) => (
-            <Thumbnail pageData={p} currentPage={currentPage} edition={edition} key={p.index} />
+            <Thumbnail pageData={p} page={page} edition={edition} key={p.index} />
         ))}
     </ButtonGroup>
 )

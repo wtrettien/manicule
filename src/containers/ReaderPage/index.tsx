@@ -10,13 +10,12 @@ import { EditionContext } from '../SiteContainer'
 
 import NavStrip from '../../components/nav-strip'
 import { Page } from '../../utils/metadata'
-// import MapView from '../../components/map-view'
+import MapView from '../../components/map-view'
 
 const ReaderPage = () => {
     const { pageString } = useParams()
     const page = parseInt(pageString as string, 10) || 1
     const context = React.useContext(EditionContext)
-    console.log(context)
     return (
         <>
             <Row>
@@ -27,14 +26,16 @@ const ReaderPage = () => {
             <Row>
                 <Col>
                     <NavStrip
-                        currentPage={page}
+                        page={page}
                         edition={context.edition as string}
                         pages={context.pages as Page[]}
                     />
                 </Col>
             </Row>
             <Row>
-                <Col>{/* <MapView currentPage={page} /> */}</Col>
+                <Col>
+                    <MapView page={page} />
+                </Col>
             </Row>
         </>
     )

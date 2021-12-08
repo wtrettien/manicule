@@ -20,4 +20,5 @@
     filter: brightness(1.4) grayscale(0%);
 }
 .thumbnailImage {
+    /* Reset for Bootstrap button style */
 }

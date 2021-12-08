@@ -9,16 +9,16 @@ import styles from '../styles/Thumbnail.module.css'
 interface ThumbnailProps {
     pageData: Page
     edition: EditionName
-    currentPage: number
+    page: number
 }
-const Thumbnail = ({ pageData, edition, currentPage }: ThumbnailProps) => {
+const Thumbnail = ({ pageData, edition, page }: ThumbnailProps) => {
     const { index, color, signatures, category } = pageData
 
     const pos = index % 2 === 0 ? 'recto' : 'verso'
     const img = getImageUrl(edition, index, true)
 
     const cls = `${styles.navThumbnail} thumbnail-${index} ${pos} ${
-        index === currentPage || index === currentPage + 1 ? styles.isCurrent : ''
+        index === page || index === page + 1 ? styles.isCurrent : ''
     }`
     const tour = getTourForPage(edition, index)
 
