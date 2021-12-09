@@ -18,10 +18,19 @@ const Tour = ({ item, side, toggleTour }: TourProps) => {
     const edition = context.edition as string
     const tour = metadata[edition].tour
     const index = tour.indexOf(item)
-    const html = require(`../data/${edition}/tour/${item.page}.html`) // eslint-disable-line global-require
 
     const hasPrev = index > 0
     const hasNext = index < tour.length - 1
+
+    const [tourHtml, setTourHtml] = React.useState(null)
+    React.useEffect(() => {
+        import(`../data/${edition}/tour/${item.page}.html`)
+            .then((html) => {
+                console.log(html.default)
+                setTourHtml(html.default)
+            })
+            .catch((err) => console.error(err))
+    }, [edition, item.page])
 
     const prevLink = hasPrev ? (
         <Link
@@ -58,15 +67,15 @@ const Tour = ({ item, side, toggleTour }: TourProps) => {
         </div>
     )
 
-    return (
+    return tourHtml ? (
         <Panel
             bsClass={styles.tourPanel}
             className={side === 'recto' ? styles.recto : styles.verso}>
             {tourExit}
-            <div className={styles.text} dangerouslySetInnerHTML={{ __html: html }} />
+            <div className={styles.text} dangerouslySetInnerHTML={{ __html: tourHtml }} />
             {tourNav}
         </Panel>
-    )
+    ) : null
 }
 
 export default Tour
