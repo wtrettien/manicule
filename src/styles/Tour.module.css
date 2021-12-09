@@ -1,0 +1,53 @@
+.tourPanel {
+    position: absolute;
+    z-index: 2;
+    overflow-y: scroll;
+    background: oldlace;
+
+    width: 45%;
+    opacity: 0.9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: serif;
+    font-size: 1.4em;
+}
+.tourPanel div p {
+    line-height: 1.3em;
+    color: black;
+    text-indent: 1em;
+}
+.recto {
+    right: 20px;
+    padding: 0 !important;
+}
+.verso {
+    left: 20px;
+    padding: 0 !important;
+}
+.text {
+    padding: 0px 40px 0px 40px;
+}
+.tourExit {
+    text-align: right;
+}
+.tourNav {
+    background: oldlace;
+    color: black;
+    text-align: center;
+    font-family: Helvetica;
+    min-height: 4rem;
+}
+.tourNav a {
+    color: rgb(138, 133, 125);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: smaller;
+}
+
+.tourNav .row {
+    padding-top: 1rem;
+}
+.tourNav button {
+    padding: 5px;
+    margin-bottom: 5px;
+}

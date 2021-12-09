@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
 import HomePage from './containers/HomePage'
 import ReaderPage from './containers/ReaderPage'
@@ -8,7 +8,7 @@ import About from './containers/AboutPage'
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route
                     path=""
@@ -43,7 +43,7 @@ function App() {
                     }
                 />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
