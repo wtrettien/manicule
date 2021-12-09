@@ -1,9 +1,9 @@
 import defaultStructure from '../data/default/structure.xml'
 import defaultData from '../data/default/pages.json'
-import defaultTour from '../tour/default/tour.json'
+import defaultTour from '../data/default/tour/tour.json'
 
 import testData from '../data/test/pages.json'
-import testTour from '../tour/test/tour.json'
+import testTour from '../data/test/tour/tour.json'
 
 console.log(defaultStructure)
 const categoryColors: Record<string, string> = {
@@ -73,7 +73,6 @@ export type TourData = TourItem[]
 export interface TourItem {
     item: number
     page: number
-    images: string[]
 }
 
 // Given an edition, find any possible tour data for a page

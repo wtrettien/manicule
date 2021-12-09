@@ -44,7 +44,7 @@ const Thumbnail = ({ pageData, edition, page }: ThumbnailProps) => {
                     <Button
                         id={`page-${index}`}
                         bsClass={styles.thumbnailImage}
-                        style={{ backgroundImage: `url(${img.default})` }}></Button>
+                        style={{ backgroundImage: `url(${img})` }}></Button>
                     {tourLabel}
                 </Link>
             </OverlayTrigger>
