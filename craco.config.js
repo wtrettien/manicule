@@ -11,15 +11,15 @@ module.exports = {
                 test: /\.xml$/,
                 exclude: /node_modules/
             }
-            const htmlLoader = {
-                loader: require.resolve('html-loader'),
+            const rawLoader = {
+                loader: require.resolve('raw-loader'),
                 test: /\.html$/,
                 exclude: /node_modules/,
                 include: path.resolve(__dirname, 'src/data')
             }
 
             addBeforeLoader(webpackConfig, loaderByName('file-loader'), xmlLoader)
-            addBeforeLoader(webpackConfig, loaderByName('file-loader'), htmlLoader)
+            addBeforeLoader(webpackConfig, loaderByName('file-loader'), rawLoader)
 
             return webpackConfig
         }

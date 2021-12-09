@@ -1,4 +1,3 @@
-// Tour components
 import React from 'react'
 
 import { Row, Col, Panel, Button, Glyphicon } from 'react-bootstrap'
@@ -13,6 +12,28 @@ interface TourProps {
     side: Side
     toggleTour: any
 }
+/**
+ * Tour: an annotated popup that can appear next to page information.
+ *
+ * Tours are provided by specifying a JSON file, tour.json, that correlates a tour HTML
+ * blob with a specific page in the manuscript. This HTML page will be loaded as-is and imported
+ * into the tour modal.
+ *
+ * Reference images from within a tour page relative to the root of the public/ folder,
+ * but exclude the "public" part of the path.
+ *
+ * @example for the real file public/images/book/default/tour/caxton.jpg:
+ *
+ *     <img
+ *       src="images/book/default/tour/caxton.jpg"
+ *       alt="Caxton's woodcut of the Cook" />
+ *
+ * @param item The Tour item from the JSON file
+ * @param side Recto or Verso; the side of the page on which the tour item will be displayed
+ * @param toggleTour the callback to control opening or closing the tour modal
+ * @returns the tour modal
+ */
+
 const Tour = ({ item, side, toggleTour }: TourProps) => {
     const context = React.useContext(EditionContext)
     const edition = context.edition as string
@@ -24,9 +45,8 @@ const Tour = ({ item, side, toggleTour }: TourProps) => {
 
     const [tourHtml, setTourHtml] = React.useState(null)
     React.useEffect(() => {
-        import(`../data/${edition}/tour/${item.page}.html`)
+        import(`!!raw-loader!../data/${edition}/tour/${item.page}.html`)
             .then((html) => {
-                console.log(html.default)
                 setTourHtml(html.default)
             })
             .catch((err) => console.error(err))
