@@ -6,8 +6,8 @@ import { EditionName } from '../utils/metadata'
 export const getImageUrl = (edition: EditionName, num: number, thumbnail = false) => {
     const pad = `0000${num}`.substr(-4, 4)
     const img = thumbnail
-        ? `/images/book/${edition}/thumbnails/${pad}.jpg`
-        : `/images/book/${edition}/${pad}.jpg`
+        ? `${process.env.PUBLIC_URL}/images/book/${edition}/thumbnails/${pad}.jpg`
+        : `${process.env.PUBLIC_URL}/images/book/${edition}/${pad}.jpg`
     return img
 }
 
