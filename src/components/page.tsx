@@ -7,15 +7,15 @@ import PageImage from './page-image'
 import { EditionContext } from '../containers/SiteContainer'
 
 import styles from '../styles/Page.module.css'
-import { TourModal } from './reader'
+import { TourModal, ZoomModal } from './reader'
 
 interface PageProps {
     page: PageType
     leaf: LeafSide
-    toggleZoom: any
+    setZoom: (_: ZoomModal) => void
     setTour: (_: TourModal) => void
 }
-const PageViewer = ({ page, leaf, toggleZoom, setTour }: PageProps) => {
+const PageViewer = ({ page, leaf, setZoom, setTour }: PageProps) => {
     const context = React.useContext(EditionContext)
     const edition = context.edition as string
 
@@ -23,12 +23,12 @@ const PageViewer = ({ page, leaf, toggleZoom, setTour }: PageProps) => {
     if (tour) {
         tour.leaf = leaf
     }
-    const pageImage = <PageImage num={page.index} edition={edition} toggleZoom={toggleZoom} />
+    const pageImage = <PageImage num={page.index} edition={edition} setZoom={setZoom} />
 
     return (
         <div className={styles.panel}>
             <div className={styles.metadata}>
-                <Row>
+                <Row className={leaf === 'recto' ? styles.right : styles.left}>
                     {leaf === 'recto' && (
                         <Col sm={8}>
                             {pageImage}
@@ -52,7 +52,7 @@ const PageViewer = ({ page, leaf, toggleZoom, setTour }: PageProps) => {
                             <span>&nbsp;</span>
                         )}
 
-                        <label className="metadata-label description-label">
+                        <label className={`metadata-label description-label ${styles.description}`}>
                             {page.description}
                         </label>
                         <label className="metadata-label signatures-label">{page.signatures}</label>

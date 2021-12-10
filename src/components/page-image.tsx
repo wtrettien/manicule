@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Image } from 'react-bootstrap'
 import { EditionName } from '../utils/metadata'
+import { ZoomModal } from './reader'
 
 export const getImageUrl = (edition: EditionName, num: number, thumbnail = false) => {
     const pad = `0000${num}`.substr(-4, 4)
@@ -14,13 +15,13 @@ export const getImageUrl = (edition: EditionName, num: number, thumbnail = false
 interface PageImageProps {
     edition: EditionName
     num: number
-    toggleZoom: any
+    setZoom: (_: ZoomModal) => void
 }
-const PageImage = ({ edition, num, toggleZoom }: PageImageProps) => {
+const PageImage = ({ edition, num, setZoom }: PageImageProps) => {
     const img = getImageUrl(edition, num)
     return (
         <>
-            <Image src={img} alt="" responsive onClick={() => toggleZoom(img)} />
+            <Image src={img} alt="" responsive onClick={() => setZoom(num)} />
         </>
     )
 }

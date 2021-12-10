@@ -10,9 +10,10 @@ import { EditionContext } from '../containers/SiteContainer'
 import { PageData, TourItem, Page as PageType, LeafSide } from '../utils/metadata'
 
 import Page from './page'
-// import PageZoom from './page-zoom'
 import Tour from './tour'
 
+import { getImageUrl } from './page-image'
+import PageZoom from './page-zoom'
 import styles from '../styles/Reader.module.css'
 
 interface ReaderProps {
@@ -23,11 +24,12 @@ export type pageDir = 'next' | 'prev'
 export type pageNum = number | null | undefined
 
 export type TourModal = TourItem | undefined
+export type ZoomModal = number | undefined
 
 const Reader = ({ page }: ReaderProps) => {
     const context = React.useContext(EditionContext)
     const [tour, setTour] = React.useState<React.SetStateAction<TourModal>>(undefined)
-    const [zoomIsOpen, setZoomIsOpen] = React.useState<React.SetStateAction<boolean>>(false)
+    const [zoom, setZoom] = React.useState<React.SetStateAction<ZoomModal>>(undefined)
 
     const pages = context.pages as PageData
     const edition = context.edition as string
@@ -54,7 +56,7 @@ const Reader = ({ page }: ReaderProps) => {
     }, [pages, searchParams])
 
     const renderPage = (page: PageType, leaf: LeafSide) => {
-        return <Page page={page} leaf={leaf} toggleZoom={setZoomIsOpen} setTour={setTour} />
+        return <Page page={page} leaf={leaf} setZoom={setZoom} setTour={setTour} />
     }
 
     const renderLink = (page: pageNum, dir: pageDir) => {
@@ -78,25 +80,11 @@ const Reader = ({ page }: ReaderProps) => {
         return null
     }
 
-    // showZoom = () => (
-    //     <Motion
-    //         defaultStyle={{ scale: this.state.zoomUrl ? 0 : 1 }}
-    //         style={{ scale: spring(1, presets.stiff) }}>
-    //         {(style) => (
-    //             <PageZoom
-    //                 url={this.state.zoomUrl}
-    //                 toggleZoom={this.toggleZoom}
-    //                 style={{
-    //                     transform: `scale(${style.scale})`
-    //                 }}
-    //             />
-    //         )}
-    //     </Motion>
-    // )
-
     return (
         <div className={styles.bookContainer}>
-            {/* {this.state.zoomUrl ? this.showZoom() : null} */}
+            {zoom && (
+                <PageZoom url={getImageUrl(edition, zoom as number, false)} setZoom={setZoom} />
+            )}
 
             <Row>
                 <Col sm={6}>{renderLink(prevPage, 'prev')}</Col>

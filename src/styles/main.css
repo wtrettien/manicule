@@ -9,8 +9,6 @@ p {
 }
 h1 {
     font-family: 'Berkshire Swash', cursive;
-    border-bottom: 2px double #8ea667;
-    font-size: 80px;
     color: oldlace;
 }
 p {
@@ -66,6 +64,7 @@ button.close-modal {
 }
 .description-label {
     font-style: italic;
+    text-align: left;
 }
 .tour-label {
     text-transform: uppercase;
