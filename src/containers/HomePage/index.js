@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css'
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import { Grid, Row, Col, Glyphicon } from 'react-bootstrap'
+import { Row, Col, Glyphicon } from 'react-bootstrap'
 
 import im1 from '../../images/manoflaw.jpg'
 import im2 from '../../images/page.png'
@@ -11,7 +11,7 @@ import styles from '../../styles/Home.module.css'
 
 const HomePage = () => {
     return (
-        <Grid className={styles.home}>
+        <div className={styles.home}>
             <Row>
                 <Col>
                     <Row>
@@ -149,7 +149,7 @@ const HomePage = () => {
                     </Row>
                 </Col>
             </Row>
-        </Grid>
+        </div>
     )
 }
 

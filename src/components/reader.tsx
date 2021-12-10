@@ -1,7 +1,6 @@
 // Reader for the book
 import React from 'react'
-// import { Motion, spring, presets } from 'react-motion'
-
+import { animated, config, Transition } from 'react-spring'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link, useSearchParams } from 'react-router-dom'
 
@@ -82,10 +81,6 @@ const Reader = ({ page }: ReaderProps) => {
 
     return (
         <div className={styles.bookContainer}>
-            {zoom && (
-                <PageZoom url={getImageUrl(edition, zoom as number, false)} setZoom={setZoom} />
-            )}
-
             <Row>
                 <Col sm={6}>{renderLink(prevPage, 'prev')}</Col>
                 <Col sm={6}>{renderLink(nextPage, 'next')}</Col>
@@ -105,6 +100,24 @@ const Reader = ({ page }: ReaderProps) => {
                 <Col sm={6} className={styles.recto}>
                     {recto && renderPage(recto, 'recto')}
                 </Col>
+                <Transition
+                    items={zoom}
+                    from={{ scale: 0 }}
+                    enter={{ scale: 1 }}
+                    leave={{ scale: 0 }}
+                    delay={200}
+                    config={config.stiff}>
+                    {(styles, item) =>
+                        item && (
+                            <animated.div style={styles}>
+                                <PageZoom
+                                    url={getImageUrl(edition, zoom as number, false)}
+                                    setZoom={setZoom}
+                                />
+                            </animated.div>
+                        )
+                    }
+                </Transition>
             </Row>
         </div>
     )

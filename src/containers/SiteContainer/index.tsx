@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css'
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-import { Navbar } from 'react-bootstrap'
+import { Grid, Navbar } from 'react-bootstrap'
 import cc from '../../images/cc.svg'
 import by from '../../images/by.svg'
 import manic from '../../images/manicule-white.png'
@@ -32,7 +32,7 @@ const SiteContainer: React.FC = ({ children }) => {
     }
     return (
         <EditionContext.Provider value={context}>
-            <div className="page-container">
+            <Grid>
                 <Navbar inverse>
                     <Navbar.Header>
                         <Navbar.Brand>
@@ -55,6 +55,7 @@ const SiteContainer: React.FC = ({ children }) => {
                         </li>
                     </ul>
                 </Navbar>
+
                 {children}
 
                 <footer>
@@ -65,7 +66,7 @@ const SiteContainer: React.FC = ({ children }) => {
                     <img src={cc} alt="Creative Commons" style={{ height: '2em' }} />
                     <img src={by} alt="Attribution" style={{ height: '2em' }} />
                 </footer>
-            </div>
+            </Grid>
         </EditionContext.Provider>
     )
 }

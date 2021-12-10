@@ -2,7 +2,13 @@ body {
     background: radial-gradient(ellipse farthest-corner, #333 0, #0d0d0d 100%);
     min-height: 100vh;
 }
-
+.row {
+    margin: 0 !important;
+}
+.container {
+    padding: 0;
+    width: 100%;
+}
 p {
     font-size: 20px;
     color: oldlace;
@@ -31,10 +37,13 @@ footer {
     text-align: center;
     font-size: 15px;
 }
-
+a,
+a:visited {
+    color: #8a857d !important;
+}
 footer a {
-    color: oldlace !important;
     text-decoration: underline;
+    color: oldlace !important;
 }
 
 button.close-modal {
@@ -73,7 +82,9 @@ button.close-modal {
 .tour-label a {
     cursor: pointer;
 }
-
+.navbar-header {
+    margin-left: 80px !important;
+}
 .navbar-brand {
     font-family: 'Berkshire Swash', cursive;
     font-size: 30px;

@@ -1,9 +1,7 @@
 .blocks {
-    width: 95%;
     margin: auto;
     text-align: center;
 }
-
 .block {
     display: inline-block;
     width: 13px;

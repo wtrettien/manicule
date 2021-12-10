@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap-theme.css'
 
 import React from 'react'
 import { useParams } from 'react-router'
-import { Row, Col } from 'react-bootstrap'
 
 import Reader from '../../components/reader'
 import { EditionContext } from '../SiteContainer'
@@ -18,25 +17,15 @@ const ReaderPage = () => {
     const context = React.useContext(EditionContext)
     return (
         <>
-            <Row>
-                <Col>
-                    <Reader page={page} />
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <NavStrip
-                        page={page}
-                        edition={context.edition as string}
-                        pages={context.pages as Page[]}
-                    />
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <MapView page={page} />
-                </Col>
-            </Row>
+            <Reader page={page} />
+
+            <NavStrip
+                page={page}
+                edition={context.edition as string}
+                pages={context.pages as Page[]}
+            />
+
+            <MapView page={page} />
         </>
     )
 }

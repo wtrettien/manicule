@@ -1,13 +1,13 @@
 // Don't edit this page; edit about.html at the top of the project
 import React from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
 import styles from '../../styles/About.module.css'
 
 export default class AboutPage extends React.Component {
     render() {
         return (
-            <Grid className={styles.about}>
+            <div className={styles.about}>
                 <Row>
                     <Col>
                         <div className="about">
@@ -82,7 +82,7 @@ export default class AboutPage extends React.Component {
                         </div>
                     </Col>
                 </Row>
-            </Grid>
+            </div>
         )
     }
 }
