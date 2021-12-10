@@ -16,11 +16,11 @@
     color: black;
     text-indent: 1em;
 }
-.recto {
+.right {
     right: 20px;
     padding: 0 !important;
 }
-.verso {
+.left {
     left: 20px;
     padding: 0 !important;
 }

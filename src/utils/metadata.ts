@@ -73,6 +73,7 @@ export type TourData = TourItem[]
 export interface TourItem {
     item: number
     page: number
+    leaf?: LeafSide // Populated at render time
 }
 
 // Given an edition, find any possible tour data for a page
@@ -83,7 +84,7 @@ export const getTourForPage = (tour: TourData, page: number) => {
 
 export type Metadata = Record<string, MetadataRecord>
 
-export type Side = "recto" | "verso"
+export type LeafSide = "recto" | "verso" | undefined
 export interface LeafPage {
     "$": {
         index: string

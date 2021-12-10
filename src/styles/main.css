@@ -13,7 +13,9 @@ h1 {
     font-size: 80px;
     color: oldlace;
 }
-
+p {
+    font-family: 'EB Garamond', serif;
+}
 h2 {
     color: #8ea667;
     margin-left: 20px;

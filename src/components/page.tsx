@@ -2,77 +2,68 @@
 import React from 'react'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 
-import { Page } from '../utils/metadata'
+import { LeafSide, Page as PageType } from '../utils/metadata'
 import PageImage from './page-image'
 import { EditionContext } from '../containers/SiteContainer'
 
 import styles from '../styles/Page.module.css'
+import { TourModal } from './reader'
 
 interface PageProps {
-    num: number
-    category: string
-    signatures: string
-    color: string
-    pos: any // FIXME
-    description: string
+    page: PageType
+    leaf: LeafSide
     toggleZoom: any
-    toggleTour: any
+    setTour: (_: TourModal) => void
 }
-const PageViewer = ({
-    num,
-    category,
-    signatures,
-    color,
-    pos,
-    description,
-    toggleZoom,
-    toggleTour
-}: PageProps) => {
+const PageViewer = ({ page, leaf, toggleZoom, setTour }: PageProps) => {
     const context = React.useContext(EditionContext)
     const edition = context.edition as string
-    const pageData = (context.pages as Page[])[num]
-    const tour = pageData.tourItem
 
-    // The tour, if it exists, should open on the opposite side of the current page
-    const tourSide = pos === 'verso' ? 'recto' : 'verso'
-    const pageImage = <PageImage num={num} edition={edition} toggleZoom={toggleZoom} />
+    const tour = page.tourItem
+    if (tour) {
+        tour.leaf = leaf
+    }
+    const pageImage = <PageImage num={page.index} edition={edition} toggleZoom={toggleZoom} />
 
     return (
         <div className={styles.panel}>
             <div className={styles.metadata}>
                 <Row>
-                    {pos === 'recto' && (
+                    {leaf === 'recto' && (
                         <Col sm={8}>
                             {pageImage}
                             <label
                                 className="metadata-label category-label"
-                                style={{ background: color }}>
-                                {category}
+                                style={{ background: page.color }}>
+                                {page.category}
                             </label>
                         </Col>
                     )}
                     <Col sm={4}>
+                        {/* Show the tour icon if available */}
                         {tour ? (
                             <label
                                 className="metadata-label tour-label"
-                                onClick={() => toggleTour(tour, tourSide)}
-                                style={{ color: color }}>
-                                <Glyphicon glyph="bookmark" />
+                                onClick={() => setTour(tour)}
+                                style={{ color: page.color }}>
+                                <Glyphicon glyph="bookmark" className={styles.tourOpener} />
                             </label>
                         ) : (
                             <span>&nbsp;</span>
                         )}
 
-                        <label className="metadata-label description-label">{description}</label>
-                        <label className="metadata-label signatures-label">{signatures}</label>
+                        <label className="metadata-label description-label">
+                            {page.description}
+                        </label>
+                        <label className="metadata-label signatures-label">{page.signatures}</label>
                     </Col>
-                    {pos === 'verso' && (
+                    {leaf === 'verso' && (
                         <Col sm={8}>
                             {pageImage}
                             <label
                                 className="metadata-label category-label"
-                                style={{ background: color }}>
-                                {category}
+                                style={{ background: page.color }}>
+                                {page.category}
                             </label>
                         </Col>
                     )}

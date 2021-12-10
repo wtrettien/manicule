@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 import { EditionContext } from '../containers/SiteContainer'
 
-import { Side, TourItem } from '../utils/metadata'
+import { PageData, TourItem, Page as PageType, LeafSide } from '../utils/metadata'
 
 import Page from './page'
 // import PageZoom from './page-zoom'
@@ -18,71 +18,56 @@ import styles from '../styles/Reader.module.css'
 interface ReaderProps {
     page: number
 }
-interface ReaderState {
-    zoomUrl?: string
-    tour?: any
-    tourSide?: any
-}
 
 export type pageDir = 'next' | 'prev'
 export type pageNum = number | null | undefined
 
-export class Reader extends React.Component<ReaderProps, ReaderState> {
-    static contextType = EditionContext
+export type TourModal = TourItem | undefined
 
-    constructor(props: ReaderProps) {
-        super(props)
+const Reader = ({ page }: ReaderProps) => {
+    const context = React.useContext(EditionContext)
+    const [tour, setTour] = React.useState<React.SetStateAction<TourModal>>(undefined)
+    const [zoomIsOpen, setZoomIsOpen] = React.useState<React.SetStateAction<boolean>>(false)
 
-        this.state = {
-            zoomUrl: undefined,
-            tour: { item: undefined },
-            tourSide: undefined
-        }
-    }
-    UNSAFE_componentWillReceiveProps(props: ReaderProps) {
-        // // When the page loads, if the tour modal is open, update it
-        // if (this.state.tour.item !== undefined) {
-        //     const tour = getTourForPage(props.edition, props.page)
-        //     if (tour) {
-        //         this.toggleTour(tour, 'recto')
-        //     }
-        // }
-    }
-    getPagination(dir: pageDir) {
-        if (dir === 'next') {
-            return this.hasNextPage()
-        }
-        return this.hasPrevPage()
-    }
+    const pages = context.pages as PageData
+    const edition = context.edition as string
+    const pageCount = Object.keys(pages).length
 
-    getPage(page: pageNum, leaf: any) {
-        if (page && page > 0) {
-            return (
-                <Page
-                    num={page}
-                    pos={leaf}
-                    toggleZoom={this.toggleZoom}
-                    toggleTour={this.toggleTour}
-                    {...this.context.pages[page]}
-                />
-            )
-        }
-        return null
+    const nextPage = Math.max(page + 2, 1)
+    const prevPage = Math.min(page - 2, Object.keys(pages).length)
+    const verso: PageType = pages[page]
+    const recto: PageType | null = verso.index + 1 < pageCount ? pages[verso.index + 1] : null
+
+    const hasNextPage = page < pageCount - 1 // Subtract one for the extra element
+    const hasPrevPage = page > 1
+
+    // UNSAFE_componentWillReceiveProps(props: ReaderProps) {
+    //     // // When the page loads, if the tour modal is open, update it
+    //     // if (this.state.tour.item !== undefined) {
+    //     //     const tour = getTourForPage(props.edition, props.page)
+    //     //     if (tour) {
+    //     //         this.toggleTour(tour, 'recto')
+    //     //     }
+    //     // }
+    // }
+
+    const renderPage = (page: PageType, leaf: LeafSide) => {
+        return <Page page={page} leaf={leaf} toggleZoom={setZoomIsOpen} setTour={setTour} />
     }
 
-    getLink(page: pageNum, dir: pageDir) {
-        if (dir === 'prev' && this.hasPrevPage()) {
+    const renderLink = (page: pageNum, dir: pageDir) => {
+        if (dir === 'prev' && hasPrevPage) {
             return (
                 <Link
-                    to={`/reader/${this.context.edition}/${page}`}
+                    to={`/reader/${edition}/${page}`}
                     className={`${styles.bookNav} ${styles.left}`}>
                     <Glyphicon glyph="arrow-left" /> Previous Spread
                 </Link>
             )
-        } else if (dir === 'next' && this.hasNextPage()) {
+        } else if (dir === 'next' && hasNextPage) {
             return (
                 <Link
-                    to={`/reader/${this.context.edition}/${page}`}
+                    to={`/reader/${edition}/${page}`}
                     className={`${styles.bookNav} ${styles.right}`}>
                     Next Spread <Glyphicon glyph="arrow-right" />
                 </Link>
@@ -90,24 +75,7 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
         }
         return null
     }
-    toggleZoom = (url: string) => {
-        this.setState({
-            zoomUrl: url
-        })
-    }
-    toggleTour = (tour: TourItem, tourSide: string) => {
-        this.setState({
-            tour,
-            tourSide
-        })
-    }
-    hasNextPage() {
-        return this.props.page < this.context.pages.length - 1 // Subtract one for the extra element
-    }
 
-    hasPrevPage() {
-        return this.props.page > 1
-    }
     // showZoom = () => (
     //     <Motion
     //         defaultStyle={{ scale: this.state.zoomUrl ? 0 : 1 }}
@@ -123,46 +91,33 @@ export class Reader extends React.Component<ReaderProps, ReaderState> {
     //         )}
     //     </Motion>
     // )
-    showTour = (item: TourItem, side: Side) => (
-        <Tour side={side} item={item} toggleTour={this.toggleTour} />
+
+    return (
+        <div className={styles.bookContainer}>
+            {/* {this.state.zoomUrl ? this.showZoom() : null} */}
+
+            <Row>
+                <Col sm={6}>{renderLink(prevPage, 'prev')}</Col>
+                <Col sm={6}>{renderLink(nextPage, 'next')}</Col>
+            </Row>
+
+            <Row>
+                {tour && (
+                    <Tour
+                        side={(tour as TourItem).leaf}
+                        item={tour as TourItem}
+                        setTour={setTour}
+                    />
+                )}
+                <Col sm={6} className={styles.verso}>
+                    {renderPage(verso, 'verso')}
+                </Col>
+                <Col sm={6} className={styles.recto}>
+                    {recto && renderPage(recto, 'recto')}
+                </Col>
+            </Row>
+        </div>
     )
-
-    render() {
-        const { page = 1 } = this.props
-        const pageData = this.context.pages[page]
-
-        const nextPage = Math.max(page + 2, 1)
-        const prevPage = Math.min(page - 2, this.context.pages.length)
-        const verso: pageNum = page
-        let recto: pageNum = verso + 1
-        if (recto >= this.context.pages.length) {
-            recto = null
-        }
-        console.log('tour:', pageData)
-        return (
-            <div className={styles.bookContainer}>
-                {/* {this.state.zoomUrl ? this.showZoom() : null} */}
-
-                <Row>
-                    <Col sm={6}>{this.getLink(prevPage, 'prev')}</Col>
-                    <Col sm={6}>{this.getLink(nextPage, 'next')}</Col>
-                </Row>
-
-                <Row>
-                    {pageData.tourItem !== undefined
-                        ? this.showTour(pageData.tourItem, page === verso ? 'verso' : 'recto')
-                        : null}
-
-                    <Col sm={6} className={styles.verso}>
-                        {this.getPage(verso, 'verso')}
-                    </Col>
-                    <Col sm={6} className={styles.recto}>
-                        {this.getPage(recto, 'recto')}
-                    </Col>
-                </Row>
-            </div>
-        )
-    }
 }
 
 export default Reader

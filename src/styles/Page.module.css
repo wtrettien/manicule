@@ -2,16 +2,10 @@
     min-height: 550px;
     position: relative;
 }
-/*
-  .metadata .tour
-      .tour-label{
-      	.glyphicon{
-      		line-height:3em;
-     		font-size: 3em;
-      	}
-      }
-    }
-  } */
+.tourOpener {
+    line-height: 3em;
+    font-size: 3em;
+}
 
 /* Used in zoom: .page-modal {
     position: absolute;

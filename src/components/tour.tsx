@@ -3,15 +3,11 @@ import React from 'react'
 import { Row, Col, Panel, Button, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import { Side, TourItem, metadata } from '../utils/metadata'
+import { TourItem, metadata, LeafSide } from '../utils/metadata'
 import { EditionContext } from '../containers/SiteContainer'
 import styles from '../styles/Tour.module.css'
+import { TourModal } from './reader'
 
-interface TourProps {
-    item: TourItem
-    side: Side
-    toggleTour: any
-}
 /**
  * Tour: an annotated popup that can appear next to page information.
  *
@@ -30,11 +26,16 @@ interface TourProps {
  *
  * @param item The Tour item from the JSON file
  * @param side Recto or Verso; the side of the page on which the tour item will be displayed
- * @param toggleTour the callback to control opening or closing the tour modal
+ * @param setTour the state setter to control opening or closing the tour modal
  * @returns the tour modal
  */
 
-const Tour = ({ item, side, toggleTour }: TourProps) => {
+interface TourProps {
+    item: TourItem
+    side: LeafSide
+    setTour: (_: TourModal) => void
+}
+const Tour = ({ item, side, setTour }: TourProps) => {
     const context = React.useContext(EditionContext)
     const edition = context.edition as string
     const tour = metadata[edition].tour
@@ -70,9 +71,7 @@ const Tour = ({ item, side, toggleTour }: TourProps) => {
 
     const tourExit = (
         <div className={styles.tourExit}>
-            <Button
-                className="close-modal"
-                onClick={() => toggleTour({ item: undefined }, undefined)}>
+            <Button className="close-modal" onClick={() => setTour(undefined)}>
                 <Glyphicon glyph="remove" />
             </Button>
         </div>
@@ -88,9 +87,9 @@ const Tour = ({ item, side, toggleTour }: TourProps) => {
     )
 
     return tourHtml ? (
-        <Panel
-            bsClass={styles.tourPanel}
-            className={side === 'recto' ? styles.recto : styles.verso}>
+        // Display the panel on the opposite side of the screen relative to the page
+        // referred to by the tour
+        <Panel bsClass={styles.tourPanel} className={side === 'recto' ? styles.left : styles.right}>
             {tourExit}
             <div className={styles.text} dangerouslySetInnerHTML={{ __html: tourHtml }} />
             {tourNav}
