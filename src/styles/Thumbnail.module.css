@@ -23,3 +23,16 @@
     /* Reset for Bootstrap button style */
     opacity: 1;
 }
+
+.hasTour {
+    display: block;
+    position: absolute;
+    width: 83px;
+    height: 20px;
+    top: 100px;
+    padding: 0;
+}
+.hasTour .bookmark {
+    padding-top: 5px;
+    display: inline-block;
+}

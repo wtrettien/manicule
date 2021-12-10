@@ -46,9 +46,10 @@ const Reader = ({ page }: ReaderProps) => {
     // When the page renders, if the tour modal is open, update it
     React.useEffect(() => {
         const tourParam = searchParams.get('tour')
-        console.log('Setting tour to ', tourParam)
         if (tourParam) {
             setTour(pages[parseInt(tourParam as string, 10)].tourItem)
+        } else {
+            setTour(undefined)
         }
     }, [pages, searchParams])
 

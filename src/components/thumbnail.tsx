@@ -23,9 +23,9 @@ const Thumbnail = ({ pageData, edition, page }: ThumbnailProps) => {
     const tour = pageData.tourItem
 
     const tourLabel = tour ? (
-        <label className="metadata-label tour-label has-tour">
+        <label className={`metadata-label tour-label has-tour ${styles.hasTour}`}>
             <span style={{ color: `${color}` }}>
-                <Glyphicon glyph="bookmark" />
+                <Glyphicon glyph="bookmark" className={styles.bookmark} />
             </span>
         </label>
     ) : null
