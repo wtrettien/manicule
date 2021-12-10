@@ -73,3 +73,15 @@ button.close-modal {
 .tour-label a {
     cursor: pointer;
 }
+
+.navbar-brand {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 30px;
+    display: inline-block;
+}
+.navbar-brand a {
+    color: oldlace !important;
+}
+.navbar-brand img {
+    height: 1em;
+}

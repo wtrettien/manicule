@@ -38,8 +38,7 @@ const SiteContainer: React.FC = ({ children }) => {
                         <Navbar.Brand>
                             <li>
                                 <Link to="/">
-                                    <img src={manic} alt="manicule" style={{ height: '1em' }} />{' '}
-                                    Manicule
+                                    <img src={manic} alt="Manicule home page" /> Manicule
                                 </Link>
                             </li>
                         </Navbar.Brand>
