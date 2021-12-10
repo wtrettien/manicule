@@ -45,6 +45,8 @@ const Tour = ({ item, side, setTour }: TourProps) => {
     const hasNext = index < tour.length - 1
 
     const [tourHtml, setTourHtml] = React.useState(null)
+
+    // Open the tour HTML as raw data, to avoid interpolating any tags inside like images
     React.useEffect(() => {
         import(`!!raw-loader!../data/${edition}/tour/${item.page}.html`)
             .then((html) => {
@@ -55,7 +57,7 @@ const Tour = ({ item, side, setTour }: TourProps) => {
 
     const prevLink = hasPrev ? (
         <Link
-            to={`/reader/${edition}/${metadata[tour[index - 1].page]}`}
+            to={`/reader/${edition}/${metadata[edition].pages[tour[index - 1].page].pagenum}`}
             className={`${styles.left}`}>
             <Glyphicon glyph="arrow-left" /> Previous Tour Stop
         </Link>
@@ -63,7 +65,7 @@ const Tour = ({ item, side, setTour }: TourProps) => {
 
     const nextLink = hasNext ? (
         <Link
-            to={`/reader/${edition}/${metadata[tour[index + 1].page]}`}
+            to={`/reader/${edition}/${metadata[edition].pages[tour[index + 1].page].pagenum}`}
             className={`${styles.right}`}>
             Next Tour Stop <Glyphicon glyph="arrow-right" />
         </Link>

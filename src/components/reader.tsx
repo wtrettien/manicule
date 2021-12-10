@@ -3,7 +3,7 @@ import React from 'react'
 // import { Motion, spring, presets } from 'react-motion'
 
 import { Row, Col, Glyphicon } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import { EditionContext } from '../containers/SiteContainer'
 
@@ -41,15 +41,16 @@ const Reader = ({ page }: ReaderProps) => {
     const hasNextPage = page < pageCount - 1 // Subtract one for the extra element
     const hasPrevPage = page > 1
 
-    // UNSAFE_componentWillReceiveProps(props: ReaderProps) {
-    //     // // When the page loads, if the tour modal is open, update it
-    //     // if (this.state.tour.item !== undefined) {
-    //     //     const tour = getTourForPage(props.edition, props.page)
-    //     //     if (tour) {
-    //     //         this.toggleTour(tour, 'recto')
-    //     //     }
-    //     // }
-    // }
+    const location = useLocation()
+
+    // When the page renders, if the tour modal is open, update it
+    React.useEffect(() => {
+        console.log('Checking whether tour is open: ', tour)
+        // if (tour) {
+        //     console.log('setting tour to ', pages[page].tourItem)
+        //     setTour(pages[page].tourItem)
+        // }
+    }, [location, page, pages, tour])
 
     const renderPage = (page: PageType, leaf: LeafSide) => {
         return <Page page={page} leaf={leaf} toggleZoom={setZoomIsOpen} setTour={setTour} />

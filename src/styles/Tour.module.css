@@ -11,7 +11,18 @@
     font-family: serif;
     font-size: 1.4em;
 }
-.tourPanel div p {
+.tourPanel h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: black;
+    font-size: 1.2em;
+    border: 0;
+}
+
+.tourPanel p {
     line-height: 1.3em;
     color: black;
     text-indent: 1em;
@@ -29,6 +40,7 @@
 }
 .tourExit {
     text-align: right;
+    padding: 10px;
 }
 .tourNav {
     background: oldlace;
@@ -36,6 +48,7 @@
     text-align: center;
     font-family: Helvetica;
     min-height: 4rem;
+    padding: 2em 0 2em 0;
 }
 .tourNav a {
     color: rgb(138, 133, 125);
