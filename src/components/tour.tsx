@@ -44,6 +44,9 @@ const Tour = ({ item, side, setTour }: TourProps) => {
     const hasPrev = index > 0
     const hasNext = index < tour.length - 1
 
+    const nextPage = () => metadata[edition].pages[tour[index + 1].page].index
+
+    const prevPage = () => metadata[edition].pages[tour[index - 1].page].index
     const [tourHtml, setTourHtml] = React.useState(null)
 
     // Open the tour HTML as raw data, to avoid interpolating any tags inside like images
@@ -57,7 +60,7 @@ const Tour = ({ item, side, setTour }: TourProps) => {
 
     const prevLink = hasPrev ? (
         <Link
-            to={`/reader/${edition}/${metadata[edition].pages[tour[index - 1].page].pagenum}`}
+            to={`/reader/${edition}/${prevPage()}?tour=${prevPage()}`}
             className={`${styles.left}`}>
             <Glyphicon glyph="arrow-left" /> Previous Tour Stop
         </Link>
@@ -65,7 +68,7 @@ const Tour = ({ item, side, setTour }: TourProps) => {
 
     const nextLink = hasNext ? (
         <Link
-            to={`/reader/${edition}/${metadata[edition].pages[tour[index + 1].page].pagenum}`}
+            to={`/reader/${edition}/${nextPage()}?tour=${nextPage()}`}
             className={`${styles.right}`}>
             Next Tour Stop <Glyphicon glyph="arrow-right" />
         </Link>
