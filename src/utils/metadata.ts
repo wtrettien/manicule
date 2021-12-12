@@ -5,7 +5,12 @@ import defaultTour from '../data/default/tour/tour.json'
 import testData from '../data/test/pages.json'
 import testTour from '../data/test/tour/tour.json'
 
+import benloweStructure from '../data/benlowe/structure.xml'
+import benloweData from '../data/benlowe/pages.json'
+import benloweTour from '../data/benlowe/tour/tour.json'
+
 console.log(defaultStructure)
+
 const categoryColors: Record<string, string> = {
     flyleaf: '#000000',
     'Reeve’s Tale': '#2550a1',
@@ -18,6 +23,7 @@ const categoryColors: Record<string, string> = {
 }
 
 export type EditionName = string
+export type PageNum = number | undefined
 
 // Get the current quire from the page structure for the current verso page
 export const getCurrentQuire = (edition: EditionName, pageIndex: number) => {
@@ -43,24 +49,46 @@ export const getCurrentQuire = (edition: EditionName, pageIndex: number) => {
 export type Page = {
     index: number
     signatures: string
-    pagenum: string
+    pagenum: PageNum
     category: string
     description: string
     color?: string
     tourItem?: TourItem
 }
 
+/* Representation of the looser types that could come in as strings or numbers */
+
+export type SourcePage = {
+    index: number | string
+    signatures: string
+    pagenum: PageNum | string
+    category: string
+    description: string
+}
 export type PageData = Record<number, Page>
 
 
 // get all of the information about the individual pages in the book
-export const getPageData = (pages: Page[], tour: TourData) => {
+export const getPageData = (pages: SourcePage[], tour: TourData) => {
     let data: Page[] = []
 
     pages.forEach((p) => {
-        const page: Page = Object.assign({ color: '', tourItem: undefined }, p)
-        page.color = categoryColors[page.category]
-        page.tourItem = getTourForPage(tour, page.index)
+
+        if (typeof p.pagenum === "string") {
+            p.pagenum = parseInt(p.pagenum, 10)
+        }
+        if (typeof p.index === "string") {
+            p.index = parseInt(p.index, 10)
+        }
+        const page = {
+            color: categoryColors[p.category],
+            index: p.index,
+            signatures: p.signatures,
+            pagenum: p.pagenum,
+            category: p.category,
+            description: p.description,
+            tourItem: getTourForPage(tour, p.index)
+        }
         data[page.index] = page
 
     })
@@ -84,6 +112,7 @@ export const getTourForPage = (tour: TourData, page: number) => {
 export type Metadata = Record<string, MetadataRecord>
 
 export type LeafSide = "recto" | "verso" | undefined
+
 export interface LeafPage {
     "$": {
         index: number
@@ -133,6 +162,10 @@ export const metadata: Metadata = {
         },
         pages: getPageData(testData, testTour),
         tour: testTour
-
-    }
+    },
+    benlowe: {
+        structure: benloweStructure.book,
+        pages: getPageData(benloweData, benloweTour),
+        tour: benloweTour
+    },
 }

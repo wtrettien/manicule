@@ -1,0 +1,2452 @@
+[
+  {
+    "index": 1,
+    "signatures": "endpaper",
+    "pagenum": "",
+    "category": "flyleaf",
+    "description": ""
+  },
+  {
+    "index": 2,
+    "signatures": "free endpaper",
+    "pagenum": "",
+    "category": "flyleaf",
+    "description": ""
+  },
+  {
+    "index": 3,
+    "signatures": "flyleaf",
+    "pagenum": "",
+    "category": "flyleaf",
+    "description": ""
+  },
+  {
+    "index": 4,
+    "signatures": "flyleaf",
+    "pagenum": "",
+    "category": "flyleaf",
+    "description": ""
+  },
+  {
+    "index": 5,
+    "signatures": "flyleaf",
+    "pagenum": "",
+    "category": "flyleaf",
+    "description": ""
+  },
+  {
+    "index": 6,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 7,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 8,
+    "signatures": "[π]r",
+    "pagenum": "",
+    "category": "title page",
+    "description": ""
+  },
+  {
+    "index": 9,
+    "signatures": "[πv]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 10,
+    "signatures": "A[1]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 11,
+    "signatures": "A[1]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 12,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 13,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 14,
+    "signatures": "[A2]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 15,
+    "signatures": "[A2]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 16,
+    "signatures": "¶[1]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 17,
+    "signatures": "¶[1]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 18,
+    "signatures": "[¶2]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 19,
+    "signatures": "[¶2]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 20,
+    "signatures": "¶¶[1]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 21,
+    "signatures": "¶¶[1]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 22,
+    "signatures": "[¶¶2]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 23,
+    "signatures": "[¶¶2]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 24,
+    "signatures": "¶¶¶[1]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 25,
+    "signatures": "¶¶¶[1]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 26,
+    "signatures": "[¶¶¶2]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 27,
+    "signatures": "[¶¶¶2]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 28,
+    "signatures": "B[1]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 29,
+    "signatures": "B[1]v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 30,
+    "signatures": "B2r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 31,
+    "signatures": "B2v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": "recycled image"
+  },
+  {
+    "index": 32,
+    "signatures": "B3r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": "recycled image"
+  },
+  {
+    "index": 33,
+    "signatures": "B3v",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": "recycled image"
+  },
+  {
+    "index": 34,
+    "signatures": "[B4]r",
+    "pagenum": "",
+    "category": "preliminary",
+    "description": "recycled image"
+  },
+  {
+    "index": 35,
+    "signatures": "[B4]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 36,
+    "signatures": "[B5]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 37,
+    "signatures": "[B5]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 38,
+    "signatures": "(c)[1]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 39,
+    "signatures": "(c)[1]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 40,
+    "signatures": "[(c)2]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 41,
+    "signatures": "[(c)2]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 42,
+    "signatures": "(d)[1]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 43,
+    "signatures": "(d)[1]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 44,
+    "signatures": "[B6]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 45,
+    "signatures": "[B6]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 46,
+    "signatures": "C[1]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 47,
+    "signatures": "C[1]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 48,
+    "signatures": "C2r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 49,
+    "signatures": "C2v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 50,
+    "signatures": "C3r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 51,
+    "signatures": "C3v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 52,
+    "signatures": "[C4]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 53,
+    "signatures": "[C4]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 54,
+    "signatures": "[C5]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 55,
+    "signatures": "[C5]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 56,
+    "signatures": "[C6]r",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 57,
+    "signatures": "[C6]v",
+    "pagenum": "",
+    "category": "commendatory verse",
+    "description": ""
+  },
+  {
+    "index": 58,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 59,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 60,
+    "signatures": "D[1]r",
+    "pagenum": 1,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 61,
+    "signatures": "D[1]v",
+    "pagenum": 2,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 62,
+    "signatures": "B2r",
+    "pagenum": 3,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 63,
+    "signatures": "B2v",
+    "pagenum": 4,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 64,
+    "signatures": "D3r",
+    "pagenum": 5,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 65,
+    "signatures": "D3v",
+    "pagenum": 6,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 66,
+    "signatures": "[D4]r",
+    "pagenum": 7,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 67,
+    "signatures": "[D4]v",
+    "pagenum": 8,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 68,
+    "signatures": "[D5]r",
+    "pagenum": 9,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 69,
+    "signatures": "[D5]v",
+    "pagenum": 10,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 70,
+    "signatures": "[D6]r",
+    "pagenum": 11,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 71,
+    "signatures": "[D6]v",
+    "pagenum": 12,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 72,
+    "signatures": "E[1]r",
+    "pagenum": 13,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 73,
+    "signatures": "E[1]v",
+    "pagenum": 14,
+    "category": "poetry (English)",
+    "description": "pattern poem"
+  },
+  {
+    "index": 74,
+    "signatures": "E2r",
+    "pagenum": 15,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 75,
+    "signatures": "E2v",
+    "pagenum": 16,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 76,
+    "signatures": "E3r",
+    "pagenum": 17,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 77,
+    "signatures": "E3v",
+    "pagenum": 18,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 78,
+    "signatures": "[E4]r",
+    "pagenum": 19,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 79,
+    "signatures": "[E4]v",
+    "pagenum": 20,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 80,
+    "signatures": "[E5]r",
+    "pagenum": 21,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 81,
+    "signatures": "[E5]v",
+    "pagenum": 22,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 82,
+    "signatures": "[E6]r",
+    "pagenum": 23,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 83,
+    "signatures": "[E6]v",
+    "pagenum": 24,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 84,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 85,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 86,
+    "signatures": "F[1]r",
+    "pagenum": 25,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 87,
+    "signatures": "F[1]v",
+    "pagenum": 26,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 88,
+    "signatures": "E2r",
+    "pagenum": 27,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 89,
+    "signatures": "E2v",
+    "pagenum": 28,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 90,
+    "signatures": "F3r",
+    "pagenum": 29,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 91,
+    "signatures": "F3v",
+    "pagenum": 30,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 92,
+    "signatures": "[F4]r",
+    "pagenum": 31,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 93,
+    "signatures": "[F4]v",
+    "pagenum": 32,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 94,
+    "signatures": "[F5]r",
+    "pagenum": 33,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 95,
+    "signatures": "[F5]v",
+    "pagenum": 34,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 96,
+    "signatures": "[F6]r",
+    "pagenum": 35,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 97,
+    "signatures": "[F6]v",
+    "pagenum": 36,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 98,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 99,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 100,
+    "signatures": "G[1]r",
+    "pagenum": 37,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 101,
+    "signatures": "G[1]v",
+    "pagenum": 38,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 102,
+    "signatures": "G2r",
+    "pagenum": 39,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 103,
+    "signatures": "G2v",
+    "pagenum": 40,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 104,
+    "signatures": "G3r",
+    "pagenum": 41,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 105,
+    "signatures": "G3v",
+    "pagenum": 42,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 106,
+    "signatures": "[G4]r",
+    "pagenum": 43,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 107,
+    "signatures": "[G4]v",
+    "pagenum": 44,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 108,
+    "signatures": "[G5]r",
+    "pagenum": 45,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 109,
+    "signatures": "[G5]v",
+    "pagenum": 46,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 110,
+    "signatures": "[G6]r",
+    "pagenum": 47,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 111,
+    "signatures": "[G6]v",
+    "pagenum": 48,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 112,
+    "signatures": "H[1]r",
+    "pagenum": 49,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 113,
+    "signatures": "H[1]v",
+    "pagenum": 50,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 114,
+    "signatures": "[insertion]rr",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 115,
+    "signatures": "[insertion]vv",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 116,
+    "signatures": "H2r",
+    "pagenum": 51,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 117,
+    "signatures": "H2v",
+    "pagenum": 52,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 118,
+    "signatures": "H3r",
+    "pagenum": 53,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 119,
+    "signatures": "H3v",
+    "pagenum": 54,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 120,
+    "signatures": "[H4]r",
+    "pagenum": 55,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 121,
+    "signatures": "[H4]v",
+    "pagenum": 56,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 122,
+    "signatures": "[H5]r",
+    "pagenum": 57,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 123,
+    "signatures": "[H5]v",
+    "pagenum": 58,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 124,
+    "signatures": "[H6]r",
+    "pagenum": 59,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 125,
+    "signatures": "[H6]v",
+    "pagenum": 60,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 126,
+    "signatures": "I[1]r",
+    "pagenum": 61,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 127,
+    "signatures": "I[1]v",
+    "pagenum": 62,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 128,
+    "signatures": "I2r",
+    "pagenum": 63,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 129,
+    "signatures": "I2v",
+    "pagenum": 69,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 130,
+    "signatures": "I3r",
+    "pagenum": 65,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 131,
+    "signatures": "I3v",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 132,
+    "signatures": "[I4]r",
+    "pagenum": 67,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 133,
+    "signatures": "[I4]v",
+    "pagenum": 68,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 134,
+    "signatures": "[I5]r",
+    "pagenum": 63,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 135,
+    "signatures": "[I5]v",
+    "pagenum": 70,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 136,
+    "signatures": "[I6]r",
+    "pagenum": 71,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 137,
+    "signatures": "[I6]v",
+    "pagenum": 72,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 138,
+    "signatures": "K[1]r",
+    "pagenum": 73,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 139,
+    "signatures": "K[1]v",
+    "pagenum": 74,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 140,
+    "signatures": "K2r",
+    "pagenum": 75,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 141,
+    "signatures": "K2v",
+    "pagenum": 76,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 142,
+    "signatures": "K3r",
+    "pagenum": 77,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 143,
+    "signatures": "K3v",
+    "pagenum": 78,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 144,
+    "signatures": "[K4]r",
+    "pagenum": 79,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 145,
+    "signatures": "[K4]v",
+    "pagenum": 80,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 146,
+    "signatures": "[K5]r",
+    "pagenum": 81,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 147,
+    "signatures": "[K5]v",
+    "pagenum": 82,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 148,
+    "signatures": "[K6]r",
+    "pagenum": 83,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 149,
+    "signatures": "[K6]v",
+    "pagenum": 84,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 150,
+    "signatures": "L[1]r",
+    "pagenum": 85,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 151,
+    "signatures": "L[1]v",
+    "pagenum": 86,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 152,
+    "signatures": "L2r",
+    "pagenum": 87,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 153,
+    "signatures": "L2v",
+    "pagenum": 88,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 154,
+    "signatures": "L2r",
+    "pagenum": 89,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 155,
+    "signatures": "L2v",
+    "pagenum": 90,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 156,
+    "signatures": "[L4]r",
+    "pagenum": 91,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 157,
+    "signatures": "[L4]v",
+    "pagenum": 92,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 158,
+    "signatures": "[L5]r",
+    "pagenum": 93,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 159,
+    "signatures": "[L5]v",
+    "pagenum": 94,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 160,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 161,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 162,
+    "signatures": "[L6]r",
+    "pagenum": 95,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 163,
+    "signatures": "[L6]v",
+    "pagenum": 96,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 164,
+    "signatures": "M[1]r",
+    "pagenum": 97,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 165,
+    "signatures": "M[1]v",
+    "pagenum": 98,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 166,
+    "signatures": "M2r",
+    "pagenum": 99,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 167,
+    "signatures": "M2v",
+    "pagenum": 100,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 168,
+    "signatures": "M3r",
+    "pagenum": 101,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 169,
+    "signatures": "M3v",
+    "pagenum": 102,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 170,
+    "signatures": "[M4]r",
+    "pagenum": 103,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 171,
+    "signatures": "[M4]v",
+    "pagenum": 104,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 172,
+    "signatures": "[M5]r",
+    "pagenum": 105,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 173,
+    "signatures": "[M5]v",
+    "pagenum": 106,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 174,
+    "signatures": "[M6]r",
+    "pagenum": 107,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 175,
+    "signatures": "[M6]v",
+    "pagenum": 108,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 176,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 177,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 178,
+    "signatures": "N[1]r",
+    "pagenum": 109,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 179,
+    "signatures": "N[1]v",
+    "pagenum": 110,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 180,
+    "signatures": "N2r",
+    "pagenum": 111,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 181,
+    "signatures": "N2v",
+    "pagenum": 112,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 182,
+    "signatures": "N3r",
+    "pagenum": 113,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 183,
+    "signatures": "N3v",
+    "pagenum": 114,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 184,
+    "signatures": "[N4]r",
+    "pagenum": 115,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 185,
+    "signatures": "[N4]v",
+    "pagenum": 116,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 186,
+    "signatures": "[N5]r",
+    "pagenum": 117,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 187,
+    "signatures": "[N5]v",
+    "pagenum": 118,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 188,
+    "signatures": "[N6]r",
+    "pagenum": 119,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 189,
+    "signatures": "[N6]v",
+    "pagenum": 120,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 190,
+    "signatures": "O[1]r",
+    "pagenum": 121,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 191,
+    "signatures": "O[1]v",
+    "pagenum": 122,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 192,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 193,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 194,
+    "signatures": "[O2]r",
+    "pagenum": 123,
+    "category": "preliminary",
+    "description": ""
+  },
+  {
+    "index": 195,
+    "signatures": "[O2]v",
+    "pagenum": 124,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 196,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 197,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 198,
+    "signatures": "[O3]r",
+    "pagenum": 125,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 199,
+    "signatures": "[O3]v",
+    "pagenum": 126,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 200,
+    "signatures": "[O4]r",
+    "pagenum": 127,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 201,
+    "signatures": "[O4]v",
+    "pagenum": 128,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 202,
+    "signatures": "[O5]r",
+    "pagenum": 129,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 203,
+    "signatures": "[O5]v",
+    "pagenum": 130,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 204,
+    "signatures": "[O6]r",
+    "pagenum": 131,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 205,
+    "signatures": "[O6]v",
+    "pagenum": 132,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 206,
+    "signatures": "P[1]r",
+    "pagenum": 133,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 207,
+    "signatures": "P[1]v",
+    "pagenum": 134,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 208,
+    "signatures": "P2r",
+    "pagenum": 135,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 209,
+    "signatures": "P2v",
+    "pagenum": 136,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 210,
+    "signatures": "P3r",
+    "pagenum": 137,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 211,
+    "signatures": "P3v",
+    "pagenum": 138,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 212,
+    "signatures": "[P4]r",
+    "pagenum": 139,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 213,
+    "signatures": "[P4]v",
+    "pagenum": 140,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 214,
+    "signatures": "[P5]r",
+    "pagenum": 141,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 215,
+    "signatures": "[P5]v",
+    "pagenum": 142,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 216,
+    "signatures": "[P6]r",
+    "pagenum": 143,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 217,
+    "signatures": "[P6]v",
+    "pagenum": 144,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 218,
+    "signatures": "Q[1]r",
+    "pagenum": 145,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 219,
+    "signatures": "Q[1]v",
+    "pagenum": 146,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 220,
+    "signatures": "Q2r",
+    "pagenum": 147,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 221,
+    "signatures": "Q2v",
+    "pagenum": 148,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 222,
+    "signatures": "Q3r",
+    "pagenum": 149,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 223,
+    "signatures": "Q3v",
+    "pagenum": 150,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 224,
+    "signatures": "[Q4]r",
+    "pagenum": 151,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 225,
+    "signatures": "[Q4]v",
+    "pagenum": 152,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 226,
+    "signatures": "[Q5]r",
+    "pagenum": 153,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 227,
+    "signatures": "[Q5]v",
+    "pagenum": 154,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 228,
+    "signatures": "[Q6]r",
+    "pagenum": 155,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 229,
+    "signatures": "[Q6]v",
+    "pagenum": 156,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 230,
+    "signatures": "R[1]r",
+    "pagenum": 157,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 231,
+    "signatures": "R[1]v",
+    "pagenum": 158,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 232,
+    "signatures": "R2r",
+    "pagenum": 159,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 233,
+    "signatures": "R2v",
+    "pagenum": 160,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 234,
+    "signatures": "R3r",
+    "pagenum": 161,
+    "category": "translation",
+    "description": "pattern poem"
+  },
+  {
+    "index": 235,
+    "signatures": "R3v",
+    "pagenum": 162,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 236,
+    "signatures": "[R4]r",
+    "pagenum": 163,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 237,
+    "signatures": "[R4]v",
+    "pagenum": 164,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 238,
+    "signatures": "[R5]r",
+    "pagenum": 165,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 239,
+    "signatures": "[R5]v",
+    "pagenum": 166,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 240,
+    "signatures": "[R6]r",
+    "pagenum": 167,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 241,
+    "signatures": "[R6]v",
+    "pagenum": 168,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 242,
+    "signatures": "S[1]r",
+    "pagenum": 169,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 243,
+    "signatures": "S[1]v",
+    "pagenum": 170,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 244,
+    "signatures": "S2r",
+    "pagenum": 171,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 245,
+    "signatures": "S2v",
+    "pagenum": 172,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 246,
+    "signatures": "S3r",
+    "pagenum": 173,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 247,
+    "signatures": "S3v",
+    "pagenum": 174,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 248,
+    "signatures": "[S4]r",
+    "pagenum": 175,
+    "category": "recycled poetry",
+    "description": ""
+  },
+  {
+    "index": 249,
+    "signatures": "[S4]v",
+    "pagenum": 176,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 250,
+    "signatures": "[S5]r",
+    "pagenum": 177,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 251,
+    "signatures": "[S5]v",
+    "pagenum": 178,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 252,
+    "signatures": "[S6]r",
+    "pagenum": 179,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 253,
+    "signatures": "[S6]v",
+    "pagenum": 180,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 254,
+    "signatures": "T[1]r",
+    "pagenum": 181,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 255,
+    "signatures": "T[1]v",
+    "pagenum": 182,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 256,
+    "signatures": "T2r",
+    "pagenum": 183,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 257,
+    "signatures": "T2v",
+    "pagenum": 184,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 258,
+    "signatures": "T3r",
+    "pagenum": 185,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 259,
+    "signatures": "T3v",
+    "pagenum": 186,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 260,
+    "signatures": "[T4]r",
+    "pagenum": 187,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 261,
+    "signatures": "[T4]v",
+    "pagenum": 188,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 262,
+    "signatures": "[T5]r",
+    "pagenum": 189,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 263,
+    "signatures": "[T5]v",
+    "pagenum": 190,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 264,
+    "signatures": "[T6]r",
+    "pagenum": 191,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 265,
+    "signatures": "[T6]v",
+    "pagenum": 192,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 266,
+    "signatures": "V[1]r",
+    "pagenum": 193,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 267,
+    "signatures": "V[1]v",
+    "pagenum": 194,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 268,
+    "signatures": "V2r",
+    "pagenum": 195,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 269,
+    "signatures": "V2v",
+    "pagenum": 196,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 270,
+    "signatures": "V3r",
+    "pagenum": 197,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 271,
+    "signatures": "V3v",
+    "pagenum": 198,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 272,
+    "signatures": "[V4]r",
+    "pagenum": 191,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 273,
+    "signatures": "[V4]v",
+    "pagenum": 200,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 274,
+    "signatures": "[V5]r",
+    "pagenum": 201,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 275,
+    "signatures": "[V5]v",
+    "pagenum": 202,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 276,
+    "signatures": "[V6]r",
+    "pagenum": 203,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 277,
+    "signatures": "[V6]v",
+    "pagenum": 204,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 278,
+    "signatures": "X[1]r",
+    "pagenum": 205,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 279,
+    "signatures": "X[1]v",
+    "pagenum": 206,
+    "category": "poetry (English)",
+    "description": "recycled image"
+  },
+  {
+    "index": 280,
+    "signatures": "[X2]r",
+    "pagenum": 207,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 281,
+    "signatures": "[X2]v",
+    "pagenum": 208,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 282,
+    "signatures": "Y[1]r",
+    "pagenum": 209,
+    "category": "poetry (Latin)",
+    "description": "recycled image"
+  },
+  {
+    "index": 283,
+    "signatures": "Y[1]v",
+    "pagenum": 210,
+    "category": "poetry (Latin)",
+    "description": "recycled image"
+  },
+  {
+    "index": 284,
+    "signatures": "[Y2]r",
+    "pagenum": 211,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 285,
+    "signatures": "[Y2]v",
+    "pagenum": 212,
+    "category": "poetry (Latin)",
+    "description": "recycled image"
+  },
+  {
+    "index": 286,
+    "signatures": "Z[1]r",
+    "pagenum": 213,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 287,
+    "signatures": "Z[1]v",
+    "pagenum": 214,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 288,
+    "signatures": "[Z2]r",
+    "pagenum": 215,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 289,
+    "signatures": "[Z2]v",
+    "pagenum": 216,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 290,
+    "signatures": "Aa[1]r",
+    "pagenum": 217,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 291,
+    "signatures": "Aa[1]v",
+    "pagenum": 218,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 292,
+    "signatures": "[Aa2]r",
+    "pagenum": 219,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 293,
+    "signatures": "[Aa2]v",
+    "pagenum": 220,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 294,
+    "signatures": "Bb[1]r",
+    "pagenum": 221,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 295,
+    "signatures": "Bb[1]v",
+    "pagenum": 222,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 296,
+    "signatures": "[Bb2]r",
+    "pagenum": 223,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 297,
+    "signatures": "[Bb2]v",
+    "pagenum": 224,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 298,
+    "signatures": "Cc[1]r",
+    "pagenum": 225,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 299,
+    "signatures": "Cc[1]v",
+    "pagenum": 226,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 300,
+    "signatures": "[Cc2]r",
+    "pagenum": 227,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 301,
+    "signatures": "[Cc2]v",
+    "pagenum": 228,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 302,
+    "signatures": "Dd[1]r",
+    "pagenum": 229,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 303,
+    "signatures": "Dd[1]v",
+    "pagenum": 230,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 304,
+    "signatures": "[Dd2]r",
+    "pagenum": 231,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 305,
+    "signatures": "[Dd2]v",
+    "pagenum": 232,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 306,
+    "signatures": "Ee[1]r",
+    "pagenum": 233,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 307,
+    "signatures": "Ee[1]v",
+    "pagenum": 234,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 308,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 309,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "original print",
+    "description": ""
+  },
+  {
+    "index": 310,
+    "signatures": "[Ee2]r",
+    "pagenum": 235,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 311,
+    "signatures": "[Ee2]v",
+    "pagenum": 236,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 312,
+    "signatures": "Ff[1]r",
+    "pagenum": 237,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 313,
+    "signatures": "Ff[1]v",
+    "pagenum": 238,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 314,
+    "signatures": "[Ff2]r",
+    "pagenum": 239,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 315,
+    "signatures": "[Ff2]v",
+    "pagenum": 240,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 316,
+    "signatures": "Gg[1]r",
+    "pagenum": 241,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 317,
+    "signatures": "Gg[1]v",
+    "pagenum": 242,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 318,
+    "signatures": "[Gg2]r",
+    "pagenum": 243,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 319,
+    "signatures": "[Gg2]v",
+    "pagenum": 244,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 320,
+    "signatures": "Hh[1]r",
+    "pagenum": 245,
+    "category": "poetry (English)",
+    "description": "recycled image"
+  },
+  {
+    "index": 321,
+    "signatures": "Hh[1]v",
+    "pagenum": 246,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 322,
+    "signatures": "[Hh2]r",
+    "pagenum": 247,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 323,
+    "signatures": "[Hh2]v",
+    "pagenum": 248,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 324,
+    "signatures": "Ii[1]r",
+    "pagenum": 249,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 325,
+    "signatures": "Ii[1]v",
+    "pagenum": 250,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 326,
+    "signatures": "[Ii2]r",
+    "pagenum": 251,
+    "category": "poetry (English)",
+    "description": ""
+  },
+  {
+    "index": 327,
+    "signatures": "[Ii2]v",
+    "pagenum": 252,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 328,
+    "signatures": "Kk[1]r",
+    "pagenum": 253,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 329,
+    "signatures": "Kk[1]v",
+    "pagenum": 254,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 330,
+    "signatures": "[Kk2]r",
+    "pagenum": 255,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 331,
+    "signatures": "[Kk2]v",
+    "pagenum": 256,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 332,
+    "signatures": "Ll[1]r",
+    "pagenum": 257,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 333,
+    "signatures": "Ll[1]v",
+    "pagenum": 258,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 334,
+    "signatures": "[Ll2]r",
+    "pagenum": 259,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 335,
+    "signatures": "[Ll2]v",
+    "pagenum": 260,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 336,
+    "signatures": "Mm[1]r",
+    "pagenum": 261,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 337,
+    "signatures": "Mm[1]v",
+    "pagenum": 262,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 338,
+    "signatures": "[Mm2]r",
+    "pagenum": 263,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 339,
+    "signatures": "[Mm2]v",
+    "pagenum": 264,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 340,
+    "signatures": "Nn[1]r",
+    "pagenum": 265,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 341,
+    "signatures": "Nn[1]v",
+    "pagenum": 266,
+    "category": "translation",
+    "description": ""
+  },
+  {
+    "index": 342,
+    "signatures": "[Nn2]r",
+    "pagenum": 267,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 343,
+    "signatures": "[Nn2]v",
+    "pagenum": 268,
+    "category": "poetry (Latin)",
+    "description": ""
+  },
+  {
+    "index": 344,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 345,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 346,
+    "signatures": "[insertion]r",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 347,
+    "signatures": "[insertion]v",
+    "pagenum": "",
+    "category": "recycled image",
+    "description": ""
+  },
+  {
+    "index": 348,
+    "signatures": "[flyleaf]",
+    "pagenum": "",
+    "category": "flyleaf",
+    "description": ""
+  },
+  {
+    "index": 349,
+    "signatures": "[flyleaf]",
+    "pagenum": "",
+    "category": "flyleaf",
+    "description": ""
+  },
+  {
+    "index": 350,
+    "signatures": "[flyleaf]",
+    "pagenum": "",
+    "category": "flyleaf",
+    "description": ""
+  }
+]

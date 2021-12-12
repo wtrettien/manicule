@@ -22,6 +22,7 @@ const Structure = () => {
     const structure = context.structure as IStructure
     const pageData = context.pages as PageData
     const edition = context.edition as EditionName
+    const quires = structure.quire
 
     const [side, setLeafSide] = React.useState<LeafSide>('recto')
 
@@ -116,8 +117,6 @@ const Structure = () => {
             </label>
         )
     }
-
-    const quires = structure.quire
 
     return (
         <>

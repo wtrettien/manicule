@@ -22,7 +22,7 @@ export const EditionContext = React.createContext<Partial<EditionContextProps>>(
 
 const SiteContainer: React.FC = ({ children }) => {
     let { editionName } = useParams()
-    const edition = editionName || 'default'
+    const edition = editionName || 'benlowe'
     const { pages, structure, tour } = metadata[edition]
     const context = {
         edition,
