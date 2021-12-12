@@ -110,10 +110,10 @@ const Structure = () => {
         inserts /= 2
 
         return (
-            <p>
+            <label>
                 Contains {folios} folio{folios >= 2 ? 's' : ''}
                 {inserts > 0 ? ` and ${inserts} insertion${inserts > 1 ? 's' : ''}` : ''}
-            </p>
+            </label>
         )
     }
 
