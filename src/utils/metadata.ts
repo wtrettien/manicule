@@ -11,40 +11,16 @@ import benloweTour from '../data/benlowe/tour/tour.json'
 
 console.log(defaultStructure)
 
-const categoryColors: Record<string, string> = {
-    flyleaf: '#000000',
-    'Reeve’s Tale': '#2550a1',
-    'Cook’s Tale': '#658539',
-    'Man of Law’s Tale': '#963f39',
-    'Canon’s Yeoman’s Tale': '#876331',
-    'Tale of Sir Thopas': '#b09e8d',
-    'Parson’s Tale': '#cae1ed',
-    'Squire’s Tale': '#365414'
-}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const pastelPalette = ['#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','#d9d9d9','#bc80bd','#ccebc5','#ffed6f']
+const distinctPalette = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928']
+const categoryPalette = distinctPalette
 
 export type EditionName = string
-export type PageNum = number | undefined
+export type Metadata = Record<string, MetadataRecord>
 
-// Get the current quire from the page structure for the current verso page
-export const getCurrentQuire = (edition: EditionName, pageIndex: number) => {
-    const quires = metadata[edition].structure.quire
-    let quire
-    let page
-
-    quires.forEach((q) => {
-        const leaves = q.leaf
-        leaves.forEach((l) => {
-            const pages = l.page
-            pages.forEach((p) => {
-                if (p.$.index === pageIndex) {
-                    quire = q
-                    page = p
-                }
-            })
-        })
-    })
-    return { quire, page }
-}
+export type LeafSide = "recto" | "verso" | undefined
 
 export type Page = {
     index: number
@@ -55,63 +31,14 @@ export type Page = {
     color?: string
     tourItem?: TourItem
 }
-
-/* Representation of the looser types that could come in as strings or numbers */
-
-export type SourcePage = {
-    index: number | string
-    signatures: string
-    pagenum: PageNum | string
-    category: string
-    description: string
-}
-export type PageData = Record<number, Page>
-
-
-// get all of the information about the individual pages in the book
-export const getPageData = (pages: SourcePage[], tour: TourData) => {
-    let data: Page[] = []
-
-    pages.forEach((p) => {
-
-        if (typeof p.pagenum === "string") {
-            p.pagenum = parseInt(p.pagenum, 10)
-        }
-        if (typeof p.index === "string") {
-            p.index = parseInt(p.index, 10)
-        }
-        const page = {
-            color: categoryColors[p.category],
-            index: p.index,
-            signatures: p.signatures,
-            pagenum: p.pagenum,
-            category: p.category,
-            description: p.description,
-            tourItem: getTourForPage(tour, p.index)
-        }
-        data[page.index] = page
-
-    })
-    return data
-}
-
-export type TourData = TourItem[]
-
 export interface TourItem {
     item: number
     page: number
     leaf?: LeafSide // Populated at render time
 }
-
-// Given an edition, find any possible tour data for a page
-export const getTourForPage = (tour: TourData, page: number) => {
-    const data = tour.filter((item) => item.page === page)[0]
-    return data
-}
-
-export type Metadata = Record<string, MetadataRecord>
-
-export type LeafSide = "recto" | "verso" | undefined
+export type PageNum = number | undefined
+export type TourData = TourItem[]
+export type PageData = Record<number, Page>
 
 export interface LeafPage {
     "$": {
@@ -149,6 +76,83 @@ export type MetadataRecord = {
     pages: PageData
     tour: TourData
 }
+// Get the current quire from the page structure for the current verso page
+export const getCurrentQuire = (edition: EditionName, pageIndex: number) => {
+    const quires = metadata[edition].structure.quire
+    let quire
+    let page
+
+    quires.forEach((q) => {
+        const leaves = q.leaf
+        leaves.forEach((l) => {
+            const pages = l.page
+            pages.forEach((p) => {
+                if (p.$.index === pageIndex) {
+                    quire = q
+                    page = p
+                }
+            })
+        })
+    })
+    return { quire, page }
+}
+
+
+
+/* Representation of the looser types that could come in as strings or numbers */
+type SourcePage = {
+    index: number | string
+    signatures: string
+    pagenum: PageNum | string
+    category: string
+    description: string
+}
+
+// get all of the information about the individual pages in the book
+export const getPageData = (pages: SourcePage[], tour: TourData) => {
+    const data: Page[] = []
+
+    const categories = Array.from(new Set([...pages.map((p) => p.category)]))
+
+    if (categories.length > categoryPalette.length) {
+        console.error(`There are more categories (${categories.length}) than available category colors
+        (${categoryPalette.length})). Either consolidate some categories or add more colors to
+        src/utils/metadata.ts categoryPalette`)
+    }
+
+    pages.forEach((p) => {
+
+        if (typeof p.pagenum === "string") {
+            p.pagenum = parseInt(p.pagenum, 10)
+        }
+        if (typeof p.index === "string") {
+            p.index = parseInt(p.index, 10)
+        }
+        const page = {
+            color: categoryPalette[categories.indexOf(p.category)],
+            index: p.index,
+            signatures: p.signatures,
+            pagenum: p.pagenum,
+            category: p.category,
+            description: p.description,
+            tourItem: getTourForPage(tour, p.index)
+        }
+        data[page.index] = page
+
+    })
+    return data
+}
+
+
+
+// Given an edition, find any possible tour data for a page
+export const getTourForPage = (tour: TourData, page: number) => {
+    const data = tour.filter((item) => item.page === page)[0]
+    return data
+}
+
+
+
 
 export const metadata: Metadata = {
     default: {
