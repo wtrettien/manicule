@@ -30,8 +30,7 @@ export const getCurrentQuire = (edition: EditionName, pageIndex: number) => {
         leaves.forEach((l) => {
             const pages = l.page
             pages.forEach((p) => {
-                // eslint-disable-line consistent-return
-                if (p.$.index === pageIndex.toString()) {
+                if (p.$.index === pageIndex) {
                     quire = q
                     page = p
                 }
@@ -87,22 +86,25 @@ export type Metadata = Record<string, MetadataRecord>
 export type LeafSide = "recto" | "verso" | undefined
 export interface LeafPage {
     "$": {
-        index: string
-        pagenum: string
+        index: number
+        pagenum: number
         side: "r" | "v"
     }
 }
 export interface Leaf {
     "$": {
-        n: string
+        n: number
         mode: string
         single: "true" | "false"
         folio_number: string
-        conjoin: string
+        conjoin: number | null
     }
     page: LeafPage[]
 }
 export interface Quire {
+    "$": {
+        n: string
+    }
     leaf: Leaf[]
 }
 

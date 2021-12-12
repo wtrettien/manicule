@@ -5,6 +5,7 @@ import HomePage from './containers/HomePage'
 import ReaderPage from './containers/ReaderPage'
 import SiteContainer from './containers/SiteContainer'
 import About from './containers/AboutPage'
+import Structure from './containers/Structure'
 
 function App() {
     return (
@@ -31,6 +32,14 @@ function App() {
                     element={
                         <SiteContainer>
                             <ReaderPage />
+                        </SiteContainer>
+                    }
+                />
+                <Route
+                    path="structure"
+                    element={
+                        <SiteContainer>
+                            <Structure edition="default" />
                         </SiteContainer>
                     }
                 />
