@@ -39,7 +39,7 @@ function App() {
                     path="structure"
                     element={
                         <SiteContainer>
-                            <Structure edition="default" />
+                            <Structure />
                         </SiteContainer>
                     }
                 />

@@ -27,8 +27,8 @@ export type ZoomModal = number | undefined
 
 const Reader = ({ page }: ReaderProps) => {
     const context = React.useContext(EditionContext)
-    const [tour, setTour] = React.useState<React.SetStateAction<TourModal>>(undefined)
-    const [zoom, setZoom] = React.useState<React.SetStateAction<ZoomModal>>(undefined)
+    const [tour, setTour] = React.useState<TourModal>(undefined)
+    const [zoom, setZoom] = React.useState<ZoomModal>(undefined)
 
     const pages = context.pages as PageData
     const edition = context.edition as string
@@ -87,13 +87,7 @@ const Reader = ({ page }: ReaderProps) => {
             </Row>
 
             <Row>
-                {tour && (
-                    <Tour
-                        side={(tour as TourItem).leaf}
-                        item={tour as TourItem}
-                        setTour={setTour}
-                    />
-                )}
+                {tour && <Tour side={tour.leaf} item={tour} setTour={setTour} />}
                 <Col sm={6} className={styles.verso}>
                     {renderPage(verso, 'verso')}
                 </Col>

@@ -1,0 +1,45 @@
+.structure {
+    background: transparent;
+    color: oldlace;
+}
+
+.structureNav {
+    position: fixed;
+    right: 5%;
+    height: 10vh;
+    width: 100%;
+    text-align: right;
+    z-index: 99;
+}
+.structureNav button {
+}
+
+.quire {
+    text-align: center;
+    margin-top: 130px;
+}
+
+.navThumbnail a {
+    position: relative;
+    display: inline-block;
+}
+svg.insertionLine {
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+svg.insertionLine marker {
+    fill: #944841;
+}
+
+svg.insertionLine line {
+    stroke: #944841;
+    stroke-width: 2px;
+    marker-end: url(#triangle);
+}
+/* .jtk-connector,
+.jtk-endpoint {
+    path {
+        stroke: lightgray;
+    }
+} */
