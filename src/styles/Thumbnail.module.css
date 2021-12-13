@@ -30,9 +30,9 @@
     width: 83px;
     height: 20px;
     top: 100px;
-    padding: 0;
+    padding: 0 !important;
 }
 .hasTour .bookmark {
-    padding-top: 5px;
+    padding-top: 3px;
     display: inline-block;
 }

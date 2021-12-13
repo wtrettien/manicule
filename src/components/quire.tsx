@@ -2,10 +2,9 @@ import React from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
 import Thumbnail from './thumbnail'
-import { Leaf, LeafSide, PageData, Quire as IQuire } from '../utils/metadata'
+import { LeafSide, PageData, Quire as IQuire } from '../utils/metadata'
 import styles from '../styles/Structure.module.css'
 import { EditionContext } from '../containers/SiteContainer'
-import { rejects } from 'assert'
 
 const ns = 'http://www.w3.org/2000/svg'
 
@@ -29,10 +28,13 @@ const Quire = ({ quire, side }: QuireProps) => {
     const drawLines = () => {
         if (svgRef.current) {
             const svg = svgRef.current
-
+            const arrowid = Math.floor(Math.random() * 10000)
             // Delete any previous svg children
-            svg.innerHTML = ''
-
+            svg.innerHTML = `<defs>
+            <marker id="id-${arrowid}" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" />
+            </marker>
+        </defs>`
             // Get the positions of all the rendered leaf nodes in this quire
             quire.leaf.forEach((l, i) => {
                 // Does this leaf have a conjoined leaf?
@@ -73,6 +75,20 @@ const Quire = ({ quire, side }: QuireProps) => {
 
                         svg.appendChild(path)
                     }
+                } else if (l.$.single === 'true') {
+                    console.log(`Think node ${l.$.n} is an insertion`)
+                    const node = leafRefs[i]
+                    if (node.current) {
+                        const line = document.createElementNS(ns, 'line')
+                        const { x, width } = node.current.getBoundingClientRect()
+                        const center = x + width / 2
+                        line.setAttribute('x1', `${center}`)
+                        line.setAttribute('x2', `${center}`)
+                        line.setAttribute('y1', `${150}`)
+                        line.setAttribute('y2', `${190}`)
+                        line.setAttribute('marker-end', `url(#id-${arrowid})`)
+                        svg.appendChild(line)
+                    }
                 }
             })
         }
@@ -87,7 +103,7 @@ const Quire = ({ quire, side }: QuireProps) => {
     })
     return (
         <div className={styles.quire}>
-            <svg ref={svgRef}></svg>
+            <svg xmlns={ns} ref={svgRef}></svg>
             {quire.leaf.map((leaf, i) => {
                 const page = leaf.page[index].$.index
                 const key = leaf.$.folio_number

@@ -14,7 +14,6 @@
 .quireLabel {
     text-align: center;
     padding: 2rem 0;
-    border-bottom: 1px dotted gray;
 }
 .structure h3 {
     color: #8ea667;
@@ -35,7 +34,15 @@
     stroke: oldlace;
     fill: transparent;
 }
-
+.quire svg polygon {
+    stroke: rgb(227, 26, 28);
+    fill: rgb(227, 26, 28);
+}
+.quire svg line {
+    stroke: rgb(227, 26, 28);
+    stroke-width: 1;
+    fill: transparent;
+}
 .leaf {
     margin-top: 200px;
     display: inline-block;
