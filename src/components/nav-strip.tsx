@@ -126,11 +126,7 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
                     {this.onScroll}
                 </Motion> */}
                 <Well bsClass={styles.navGroup}>
-                    <NavGroup
-                        data={this.state.items}
-                        page={this.props.page}
-                        edition={this.props.edition}
-                    />
+                    <NavGroup data={this.state.items} page={this.props.page} />
                 </Well>
                 {this.props.page < this.state.items.length && (
                     <NavArrow
@@ -165,12 +161,11 @@ export const NavArrow = ({ dir, onTriggerScroll, onTriggerEnd }: NavArrowProps) 
 interface NavGroupProps {
     data: any
     page: number
-    edition: EditionName
 }
-const NavGroup = ({ data, page, edition }: NavGroupProps) => (
+const NavGroup = ({ data, page }: NavGroupProps) => (
     <ButtonGroup>
         {data.map((p: any) => (
-            <Thumbnail pageData={p} page={page} edition={edition} key={p.index} />
+            <Thumbnail pageData={p} page={page} key={p.index} />
         ))}
     </ButtonGroup>
 )

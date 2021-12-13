@@ -5,15 +5,15 @@ import { OverlayTrigger, Tooltip, Button, Glyphicon } from 'react-bootstrap'
 import { EditionName, Page } from '../utils/metadata'
 import { getImageUrl } from './page-image'
 import styles from '../styles/Thumbnail.module.css'
+import { EditionContext } from '../containers/SiteContainer'
 
 interface ThumbnailProps {
     pageData: Page
-    edition: EditionName
     page: number
 }
-const Thumbnail = ({ pageData, edition, page }: ThumbnailProps) => {
+const Thumbnail = ({ pageData, page }: ThumbnailProps) => {
     const { index, color, signatures, category } = pageData
-
+    const edition = React.useContext(EditionContext).edition as EditionName
     const pos = index % 2 === 0 ? 'recto' : 'verso'
     const img = getImageUrl(edition, index, true)
 

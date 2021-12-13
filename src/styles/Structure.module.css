@@ -17,30 +17,25 @@
 
 .quire {
     text-align: center;
-    margin-top: 130px;
+    height: 300px;
+    position: relative;
+}
+.quire svg {
+    width: 800px;
+    height: 300px;
+    left: 0;
+    position: absolute;
+}
+.quire svg path {
+    stroke: oldlace;
+    fill: transparent;
 }
 
-.navThumbnail a {
+.leaf {
+    margin-top: 200px;
+    display: inline-block;
+}
+.leaf a {
     position: relative;
     display: inline-block;
 }
-svg.insertionLine {
-    position: absolute;
-    left: 0;
-    top: -50px;
-}
-svg.insertionLine marker {
-    fill: #944841;
-}
-
-svg.insertionLine line {
-    stroke: #944841;
-    stroke-width: 2px;
-    marker-end: url(#triangle);
-}
-/* .jtk-connector,
-.jtk-endpoint {
-    path {
-        stroke: lightgray;
-    }
-} */

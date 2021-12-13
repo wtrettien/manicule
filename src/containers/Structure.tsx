@@ -1,32 +1,20 @@
 import React from 'react'
 
-//import { debounce } from 'debounce'
+import { Grid, Row, Col, Button } from 'react-bootstrap'
 
-import { Grid, Row, Col, Button, Panel } from 'react-bootstrap'
+import Quire from '../components/quire'
+import styles from '../styles/Structure.module.css'
 
-import Quire from '../../components/quire'
-import styles from '../../styles/Structure.module.css'
-
-import {
-    EditionName,
-    Structure as IStructure,
-    Quire as IQuire,
-    PageData,
-    Leaf,
-    LeafSide
-} from '../../utils/metadata'
-import { EditionContext } from '../SiteContainer'
+import { Structure as IStructure, Quire as IQuire, PageData, LeafSide } from '../utils/metadata'
+import { EditionContext } from './SiteContainer'
 
 const Structure = () => {
     const context = React.useContext(EditionContext)
     const structure = context.structure as IStructure
     const pageData = context.pages as PageData
-    const edition = context.edition as EditionName
     const quires = structure.quire
 
     const [side, setLeafSide] = React.useState<LeafSide>('recto')
-
-    const index = side === 'recto' ? 0 : 1
 
     // window.requestAnimationFrame(() => {
     //     const quires = this.structure.quire
@@ -75,26 +63,6 @@ const Structure = () => {
     //     svg.appendChild(line)
     // }
 
-    const drawConjoined = (index: number, leaf: Leaf, conjoined: any) => {
-        // Get the leaf and its conjoined
-        const page = leaf.page[index].$.index as unknown as number
-        const conjoinedPage = conjoined[0].page[index].$.index as number
-        const pageHtml = document.getElementById(`page-${page}`)
-        const conjoinedHtml = document.getElementById(`page-${conjoinedPage}`)
-
-        // Curviness is a function of the distance between the two pages, where
-        // closer pages have a shallower arc
-        const curviness = 50 - (page - conjoinedPage) * 10
-
-        // this.j.connect({
-        //     target: pageHtml?.id,
-        //     source: conjoinedHtml?.id,
-        //     connector: ['Bezier', { curviness }],
-        //     endpointStyle: { radius: 0 },
-        //     anchors: ['TopCenter', 'TopCenter']
-        // })
-    }
-
     // Return an English-language representation of the structure
     const describeQuire = (quire: IQuire) => {
         const folios = quire.leaf.length
@@ -137,7 +105,7 @@ const Structure = () => {
                             {describeQuire(quire)}
                         </Col>
                         <Col md={10}>
-                            <Quire quire={quire} edition={edition} side={side} />
+                            <Quire quire={quire} side={side} />
                         </Col>
                     </Row>
                 ))}
