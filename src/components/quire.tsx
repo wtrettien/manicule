@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDebouncedCallback } from 'use-debounce'
 
 import Thumbnail from './thumbnail'
 import { Leaf, LeafSide, PageData, Quire as IQuire } from '../utils/metadata'
@@ -25,9 +26,12 @@ const Quire = ({ quire, side }: QuireProps) => {
         quire.leaf.map((l) => React.createRef<HTMLDivElement>())
     )
 
-    React.useLayoutEffect(() => {
+    const drawLines = () => {
         if (svgRef.current) {
             const svg = svgRef.current
+
+            // Delete any previous svg children
+            svg.innerHTML = ''
 
             // Get the positions of all the rendered leaf nodes in this quire
             quire.leaf.forEach((l, i) => {
@@ -38,20 +42,19 @@ const Quire = ({ quire, side }: QuireProps) => {
                 if (conjoinedId) {
                     const left = leafRefs[i]
                     const right = leafRefs[quire.leaf.indexOf(conjoined)]
-                    const extra = 12 // Extra padding to account for margins
 
                     if (left.current && right.current) {
                         const lrect = left.current.getBoundingClientRect()
                         const rrect = right.current.getBoundingClientRect()
 
                         // Start and end coordinates for the lines
-                        const startx = lrect.x - extra + lrect.width / 2
+                        const startx = lrect.x + lrect.width / 2
                         const starty = 210
-                        const endx = rrect.x - extra + rrect.width / 2
+                        const endx = rrect.x + rrect.width / 2
                         const endy = 210
 
                         // Control points are based on the midpoint between left and right, plus the offset (`extra`)
-                        const dist = (lrect.x + rrect.x + rrect.width - extra) / 2
+                        const dist = (lrect.x + rrect.x + rrect.width) / 2
 
                         // Height of the control points should be the same, and relative to the distance between the nodes,
                         // clamped so they start low enough to see (0) but don't descend into the nodes (150)
@@ -73,10 +76,18 @@ const Quire = ({ quire, side }: QuireProps) => {
                 }
             })
         }
+    }
+    const debounced = useDebouncedCallback(drawLines, 100)
+    React.useLayoutEffect(() => {
+        drawLines()
+        window.addEventListener('resize', debounced)
+        return () => {
+            window.removeEventListener('resize', debounced)
+        }
     })
     return (
         <div className={styles.quire}>
-            <svg ref={svgRef} viewBox="0 0 800 300"></svg>
+            <svg ref={svgRef}></svg>
             {quire.leaf.map((leaf, i) => {
                 const page = leaf.page[index].$.index
                 const key = leaf.$.folio_number

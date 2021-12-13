@@ -99,15 +99,15 @@ const Structure = () => {
             </div>
             <Grid className={styles.structure}>
                 {quires.map((quire, index) => (
-                    <Row key={index} id={`row-${index}`}>
-                        <Col md={2}>
+                    <div key={index} id={`row-${index}`}>
+                        <div>
+                            <Quire quire={quire} side={side} />
+                        </div>
+                        <div style={{ textAlign: 'center' }}>
                             <h4>Quire: {quire.$.n}</h4>
                             {describeQuire(quire)}
-                        </Col>
-                        <Col md={10}>
-                            <Quire quire={quire} side={side} />
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                 ))}
             </Grid>
         </>
