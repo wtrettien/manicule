@@ -80,14 +80,13 @@ const Reader = ({ page }: ReaderProps) => {
     }
 
     return (
-        <div className={styles.bookContainer}>
+        <>
             <Row>
                 <Col sm={6}>{renderLink(prevPage, 'prev')}</Col>
                 <Col sm={6}>{renderLink(nextPage, 'next')}</Col>
             </Row>
 
             <Row>
-                {tour && <Tour side={tour.leaf} item={tour} setTour={setTour} />}
                 <Col sm={6} className={styles.verso}>
                     {renderPage(verso, 'verso')}
                 </Col>
@@ -95,12 +94,45 @@ const Reader = ({ page }: ReaderProps) => {
                     {recto && renderPage(recto, 'recto')}
                 </Col>
                 <Transition
+                    items={tour}
+                    from={{ scaleY: 0.01 }}
+                    enter={{ scaleY: 1 }}
+                    leave={{ scaleY: 0.01 }}
+                    delay={0}
+                    // Due to some quirk with z-index, force the navstrip to the back of the stack during animation,
+                    // then unset when done
+                    onStart={() => {
+                        const navstrip = document.getElementById('nav-strip')
+                        navstrip?.classList.add('inactive')
+                    }}
+                    onRest={() => {
+                        const navstrip = document.getElementById('nav-strip')
+                        navstrip?.classList.remove('inactive')
+                    }}
+                    config={{ mass: 1, tension: 210, friction: 20, clamp: true }}>
+                    {(styles, item) =>
+                        item && (
+                            <animated.div style={styles}>
+                                <Tour side={item.leaf} item={item} setTour={setTour} />
+                            </animated.div>
+                        )
+                    }
+                </Transition>
+                <Transition
                     items={zoom}
                     from={{ scale: 0 }}
                     enter={{ scale: 1 }}
                     leave={{ scale: 0 }}
-                    delay={200}
-                    config={config.stiff}>
+                    delay={0}
+                    onStart={() => {
+                        const navstrip = document.getElementById('nav-strip')
+                        navstrip?.classList.add('inactive')
+                    }}
+                    onRest={() => {
+                        const navstrip = document.getElementById('nav-strip')
+                        navstrip?.classList.remove('inactive')
+                    }}
+                    config={{ mass: 1, tension: 210, friction: 20, clamp: true }}>
                     {(styles, item) =>
                         item && (
                             <animated.div style={styles}>
@@ -113,7 +145,7 @@ const Reader = ({ page }: ReaderProps) => {
                     }
                 </Transition>
             </Row>
-        </div>
+        </>
     )
 }
 

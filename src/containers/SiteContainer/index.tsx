@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 
 import { Grid, Navbar } from 'react-bootstrap'
 import cc from '../../images/cc.svg'
@@ -22,6 +22,7 @@ export const EditionContext = React.createContext<Partial<EditionContextProps>>(
 
 const SiteContainer: React.FC = ({ children }) => {
     let { editionName } = useParams()
+
     const edition = editionName || 'benlowe'
     const { pages, structure, tour } = metadata[edition]
     const context = {
@@ -30,6 +31,10 @@ const SiteContainer: React.FC = ({ children }) => {
         structure,
         tour
     }
+    const location = useLocation()
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location])
     return (
         <EditionContext.Provider value={context}>
             <Grid>

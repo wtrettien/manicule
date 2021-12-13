@@ -7,6 +7,7 @@
     width: 95%;
     position: relative;
     background: inherit;
+    z-index: 0;
 }
 
 .navGroup {

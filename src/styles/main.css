@@ -96,3 +96,7 @@ button.close-modal {
 .navbar-brand img {
     height: 1em;
 }
+
+.inactive {
+    z-index: -1;
+}

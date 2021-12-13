@@ -1,8 +1,8 @@
 .tourPanel {
     position: absolute;
-    z-index: 2;
     overflow-y: scroll;
     background: oldlace;
+    z-index: 2;
 
     width: 45%;
     opacity: 0.9;

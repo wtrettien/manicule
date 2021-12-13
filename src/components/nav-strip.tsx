@@ -111,7 +111,7 @@ class NavStrip extends React.Component<NavStripProps, NavStripState> {
 
     render() {
         return (
-            <div className={styles.navStripContainer}>
+            <div id="nav-strip" className={styles.navStripContainer}>
                 {this.props.page > 1 && (
                     <NavArrow
                         dir="prev"
