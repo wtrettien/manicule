@@ -58,8 +58,8 @@ const Quire = ({ quire, side }: QuireProps) => {
 
                         // Height of the control points should be the same, and relative to the distance between the nodes,
                         // clamped so they start low enough to see (0) but don't descend into the nodes (150)
-                        const relativeDistance = lrect.x - rrect.x / 1.8
-                        const height = Math.max(20, Math.min(150 + relativeDistance, 170))
+                        const relativeDistance = rrect.x - lrect.x * 1.2
+                        const height = Math.min(Math.max(20, 300 - relativeDistance), 150)
 
                         const leftControlX = Math.max(dist - dist * 4, startx)
                         const rightControlX = Math.min(endx, dist + dist * 4)

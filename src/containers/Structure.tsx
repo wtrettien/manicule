@@ -103,8 +103,8 @@ const Structure = () => {
                         <div>
                             <Quire quire={quire} side={side} />
                         </div>
-                        <div style={{ textAlign: 'center' }}>
-                            <h4>Quire: {quire.$.n}</h4>
+                        <div className={styles.quireLabel}>
+                            <h3>Quire: {quire.$.n}</h3>
                             {describeQuire(quire)}
                         </div>
                     </div>

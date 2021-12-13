@@ -11,8 +11,13 @@
     text-align: right;
     z-index: 99;
 }
-.structure h4 {
-    color: oldlace;
+.quireLabel {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px dotted gray;
+}
+.structure h3 {
+    color: #8ea667;
 }
 
 .quire {
