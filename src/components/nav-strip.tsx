@@ -1,9 +1,9 @@
 import React from 'react'
-import { animated, useSpring } from 'react-spring'
+import { animated, SpringRef, useSpring } from 'react-spring'
 
 import { ButtonGroup } from 'react-bootstrap'
 
-import { EditionName, Page, PageData } from '../utils/metadata'
+import { Page, PageData } from '../utils/metadata'
 import Thumbnail from './thumbnail'
 import { pageDir } from './reader'
 import styles from '../styles/Nav.module.css'
@@ -11,31 +11,38 @@ import styles from '../styles/Nav.module.css'
 interface NavStripProps {
     page: number
     pageData: PageData
-    edition: EditionName
 }
+type Dir = 'next' | 'prev'
 
-const NavStrip = ({ page, pageData, edition }: NavStripProps) => {
-    const onTriggerScroll = () => {}
-    const onTriggerEnd = () => {}
+const NavStrip = ({ page, pageData }: NavStripProps) => {
+    const groupRef = React.useRef<HTMLDivElement>(null)
+    const [, api] = useSpring(() => ({ from: { y: 0 }, to: { y: 0 } }))
+
+    const onTriggerScroll = (dir: Dir) => {
+        if (groupRef.current) {
+            const center = window.innerWidth / 2
+            const current = groupRef.current.scrollLeft
+            api.start({
+                reset: true,
+                from: { y: groupRef.current.scrollLeft },
+                to: { y: dir === 'prev' ? current - center : current + center },
+                onChange: (props) => {
+                    if (groupRef.current) {
+                        groupRef.current.scrollLeft = props.value.y
+                    }
+                }
+            })
+        }
+    }
 
     return (
         <div id="nav-strip" className={styles.navStripContainer}>
-            {page > 1 && (
-                <NavArrow
-                    dir="prev"
-                    onTriggerScroll={onTriggerScroll}
-                    onTriggerEnd={onTriggerEnd}
-                />
-            )}
+            {page > 1 && <NavArrow dir="prev" onTriggerScroll={onTriggerScroll} />}
 
-            <NavGroup pageData={pageData} page={page} />
+            <NavGroup pageData={pageData} page={page} groupRef={groupRef} api={api} />
 
             {page < Array.from(pageData.keys()).length && (
-                <NavArrow
-                    dir="next"
-                    onTriggerScroll={onTriggerScroll}
-                    onTriggerEnd={onTriggerEnd}
-                />
+                <NavArrow dir="next" onTriggerScroll={onTriggerScroll} />
             )}
         </div>
     )
@@ -43,17 +50,15 @@ const NavStrip = ({ page, pageData, edition }: NavStripProps) => {
 
 interface NavArrowProps {
     dir: pageDir
-    onTriggerScroll: any
-    onTriggerEnd: any
+    onTriggerScroll: (dir: Dir) => void
 }
-export const NavArrow = ({ dir, onTriggerScroll, onTriggerEnd }: NavArrowProps) => (
+export const NavArrow = ({ dir, onTriggerScroll }: NavArrowProps) => (
     <div className={`${styles.navStripButton} ${dir === 'next' ? styles.next : styles.prev}`}>
         <div
             role="link"
             tabIndex={0}
             className={styles.button}
-            onMouseDown={() => onTriggerScroll(dir)}
-            onMouseUp={onTriggerEnd}>
+            onMouseDown={() => onTriggerScroll(dir)}>
             {dir === 'prev' ? '≪' : '≫'}
         </div>
     </div>
@@ -62,13 +67,13 @@ export const NavArrow = ({ dir, onTriggerScroll, onTriggerEnd }: NavArrowProps) 
 interface NavGroupProps {
     pageData: PageData
     page: number
+    groupRef: React.RefObject<HTMLDivElement>
+    api: SpringRef<{ y: number }>
 }
-const NavGroup = ({ pageData, page }: NavGroupProps) => {
+const NavGroup = ({ pageData, page, groupRef, api }: NavGroupProps) => {
     const [refs] = React.useState(
         Array.from(pageData.keys()).map(() => React.createRef<HTMLDivElement>())
     )
-    const groupRef = React.useRef<HTMLDivElement>(null)
-    const [, api] = useSpring(() => ({ from: { y: 0 }, to: { y: 0 } }))
 
     React.useLayoutEffect(() => {
         let index = -1

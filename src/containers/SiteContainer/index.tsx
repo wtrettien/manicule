@@ -36,10 +36,12 @@ const SiteContainer: React.FC = ({ children }) => {
         structure,
         tour
     }
-    const location = useLocation()
-    React.useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [location])
+    // Uncomment to force scroll-to-top when there's a navigation change
+    //
+    // const location = useLocation()
+    // React.useEffect(() => {
+    //     window.scrollTo(0, 0)
+    // }, [location])
     return (
         <EditionContext.Provider value={context}>
             <Grid>

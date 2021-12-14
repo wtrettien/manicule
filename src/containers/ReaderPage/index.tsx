@@ -14,7 +14,7 @@ const ReaderPage = () => {
     return (
         <>
             <Reader page={page} />
-            <NavStrip page={page} edition={context.edition} pageData={context.pages} />
+            <NavStrip page={page} pageData={context.pages} />
             <MapView page={page} />
         </>
     )
