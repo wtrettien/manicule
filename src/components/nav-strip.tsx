@@ -75,7 +75,7 @@ const NavGroup = ({ pageData, page, groupRef, api }: NavGroupProps) => {
         Array.from(pageData.keys()).map(() => React.createRef<HTMLDivElement>())
     )
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
         let index = -1
         pageData.forEach((p, i) => {
             if (p.index === page) {
@@ -99,7 +99,7 @@ const NavGroup = ({ pageData, page, groupRef, api }: NavGroupProps) => {
                 }
             })
         }
-    })
+    }, [api, groupRef, page, pageData, refs])
     return (
         <animated.div className={styles.navGroup} ref={groupRef}>
             <ButtonGroup>

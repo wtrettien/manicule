@@ -90,31 +90,8 @@ const Reader = ({ page }: ReaderProps) => {
                 <Col sm={6} className={styles.recto}>
                     {recto && renderPage(recto, 'recto')}
                 </Col>
-                <Transition
-                    items={tour}
-                    from={{ scaleY: 0.01 }}
-                    enter={{ scaleY: 1 }}
-                    leave={{ scaleY: 0.01 }}
-                    delay={0}
-                    // Due to some quirk with z-index, force the navstrip to the back of the stack during animation,
-                    // then unset when done
-                    onStart={() => {
-                        const navstrip = document.getElementById('nav-strip')
-                        navstrip?.classList.add('inactive')
-                    }}
-                    onRest={() => {
-                        const navstrip = document.getElementById('nav-strip')
-                        navstrip?.classList.remove('inactive')
-                    }}
-                    config={{ mass: 1, tension: 210, friction: 10, clamp: true }}>
-                    {(styles, item) =>
-                        item && (
-                            <animated.div style={styles}>
-                                <Tour side={item.leaf} item={item} setTour={setTour} />
-                            </animated.div>
-                        )
-                    }
-                </Transition>
+                {tour && <Tour side={tour.leaf} item={tour} setTour={setTour} />}
+
                 <Transition
                     items={zoom}
                     from={{ scale: 0 }}
