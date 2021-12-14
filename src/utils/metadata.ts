@@ -38,29 +38,24 @@ export interface TourItem {
 }
 export type PageNum = number | undefined
 export type TourData = TourItem[]
-export type PageData = Record<number, Page>
+export type PageData = Map<number, Page>
 
 export interface LeafPage {
-    "$": {
-        index: number
-        pagenum: number
-        side: "r" | "v"
-    }
+    index: number
+    pagenum: number
+    side: "r" | "v"
+
 }
 export interface Leaf {
-    "$": {
-        n: number
-        mode: string
-        single: "true" | "false"
-        folio_number: string
-        conjoin: number | null
-    }
+    n: string
+    mode: string
+    single: "true" | "false"
+    folio_number: string
+    conjoin: string | null
     page: LeafPage[]
 }
 export interface Quire {
-    "$": {
-        n: string
-    }
+    n: string
     leaf: Leaf[]
 }
 
@@ -87,7 +82,7 @@ export const getCurrentQuire = (edition: EditionName, pageIndex: number) => {
         leaves.forEach((l) => {
             const pages = l.page
             pages.forEach((p) => {
-                if (p.$.index === pageIndex) {
+                if (p.index === pageIndex) {
                     quire = q
                     page = p
                 }
@@ -108,9 +103,40 @@ type SourcePage = {
     description: string
 }
 
+interface SourceStructure {
+    url?: string
+    title?: string
+    author?: string
+    source?: string
+    quire: SourceQuire[]
+}
+interface SourceQuire {
+    "$": {
+        n: string
+    }
+    leaf: SourceLeaf[]
+}
+interface SourceLeaf {
+    "$": {
+        n: string
+        mode: string
+        single: "true" | "false"
+        folio_number: string
+        conjoin: string | null
+    }
+    page: SourceLeafPage[]
+}
+interface SourceLeafPage {
+    "$": {
+        index: string
+        pagenum: string
+        side: "r" | "v"
+    }
+}
+
 // get all of the information about the individual pages in the book
-export const getPageData = (pages: SourcePage[], tour: TourData) => {
-    const data: Page[] = []
+export const getPageData = (pages: SourcePage[], tour: TourData): PageData => {
+    const data: PageData = new Map()
 
     const categories = Array.from(new Set([...pages.map((p) => p.category)]))
 
@@ -121,23 +147,31 @@ export const getPageData = (pages: SourcePage[], tour: TourData) => {
     }
 
     pages.forEach((p) => {
+        let pagenum = 0
+        let index = 0
 
         if (typeof p.pagenum === "string") {
-            p.pagenum = parseInt(p.pagenum, 10)
+            pagenum = parseInt(p.pagenum, 10)
+        }
+        else {
+            pagenum = p.pagenum || 0
         }
         if (typeof p.index === "string") {
-            p.index = parseInt(p.index, 10)
+            index = parseInt(p.index, 10)
+        }
+        else {
+            index = p.index
         }
         const page = {
             color: categoryPalette[categories.indexOf(p.category)],
-            index: p.index,
+            index: index,
             signatures: p.signatures,
-            pagenum: p.pagenum,
+            pagenum: pagenum,
             category: p.category,
             description: p.description,
-            tourItem: getTourForPage(tour, p.index)
+            tourItem: getTourForPage(tour, index)
         }
-        data[page.index] = page
+        data.set(index, page)
 
     })
     return data
@@ -151,12 +185,51 @@ export const getTourForPage = (tour: TourData, page: number) => {
     return data
 }
 
-
-
+/**
+ * Convert a source structure, with string types, to a public structure, with guaranteed numeric types
+ *
+ * @param structure the source structure in the native XML import format
+ */
+const getStructure = (source: SourceStructure): Structure => {
+    const quires = source.quire.map((q) => {
+        const leaves = q.leaf.map((l) => {
+            const pages = l.page.map((p) => {
+                const page: LeafPage = {
+                    index: parseInt(p.$.index, 10),
+                    pagenum: parseInt(p.$.pagenum, 10),
+                    side: p.$.side
+                }
+                return page
+            })
+            const leaf: Leaf = {
+                n: l.$.n,
+                mode: l.$.mode,
+                single: l.$.single,
+                folio_number: l.$.folio_number,
+                conjoin: l.$.conjoin,
+                page: pages
+            }
+            return leaf
+        })
+        const quire: Quire = {
+            n: q.$.n,
+            leaf: leaves
+        }
+        return quire
+    })
+    const structure: Structure = {
+        url: source.url,
+        title: source.title,
+        author: source.author,
+        source: source.source,
+        quire: quires
+    }
+    return structure
+}
 
 export const metadata: Metadata = {
     default: {
-        structure: defaultStructure.book,
+        structure: getStructure(defaultStructure.book),
         pages: getPageData(defaultData, defaultTour),
         tour: defaultTour
     },
@@ -168,7 +241,7 @@ export const metadata: Metadata = {
         tour: testTour
     },
     benlowe: {
-        structure: benloweStructure.book,
+        structure: getStructure(benloweStructure.book),
         pages: getPageData(benloweData, benloweTour),
         tour: benloweTour
     },

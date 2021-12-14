@@ -18,7 +18,12 @@ interface EditionContextProps {
     tour: TourData
 }
 
-export const EditionContext = React.createContext<Partial<EditionContextProps>>({})
+export const EditionContext = React.createContext<EditionContextProps>({
+    edition: 'default',
+    pages: new Map(),
+    structure: { quire: [] },
+    tour: []
+})
 
 const SiteContainer: React.FC = ({ children }) => {
     let { editionName } = useParams()

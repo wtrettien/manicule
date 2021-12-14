@@ -44,9 +44,9 @@ const Tour = ({ item, side, setTour }: TourProps) => {
     const hasPrev = index > 0
     const hasNext = index < tour.length - 1
 
-    const nextPage = () => metadata[edition].pages[tour[index + 1].page].index
+    const nextPage = () => metadata[edition].pages.get(tour[index + 1].page)?.index
+    const prevPage = () => metadata[edition].pages.get(tour[index - 1].page)?.index
 
-    const prevPage = () => metadata[edition].pages[tour[index - 1].page].index
     const [tourHtml, setTourHtml] = React.useState(null)
 
     // Open the tour HTML as raw data, to avoid interpolating any tags inside like images

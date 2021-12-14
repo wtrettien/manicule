@@ -2,7 +2,7 @@ import React from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
 import Thumbnail from './thumbnail'
-import { LeafSide, PageData, Quire as IQuire } from '../utils/metadata'
+import { LeafSide, Quire as IQuire } from '../utils/metadata'
 import styles from '../styles/Structure.module.css'
 import { EditionContext } from '../containers/SiteContainer'
 
@@ -16,7 +16,7 @@ interface QuireProps {
     side: LeafSide
 }
 const Quire = ({ quire, side }: QuireProps) => {
-    const pageData = React.useContext(EditionContext).pages as PageData
+    const pageData = React.useContext(EditionContext).pages
 
     const index = side === 'recto' ? 0 : 1
     const svgRef = React.useRef<SVGSVGElement>(null)
@@ -38,8 +38,8 @@ const Quire = ({ quire, side }: QuireProps) => {
             // Get the positions of all the rendered leaf nodes in this quire
             quire.leaf.forEach((l, i) => {
                 // Does this leaf have a conjoined leaf?
-                const conjoinedId = l.$.conjoin && l.$.conjoin > l.$.n ? l.$.conjoin : null
-                const conjoined = quire.leaf.filter((l) => l.$.n === conjoinedId)[0]
+                const conjoinedId = l.conjoin && l.conjoin > l.n ? l.conjoin : null
+                const conjoined = quire.leaf.filter((l) => l.n === conjoinedId)[0]
 
                 if (conjoinedId) {
                     const left = leafRefs[i]
@@ -75,8 +75,7 @@ const Quire = ({ quire, side }: QuireProps) => {
 
                         svg.appendChild(path)
                     }
-                } else if (l.$.single === 'true') {
-                    console.log(`Think node ${l.$.n} is an insertion`)
+                } else if (l.single === 'true') {
                     const node = leafRefs[i]
                     if (node.current) {
                         const line = document.createElementNS(ns, 'line')
@@ -105,15 +104,15 @@ const Quire = ({ quire, side }: QuireProps) => {
         <div className={styles.quire}>
             <svg xmlns={ns} ref={svgRef}></svg>
             {quire.leaf.map((leaf, i) => {
-                const page = leaf.page[index].$.index
-                const key = leaf.$.folio_number
+                const page = pageData.get(leaf.page[index].index)
+                const key = leaf.folio_number
                 const ref = leafRefs[i]
 
-                return (
+                return page ? (
                     <div className={styles.leaf} key={key} ref={ref}>
-                        <Thumbnail pageData={pageData[page]} page={page} />
+                        <Thumbnail page={page} />
                     </div>
-                )
+                ) : null
             })}
         </div>
     )

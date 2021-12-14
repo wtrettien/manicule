@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { OverlayTrigger, Tooltip, Glyphicon } from 'react-bootstrap'
 
-import { EditionName, Page } from '../utils/metadata'
+import { EditionName } from '../utils/metadata'
 import { EditionContext } from '../containers/SiteContainer'
 
 import styles from '../styles/Map.module.css'
@@ -12,12 +12,12 @@ interface MapViewProps {
 }
 const MapView = ({ page }: MapViewProps) => {
     const context = React.useContext(EditionContext)
-    const pages = context.pages as Page[]
+    const pages = context.pages
     const edition = context.edition as EditionName
 
     return (
         <div className={styles.blocks}>
-            {pages.map((p) => {
+            {[...pages.values()].map((p) => {
                 const tour = p.tourItem
                 return (
                     <span key={p.index} style={{ display: 'inline-block' }}>

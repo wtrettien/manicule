@@ -1,6 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/css/bootstrap-theme.css'
-
 import React from 'react'
 import { useParams } from 'react-router'
 
@@ -8,7 +5,6 @@ import Reader from '../../components/reader'
 import { EditionContext } from '../SiteContainer'
 
 import NavStrip from '../../components/nav-strip'
-import { Page } from '../../utils/metadata'
 import MapView from '../../components/map-view'
 
 const ReaderPage = () => {
@@ -18,13 +14,7 @@ const ReaderPage = () => {
     return (
         <>
             <Reader page={page} />
-
-            <NavStrip
-                page={page}
-                edition={context.edition as string}
-                pages={context.pages as Page[]}
-            />
-
+            <NavStrip page={page} edition={context.edition} pageData={context.pages} />
             <MapView page={page} />
         </>
     )

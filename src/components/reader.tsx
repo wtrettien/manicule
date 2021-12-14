@@ -1,12 +1,12 @@
 // Reader for the book
 import React from 'react'
-import { animated, config, Transition } from 'react-spring'
+import { animated, Transition } from 'react-spring'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 import { Link, useSearchParams } from 'react-router-dom'
 
 import { EditionContext } from '../containers/SiteContainer'
 
-import { PageData, TourItem, Page as PageType, LeafSide } from '../utils/metadata'
+import { TourItem, Page as PageType, LeafSide } from '../utils/metadata'
 
 import Page from './page'
 import Tour from './tour'
@@ -26,20 +26,17 @@ export type TourModal = TourItem | undefined
 export type ZoomModal = number | undefined
 
 const Reader = ({ page }: ReaderProps) => {
-    const context = React.useContext(EditionContext)
+    const { pages, edition } = React.useContext(EditionContext)
     const [tour, setTour] = React.useState<TourModal>(undefined)
     const [zoom, setZoom] = React.useState<ZoomModal>(undefined)
 
-    const pages = context.pages as PageData
-    const edition = context.edition as string
-    const pageCount = Object.keys(pages).length
-
     const nextPage = Math.max(page + 2, 1)
     const prevPage = Math.min(page - 2, Object.keys(pages).length)
-    const verso: PageType = pages[page]
-    const recto: PageType | null = verso.index + 1 < pageCount ? pages[verso.index + 1] : null
+    const verso = pages.get(page)
+    const versoIndex = verso?.index || 0
 
-    const hasNextPage = page < pageCount - 1 // Subtract one for the extra element
+    const recto = versoIndex + 1 < pages.size ? pages.get(versoIndex + 1) : null
+    const hasNextPage = page < pages.size - 1 // Subtract one for the extra element
     const hasPrevPage = page > 1
 
     const [searchParams] = useSearchParams()
@@ -48,7 +45,7 @@ const Reader = ({ page }: ReaderProps) => {
     React.useEffect(() => {
         const tourParam = searchParams.get('tour')
         if (tourParam) {
-            setTour(pages[parseInt(tourParam as string, 10)].tourItem)
+            setTour(pages.get(parseInt(tourParam as string, 10))?.tourItem)
         } else {
             setTour(undefined)
         }
@@ -88,7 +85,7 @@ const Reader = ({ page }: ReaderProps) => {
 
             <Row>
                 <Col sm={6} className={styles.verso}>
-                    {renderPage(verso, 'verso')}
+                    {verso && renderPage(verso, 'verso')}
                 </Col>
                 <Col sm={6} className={styles.recto}>
                     {recto && renderPage(recto, 'recto')}
@@ -109,7 +106,7 @@ const Reader = ({ page }: ReaderProps) => {
                         const navstrip = document.getElementById('nav-strip')
                         navstrip?.classList.remove('inactive')
                     }}
-                    config={{ mass: 1, tension: 210, friction: 20, clamp: true }}>
+                    config={{ mass: 1, tension: 210, friction: 10, clamp: true }}>
                     {(styles, item) =>
                         item && (
                             <animated.div style={styles}>

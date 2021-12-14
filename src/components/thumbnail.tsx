@@ -8,19 +8,20 @@ import styles from '../styles/Thumbnail.module.css'
 import { EditionContext } from '../containers/SiteContainer'
 
 interface ThumbnailProps {
-    pageData: Page
-    page: number
+    page: Page
+    tref?: React.RefObject<HTMLDivElement>
 }
-const Thumbnail = ({ pageData, page }: ThumbnailProps) => {
-    const { index, color, signatures, category } = pageData
+const Thumbnail = ({ page, tref }: ThumbnailProps) => {
+    const { index, color, signatures, category } = page
     const edition = React.useContext(EditionContext).edition as EditionName
+
     const pos = index % 2 === 0 ? 'recto' : 'verso'
     const img = getImageUrl(edition, index, true)
 
     const cls = `${styles.navThumbnail} thumbnail-${index} ${pos} ${
-        index === page || index === page + 1 ? styles.isCurrent : ''
+        index === page.index || index === page.index + 1 ? styles.isCurrent : ''
     }`
-    const tour = pageData.tourItem
+    const tour = page.tourItem
 
     const tourLabel = tour ? (
         <label className={`metadata-label tour-label has-tour ${styles.hasTour}`}>
@@ -31,9 +32,9 @@ const Thumbnail = ({ pageData, page }: ThumbnailProps) => {
     ) : null
 
     return (
-        <div className={cls} style={{ borderBottom: `10px solid ${color}` }}>
+        <div className={cls} style={{ borderBottom: `10px solid ${color}` }} ref={tref}>
             <OverlayTrigger
-                key={pageData.index}
+                key={page.index}
                 placement="top"
                 overlay={
                     <Tooltip id={index as unknown as string}>

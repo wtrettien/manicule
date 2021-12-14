@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
 import HomePage from './containers/HomePage'
 import ReaderPage from './containers/ReaderPage'

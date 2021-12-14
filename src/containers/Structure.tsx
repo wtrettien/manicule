@@ -5,13 +5,12 @@ import { Grid, Button } from 'react-bootstrap'
 import Quire from '../components/quire'
 import styles from '../styles/Structure.module.css'
 
-import { Structure as IStructure, Quire as IQuire, PageData, LeafSide } from '../utils/metadata'
+import { Quire as IQuire, LeafSide } from '../utils/metadata'
 import { EditionContext } from './SiteContainer'
 
 const Structure = () => {
-    const context = React.useContext(EditionContext)
-    const structure = context.structure as IStructure
-    const pageData = context.pages as PageData
+    const { structure, pages: pageData } = React.useContext(EditionContext)
+
     const quires = structure.quire
 
     const [side, setLeafSide] = React.useState<LeafSide>('recto')
@@ -23,7 +22,7 @@ const Structure = () => {
 
         quire.leaf.forEach((leaf) => {
             leaf.page.forEach((page) => {
-                if (pageData[page.$.index].signatures.includes('insertion')) {
+                if (pageData.get(page.index)?.signatures.includes('insertion')) {
                     inserts += 1
                 }
             })
@@ -57,7 +56,7 @@ const Structure = () => {
                             <Quire quire={quire} side={side} />
                         </div>
                         <div className={styles.quireLabel}>
-                            <h3>Quire: {quire.$.n}</h3>
+                            <h3>Quire: {quire.n}</h3>
                             {describeQuire(quire)}
                         </div>
                     </div>
