@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { OverlayTrigger, Tooltip, Glyphicon } from 'react-bootstrap'
 
-import { EditionName } from '../utils/metadata'
-import { EditionContext } from '../containers/SiteContainer'
+import { EditionName } from 'utils/metadata'
+import { EditionContext } from 'containers/SiteContainer'
 
-import styles from '../styles/Map.module.css'
+import styles from 'styles/Map.module.css'
 
 interface MapViewProps {
     page: number

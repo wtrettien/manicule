@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { OverlayTrigger, Tooltip, Button, Glyphicon } from 'react-bootstrap'
 
-import { EditionName, Page } from '../utils/metadata'
+import { EditionContext } from 'containers/SiteContainer'
+import { EditionName, Page } from 'utils/metadata'
+import styles from 'styles/Thumbnail.module.css'
+
 import { getImageUrl } from './page-image'
-import styles from '../styles/Thumbnail.module.css'
-import { EditionContext } from '../containers/SiteContainer'
 
 interface ThumbnailProps {
     page: Page

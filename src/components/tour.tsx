@@ -3,9 +3,10 @@ import React from 'react'
 import { Row, Col, Panel, Button, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import { TourItem, metadata, LeafSide } from '../utils/metadata'
-import { EditionContext } from '../containers/SiteContainer'
-import styles from '../styles/Tour.module.css'
+import { TourItem, metadata, LeafSide } from 'utils/metadata'
+import { EditionContext } from 'containers/SiteContainer'
+import styles from 'styles/Tour.module.css'
+
 import { TourModal } from './reader'
 
 /**

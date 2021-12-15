@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { Image } from 'react-bootstrap'
-import { EditionName } from '../utils/metadata'
+
+import { EditionName } from 'utils/metadata'
 import { ZoomModal } from './reader'
 
 export const getImageUrl = (edition: EditionName, num: number, thumbnail = false) => {

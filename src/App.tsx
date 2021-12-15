@@ -1,11 +1,11 @@
 import React from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 
-import HomePage from './containers/HomePage'
-import ReaderPage from './containers/ReaderPage'
-import SiteContainer from './containers/SiteContainer'
-import About from './containers/AboutPage'
-import Structure from './containers//Structure'
+import HomePage from 'containers/HomePage'
+import ReaderPage from 'containers/ReaderPage'
+import SiteContainer from 'containers/SiteContainer'
+import About from 'containers/About'
+import Structure from 'containers//Structure'
 
 function App() {
     return (

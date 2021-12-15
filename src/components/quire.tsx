@@ -1,10 +1,11 @@
 import React from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
+import { LeafSide, Quire as IQuire } from 'utils/metadata'
+import styles from 'styles/Structure.module.css'
+import { EditionContext } from 'containers/SiteContainer'
+
 import Thumbnail from './thumbnail'
-import { LeafSide, Quire as IQuire } from '../utils/metadata'
-import styles from '../styles/Structure.module.css'
-import { EditionContext } from '../containers/SiteContainer'
 
 const ns = 'http://www.w3.org/2000/svg'
 

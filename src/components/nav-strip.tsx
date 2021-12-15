@@ -3,10 +3,11 @@ import { animated, SpringRef, useSpring } from 'react-spring'
 
 import { ButtonGroup } from 'react-bootstrap'
 
-import { Page, PageData } from '../utils/metadata'
+import styles from 'styles/Nav.module.css'
+import { Page, PageData } from 'utils/metadata'
+
 import Thumbnail from './thumbnail'
 import { pageDir } from './reader'
-import styles from '../styles/Nav.module.css'
 
 interface NavStripProps {
     page: number

@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { Panel, Well, Image, Button } from 'react-bootstrap'
-import styles from '../styles/PageZoom.module.css'
+
+import styles from 'styles/PageZoom.module.css'
 
 interface PageZoomProps {
     url: string

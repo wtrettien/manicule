@@ -2,11 +2,11 @@
 import React from 'react'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 
-import { LeafSide, Page as PageType } from '../utils/metadata'
-import PageImage from './page-image'
-import { EditionContext } from '../containers/SiteContainer'
+import { EditionContext } from 'containers/SiteContainer'
+import { LeafSide, Page as PageType } from 'utils/metadata'
+import styles from 'styles/Page.module.css'
 
-import styles from '../styles/Page.module.css'
+import PageImage from './page-image'
 import { TourModal, ZoomModal } from './reader'
 
 interface PageProps {
