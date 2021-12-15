@@ -13,8 +13,8 @@ export default class AboutPage extends React.Component {
                         <div className="about">
                             <h1>About Manicule</h1>
                             <p>
-                                Manicule is a standalone React/Redux web application for presenting
-                                unique printed books and manuscripts in digital facsimile. It allows
+                                Manicule is a standalone React web application for presenting unique
+                                printed books and manuscripts in digital facsimile. It allows
                                 editors to:
                             </p>
                             <h3>

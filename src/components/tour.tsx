@@ -3,7 +3,7 @@ import React from 'react'
 import { Row, Col, Panel, Button, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import { TourItem, metadata, LeafSide } from 'utils/metadata'
+import { TourItem, LeafSide } from 'utils/metadata'
 import { EditionContext } from 'containers/SiteContainer'
 import styles from 'styles/Tour.module.css'
 
@@ -37,16 +37,14 @@ interface TourProps {
     setTour: (_: TourModal) => void
 }
 const Tour = ({ item, side, setTour }: TourProps) => {
-    const context = React.useContext(EditionContext)
-    const edition = context.edition as string
-    const tour = metadata[edition].tour
+    const { edition, tour, pages } = React.useContext(EditionContext)
     const index = tour.indexOf(item)
 
     const hasPrev = index > 0
     const hasNext = index < tour.length - 1
 
-    const nextPage = () => metadata[edition].pages.get(tour[index + 1].page)?.index
-    const prevPage = () => metadata[edition].pages.get(tour[index - 1].page)?.index
+    const nextPage = () => pages.get(tour[index + 1].page)?.index
+    const prevPage = () => pages.get(tour[index - 1].page)?.index
 
     const [tourHtml, setTourHtml] = React.useState(null)
 

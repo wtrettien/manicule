@@ -28,6 +28,14 @@ function App() {
                     }
                 />
                 <Route
+                    path="reader/:editionName"
+                    element={
+                        <SiteContainer>
+                            <ReaderPage />
+                        </SiteContainer>
+                    }
+                />
+                <Route
                     path="reader"
                     element={
                         <SiteContainer>
@@ -37,6 +45,14 @@ function App() {
                 />
                 <Route
                     path="structure"
+                    element={
+                        <SiteContainer>
+                            <Structure />
+                        </SiteContainer>
+                    }
+                />
+                <Route
+                    path="structure/:editionName"
                     element={
                         <SiteContainer>
                             <Structure />

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<book>
+    <url></url>
+    <title>A fragment of The Canterbury Tales (ca 1440)</title>
+    <author>Geoffrey Chaucer</author>
+    <source>Rosenbach MS 1084/2</source>
+    <quire n="*">
+        <leaf n="1" mode="original" single="false" folio_number="1" conjoin="2">
+            <page index="2" pagenum="1" side="r" />
+            <page index="3" pagenum="2" side="v" />
+        </leaf>
+        <leaf n="2" mode="original" single="false" folio_number="2" conjoin="1">
+            <page index="10" pagenum="9" side="r" />
+            <page index="11" pagenum="10" side="v" />
+        </leaf>
+    </quire>
+    <quire n="*">
+        <leaf n="1" mode="original" single="false" folio_number="3" conjoin="2">
+            <page index="4" pagenum="3" side="r" />
+            <page index="5" pagenum="4" side="v" />
+        </leaf>
+        <leaf n="2" mode="original" single="false" folio_number="4" conjoin="1">
+            <page index="8" pagenum="7" side="r" />
+            <page index="9" pagenum="8" side="v" />
+        </leaf>
+    </quire>
+</book>

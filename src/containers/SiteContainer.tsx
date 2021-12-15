@@ -9,7 +9,14 @@ import cc from 'site-images/cc.svg'
 import by from 'site-images/by.svg'
 import manic from 'site-images/manicule-white.png'
 
-import { metadata, PageData, Structure, TourData, EditionName } from 'utils/metadata'
+import {
+    PageData,
+    Structure,
+    TourData,
+    EditionName,
+    DEFAULT_EDITION,
+    getMetadata
+} from 'utils/metadata'
 
 interface EditionContextProps {
     edition: EditionName
@@ -19,31 +26,43 @@ interface EditionContextProps {
 }
 
 export const EditionContext = React.createContext<EditionContextProps>({
-    edition: 'default',
+    edition: '',
     pages: new Map(),
     structure: { quire: [] },
     tour: []
 })
 
 const SiteContainer: React.FC = ({ children }) => {
-    let { editionName } = useParams()
+    const { editionName } = useParams()
 
-    const edition = editionName || 'benlowe'
-    const { pages, structure, tour } = metadata[edition]
-    const context = {
-        edition,
-        pages,
-        structure,
-        tour
-    }
+    const [edition] = React.useState<EditionName>(editionName || DEFAULT_EDITION)
+    const [pages, setPages] = React.useState<PageData>()
+    const [structure, setStructure] = React.useState<Structure>()
+    const [tour, setTour] = React.useState<TourData>()
+
+    React.useEffect(() => {
+        getMetadata(edition).then((metadata) => {
+            const m = metadata.get(edition)
+            setPages(m?.pages)
+            setStructure(m?.structure)
+            setTour(m?.tour)
+        })
+    }, [edition])
+
     // Uncomment to force scroll-to-top when there's a navigation change
     //
     // const location = useLocation()
     // React.useEffect(() => {
     //     window.scrollTo(0, 0)
     // }, [location])
-    return (
-        <EditionContext.Provider value={context}>
+    return pages && structure && tour && edition ? (
+        <EditionContext.Provider
+            value={{
+                edition,
+                pages,
+                structure,
+                tour
+            }}>
             <Grid>
                 <Navbar inverse>
                     <Navbar.Header>
@@ -57,10 +76,10 @@ const SiteContainer: React.FC = ({ children }) => {
                     </Navbar.Header>
                     <ul className="nav navbar-nav">
                         <li>
-                            <Link to={`/reader`}>Browse</Link>
+                            <Link to={`/reader/${edition}`}>Browse</Link>
                         </li>
                         <li>
-                            <Link to="/structure">Structure</Link>
+                            <Link to={`/structure/${edition}`}>Structure</Link>
                         </li>
                         <li>
                             <Link to="/about">About</Link>
@@ -80,6 +99,10 @@ const SiteContainer: React.FC = ({ children }) => {
                 </footer>
             </Grid>
         </EditionContext.Provider>
+    ) : (
+        <>
+            <h2>Loading {edition}...</h2>
+        </>
     )
 }
 export default SiteContainer

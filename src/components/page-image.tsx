@@ -22,7 +22,12 @@ const PageImage = ({ edition, num, setZoom }: PageImageProps) => {
     const img = getImageUrl(edition, num)
     return (
         <>
-            <Image src={img} alt="" responsive onClick={() => setZoom(num)} />
+            <Image
+                src={img}
+                alt={`Manuscript image ${num} for edition ${edition}`}
+                responsive
+                onClick={() => setZoom(num)}
+            />
         </>
     )
 }
