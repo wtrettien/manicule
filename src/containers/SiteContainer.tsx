@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap-theme.css'
 
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-
 import { Grid, Navbar } from 'react-bootstrap'
-import cc from 'images/cc.svg'
-import by from 'images/by.svg'
-import manic from 'images/manicule-white.png'
+
+import cc from 'site-images/cc.svg'
+import by from 'site-images/by.svg'
+import manic from 'site-images/manicule-white.png'
 
 import { metadata, PageData, Structure, TourData, EditionName } from 'utils/metadata'
 

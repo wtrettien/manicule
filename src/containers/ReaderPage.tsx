@@ -1,11 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router'
 
-import Reader from '../components/reader'
-import { EditionContext } from './SiteContainer'
+import Reader from 'components/reader'
+import NavStrip from 'components/nav-strip'
+import MapView from 'components/map-view'
 
-import NavStrip from '../components/nav-strip'
-import MapView from '../components/map-view'
+import { EditionContext } from './SiteContainer'
 
 const ReaderPage = () => {
     const { pageString } = useParams()

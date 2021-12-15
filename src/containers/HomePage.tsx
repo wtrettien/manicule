@@ -3,8 +3,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 
-import im1 from 'images/manoflaw.jpg'
-import im2 from 'images/page.png'
+import im1 from 'site-images/manoflaw.jpg'
+import im2 from 'site-images/page.png'
 import styles from 'styles/Home.module.css'
 
 const HomePage = () => {

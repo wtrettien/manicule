@@ -2,10 +2,10 @@ import React from 'react'
 
 import { Grid, Button } from 'react-bootstrap'
 
-import Quire from '../components/quire'
-import styles from '../styles/Structure.module.css'
+import Quire from 'components/quire'
+import styles from 'styles/Structure.module.css'
 
-import { Quire as IQuire, LeafSide } from '../utils/metadata'
+import { Quire as IQuire, LeafSide } from 'utils/metadata'
 import { EditionContext } from './SiteContainer'
 
 const Structure = () => {
