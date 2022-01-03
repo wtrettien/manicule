@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { OverlayTrigger, Tooltip, Glyphicon } from 'react-bootstrap'
 
-import { EditionName } from 'utils/metadata'
+import { EditionName } from 'metadata'
 import { EditionContext } from 'containers/SiteContainer'
 
 import styles from 'styles/Map.module.css'

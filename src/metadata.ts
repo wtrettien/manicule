@@ -151,7 +151,7 @@ export const getPageData = (pages: SourcePage[], tour: TourData): PageData => {
     if (categories.length > categoryPalette.length) {
         console.error(`There are more categories (${categories.length}) than available category colors
         (${categoryPalette.length})). Either consolidate some categories or add more colors to
-        src/utils/metadata.ts categoryPalette`)
+        src/metadata.ts categoryPalette`)
     }
 
     pages.forEach((p) => {

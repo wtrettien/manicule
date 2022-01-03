@@ -135,7 +135,7 @@ For instance, if she were most interested in marking the presence of marginalia 
 
 In addition to these main categories, you can mark a secondary category or add an additional descriptor to the page. This is optional, and should be added to the `description` attribute in `pages.json`. If a description is added, it will appear as marginalia beside the page in the facsimile browser.
 
-Colors are assigned to each category automatically based on a palette of colors. You can customize this palette in `src/utils/metadata.ts` by changing the value of the variable `categoryPalette` to include a list of hex values that will be assigned.
+Colors are assigned to each category automatically based on a palette of colors. You can customize this palette in `src/metadata.ts` by changing the value of the variable `categoryPalette` to include a list of hex values that will be assigned.
 
 ### Map
 

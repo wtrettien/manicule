@@ -5,7 +5,7 @@ import { Grid, Button } from 'react-bootstrap'
 import Quire from 'components/quire'
 import styles from 'styles/Structure.module.css'
 
-import { Quire as IQuire, LeafSide } from 'utils/metadata'
+import { Quire as IQuire, LeafSide } from 'metadata'
 import { EditionContext } from './SiteContainer'
 
 const Structure = () => {

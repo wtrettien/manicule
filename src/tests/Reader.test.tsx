@@ -5,7 +5,7 @@ import Reader from 'components/reader'
 import { parseString } from 'xml2js'
 
 import { EditionContext } from 'containers/SiteContainer'
-import { PageData, TourData, getStructure } from 'utils/metadata'
+import { PageData, TourData, getStructure } from 'metadata'
 
 const pages: PageData = new Map()
 pages.set(1, {

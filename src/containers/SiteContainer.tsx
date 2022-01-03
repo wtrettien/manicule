@@ -9,14 +9,7 @@ import cc from 'site-images/cc.svg'
 import by from 'site-images/by.svg'
 import manic from 'site-images/manicule-white.png'
 
-import {
-    PageData,
-    Structure,
-    TourData,
-    EditionName,
-    DEFAULT_EDITION,
-    getMetadata
-} from 'utils/metadata'
+import { PageData, Structure, TourData, EditionName, DEFAULT_EDITION, getMetadata } from 'metadata'
 
 interface EditionContextProps {
     edition: EditionName

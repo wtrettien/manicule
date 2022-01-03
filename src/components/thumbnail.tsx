@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { OverlayTrigger, Tooltip, Button, Glyphicon } from 'react-bootstrap'
 
 import { EditionContext } from 'containers/SiteContainer'
-import { EditionName, Page } from 'utils/metadata'
+import { EditionName, Page } from 'metadata'
 import styles from 'styles/Thumbnail.module.css'
 
 import { getImageUrl } from './page-image'

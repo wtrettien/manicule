@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
-import { LeafSide, Quire as IQuire } from 'utils/metadata'
+import { LeafSide, Quire as IQuire } from 'metadata'
 import styles from 'styles/Structure.module.css'
 import { EditionContext } from 'containers/SiteContainer'
 
