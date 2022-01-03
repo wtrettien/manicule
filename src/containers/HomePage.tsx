@@ -6,6 +6,7 @@ import { Row, Col, Glyphicon } from 'react-bootstrap'
 import im1 from 'site-images/manoflaw.jpg'
 import im2 from 'site-images/page.png'
 import styles from 'styles/Home.module.css'
+import MapView from 'components/map-view'
 
 const HomePage = () => {
     return (
@@ -133,7 +134,7 @@ const HomePage = () => {
                             </Link>
                         </li>
                     </ol>
-                    {/* <MapView currentPage={0} /> */}
+                    <MapView page={0} />
                 </Col>
             </Row>
         </div>
