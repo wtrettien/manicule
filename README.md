@@ -1,8 +1,10 @@
-<img src="public/images/manicule.png">
+<img src="public/images/manicule.png" alt="Manicule">
+
+# Manicule (version 2)
 
 Demo: <a href="https://digitalbookhistory.com/manicule">https://digitalbookhistory.com/manicule</a>
 
-Manicule is a standalone React/Redux web application for presenting unique printed books and manuscripts in digital facsimile. It allows editors to:
+Manicule is a standalone React web application for presenting unique printed books and manuscripts in digital facsimile. It allows editors to:
 
 ☞ build guided tours through a book’s distinguishing features;
 
@@ -50,6 +52,7 @@ It should run for a long time and then complete.
 ## Running the application locally (every time)
 
 ```
+nvm use 16
 npm run start
 ```
 
@@ -84,25 +87,25 @@ Note that the app expects that you'll be uploading your files to a directory cal
 
 # Building your book
 
-The source code is loaded with a demo manuscript (Rosenbach MS 1084/2). You can begin building your own projects by switching out the demo manuscript for your own book.
+The source code is loaded with a demo manuscript (Rosenbach MS 1084/2, called `default`). You can begin building your own projects by switching out the `default` manuscript for your own book.
 
 ## Loading the facsimile
 
-Page images are stored in app/images/book/{edition - this is 'penn' by default}/images. Thumbnails are in the `thumbnails` folder within this directory.
+Page images are stored in `public/images/book/{edition}/images`. Thumbnails are in the `thumbnails` folder within this directory.
 
-File names should begin with 0001.jpg for the first verso of the first spread (a blank may be used to begin with the cover) and increase sequentially in the order the pages are to appear.
+Multiple editions can be stored in the same Manicule instance. You can overwrite the `default` book edition by replacing `public/images/book/default` with your own images, or create a new edition with a unique name.
 
-Files should be not be archival TIFFs but web-ready JPGs.
+File names should begin with `0001.jpg` for the first verso of the first spread (a blank may be used to begin with the cover) and increase sequentially in the order the pages are to appear.
+
+Files should be web-ready JPGs, not be archival TIFFs.
 
 ## Updating the pages data
 
-Data files pertaining to the structure and metadata of the manuscript itself are in `data`. Each copy (the code calls these 'editions') will have a folder at the top:
+Data files pertaining to the structure and metadata of the manuscript itself are in `src/data`. Each copy (the code calls these 'editions') will have a folder at the top:
 
 ```
-data/penn/pages.json
-         /structure.xml
-    /bpl...
-    /other-copy...
+src/data/default/pages.json
+                /structure.xml
 ```
 
 `pages.json` contains information about each page and its metadata.
@@ -121,7 +124,7 @@ This is usually derived from a spreadsheet with the following columns:
 It easiest to work from a spreadsheet and convert the CSV to a JSON after you've finished. There is a utility for this conversion in the project:
 
 ```
- ./node_modules/csvtojson/bin/csvtojson <csvfile.csv> > <jsonfile.json>
+npx csvtojson <csvfile.csv> > <jsonfile.json>
 ```
 
 ### Categories
@@ -132,29 +135,40 @@ For instance, if she were most interested in marking the presence of marginalia 
 
 In addition to these main categories, you can mark a secondary category or add an additional descriptor to the page. This is optional, and should be added to the `description` attribute in `pages.json`. If a description is added, it will appear as marginalia beside the page in the facsimile browser.
 
-To change the categories and their colors, update the color mapping in /app/utils/metadata.js. The categories named here so should match the categories used in `pages.json`.
+Colors are assigned to each category automatically based on a palette of colors. You can customize this palette in `src/utils/metadata.ts` by changing the value of the variable `categoryPalette` to include a list of hex values that will be assigned.
 
 ### Map
 
 The color-coded bar on the right of the homepage and below the filmstrip on the reader is called the `map` in the code. It offers a quick, color-coded overview of the book by categories.
 
-The demo has the map boxes set to 15px width. If your book is longer, you may want to reduce these to thinner bars, so the map fits on one line. You can also expand them to form squares that align more like a grid. To change these styles, alter the `map-blocks` class in `_map.scss`.
+The demo has the map boxes set to 15px width. If your book is longer, you may want to reduce these to thinner bars, so the map fits on one line. You can also expand them to form squares that align more like a grid. To change these styles, alter the `.block` class in `src/styles/Map.module.css`.
 
 ## Building a tour
 
-The `tour` directory contains information about the tour overlay (rendered as a bookmark on the fascimile and filmstrip view).
+Tour metadata is stored alongside book metadata in `src/data/{edition}/tour`. The `tour` directory contains information about the tour overlay (rendered as a bookmark on the fascimile and filmstrip view).
 
 `tour.json` contains an item for each page in the tour. Each item is numbered, starting from 1 and increasing sequentially. The value of `page` corresponds to the value of `index` in the `pages.json` sheet. You can find this number by looking at the end of the URL when using the facsimile browser, too, which shows the left page in the spread (add 1 for the right page's index number).
 
-To add a tour stop to your book, create an HTML file and name it after the index number of the page where you want readers to pause. For instance, if you want readers to stop at the seventh facsimile page, you would name the file `7.html`. The file should contain a `<div>` that wraps any HTML you would like loaded in the modal overlay (text, images, video, embeds). Then update `tour.json` to add the stop. As with the pages data, it is easiest to build your tour on a spreadsheet and convert it to a JSON file when you are done.
+To add a tour stop to your book, create an HTML file and name it after the index number of the page where you want readers to pause. For instance, if you want readers to stop at the seventh facsimile page, you would name the file `7.html`. The file should contain a `<div>` that wraps any HTML you would like loaded in the modal overlay (text, images, video, embeds). Then update `tour.json` to add the stop. As with the pages data, it is easiest to build your tour on a spreadsheet and convert it to a JSON file when you are done. To include images in a given tour HTML file, put the image files in `public/images/book/{edition}/tour` and reference them as <img src="images/book{edition}/tour/{your-image.jpg}">. Note that the `public` directory is omitted from the URL.
 
 The `item` attribute in the JSON file should run sequentially from 1 to n. This is the linear order of your tour stops. However, the pages where the tour stops can run nonsequentially, jumping from, for instance, page 30 as the first stop, to page 13 as the second stop and page 42 as the third. Thus you can build a tour that zigzags across the book, linking together separate features and elements.
-
-There is an `images` folder in the tour which contains cut-out detailed images of those referenced by the tour, but this is currently unused.
 
 ## Structure
 
 `structure.xml` contains information about the format of the work, including which pages are conjoined, gathered, or inserted. It follows the data model used by <a href="https://github.com/leoba/VisColl">VisColl</a>, a project for visualizing the physical collation of a manuscript.
+
+# Changes from version 1
+
+If you have previously worked with Manicule version 1, you may need to make the following changes to render a book on version 2:
+
+-   Data files are now stored in `src/data` (rather than `data`)
+-   Tour metadata is now stored adjacent to book metadata in `src/data/{edition}` rather than in its own folder.
+-   All book images are stored in `public/images/book/{edition}`, including tour images.
+-   Website styles are stored in `src/styles` as plain CSS, not SCSS. Style file names have changed from version 1.
+-   Source code pages are in TypeScript rather than JavaScript. If you are customizing the home page or other site pages you may need to be extra-careful about syntax as TypeScript is a bit more strict than JavaScript, but the page content should be very familiar to Manicule 1 users.
+-   URLs have changed from version 1 to make it simpler to deploy. You should not need to mess with `.htaccess` files or similar server configuration in version 2. However, if you are upgrading from Manicule 1 to Manicule 2, note that existing inbound links will need to be changed.
+
+A full list of changes including internal code changes are available in CHANGELOG.md.
 
 # Credits
 

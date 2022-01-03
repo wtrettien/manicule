@@ -54,6 +54,7 @@
         "@types/debounce": "^1.2.1",
         "@types/react-bootstrap": "^0.32.28",
         "@types/xml2js": "^0.4.9",
+        "csvtojson": "^2.0.10",
         "prettier": "^2.5.1"
     },
     "homepage": "./"
