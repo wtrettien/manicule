@@ -4,7 +4,7 @@ import { animated, SpringRef, useSpring } from 'react-spring'
 import { ButtonGroup } from 'react-bootstrap'
 
 import styles from 'styles/Nav.module.css'
-import { Page, PageData } from 'utils/metadata'
+import { Page, PageData } from 'metadata'
 
 import Thumbnail from './thumbnail'
 import { pageDir } from './reader'

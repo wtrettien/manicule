@@ -3,7 +3,7 @@ import React from 'react'
 import { Row, Col, Panel, Button, Glyphicon } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import { TourItem, LeafSide } from 'utils/metadata'
+import { TourItem, LeafSide } from 'metadata'
 import { EditionContext } from 'containers/SiteContainer'
 import styles from 'styles/Tour.module.css'
 

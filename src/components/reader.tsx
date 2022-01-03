@@ -6,7 +6,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 
 import { EditionContext } from 'containers/SiteContainer'
 
-import { TourItem, Page as PageType, LeafSide } from 'utils/metadata'
+import { TourItem, Page as PageType, LeafSide } from 'metadata'
 import styles from 'styles/Reader.module.css'
 
 import Page from './page'

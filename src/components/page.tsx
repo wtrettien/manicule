@@ -3,7 +3,7 @@ import React from 'react'
 import { Row, Col, Glyphicon } from 'react-bootstrap'
 
 import { EditionContext } from 'containers/SiteContainer'
-import { LeafSide, Page as PageType } from 'utils/metadata'
+import { LeafSide, Page as PageType } from 'metadata'
 import styles from 'styles/Page.module.css'
 
 import PageImage from './page-image'
