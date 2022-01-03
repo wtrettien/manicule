@@ -4,6 +4,8 @@ In late 2021, Manicule was udpated to remove dependencies on out-of-date softwar
 
 -   Manicule is now built on [create-react-app](https://create-react-app.dev/), the officially-sanctioned React application starter.
 -   Source code has been ported to [TypeScript](https://www.typescriptlang.org/), which provides a safer foundation for future maintenance and development.
+-   React udpated to 17.x.
+-   Redux has been removed in favor of state management through React Context now available in React 16+.
 -   The animation library [react-spring](https://react-spring.io/) is now used in replace of the discontinued `react-motion`.
 -   The line-drawing library `jsPlumb` has been removed; book structure diagrams are now implemented with custom SVG directly.
 -   The test suite is now [https://testing-library.com/docs/react-testing-library/intro/](https://testing-library.com/docs/react-testing-library/intro/) replacing Enzyme.
