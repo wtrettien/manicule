@@ -43,7 +43,6 @@ const Structure = () => {
             <div className={styles.structureNav}>
                 <Button
                     onClick={() => {
-                        console.log(side)
                         setLeafSide(side === 'recto' ? 'verso' : 'recto')
                     }}>
                     Showing {side} side
