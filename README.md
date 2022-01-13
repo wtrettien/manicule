@@ -81,10 +81,6 @@ This will create a folder called `build`. Everything inside that folder should b
 
 To ensure that the URLs of individual pages are shareable, you also need to copy the .htaccess file in the /app folder to the `manicule` folder on your production host. If you are not using HTTPS, comment out lines 22 and 28 before copying it. There is also a config file available for nginx in the app folder, if you are not using Apache.
 
-## Changing the root folder
-
-Note that the app expects that you'll be uploading your files to a directory called `manicule`, and your site won't work if you upload it to a directory with another name without some further manipulation. One easy way to make this change: perform a find and replace for `manicule` across all files in your `build` folder. Then change this directory in line 42 of the .htaccess file.
-
 # Building your book
 
 The source code is loaded with a demo manuscript (Rosenbach MS 1084/2, called `default`). You can begin building your own projects by switching out the `default` manuscript for your own book.
