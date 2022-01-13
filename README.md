@@ -69,28 +69,6 @@ npm run test
 
 All the tests should pass. Tests will also automatically be run when creating a pull request unless Github Actions are disabled in your fork of the repository.
 
-# Deploying the application to production
-
-It's easiest to edit the application while running it locally. After you're done building the book (more on that below), you'll want to upload your site to your host server. To deploy the application manually, first _build_ it using this command:
-
-```
-npm run build
-```
-
-This will create a folder called `build`. Everything inside that folder should be copied to your production host in a folder named `manicule`.
-
-## Deploying with Github Pages (experimental)
-
-A convenient way to put Manicule on the web without bothering with servers or manual deployment steps is to use [Github Pages](https://docs.github.com/en/pages), which is available for use after [forking this repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
-
-Manicule comes with a command to deploy to Pages:
-
-```
-npm run deploy
-```
-
-This will copy the current snapshot of your installation to the `gh-pages` branch (the default for Github Pages) and kick off the deploy process. Note that it can take up to 10 minutes for new or changed content to reach Pages. The URL will be something like `https://<your-github-username>.github.io/manicule`. See the "Pages" section under "Settings" in your fork for the repository. The process and URL may be different if you are using an Organizational Github account rather than a personal one.
-
 # Building your book
 
 The source code is loaded with a demo manuscript (Rosenbach MS 1084/2, called `default`). You can begin building your own projects by switching out the `default` manuscript for your own book.
@@ -162,6 +140,28 @@ The `item` attribute in the JSON file should run sequentially from 1 to n. This 
 ## Structure
 
 `structure.xml` contains information about the format of the work, including which pages are conjoined, gathered, or inserted. It follows the data model used by <a href="https://github.com/leoba/VisColl">VisColl</a>, a project for visualizing the physical collation of a manuscript.
+
+# Deploying the application to production
+
+It's easiest to edit the application while running it locally. After you're done building the book (more on that below), you'll want to upload your site to your host server. To deploy the application manually, first _build_ it using this command:
+
+```
+npm run build
+```
+
+This will create a folder called `build`. Everything inside that folder should be copied to your production host in a folder named `manicule`.
+
+## Deploying with Github Pages (experimental)
+
+A convenient way to put Manicule on the web without bothering with servers or manual deployment steps is to use [Github Pages](https://docs.github.com/en/pages), which is available for use after [forking this repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+
+Manicule comes with a command to deploy to Pages:
+
+```
+npm run deploy
+```
+
+This will copy the current snapshot of your installation to the `gh-pages` branch (the default for Github Pages) and kick off the deploy process. Note that it can take up to 10 minutes for new or changed content to reach Pages. The URL will be something like `https://<your-github-username>.github.io/manicule`. See the "Pages" section under "Settings" in your fork for the repository. The process and URL may be different if you are using an Organizational Github account rather than a personal one.
 
 # Changes from version 1
 
