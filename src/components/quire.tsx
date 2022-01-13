@@ -46,7 +46,7 @@ const Quire = ({ quire, side }: QuireProps) => {
                     const left = leafRefs[i]
                     const right = leafRefs[quire.leaf.indexOf(conjoined)]
 
-                    if (left.current && right.current) {
+                    if (left?.current && right?.current) {
                         const lrect = left.current.getBoundingClientRect()
                         const rrect = right.current.getBoundingClientRect()
 
