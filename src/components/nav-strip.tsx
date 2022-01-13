@@ -85,7 +85,7 @@ const NavGroup = ({ pageData, page, groupRef, api }: NavGroupProps) => {
         })
         const ref = refs[index]
 
-        if (ref.current && groupRef.current) {
+        if (ref?.current && groupRef?.current) {
             const from = ref.current.getBoundingClientRect().x
             const center = window.innerWidth / 2
             const current = groupRef.current.scrollLeft
