@@ -194,7 +194,6 @@ export const getTourForPage = (tour: TourData, page: number) => {
  * @param structure the source structure in the native XML import format
  */
 export const getStructure = (source: SourceStructure): Structure => {
-    console.log(source)
     const quires = source.book.quire.map((q) => {
         const leaves = q.leaf.map((l) => {
             const pages = l.page.map((p) => {
