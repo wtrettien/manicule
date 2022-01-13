@@ -1,4 +1,4 @@
-export const DEFAULT_EDITION = process.env.REACT_APP_DEFAULT_EDITION || 'benlowe'
+export const DEFAULT_EDITION = process.env.REACT_APP_DEFAULT_EDITION || 'default'
 
 export const getMetadata = async (edition: EditionName): Promise<Metadata> => {
     const md: Metadata = new Map()
