@@ -1,5 +1,3 @@
-<img src="public/images/manicule.png" alt="Manicule">
-
 # Manicule (version 2)
 
 Demo: <a href="https://digitalbookhistory.com/manicule">https://digitalbookhistory.com/manicule</a>
@@ -23,6 +21,8 @@ Manicule is a standalone React web application for presenting unique printed boo
 <img src="public/images/structure.png">
 
 # Installation (first time)
+
+Create a [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) of this repository so you are able to add your own content.
 
 ## Install Node Version Manager (nvm)
 
@@ -67,7 +67,7 @@ unexpected breakages:
 npm run test
 ```
 
-All the tests should pass. If not, don't commit your change to main!
+All the tests should pass. Tests will also automatically be run when creating a pull request unless Github Actions are disabled in your fork of the repository.
 
 # Deploying the application to production
 
@@ -79,7 +79,17 @@ npm run build
 
 This will create a folder called `build`. Everything inside that folder should be copied to your production host in a folder named `manicule`.
 
-To ensure that the URLs of individual pages are shareable, you also need to copy the .htaccess file in the /app folder to the `manicule` folder on your production host. If you are not using HTTPS, comment out lines 22 and 28 before copying it. There is also a config file available for nginx in the app folder, if you are not using Apache.
+## Deploying with Github Pages (experimental)
+
+A convenient way to put Manicule on the web without bothering with servers or manual deployment steps is to use [Github Pages](https://docs.github.com/en/pages), which is available for use after [forking this repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+
+Manicule comes with a command to deploy to Pages:
+
+```
+npm run deploy
+```
+
+This will copy the current snapshot of your installation to the `gh-pages` branch (the default for Github Pages) and kick off the deploy process. Note that it can take up to 10 minutes for new or changed content to reach Pages. The URL will be something like `https://<your-github-username>.github.io/manicule`. See the "Pages" section under "Settings" in your fork for the repository. The process and URL may be different if you are using an Organizational Github account rather than a personal one.
 
 # Building your book
 
