@@ -20,17 +20,16 @@ const MapView = ({ page }: MapViewProps) => {
             {[...pages.values()].map((p) => {
                 const tour = p.tourItem
                 return (
-                    <span key={p.index} style={{ display: 'inline-block' }}>
+                    <span key={p.index} className={styles.blockContainer}>
                         <OverlayTrigger
                             placement="top"
                             overlay={<Tooltip id={p.index.toString()}>{p.category}</Tooltip>}>
                             <Link to={`/reader/${edition}/${p.index}`}>
                                 <span
-                                    className={`
-                        ${p.index === page ? styles.currentPage : ''}
-                        ${tour ? 'has-tour' : ''}
-                        ${styles.block}
-                        `}
+                                    className={`${p.index === page ? styles.currentPage : ''} ${
+                                        tour ? 'has-tour' : ''
+                                    } ${styles.block}`}
+                                    role="button"
                                     style={{ background: p.color, color: p.color }}>
                                     {tour ? (
                                         <Glyphicon className={styles.glyphicon} glyph="bookmark" />

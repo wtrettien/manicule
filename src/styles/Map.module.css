@@ -9,6 +9,9 @@
     text-align: center;
     margin: 6px 1px 0 0;
 }
+.blockContainer {
+    display: inline-block;
+}
 
 .currentPage {
     box-shadow: inset 0 0 0 2px white;

@@ -31,7 +31,8 @@ const Reader = ({ page }: ReaderProps) => {
     const [zoom, setZoom] = React.useState<ZoomModal>(undefined)
 
     const nextPage = Math.max(page + 2, 1)
-    const prevPage = Math.min(page - 2, Object.keys(pages).length)
+    const prevPage = Math.min(page - 2, pages.size)
+
     const verso = pages.get(page)
     const versoIndex = verso?.index || 0
 
