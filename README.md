@@ -32,6 +32,14 @@ Follow the current instructions for <a href="https://github.com/nvm-sh/nvm#insta
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 ```
 
+On MacOS you will need to have installed or upgraded the XCode Toolkit. Typically this is installed via Software Update or by typing:
+
+```
+xcode-select --install
+```
+
+and then opening a fresh Terminal window.
+
 ## Install Node version 16
 
 ```
@@ -56,7 +64,7 @@ nvm use 16
 npm run start
 ```
 
-This will run the application as http://localhost:3000/
+This will run the application as http://localhost:3000/. You can cancel the development server by pressing Control and C.
 
 ## Running the test suite
 
@@ -133,7 +141,7 @@ Tour metadata is stored alongside book metadata in `src/data/{edition}/tour`. Th
 
 `tour.json` contains an item for each page in the tour. Each item is numbered, starting from 1 and increasing sequentially. The value of `page` corresponds to the value of `index` in the `pages.json` sheet. You can find this number by looking at the end of the URL when using the facsimile browser, too, which shows the left page in the spread (add 1 for the right page's index number).
 
-To add a tour stop to your book, create an HTML file and name it after the index number of the page where you want readers to pause. For instance, if you want readers to stop at the seventh facsimile page, you would name the file `7.html`. The file should contain a `<div>` that wraps any HTML you would like loaded in the modal overlay (text, images, video, embeds). Then update `tour.json` to add the stop. As with the pages data, it is easiest to build your tour on a spreadsheet and convert it to a JSON file when you are done. To include images in a given tour HTML file, put the image files in `public/images/book/{edition}/tour` and reference them as `<img src="images/book{edition}/tour/{your-image.jpg}">`. Note that the `public` directory is omitted from the URL.
+To add a tour stop to your book, create an HTML file and name it after the index number of the page where you want readers to pause. For instance, if you want readers to stop at the seventh facsimile page, you would name the file `7.html`. The file should contain a `<div>` that wraps any HTML you would like loaded in the modal overlay (text, images, video, embeds). Then update `tour.json` to add the stop. As with the pages data, it is easiest to build your tour on a spreadsheet and convert it to a JSON file when you are done. To include images in a given tour HTML file, put the image files in `public/images/book/{edition}/tour` and reference them as `<img src="images/book/{edition}/tour/{your-image.jpg}">`. Note that the `public` directory is omitted from the URL.
 
 The `item` attribute in the JSON file should run sequentially from 1 to n. This is the linear order of your tour stops. However, the pages where the tour stops can run nonsequentially, jumping from, for instance, page 30 as the first stop, to page 13 as the second stop and page 42 as the third. Thus you can build a tour that zigzags across the book, linking together separate features and elements.
 
@@ -143,13 +151,13 @@ The `item` attribute in the JSON file should run sequentially from 1 to n. This 
 
 # Deploying the application to production
 
-It's easiest to edit the application while running it locally. After you're done building the book (more on that below), you'll want to upload your site to your host server. To deploy the application manually, first _build_ it using this command:
+It's easiest to edit the application while running it locally. After you're done building the book, you'll want to upload your site to your host server. To deploy the application manually, first stop your development server with Control-C, then _build_ it using this command:
 
 ```
 npm run build
 ```
 
-This will create a folder called `build`. Everything inside that folder should be copied to your production host in a folder named `manicule`.
+This will create a folder called `build`. Everything inside that folder should be copied to your production host in a folder of your choosing.
 
 ## Deploying with Github Pages (experimental)
 
