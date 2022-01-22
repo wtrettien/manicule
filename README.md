@@ -151,7 +151,7 @@ The `item` attribute in the JSON file should run sequentially from 1 to n. This 
 
 # Deploying the application to production
 
-It's easiest to edit the application while running it locally. After you're done building the book (more on that below), you'll want to upload your site to your host server. To deploy the application manually, first stop your development server with Control-C, then _build_ it using this command:
+It's easiest to edit the application while running it locally. After you're done building the book, you'll want to upload your site to your host server. To deploy the application manually, first stop your development server with Control-C, then _build_ it using this command:
 
 ```
 npm run build
