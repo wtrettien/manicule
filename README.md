@@ -32,11 +32,13 @@ Follow the current instructions for <a href="https://github.com/nvm-sh/nvm#insta
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 ```
 
-On MacOS you will need to have installed or upgraded the XCode Toolkit. Typically this is via Software Update or by typing:
+On MacOS you will need to have installed or upgraded the XCode Toolkit. Typically this is installed via Software Update or by typing:
 
 ```
 xcode-select --install
 ```
+
+and then opening a fresh Terminal window.
 
 ## Install Node version 16
 
