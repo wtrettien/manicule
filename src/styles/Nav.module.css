@@ -1,0 +1,58 @@
+.navGroup {
+    min-height: 125px;
+}
+
+.navStripContainer {
+    margin: 20px auto;
+    width: 95%;
+    position: relative;
+    background: inherit;
+    z-index: 0;
+}
+
+.navGroup {
+    position: relative;
+    overflow-x: scroll;
+    margin: auto;
+}
+.navGroup > div {
+    position: absolute;
+    white-space: nowrap;
+}
+
+.navStripButton {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    top: 0;
+    width: 150px;
+}
+.navStripButton .button {
+    border: none;
+    font-size: 80px;
+    color: oldlace;
+    padding: 0;
+    margin: 0;
+}
+.next {
+    right: 0;
+    z-index: 1;
+}
+.button {
+    display: inline-block;
+    width: 100%;
+}
+.next .button {
+    text-align: right;
+    padding-right: 10px;
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, 0), rgba(0, 0, 0, 0.8) 40%, #000 80%);
+}
+.prev {
+    left: 0;
+    z-index: 1;
+}
+.prev .button {
+    text-align: left;
+    padding-left: 10px;
+    background: linear-gradient(270deg, hsla(0, 0%, 100%, 0), rgba(0, 0, 0, 0.8) 40%, #000 80%);
+}

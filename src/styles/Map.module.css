@@ -1,0 +1,24 @@
+.blocks {
+    margin: auto;
+    text-align: center;
+}
+.block {
+    display: inline-block;
+    width: 13px;
+    height: 20px;
+    text-align: center;
+    margin: 6px 1px 0 0;
+}
+.blockContainer {
+    display: inline-block;
+}
+
+.currentPage {
+    box-shadow: inset 0 0 0 2px white;
+}
+.glyphicon {
+    line-height: 0.5;
+    font-size: 0.5em;
+    top: 12px;
+    margin: 0 auto;
+}

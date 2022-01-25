@@ -1,0 +1,24 @@
+.bookNav {
+    color: rgb(138, 133, 125);
+    text-transform: uppercase;
+    padding: 0 10%;
+    display: inline-block;
+    width: 100%;
+    height: 3em;
+}
+
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+
+.verso {
+    padding: 0;
+    margin: 0;
+}
+.recto {
+    padding: 0;
+    margin: 0;
+}

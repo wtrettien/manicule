@@ -1,0 +1,16 @@
+.metadata div {
+    min-height: 550px;
+    position: relative;
+}
+.tourOpener {
+    line-height: 3em;
+    font-size: 3em;
+}
+.description {
+    padding: 0 40px !important;
+}
+
+.metadata div div {
+    margin: 0 !important;
+    padding: 0 !important;
+}

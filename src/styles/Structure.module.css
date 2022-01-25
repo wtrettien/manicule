@@ -1,0 +1,53 @@
+.structure {
+    background: transparent;
+    color: oldlace;
+}
+
+.structureNav {
+    position: fixed;
+    right: 5%;
+    height: 10vh;
+    width: 100%;
+    text-align: right;
+    z-index: 99;
+}
+.quireLabel {
+    text-align: center;
+    padding: 2rem 0;
+}
+.structure h3 {
+    color: #8ea667;
+}
+
+.quire {
+    text-align: center;
+    height: 300px;
+    position: relative;
+}
+.quire svg {
+    width: 100%;
+    height: 300px;
+    left: 0;
+    position: absolute;
+}
+.quire svg path {
+    stroke: oldlace;
+    fill: transparent;
+}
+.quire svg polygon {
+    stroke: rgb(227, 26, 28);
+    fill: rgb(227, 26, 28);
+}
+.quire svg line {
+    stroke: rgb(227, 26, 28);
+    stroke-width: 1;
+    fill: transparent;
+}
+.leaf {
+    margin-top: 200px;
+    display: inline-block;
+}
+.leaf a {
+    position: relative;
+    display: inline-block;
+}
