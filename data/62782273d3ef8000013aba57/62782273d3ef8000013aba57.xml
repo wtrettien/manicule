@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<viscoll xmlns="http://viscoll.org/schema/collation/" version="2.1.0">
+  <textblock>
+    <title>Ms. Codex 1263: Confessione generale [manuscript].</title>
+    <shelfmark>Ms. Codex 1263</shelfmark>
+    <date>[Tuscany?, Italy, ca. 1400-1450?]</date>
+    <direction val="l-r"/>
+    <quires>
+      <quire xml:id="Group_62782273d3ef8000013aba58" n="1" certainty="1"/>
+      <quire xml:id="Group_62782274d3ef8000013aba77" n="2" certainty="1"/>
+      <quire xml:id="Group_62782274d3ef8000013aba96" n="3" certainty="1"/>
+    </quires>
+    <leaves>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba59">
+        <folioNumber certainty="1" val="1">1</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="1" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba74"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba5c">
+        <folioNumber certainty="1" val="2">2</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="2" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba71"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba5f">
+        <folioNumber certainty="1" val="3">3</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="3" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba6e"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba62">
+        <folioNumber certainty="1" val="4">4</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="4" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba6b"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba65">
+        <folioNumber certainty="1" val="5">5</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="5" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba68"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba68">
+        <folioNumber certainty="1" val="6">6</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="6" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba65"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba6b">
+        <folioNumber certainty="1" val="7">7</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="7" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba62"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba6e">
+        <folioNumber certainty="1" val="8">8</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="8" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba5f"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba71">
+        <folioNumber certainty="1" val="9">9</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="9" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba5c"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782273d3ef8000013aba74">
+        <folioNumber certainty="1" val="10">10</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782273d3ef8000013aba58" position="10" n="1" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782273d3ef8000013aba59"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba78">
+        <folioNumber certainty="1" val="11">11</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="1" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba93"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba7b">
+        <folioNumber certainty="1" val="12">12</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="2" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba90"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba7e">
+        <folioNumber certainty="1" val="13">13</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="3" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba8d"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba81">
+        <folioNumber certainty="1" val="14">14</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="4" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba8a"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba84">
+        <folioNumber certainty="1" val="15">15</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="5" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba87"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba87">
+        <folioNumber certainty="1" val="16">16</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="6" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba84"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba8a">
+        <folioNumber certainty="1" val="17">17</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="7" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba81"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba8d">
+        <folioNumber certainty="1" val="18">18</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="8" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba7e"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba90">
+        <folioNumber certainty="1" val="19">19</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="9" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba7b"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba93">
+        <folioNumber certainty="1" val="20">20</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba77" position="10" n="2" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba78"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba97">
+        <folioNumber certainty="1" val="21">21</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="1" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013abab2"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba9a">
+        <folioNumber certainty="1" val="22">22</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="2" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013abaaf"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013aba9d">
+        <folioNumber certainty="1" val="23">23</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="3" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013abaac"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013abaa0">
+        <folioNumber certainty="1" val="24">24</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="4" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013abaa9"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013abaa3">
+        <folioNumber certainty="1" val="25">25</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="5" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013abaa6"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013abaa6">
+        <folioNumber certainty="1" val="26">26</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="6" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013abaa3"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013abaa9">
+        <folioNumber certainty="1" val="27">27</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="7" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013abaa0"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013abaac">
+        <folioNumber certainty="1" val="28">28</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="8" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba9d"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013abaaf">
+        <folioNumber certainty="1" val="29">29</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="9" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba9a"/>
+        </q>
+      </leaf>
+      <leaf xml:id="Leaf_62782274d3ef8000013abab2">
+        <folioNumber certainty="1" val="30">30</folioNumber>
+        <mode val="original" certainty="1"/>
+        <q target="#Group_62782274d3ef8000013aba96" position="10" n="3" certainty="1">
+          <conjoin certainty="1" target="#Leaf_62782274d3ef8000013aba97"/>
+        </q>
+      </leaf>
+    </leaves>
+  </textblock>
+  <taxonomy xml:id="id-sides" ref="http://w3id.org/lob/">
+    <label>Parchment Sides</label>
+    <term xml:id="id-hs" ref="http://w3id.org/lob/concept/1381">
+      <label>hairside</label>
+    </term>
+    <term xml:id="id-fs" ref="http://w3id.org/lob/concept/1336">
+      <label>fleshside</label>
+    </term>
+    <term xml:id="id-left" ref="http://w3id.org/lob/concept/2947">
+      <label>left</label>
+    </term>
+    <term xml:id="id-right" ref="http://w3id.org/lob/concept/3004">
+      <label>right</label>
+    </term>
+  </taxonomy>
+  <taxonomy xml:id="id-terms">
+    <label>List of all Terms</label>
+    <term xml:id="Term_d000139603f1652040325321">
+      <label>Confessione generale.</label>
+    </term>
+    <term xml:id="Term_d000139603f1652040354411">
+      <label> [Manual for confessors]</label>
+    </term>
+  </taxonomy>
+  <taxonomy xml:id="id-c1df1da7a1ce305a3b60af9d5733ac1d">
+    <label>Contents</label>
+    <term xml:id="Term_d000139603f1652040325321">
+      <label>Confessione generale.</label>
+    </term>
+    <term xml:id="Term_d000139603f1652040354411">
+      <label> [Manual for confessors]</label>
+    </term>
+  </taxonomy>
+  <mapping>
+    <map target="#Leaf_62782273d3ef8000013aba59 #Leaf_62782273d3ef8000013aba5f #Leaf_62782273d3ef8000013aba65 #Leaf_62782273d3ef8000013aba6b #Leaf_62782273d3ef8000013aba71 #Leaf_62782274d3ef8000013aba78 #Leaf_62782274d3ef8000013aba7e #Leaf_62782274d3ef8000013aba84 #Leaf_62782274d3ef8000013aba8a #Leaf_62782274d3ef8000013aba90 #Leaf_62782274d3ef8000013aba97 #Leaf_62782274d3ef8000013aba9d #Leaf_62782274d3ef8000013abaa3 #Leaf_62782274d3ef8000013abaa9 #Leaf_62782274d3ef8000013abaaf" side="left">
+      <term target="#id-hs"/>
+    </map>
+    <map target="#Leaf_62782273d3ef8000013aba5c #Leaf_62782273d3ef8000013aba62 #Leaf_62782273d3ef8000013aba68 #Leaf_62782273d3ef8000013aba6e #Leaf_62782273d3ef8000013aba74 #Leaf_62782274d3ef8000013aba7b #Leaf_62782274d3ef8000013aba81 #Leaf_62782274d3ef8000013aba87 #Leaf_62782274d3ef8000013aba8d #Leaf_62782274d3ef8000013aba93 #Leaf_62782274d3ef8000013aba9a #Leaf_62782274d3ef8000013abaa0 #Leaf_62782274d3ef8000013abaa6 #Leaf_62782274d3ef8000013abaac #Leaf_62782274d3ef8000013abab2" side="right">
+      <term target="#id-hs"/>
+    </map>
+    <map target="#Leaf_62782273d3ef8000013aba5c #Leaf_62782273d3ef8000013aba62 #Leaf_62782273d3ef8000013aba68 #Leaf_62782273d3ef8000013aba6e #Leaf_62782273d3ef8000013aba74 #Leaf_62782274d3ef8000013aba7b #Leaf_62782274d3ef8000013aba81 #Leaf_62782274d3ef8000013aba87 #Leaf_62782274d3ef8000013aba8d #Leaf_62782274d3ef8000013aba93 #Leaf_62782274d3ef8000013aba9a #Leaf_62782274d3ef8000013abaa0 #Leaf_62782274d3ef8000013abaa6 #Leaf_62782274d3ef8000013abaac #Leaf_62782274d3ef8000013abab2" side="left">
+      <term target="#id-fs"/>
+    </map>
+    <map target="#Leaf_62782273d3ef8000013aba59 #Leaf_62782273d3ef8000013aba5f #Leaf_62782273d3ef8000013aba65 #Leaf_62782273d3ef8000013aba6b #Leaf_62782273d3ef8000013aba71 #Leaf_62782274d3ef8000013aba78 #Leaf_62782274d3ef8000013aba7e #Leaf_62782274d3ef8000013aba84 #Leaf_62782274d3ef8000013aba8a #Leaf_62782274d3ef8000013aba90 #Leaf_62782274d3ef8000013aba97 #Leaf_62782274d3ef8000013aba9d #Leaf_62782274d3ef8000013abaa3 #Leaf_62782274d3ef8000013abaa9 #Leaf_62782274d3ef8000013abaaf" side="right">
+      <term target="#id-fs"/>
+    </map>
+    <map target="#Leaf_62782273d3ef8000013aba59 #Leaf_62782273d3ef8000013aba5c #Leaf_62782273d3ef8000013aba5f #Leaf_62782273d3ef8000013aba62 #Leaf_62782273d3ef8000013aba65 #Leaf_62782273d3ef8000013aba68 #Leaf_62782273d3ef8000013aba6b #Leaf_62782273d3ef8000013aba6e #Leaf_62782273d3ef8000013aba71 #Leaf_62782273d3ef8000013aba74">
+      <term target="#Term_d000139603f1652040325321"/>
+    </map>
+    <map target="#Leaf_62782274d3ef8000013aba78 #Leaf_62782274d3ef8000013aba7b #Leaf_62782274d3ef8000013aba7e #Leaf_62782274d3ef8000013aba81 #Leaf_62782274d3ef8000013aba84 #Leaf_62782274d3ef8000013aba87 #Leaf_62782274d3ef8000013aba8a #Leaf_62782274d3ef8000013aba8d #Leaf_62782274d3ef8000013aba90 #Leaf_62782274d3ef8000013aba93 #Leaf_62782274d3ef8000013aba97 #Leaf_62782274d3ef8000013aba9a #Leaf_62782274d3ef8000013aba9d #Leaf_62782274d3ef8000013abaa0 #Leaf_62782274d3ef8000013abaa3 #Leaf_62782274d3ef8000013abaa6 #Leaf_62782274d3ef8000013abaa9 #Leaf_62782274d3ef8000013abaac #Leaf_62782274d3ef8000013abaaf #Leaf_62782274d3ef8000013abab2">
+      <term target="#Term_d000139603f1652040354411"/>
+    </map>
+  </mapping>
+</viscoll>
