@@ -1,5 +1,7 @@
 const COLLATION_READY_EVENT = 'collation-ready'
+const CACHE_NAME = 'manicule'
 
+const cache = await caches.open(CACHE_NAME)
 class CollationModel extends HTMLElement {
     static get observedAttributes() {
         return ['ready']
@@ -15,8 +17,6 @@ class CollationModel extends HTMLElement {
 
         const resp = await fetch(`./data/${id}/${id}.json`)
         this.data = await resp.json()
-
-        // localStorage.setItem(`collations-${id}`, JSON.stringify(this.data))
 
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
             detail: {
@@ -34,7 +34,6 @@ class CollationModel extends HTMLElement {
     attributeChangedCallback(name, _, value) {
         if (name === 'ready' && value === 'true') {
             console.log(`Collation ${this.getAttribute('id')} ready.`)
-
         }
     }
     populateMetadata = () => {
@@ -73,18 +72,11 @@ class CollationMember extends HTMLElement {
 class NavStrip extends CollationMember {
     constructor() {
         super()
-        this.setAttribute('iiif-region', 'square')
-        this.setAttribute('iiif-width', 40)
-        this.setAttribute('iiif-height', 40)
-        this.setAttribute('iiif-rotation', 0)
-        this.setAttribute('iiif-quality', 'default')
-        this.setAttribute('iiif-format', 'jpg')
+        this.setAttribute('region', 'square')
+        this.setAttribute('width', 40)
+        this.setAttribute('height', 40)
     }
-    ready = async () => {
-        const cacheName = `manicule-${this.collation.id}`
-        //caches.delete(cacheName)
-        const cache = await caches.open(cacheName)
-
+    ready = () => {
         const strip = document.createElement('nav')
         const collation = this.collation
         const rectos = Object.values(collation.data.Rectos)
@@ -93,42 +85,20 @@ class NavStrip extends CollationMember {
 
         const items = leaves.map((spread) => {
             const container = document.createElement('span')
-            for (const leaf of spread) {
-                const img = document.createElement('img')
-                img.width = this.getAttribute('iiif-width')
-                img.height = this.getAttribute('iiif-height')
 
-                // Display the temporary loading image
-                img.src = "images/document-icon.png"
+            for (const leaf of spread) {
+                console.log(leaf)
+                const img = document.createElement('cacheable-image')
+                img.setAttribute('width', this.getAttribute('width'))
+                img.setAttribute("height", this.getAttribute('height'))
                 container.append(img)
 
                 const url = iiif(leaf.params.image.url,
-                    this.getAttribute('iiif-region'),
-                    this.getAttribute('iiif-width'),
-                    this.getAttribute('iiif-height'),
-                    this.getAttribute('iiif-rotation'),
-                    this.getAttribute('iiif-quality'),
-                    this.getAttribute('iiif-format'))
-
-                cache.match(url).then((resp) => {
-                    if (resp) {
-                        console.log("Loading from cache")
-                        resp.blob().then((blob) => {
-                            img.src = URL.createObjectURL(blob)
-                        })
-                    } else {
-                        console.log('fetching')
-                        fetch(new Request(url)).then((resp) => {
-                            cache.put(url, resp.clone())
-                            resp.blob().then((blob) => {
-                                img.src = URL.createObjectURL(blob)
-                            })
-
-                        })
-                    }
-
-                })
-
+                    this.getAttribute('region'),
+                    this.getAttribute('width'),
+                    this.getAttribute('height'),
+                )
+                img.setAttribute('src', url)
             }
             return container
         })
@@ -138,9 +108,49 @@ class NavStrip extends CollationMember {
 
 }
 
-const iiif = (url, region, width, height, rotation, quality, format) => (
+class CachableImage extends HTMLElement {
+    static get observedAttributes() {
+        return ['src']
+    }
+    constructor() {
+        super()
+    }
+    connectedCallback() {
+        const img = document.createElement('img')
+        img.width = this.getAttribute('width')
+        img.height = this.getAttribute('height')
+        // Display the temporary loading image
+        img.src = "images/document-icon.png"
+        this.append(img)
+        this.img = img
+    }
+    attributeChangedCallback(name, _, value) {
+        if (name === 'src') {
+            const url = value
+            cache.match(url).then((resp) => {
+                if (resp) {
+                    resp.blob().then((blob) => {
+                        this.img.src = URL.createObjectURL(blob)
+                    })
+                } else {
+                    fetch(new Request(url)).then((resp) => {
+                        cache.put(url, resp.clone())
+                        resp.blob().then((blob) => {
+                            this.img.src = URL.createObjectURL(blob)
+                        })
+
+                    })
+                }
+
+            })
+        }
+    }
+}
+
+const iiif = (url, region, width, height, rotation="0", quality="default", format="jpg") => (
     `${url}/${region}/${width},${height}/${rotation}/${quality}.${format}`
 )
 
 customElements.define('collation-model', CollationModel)
 customElements.define('nav-strip', NavStrip)
+customElements.define('cacheable-image', CachableImage)
