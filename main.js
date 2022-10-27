@@ -13,10 +13,15 @@ class CollationModel extends HTMLElement {
     async connectedCallback() {
         const id = this.getAttribute("id")
 
-        // Get its data and serialize it to local storage
-
         const resp = await fetch(`./data/${id}/${id}.json`)
         this.data = await resp.json()
+
+        // "Derived" data is computed by us from the collation model
+        this.data.derived = {}
+
+        const rectos = Object.values(this.data.Rectos)
+        const versos = Object.values(this.data.Versos)
+        this.data.derived.linear = versos.map((e, i) => [e, rectos[i]])
 
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
             detail: {
@@ -69,34 +74,72 @@ class CollationMember extends HTMLElement {
         return this.closest('collation-model')
     }
 }
+
+class Page extends CollationMember {
+    region = 'full'
+    width = 600
+    height = 800
+
+    connectedCallback() {
+        super.connectedCallback()
+        this.width = this.getAttribute('width') || this.width
+        this.height = this.getAttribute('height') || this.height
+    }
+    // TODO this should listen to attribute changes
+    ready = () => {
+        const index = +this.getAttribute('index')
+
+        const verso = document.createElement('cacheable-image')
+        verso.setAttribute('width', this.width)
+        verso.setAttribute('height', this.height)
+        this.append(verso)
+
+        const recto = document.createElement('cacheable-image')
+        recto.setAttribute('width', this.width)
+        recto.setAttribute('height', this.height)
+        this.append(recto)
+
+        const spread = this.collation.data.derived.linear[index]
+
+        verso.setAttribute('src', iiif(spread[0].params.image.url,
+            this.region,
+            this.width,
+            this.height
+        ))
+        recto.setAttribute('src', iiif(spread[1].params.image.url,
+            this.region,
+            this.width,
+            this.height
+        ))
+    }
+}
+
 class NavStrip extends CollationMember {
-    constructor() {
-        super()
-        this.setAttribute('region', 'square')
-        this.setAttribute('width', 40)
-        this.setAttribute('height', 40)
+    region = 'square'
+    width = 40
+    height = 40
+
+    connectedCallback() {
+        super.connectedCallback()
+        this.width = this.getAttribute('width') || this.width
+        this.height = this.getAttribute('height') || this.height
     }
     ready = () => {
         const strip = document.createElement('nav')
-        const collation = this.collation
-        const rectos = Object.values(collation.data.Rectos)
-        const versos = Object.values(collation.data.Versos)
-        const leaves = versos.map((e, i) => [e, rectos[i]])
 
-        const items = leaves.map((spread) => {
+        const items = this.collation.data.derived.linear.map((spread) => {
             const container = document.createElement('span')
 
             for (const leaf of spread) {
-                console.log(leaf)
                 const img = document.createElement('cacheable-image')
-                img.setAttribute('width', this.getAttribute('width'))
-                img.setAttribute("height", this.getAttribute('height'))
+                img.setAttribute('width', this.width)
+                img.setAttribute("height", this.height)
                 container.append(img)
 
                 const url = iiif(leaf.params.image.url,
-                    this.getAttribute('region'),
-                    this.getAttribute('width'),
-                    this.getAttribute('height'),
+                    this.region,
+                    this.width,
+                    this.height
                 )
                 img.setAttribute('src', url)
             }
@@ -154,3 +197,4 @@ const iiif = (url, region, width, height, rotation="0", quality="default", forma
 customElements.define('collation-model', CollationModel)
 customElements.define('nav-strip', NavStrip)
 customElements.define('cacheable-image', CachableImage)
+customElements.define('page-image', Page)
