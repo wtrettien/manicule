@@ -50,11 +50,10 @@ class CollationModel extends HTMLElement {
         }
     }
 }
-
-class MSTitle extends HTMLElement {
+class CollationMember extends HTMLElement {
 
     connectedCallback() {
-        const collation = this.closest('collation-model')
+        const collation = this.collation
         this.id = collation.getAttribute('id')
         collation.addEventListener(COLLATION_READY_EVENT, this.ready, {
             passive: true,
@@ -62,8 +61,57 @@ class MSTitle extends HTMLElement {
         })
     }
     ready = () => {
-        const collation = this.closest('collation-model')
-        this.textContent = collation.data.project.title
+        throw new Error("Method 'ready()' must be implemented.")
+    }
+    get collation() {
+        return this.closest('collation-model')
     }
 }
+class NavStrip extends CollationMember {
+    constructor() {
+        super()
+        this.setAttribute('iiif-region', 'square')
+        this.setAttribute('iiif-width', 50)
+        this.setAttribute('iiif-height', 50)
+        this.setAttribute('iiif-rotation', 0)
+        this.setAttribute('iiif-quality', 'default')
+        this.setAttribute('iiif-format', 'jpg')
+    }
+    ready = () => {
+        const strip = document.createElement('nav')
+        const collation = this.collation
+        const rectos = Object.values(collation.data.Rectos)
+        const versos = Object.values(collation.data.Versos)
+        const leaves = versos.map((e, i) => [e, rectos[i]])
+        const items = leaves.map((spread) => {
+            const container = document.createElement('span')
+            for (const leaf of spread) {
+                const img = document.createElement('img')
+                img.src = iiif(leaf.params.image.url,
+                    this.getAttribute('iiif-region'),
+                    this.getAttribute('iiif-width'),
+                    this.getAttribute('iiif-height'),
+                    this.getAttribute('iiif-rotation'),
+                    this.getAttribute('iiif-quality'),
+                    this.getAttribute('iiif-format'))
+                img.width = this.getAttribute('iiif-width')
+                img.height = this.getAttribute('iiif-height')
+                // img.crossOrigin = 'anonymous'
+                img.fetchPriority = 'low'
+                img.loading = 'lazy'
+                container.append(img)
+            }
+            return container
+        })
+        strip.append(...items)
+        this.append(strip)
+    }
+
+}
+
+const iiif = (url, region, width, height, rotation, quality, format) => (
+    `${url}/${region}/${width},${height}/${rotation}/${quality}.${format}`
+)
+
 customElements.define('collation-model', CollationModel)
+customElements.define('nav-strip', NavStrip)
