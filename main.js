@@ -71,35 +71,61 @@ class NavStrip extends CollationMember {
     constructor() {
         super()
         this.setAttribute('iiif-region', 'square')
-        this.setAttribute('iiif-width', 50)
-        this.setAttribute('iiif-height', 50)
+        this.setAttribute('iiif-width', 40)
+        this.setAttribute('iiif-height', 40)
         this.setAttribute('iiif-rotation', 0)
         this.setAttribute('iiif-quality', 'default')
         this.setAttribute('iiif-format', 'jpg')
     }
-    ready = () => {
+    ready = async () => {
+        const cacheName = `manicule-${this.collation.id}`
+        // caches.delete(cacheName)
+        const cache = await caches.open(cacheName)
+
         const strip = document.createElement('nav')
         const collation = this.collation
         const rectos = Object.values(collation.data.Rectos)
         const versos = Object.values(collation.data.Versos)
         const leaves = versos.map((e, i) => [e, rectos[i]])
+
         const items = leaves.map((spread) => {
             const container = document.createElement('span')
             for (const leaf of spread) {
                 const img = document.createElement('img')
-                img.src = iiif(leaf.params.image.url,
+                img.width = this.getAttribute('iiif-width')
+                img.height = this.getAttribute('iiif-height')
+
+                // Display the temporary loading image
+                img.src = "/images/document-icon.png"
+                container.append(img)
+
+                const url = iiif(leaf.params.image.url,
                     this.getAttribute('iiif-region'),
                     this.getAttribute('iiif-width'),
                     this.getAttribute('iiif-height'),
                     this.getAttribute('iiif-rotation'),
                     this.getAttribute('iiif-quality'),
                     this.getAttribute('iiif-format'))
-                img.width = this.getAttribute('iiif-width')
-                img.height = this.getAttribute('iiif-height')
-                // img.crossOrigin = 'anonymous'
-                img.fetchPriority = 'low'
-                img.loading = 'lazy'
-                container.append(img)
+
+                cache.match(url).then((resp) => {
+                    if (resp) {
+                        console.log("Loading from cache")
+                        resp.blob().then((blob) => {
+                            img.src = URL.createObjectURL(blob)
+                        })
+                    } else {
+                        console.log('fetching')
+                        fetch(new Request(url)).then((resp) => {
+                            cache.put(url, resp.clone())
+                            resp.blob().then((blob) => {
+                                img.src = URL.createObjectURL(blob)
+                            })
+
+                        })
+                    }
+
+                })
+
             }
             return container
         })
