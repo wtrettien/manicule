@@ -99,7 +99,7 @@ class NavStrip extends CollationMember {
                 img.height = this.getAttribute('iiif-height')
 
                 // Display the temporary loading image
-                img.src = "/images/document-icon.png"
+                img.src = "images/document-icon.png"
                 container.append(img)
 
                 const url = iiif(leaf.params.image.url,
