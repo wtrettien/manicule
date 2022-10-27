@@ -13,8 +13,11 @@ class CollationModel extends HTMLElement {
 
         // Get its data and serialize it to local storage
 
-        this.data = await import(`./data/${id}/${id}.json`)
-        localStorage.setItem(`collations-${id}`, JSON.stringify(this.data))
+        const resp = await fetch(`./data/${id}/${id}.json`)
+        this.data = await resp.json()
+
+        // localStorage.setItem(`collations-${id}`, JSON.stringify(this.data))
+
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
             detail: {
                 id: this.getAttribute('id')
@@ -79,7 +82,7 @@ class NavStrip extends CollationMember {
     }
     ready = async () => {
         const cacheName = `manicule-${this.collation.id}`
-        // caches.delete(cacheName)
+        //caches.delete(cacheName)
         const cache = await caches.open(cacheName)
 
         const strip = document.createElement('nav')
