@@ -85,6 +85,8 @@ class SpreadViewer extends CollationMember {
         super.connectedCallback()
         this.width = this.getAttribute('width') || this.width
         this.height = this.getAttribute('height') || this.height
+        this.container = document.createElement('div')
+        this.append(this.container)
     }
     attributeChangedCallback(name, oldValue, value) {
         // Fire the render method only when the attribute has been dynamically updated
@@ -105,7 +107,7 @@ class SpreadViewer extends CollationMember {
         recto.setAttribute('width', this.width)
         recto.setAttribute('height', this.height)
 
-        this.replaceChildren(...[verso, recto])
+        this.container.replaceChildren(...[verso, recto])
         const spread = this.collation.data.derived.linear[index]
 
         verso.setAttribute('src', iiif(spread[0].params.image.url,
@@ -118,6 +120,30 @@ class SpreadViewer extends CollationMember {
             this.width,
             this.height
         ))
+
+    }
+}
+
+class LeafNav extends CollationMember {
+
+    constructor() {
+        super()
+
+    }
+    ready = () => {
+        const button  = document.createElement('button')
+        button.textContent = this.getAttribute('direction')
+        this.append(button)
+        button.addEventListener('click', () => {
+            const spread = this.closest('spread-viewer')
+            const current = +spread.getAttribute('index')
+            if (this.getAttribute('direction') === 'next') {
+                spread.setAttribute('index', current + 1)
+            }
+            else if (this.getAttribute('direction') === 'previous') {
+                spread.setAttribute('index', current - 1)
+            }
+        })
 
     }
 }
@@ -214,6 +240,8 @@ customElements.define('collation-model', CollationModel)
 customElements.define('nav-strip', NavStrip)
 customElements.define('cacheable-image', CachableImage)
 customElements.define('spread-viewer', SpreadViewer)
+customElements.define('leaf-nav', LeafNav)
+
 
 window.addEventListener(COLLATION_READY_EVENT, (e) => {
     // For any collation, start caching all of its full-size images
