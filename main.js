@@ -25,9 +25,6 @@ class CollationModel extends HTMLElement {
         this.data.derived.linear = versos.map((e, i) => [e, rectos[i]])
 
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
-            detail: {
-                id: this.getAttribute('id')
-            },
             composed: true,
             bubbles: true,
             cancelable: false,
@@ -92,7 +89,7 @@ class SpreadViewer extends CollationMember {
     attributeChangedCallback(name, oldValue, value) {
         // Fire the render method only when the attribute has been dynamically updated
         if (name === 'index' && oldValue != undefined) {
-           this.render()
+            this.render()
         }
     }
     ready = () => {
@@ -149,6 +146,7 @@ class NavStrip extends CollationMember {
                 const img = document.createElement('cacheable-image')
                 img.setAttribute('width', this.width)
                 img.setAttribute("height", this.height)
+                img.setAttribute('default', 'images/document-icon.png')
                 container.append(img)
 
                 const url = iiif(leaf.params.image.url,
@@ -180,7 +178,9 @@ class CachableImage extends HTMLElement {
         img.width = this.getAttribute('width')
         img.height = this.getAttribute('height')
         // Display the temporary loading image
-        img.src = "images/document-icon.png"
+        if (this.getAttribute("default")) {
+            img.src = this.getAttribute('default')
+        }
         this.append(img)
         this.img = img
     }
@@ -201,13 +201,12 @@ class CachableImage extends HTMLElement {
 
                     })
                 }
-
             })
         }
     }
 }
 
-const iiif = (url, region, width, height, rotation="0", quality="default", format="jpg") => (
+const iiif = (url, region, width, height, rotation = "0", quality = "default", format = "jpg") => (
     `${url}/${region}/${width},${height}/${rotation}/${quality}.${format}`
 )
 
@@ -215,3 +214,23 @@ customElements.define('collation-model', CollationModel)
 customElements.define('nav-strip', NavStrip)
 customElements.define('cacheable-image', CachableImage)
 customElements.define('spread-viewer', SpreadViewer)
+
+window.addEventListener(COLLATION_READY_EVENT, (e) => {
+    // For any collation, start caching all of its full-size images
+    const data = e.target.data
+    for (const spread of data.derived.linear) {
+
+        for (const leaf of spread) {
+            const worker = new Worker('cache.js')
+            const url = iiif(leaf.params.image.url,
+                "full",
+                "600",
+                "800"
+            )
+            worker.postMessage({
+                name: CACHE_NAME,
+                url
+            })
+        }
+    }
+})

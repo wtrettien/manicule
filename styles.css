@@ -1,0 +1,3 @@
+img:not([src]) {
+    visibility: hidden;
+}
