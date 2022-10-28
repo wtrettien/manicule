@@ -3,6 +3,7 @@ const CACHE_NAME = 'manicule'
 
 const cache = await caches.open(CACHE_NAME)
 class CollationModel extends HTMLElement {
+
     static get observedAttributes() {
         return ['ready']
     }
@@ -75,30 +76,39 @@ class CollationMember extends HTMLElement {
     }
 }
 
-class Page extends CollationMember {
+class SpreadViewer extends CollationMember {
     region = 'full'
     width = 600
     height = 800
 
+    static get observedAttributes() {
+        return ['index']
+    }
     connectedCallback() {
         super.connectedCallback()
         this.width = this.getAttribute('width') || this.width
         this.height = this.getAttribute('height') || this.height
     }
-    // TODO this should listen to attribute changes
+    attributeChangedCallback(name, oldValue, value) {
+        // Fire the render method only when the attribute has been dynamically updated
+        if (name === 'index' && oldValue != undefined) {
+           this.render()
+        }
+    }
     ready = () => {
+        this.render()
+    }
+    render = () => {
         const index = +this.getAttribute('index')
-
         const verso = document.createElement('cacheable-image')
         verso.setAttribute('width', this.width)
         verso.setAttribute('height', this.height)
-        this.append(verso)
 
         const recto = document.createElement('cacheable-image')
         recto.setAttribute('width', this.width)
         recto.setAttribute('height', this.height)
-        this.append(recto)
 
+        this.replaceChildren(...[verso, recto])
         const spread = this.collation.data.derived.linear[index]
 
         verso.setAttribute('src', iiif(spread[0].params.image.url,
@@ -111,6 +121,7 @@ class Page extends CollationMember {
             this.width,
             this.height
         ))
+
     }
 }
 
@@ -125,11 +136,15 @@ class NavStrip extends CollationMember {
         this.height = this.getAttribute('height') || this.height
     }
     ready = () => {
+        const viewer = this.collation.querySelector('spread-viewer')
+
         const strip = document.createElement('nav')
+        let i = 0
 
         const items = this.collation.data.derived.linear.map((spread) => {
             const container = document.createElement('span')
-
+            container.setAttribute("data-spread-index", i)
+            container.addEventListener('click', () => viewer.setAttribute('index', container.getAttribute('data-spread-index')))
             for (const leaf of spread) {
                 const img = document.createElement('cacheable-image')
                 img.setAttribute('width', this.width)
@@ -142,7 +157,9 @@ class NavStrip extends CollationMember {
                     this.height
                 )
                 img.setAttribute('src', url)
+
             }
+            i++
             return container
         })
         strip.append(...items)
@@ -197,4 +214,4 @@ const iiif = (url, region, width, height, rotation="0", quality="default", forma
 customElements.define('collation-model', CollationModel)
 customElements.define('nav-strip', NavStrip)
 customElements.define('cacheable-image', CachableImage)
-customElements.define('page-image', Page)
+customElements.define('spread-viewer', SpreadViewer)
