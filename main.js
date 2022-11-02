@@ -73,6 +73,40 @@ class CollationMember extends HTMLElement {
     }
 }
 
+class SpreadNavigator extends HTMLElement {
+    static get observedAttributes() {
+        return ['hide']
+    }
+    constructor() {
+        super()
+        const opener = document.createElement('button')
+        opener.setAttribute("data-opener", "true")
+        opener.classList.add("opener")
+        opener.textContent = 'Show this spread'
+        opener.addEventListener('click', () => {
+            // Toggle the value
+            const newValue = this.getAttribute("hide") === "true" ? false : true
+            this.setAttribute("hide", newValue)
+            opener.textContent = `${newValue ? "Show" : "Hide"} this spread`
+        })
+        this.append(opener)
+
+    }
+    attributeChangedCallback(name, oldValue, value) {
+        switch (name) {
+            case "hide": {
+                if (value === "true") {
+                    [...this.querySelectorAll('*:not(button[data-opener])')].map(el =>
+                        el.classList.add("hide"))
+                } else {
+                    [...this.querySelectorAll('*:not(button[data-opener])')].map(el =>
+                        el.classList.remove("hide"))
+                }
+                break;
+            }
+        }
+    }
+}
 class SpreadViewer extends CollationMember {
     region = 'full'
     width = 600
@@ -131,7 +165,7 @@ class LeafNav extends CollationMember {
 
     }
     ready = () => {
-        const button  = document.createElement('button')
+        const button = document.createElement('button')
         button.textContent = this.getAttribute('direction')
         this.append(button)
         button.addEventListener('click', () => {
@@ -139,8 +173,7 @@ class LeafNav extends CollationMember {
             const current = +spread.getAttribute('index')
             if (this.getAttribute('direction') === 'next') {
                 spread.setAttribute('index', current + 1)
-            }
-            else if (this.getAttribute('direction') === 'previous') {
+            } else if (this.getAttribute('direction') === 'previous') {
                 spread.setAttribute('index', current - 1)
             }
         })
@@ -241,7 +274,7 @@ customElements.define('nav-strip', NavStrip)
 customElements.define('cacheable-image', CachableImage)
 customElements.define('spread-viewer', SpreadViewer)
 customElements.define('leaf-nav', LeafNav)
-
+customElements.define('spread-navigator', SpreadNavigator)
 
 window.addEventListener(COLLATION_READY_EVENT, (e) => {
     // For any collation, start caching all of its full-size images

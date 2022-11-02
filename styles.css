@@ -40,12 +40,25 @@ header nav ol {
 main {
     margin: var(--margin-height) var(--margin-width);
 }
-.spread-container {
+.opener {
+    color: var(--dark-color);
+    background: none;
+}
+.opener:before {
+    content: "↓ "
+}
+spread-navigator {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: relative;
+    min-height: 4rem;
+    margin-top: 4rem;
 }
-
+spread-navigator button[data-opener] {
+    position: absolute;
+    top: -4rem;
+}
 spread-viewer div {
     display: flex;
     align-items: center;
@@ -58,8 +71,16 @@ button {
     padding: 10px;
     min-width: 75px;
 }
+img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
 img:not([src]) {
     visibility: hidden;
+}
+.hide {
+    display: none;
 }
 @font-face {
     font-family: "Berkshire Swash";
