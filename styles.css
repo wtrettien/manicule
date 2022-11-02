@@ -23,15 +23,15 @@ header {
     background: var(--dark-color);
     color: var(--light-color);
 }
-nav {
+header nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-nav li {
+header nav li {
     list-style-type: none;
 }
-nav ol {
+header nav ol {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -40,11 +40,23 @@ nav ol {
 main {
     margin: var(--margin-height) var(--margin-width);
 }
+.spread-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+spread-viewer div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 button {
     background: var(--accent-color);
     color: var(--light-color);
     border: 0;
     padding: 10px;
+    min-width: 75px;
 }
 img:not([src]) {
     visibility: hidden;

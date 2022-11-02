@@ -135,7 +135,7 @@ class LeafNav extends CollationMember {
         button.textContent = this.getAttribute('direction')
         this.append(button)
         button.addEventListener('click', () => {
-            const spread = this.closest('spread-viewer')
+            const spread = this.collation.querySelector('spread-viewer')
             const current = +spread.getAttribute('index')
             if (this.getAttribute('direction') === 'next') {
                 spread.setAttribute('index', current + 1)
