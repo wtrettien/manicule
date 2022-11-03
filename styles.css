@@ -12,11 +12,12 @@ html, body {
     background: var(--light-color);
     color: var(--dark-color);
     font-family: Roboto, sans-serif;
+    line-height: 1.6rem;
 }
-h1 {
-    font-family: "Berkshire Swash", serif;
-    font-weight: normal;
+button {
+    cursor: pointer;
 }
+
 header {
     padding: 0 var(--margin-width);
     border-bottom: var(--region-border) solid var(--accent-color);
@@ -27,6 +28,10 @@ header nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+header nav h1 {
+    font-family: "Berkshire Swash", serif;
+    font-weight: normal;
 }
 header nav li {
     list-style-type: none;
@@ -56,6 +61,7 @@ spread-navigator {
 spread-navigator button[data-opener] {
     position: absolute;
     top: -4rem;
+    z-index: 0;
 }
 spread-navigator[hide=true] button[data-opener]:before {
     content: "↓ ";
@@ -83,6 +89,7 @@ img {
 img:not([src]) {
     visibility: hidden;
 }
+
 .hide {
     display: none;
 }

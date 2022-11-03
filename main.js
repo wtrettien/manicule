@@ -146,10 +146,12 @@ class SpreadViewer extends CollationMember {
         const verso = document.createElement('cacheable-image')
         verso.setAttribute('width', this.width)
         verso.setAttribute('height', this.height)
+        verso.setAttribute('type', 'leaf')
 
         const recto = document.createElement('cacheable-image')
         recto.setAttribute('width', this.width)
         recto.setAttribute('height', this.height)
+        recto.setAttribute('type', 'leaf')
 
         this.container.replaceChildren(...[verso, recto])
         const spread = this.collation.data.derived.linear[index]
@@ -237,36 +239,94 @@ class CachableImage extends HTMLElement {
     }
     constructor() {
         super()
+        this.mousedown = false
+        this.zoomed = false
     }
     connectedCallback() {
         const img = document.createElement('img')
         img.width = this.getAttribute('width')
         img.height = this.getAttribute('height')
-        // Display the temporary loading image
+
+        // Display the temporary loading image if defined
         if (this.getAttribute("default")) {
             img.src = this.getAttribute('default')
+        }
+
+        // Set up mouse zoom/pan events
+        if (this.getAttribute('type') === 'leaf') {
+            const start = {
+                x: 0,
+                y: 0
+            }
+            const offset = {
+                x: 0,
+                y: 0
+            } // The transform offset (from center)
+            let scale = 1
+            img.addEventListener('wheel', (e) => {
+                scale += e.deltaY * -0.01
+
+                // Restrict scale
+                scale = Math.min(Math.max(1, scale), 4)
+
+                // Apply scale transform
+                img.style.transform = `scale(${scale})`
+
+                if (scale > 1) {
+                    this.zoomed = true
+                    img.style.zIndex = 99
+                }
+                else {
+                    this.zoomed = false
+                    img.style.zIndex = 1
+                    img.style.translate = '0px 0px'
+                }
+            }, {
+                passive: true
+            })
+
+            img.addEventListener('mousedown', (e) => {
+                this.mousedown = true
+                start.x = e.clientX - offset.x
+                start.y = e.clientY - offset.y
+            })
+            img.addEventListener('mouseup', () => {
+                this.mousedown = false
+            })
+
+            img.addEventListener('mousemove', (e) => {
+                if (this.mousedown && this.zoomed) {
+                    e.preventDefault()
+                    offset.x = e.clientX - start.x
+                    offset.y = e.clientY - start.y
+                    img.style.translate = `${offset.x}px ${offset.y}px`
+                }
+            })
         }
         this.append(img)
         this.img = img
     }
     attributeChangedCallback(name, _, value) {
-        if (name === 'src') {
-            const url = value
-            cache.match(url).then((resp) => {
-                if (resp) {
-                    resp.blob().then((blob) => {
-                        this.img.src = URL.createObjectURL(blob)
-                    })
-                } else {
-                    fetch(new Request(url)).then((resp) => {
-                        cache.put(url, resp.clone())
+        switch (name) {
+            case 'src': {
+                const url = value
+                cache.match(url).then((resp) => {
+                    if (resp) {
                         resp.blob().then((blob) => {
                             this.img.src = URL.createObjectURL(blob)
                         })
+                    } else {
+                        fetch(new Request(url)).then((resp) => {
+                            cache.put(url, resp.clone())
+                            resp.blob().then((blob) => {
+                                this.img.src = URL.createObjectURL(blob)
+                            })
 
-                    })
-                }
-            })
+                        })
+                    }
+                })
+            }
+
         }
     }
 }
