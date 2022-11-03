@@ -241,8 +241,10 @@ class CachableImage extends HTMLElement {
         super()
         this.mousedown = false
         this.zoomed = false
+        this.selected = false
     }
     connectedCallback() {
+
         const img = document.createElement('img')
         img.width = this.getAttribute('width')
         img.height = this.getAttribute('height')
@@ -264,27 +266,33 @@ class CachableImage extends HTMLElement {
             } // The transform offset (from center)
             let scale = 1
             img.addEventListener('wheel', (e) => {
-                scale += e.deltaY * -0.01
+                if (this.selected) {
+                    scale += e.deltaY * -0.01
 
-                // Restrict scale
-                scale = Math.min(Math.max(1, scale), 4)
+                    // Restrict scale
+                    scale = Math.min(Math.max(1, scale), 4)
 
-                // Apply scale transform
-                img.style.transform = `scale(${scale})`
+                    // Apply scale transform
+                    img.style.transform = `scale(${scale})`
 
-                if (scale > 1) {
-                    this.zoomed = true
-                    img.style.zIndex = 99
-                }
-                else {
-                    this.zoomed = false
-                    img.style.zIndex = 1
-                    img.style.translate = '0px 0px'
+                    if (scale > 1) {
+                        this.zoomed = true
+                        img.style.zIndex = 99
+                    } else {
+                        this.zoomed = false
+                        img.style.zIndex = 1
+                        img.style.translate = '0px 0px'
+                    }
                 }
             }, {
                 passive: true
             })
+            img.addEventListener('click', (e) => {
+                e.stopPropagation()
+                this.selected = !this.selected
+                this.img.classList.toggle('selected')
 
+            })
             img.addEventListener('mousedown', (e) => {
                 this.mousedown = true
                 start.x = e.clientX - offset.x
@@ -295,13 +303,14 @@ class CachableImage extends HTMLElement {
             })
 
             img.addEventListener('mousemove', (e) => {
-                if (this.mousedown && this.zoomed) {
+                if (this.mousedown && this.zoomed && this.selected) {
                     e.preventDefault()
                     offset.x = e.clientX - start.x
                     offset.y = e.clientY - start.y
                     img.style.translate = `${offset.x}px ${offset.y}px`
                 }
             })
+
         }
         this.append(img)
         this.img = img
@@ -357,6 +366,32 @@ window.addEventListener(COLLATION_READY_EVENT, (e) => {
             worker.postMessage({
                 name: CACHE_NAME,
                 url
+            })
+        }
+    }
+})
+
+// Add cancel listeners to the parent
+document.addEventListener('click', () => {
+    [...document.querySelectorAll('.selected')].map((el) => {
+        el.parentNode.selected = !el.parentNode.selected
+        el.classList.toggle('selected')
+    })
+})
+
+// ESC resets all zoom options
+document.addEventListener('keydown', (e) => {
+    switch(e.key) {
+        case 'Escape': {
+            [...document.querySelectorAll('cacheable-image')].map((el) => {
+                el.zoomed = false
+                el.selected = false
+                el.img.style.translate = '0px 0px'
+                el.img.style.transform = 'scale(1)'
+                el.img.classList.remove('selected')
+                el.img.zIndex = 1
+
+
             })
         }
     }

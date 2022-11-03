@@ -3,6 +3,7 @@
     --margin-height: 5vw;
     --region-border: 2px;
     --accent-color: #cf8707;
+    --highlight-color: yellow;
     --dark-color: #25201a;
     --light-color:rgb(255, 253, 250);
 }
@@ -73,6 +74,10 @@ spread-viewer div {
     display: flex;
     align-items: center;
     width: 100%;
+}
+spread-viewer img.selected {
+    outline: 10px solid var(--highlight-color);
+    z-index: 99;
 }
 button {
     background: var(--accent-color);
