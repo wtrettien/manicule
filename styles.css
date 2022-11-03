@@ -40,13 +40,11 @@ header nav ol {
 main {
     margin: var(--margin-height) var(--margin-width);
 }
-.opener {
+button[data-opener] {
     color: var(--dark-color);
     background: none;
 }
-.opener:before {
-    content: "↓ "
-}
+
 spread-navigator {
     display: flex;
     align-items: center;
@@ -58,6 +56,12 @@ spread-navigator {
 spread-navigator button[data-opener] {
     position: absolute;
     top: -4rem;
+}
+spread-navigator[hide=true] button[data-opener]:before {
+    content: "↓ ";
+}
+spread-navigator:not([hide=true]) button[data-opener]:before {
+    content: "↑ ";
 }
 spread-viewer div {
     display: flex;

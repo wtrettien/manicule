@@ -81,7 +81,6 @@ class SpreadNavigator extends HTMLElement {
         super()
         const opener = document.createElement('button')
         opener.setAttribute("data-opener", "true")
-        opener.classList.add("opener")
         opener.textContent = 'Show this spread'
         opener.addEventListener('click', () => {
             // Toggle the value
@@ -160,10 +159,6 @@ class SpreadViewer extends CollationMember {
 
 class LeafNav extends CollationMember {
 
-    constructor() {
-        super()
-
-    }
     ready = () => {
         const button = document.createElement('button')
         button.textContent = this.getAttribute('direction')
