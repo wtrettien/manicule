@@ -79,6 +79,14 @@ spread-viewer img.selected {
     outline: 10px solid var(--highlight-color);
     z-index: 99;
 }
+nav-strip > nav {
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+
+}
+nav-strip > nav > span {
+}
 button {
     background: var(--accent-color);
     color: var(--light-color);
@@ -86,7 +94,7 @@ button {
     padding: 10px;
     min-width: 75px;
 }
-img {
+img.leaf {
     width: auto;
     height: auto;
     max-width: 100%;

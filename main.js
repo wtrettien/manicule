@@ -23,6 +23,7 @@ class CollationModel extends HTMLElement {
         const rectos = Object.values(this.data.Rectos)
         const versos = Object.values(this.data.Versos)
         this.data.derived.linear = versos.map((e, i) => [e, rectos[i]])
+        this.data.derived.linear =  this.data.derived.linear.filter((e) => e[0].params.image?.url)
 
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
             composed: true,
