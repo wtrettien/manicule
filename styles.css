@@ -75,6 +75,11 @@ spread-viewer div {
     align-items: center;
     width: 100%;
 }
+spread-viewer img {
+    max-width: 100%;
+    height: auto;
+    display: inline-flex;
+}
 spread-viewer img.selected {
     outline: 10px solid var(--highlight-color);
     z-index: 99;
@@ -83,9 +88,10 @@ nav-strip > nav {
     overflow-x: auto;
     width: 100%;
     white-space: nowrap;
-
 }
-nav-strip > nav > span {
+nav-strip > nav img {
+    width: 50px;
+    height: 50px;
 }
 button {
     background: var(--accent-color);

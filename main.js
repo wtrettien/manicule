@@ -117,8 +117,8 @@ class SpreadNavigator extends HTMLElement {
 }
 class SpreadViewer extends CollationMember {
     region = 'full'
-    width = 600
-    height = 800
+    width = 1750
+    height = 2423
 
     static get observedAttributes() {
         return ['index']
@@ -129,8 +129,8 @@ class SpreadViewer extends CollationMember {
         this.height = this.getAttribute('height') || this.height
         this.container = document.createElement('div')
         // Give the spread container a fixed height to prevent reflow during transitions
-        this.container.style.height = `${this.height}.px`
-        this.container.style.minWidth = `${this.width * 2}.px`
+        this.container.style.height = `800px`
+        this.container.style.minWidth = `600px`
         this.append(this.container)
     }
     attributeChangedCallback(name, oldValue, value) {
@@ -192,8 +192,8 @@ class LeafNav extends CollationMember {
 
 class NavStrip extends CollationMember {
     region = 'square'
-    width = 40
-    height = 40
+    width = 109
+    height = 151
 
     connectedCallback() {
         super.connectedCallback()
@@ -361,8 +361,8 @@ window.addEventListener(COLLATION_READY_EVENT, (e) => {
             const worker = new Worker('cache.js')
             const url = iiif(leaf.params.image.url,
                 "full",
-                "600",
-                "800"
+                "1750",
+                "2423"
             )
             worker.postMessage({
                 name: CACHE_NAME,
