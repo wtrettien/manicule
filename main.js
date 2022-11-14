@@ -75,45 +75,7 @@ class CollationMember extends HTMLElement {
 }
 
 class SpreadNavigator extends HTMLElement {
-    static get observedAttributes() {
-        return ['hide']
-    }
-    constructor() {
-        super()
-        this.hide = false
-        const opener = document.createElement('button')
-        opener.setAttribute("data-opener", "true")
-        opener.addEventListener('click', () => {
-            // Toggle the value
-            const newValue = this.getAttribute("hide") === "true" ? false : true
-            this.setAttribute("hide", newValue)
-        })
-        this.append(opener)
 
-    }
-    connectedCallback() {
-        if (!this.getAttribute('hide')) {
-            this.setAttribute('hide', this.hide)
-        }
-    }
-    attributeChangedCallback(name, oldValue, value) {
-        switch (name) {
-            case "hide": {
-                const hide = this.getAttribute("hide") === "true" ? true : false
-
-                if (hide) {
-                    [...this.querySelectorAll('*:not(button[data-opener])')].map(el =>
-                        el.classList.add("hide"))
-                } else {
-                    [...this.querySelectorAll('*:not(button[data-opener])')].map(el =>
-                        el.classList.remove("hide"))
-                }
-                [...this.querySelectorAll('button[data-opener]')].map((opener) => opener.textContent = `${hide ? "Show" : "Hide"} this spread`)
-
-                break;
-            }
-        }
-    }
 }
 class SpreadViewer extends CollationMember {
     region = 'full'
@@ -128,9 +90,6 @@ class SpreadViewer extends CollationMember {
         this.width = this.getAttribute('width') || this.width
         this.height = this.getAttribute('height') || this.height
         this.container = document.createElement('div')
-        // Give the spread container a fixed height to prevent reflow during transitions
-        this.container.style.height = `800px`
-        this.container.style.minWidth = `600px`
         this.append(this.container)
     }
     attributeChangedCallback(name, oldValue, value) {

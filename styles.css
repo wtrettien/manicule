@@ -2,6 +2,7 @@
     --margin-width: 10vw;
     --margin-height: 5vw;
     --region-border: 2px;
+    --gap: 40px;
     --accent-color: #cf8707;
     --highlight-color: yellow;
     --dark-color: #25201a;
@@ -57,19 +58,8 @@ spread-navigator {
     justify-content: space-around;
     position: relative;
     min-height: 4rem;
-    margin-top: 4rem;
 }
-spread-navigator button[data-opener] {
-    position: absolute;
-    top: -4rem;
-    z-index: 0;
-}
-spread-navigator[hide=true] button[data-opener]:before {
-    content: "↓ ";
-}
-spread-navigator:not([hide=true]) button[data-opener]:before {
-    content: "↑ ";
-}
+
 spread-viewer div {
     display: flex;
     align-items: center;
@@ -92,6 +82,16 @@ nav-strip > nav {
 nav-strip > nav img {
     width: 50px;
     height: 50px;
+}
+#introduction {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--gap);
+    margin-bottom: calc(var(--gap) * 2);
+}
+#introduction aside {
+    background-color: rgb(241, 241, 241);
+    padding: var(--gap);
 }
 button {
     background: var(--accent-color);
