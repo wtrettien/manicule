@@ -89,6 +89,8 @@ class SpreadViewer extends CollationMember {
         super.connectedCallback()
         this.width = this.getAttribute('width') || this.width
         this.height = this.getAttribute('height') || this.height
+        this.default = this.getAttribute('default') || 'images/loading-icon.svg'
+
         this.container = document.createElement('div')
         this.append(this.container)
     }
@@ -107,11 +109,13 @@ class SpreadViewer extends CollationMember {
         verso.setAttribute('width', this.width)
         verso.setAttribute('height', this.height)
         verso.setAttribute('type', 'leaf')
+        verso.setAttribute('default', this.default)
 
         const recto = document.createElement('cacheable-image')
         recto.setAttribute('width', this.width)
         recto.setAttribute('height', this.height)
         recto.setAttribute('type', 'leaf')
+        recto.setAttribute('default', this.default)
 
         this.container.replaceChildren(...[verso, recto])
         const spread = this.collation.data.derived.linear[index]

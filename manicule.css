@@ -108,6 +108,11 @@ img.leaf {
 img:not([src]) {
     visibility: hidden;
 }
+img[src="images/loading-icon.svg"] {
+    opacity: 0.5;
+    scale: 0.25;
+    animation: spin 1.5s infinite linear;
+}
 
 .hide {
     display: none;
@@ -123,4 +128,12 @@ img:not([src]) {
     src: url("fonts/Roboto-Regular.woff2");
     font-weight: normal;
     font-style: normal;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
