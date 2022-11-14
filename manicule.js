@@ -23,7 +23,7 @@ class CollationModel extends HTMLElement {
         const rectos = Object.values(this.data.Rectos)
         const versos = Object.values(this.data.Versos)
         this.data.derived.linear = versos.map((e, i) => [e, rectos[i]])
-        this.data.derived.linear =  this.data.derived.linear.filter((e) => e[0].params.image?.url)
+        this.data.derived.linear = this.data.derived.linear.filter((e) => e[0].params.image?.url)
 
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
             composed: true,
@@ -199,14 +199,25 @@ class NavStrip extends CollationMember {
 
 class CachableImage extends HTMLElement {
     static get observedAttributes() {
-        return ['src']
+        return ['src', 'visible']
     }
     constructor() {
         super()
         this.mousedown = false
         this.zoomed = false
         this.selected = false
+        this.observer = new IntersectionObserver((entries) => {
+            entries.map((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.setAttribute('visible', true)
+                    this.observer.unobserve(entry.target)
+                }
+            })
+        })
+        this.observer.observe(this)
+
     }
+
     connectedCallback() {
 
         const img = document.createElement('img')
@@ -281,8 +292,8 @@ class CachableImage extends HTMLElement {
     }
     attributeChangedCallback(name, _, value) {
         switch (name) {
-            case 'src': {
-                const url = value
+            case 'visible': {
+                const url = this.getAttribute('src')
                 cache.match(url).then((resp) => {
                     if (resp) {
                         resp.blob().then((blob) => {
@@ -299,7 +310,6 @@ class CachableImage extends HTMLElement {
                     }
                 })
             }
-
         }
     }
 }
@@ -315,25 +325,30 @@ customElements.define('spread-viewer', SpreadViewer)
 customElements.define('leaf-nav', LeafNav)
 customElements.define('spread-navigator', SpreadNavigator)
 
-window.addEventListener(COLLATION_READY_EVENT, (e) => {
-    // For any collation, start caching all of its full-size images
-    const data = e.target.data
-    for (const spread of data.derived.linear) {
+// Figure out how to do this intelligently
+// window.addEventListener(COLLATION_READY_EVENT, (e) => {
+//     setTimeout(() => {
+//         // For any collation, start caching all of its full-size images
+//         const worker = new Worker('cache.js')
+//         const data = e.target.data
+//         for (const spread of data.derived.linear) {
 
-        for (const leaf of spread) {
-            const worker = new Worker('cache.js')
-            const url = iiif(leaf.params.image.url,
-                "full",
-                "1750",
-                "2423"
-            )
-            worker.postMessage({
-                name: CACHE_NAME,
-                url
-            })
-        }
-    }
-})
+//             for (const leaf of spread) {
+
+
+//                 const url = iiif(leaf.params.image.url,
+//                     "full",
+//                     "1750",
+//                     "2423"
+//                 )
+//                 worker.postMessage({
+//                     name: CACHE_NAME,
+//                     url
+//                 })
+//             }
+//         }
+//     }, 5000)
+// })
 
 // Add cancel listeners to the parent
 document.addEventListener('click', () => {
@@ -345,7 +360,7 @@ document.addEventListener('click', () => {
 
 // ESC resets all zoom options
 document.addEventListener('keydown', (e) => {
-    switch(e.key) {
+    switch (e.key) {
         case 'Escape': {
             [...document.querySelectorAll('cacheable-image')].map((el) => {
                 el.zoomed = false
