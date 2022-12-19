@@ -44,6 +44,9 @@ header nav ol {
     justify-content: space-around;
     width: 50%;
 }
+footer {
+    margin: var(--margin-height) var(--margin-width);
+}
 main {
     margin: var(--margin-height) var(--margin-width);
 }

@@ -20,10 +20,46 @@ class CollationModel extends HTMLElement {
         // "Derived" data is computed by us from the collation model
         this.data.derived = {}
 
-        const rectos = Object.values(this.data.Rectos)
-        const versos = Object.values(this.data.Versos)
+        const rectos = Object.entries(this.data.Rectos).map(([id, data]) => {
+            data.id = parseInt(id, 10);
+            return data
+        })
+        const versos = Object.entries(this.data.Versos).map(([id, data]) => {
+            data.id = parseInt(id, 10);
+            return data
+        })
+
+        this.data.derived.rectos = {}
+        this.data.derived.versos = {}
+        for (const leaf of rectos) {
+            this.data.derived.rectos[leaf.id] = leaf
+        }
+        for (const leaf of versos) {
+            this.data.derived.versos[leaf.id] = leaf
+        }
+        this.data.derived.leaves = Object.entries(this.data.Leafs).map(([id, data]) => {
+            data.id = parseInt(id, 10);
+            return data
+        })
+
         this.data.derived.linear = versos.map((e, i) => [e, rectos[i]])
         this.data.derived.linear = this.data.derived.linear.filter((e) => e[0].params.image?.url)
+
+        this.data.derived.quires = []
+        for (const [id, data] of Object.entries(this.data.Groups)) {
+
+            if (data.params.type === "Quire") {
+                data.id = parseInt(id, 10)
+                data.leaves = []
+                // Get leaf ids
+                for (const leafIdLabel of data.memberOrders.filter(id => id.includes("Leaf_"))) {
+                    const leafId = parseInt(leafIdLabel.split("Leaf_")[1], 10)
+                    data.leaves.push(leafId)
+                }
+                this.data.derived.quires.push(data)
+            }
+
+        }
 
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
             composed: true,
@@ -74,6 +110,49 @@ class CollationMember extends HTMLElement {
     }
 }
 
+class StructureView extends CollationMember {
+    region = 'square'
+    width = 50
+    height = 50
+
+    connectedCallback() {
+        super.connectedCallback()
+        this.container = document.createElement('div')
+        this.append(this.container)
+    }
+    ready = () => {
+        //console.log(this.collation.data.derived.quires)
+        for (const quire of this.collation.data.derived.quires) {
+            console.log(quire)
+
+            const row = document.createElement('div')
+            this.container.append(row)
+            const header = document.createElement('h2')
+            header.innerText = `Quire ${quire.id}`
+            row.append(header)
+
+            for (const leafId of quire.leaves) {
+                const leaf = this.collation.data.derived.leaves[leafId]
+                const recto = this.collation.data.derived.rectos[leaf.rectoOrder]
+
+                const img = document.createElement('cacheable-image')
+                img.setAttribute('width', this.width)
+                img.setAttribute("height", this.height)
+                img.setAttribute('default', 'images/document-icon.png')
+
+
+                // Get the URL for this leaf
+                const url = iiif(recto.params.image.url,
+                    this.region,
+                    this.width,
+                    this.height
+                )
+                img.setAttribute('src', recto.params.image.url ? url : img.getAttribute('default'))
+                row.append(img)
+            }
+        }
+    }
+}
 class SpreadNavigator extends HTMLElement {
 
 }
@@ -324,6 +403,7 @@ customElements.define('cacheable-image', CachableImage)
 customElements.define('spread-viewer', SpreadViewer)
 customElements.define('leaf-nav', LeafNav)
 customElements.define('spread-navigator', SpreadNavigator)
+customElements.define('structure-view', StructureView)
 
 // Figure out how to do this intelligently
 // window.addEventListener(COLLATION_READY_EVENT, (e) => {
