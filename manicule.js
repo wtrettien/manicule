@@ -20,10 +20,46 @@ class CollationModel extends HTMLElement {
         // "Derived" data is computed by us from the collation model
         this.data.derived = {}
 
-        const rectos = Object.values(this.data.Rectos)
-        const versos = Object.values(this.data.Versos)
+        const rectos = Object.entries(this.data.Rectos).map(([id, data]) => {
+            data.id = +id
+            return data
+        })
+        const versos = Object.entries(this.data.Versos).map(([id, data]) => {
+            data.id = +id
+            return data
+        })
+
+        this.data.derived.rectos = {}
+        this.data.derived.versos = {}
+        for (const leaf of rectos) {
+            this.data.derived.rectos[leaf.id] = leaf
+        }
+        for (const leaf of versos) {
+            this.data.derived.versos[leaf.id] = leaf
+        }
+        this.data.derived.leaves = Object.entries(this.data.Leafs).map(([id, data]) => {
+            data.id = +id
+            return data
+        })
+
         this.data.derived.linear = versos.map((e, i) => [e, rectos[i]])
         this.data.derived.linear = this.data.derived.linear.filter((e) => e[0].params.image?.url)
+
+        this.data.derived.quires = []
+        for (const [id, data] of Object.entries(this.data.Groups)) {
+
+            if (data.params.type === "Quire") {
+                data.id = +id
+                data.leaves = []
+                // Get leaf ids
+                for (const leafIdLabel of data.memberOrders.filter(id => id.includes("Leaf_"))) {
+                    const leafId = +leafIdLabel.split("Leaf_")[1]
+                    data.leaves.push(leafId)
+                }
+                this.data.derived.quires.push(data)
+            }
+
+        }
 
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
             composed: true,
@@ -74,6 +110,86 @@ class CollationMember extends HTMLElement {
     }
 }
 
+class StructureView extends CollationMember {
+    region = 'square'
+    width = 50
+    height = 50
+    ns = 'http://www.w3.org/2000/svg'
+
+    connectedCallback() {
+        super.connectedCallback()
+        this.container = document.createElement('section')
+        this.append(this.container)
+    }
+    ready = () => {
+
+        for (const quire of this.collation.data.derived.quires) {
+            console.log(quire)
+
+            const row = document.createElement('div')
+            this.container.append(row)
+            const header = document.createElement('h2')
+            header.innerText = `Quire ${quire.id}`
+            row.append(header)
+            const svg = document.createElementNS(this.ns, 'svg')
+            row.append(svg)
+
+            for (const leafId of quire.leaves) {
+                const leaf = this.collation.data.derived.leaves[leafId - 1] // leaves is an array so -1
+                // TODO allow flipping to verso
+                const recto = this.collation.data.derived.rectos[leaf.rectoOrder]
+
+                const img = document.createElement('structure-leaf-image')
+                img.setAttribute('width', this.width)
+                img.setAttribute("height", this.height)
+                img.setAttribute('default', 'images/document-icon.png')
+                img.setAttribute('data-leaf-id', leafId)
+                img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
+
+                // Get the URL for this leaf
+                const url = iiif(recto.params.image.url,
+                    this.region,
+                    this.width,
+                    this.height
+                )
+                img.setAttribute('src', recto.params.image.url ? url : img.getAttribute('default'))
+                row.append(img)
+            }
+            const svgRect = svg.getBoundingClientRect()
+
+            // Loop over the elements as rendered to draw their lines
+            for (const leaf of row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]')) {
+                const conjoin = row.querySelector(`structure-leaf-image[data-leaf-id="${leaf.getAttribute("data-conjoined-leaf-id")}"]`)
+                const lrect = leaf.getBoundingClientRect()
+                const rrect = conjoin.getBoundingClientRect()
+
+                // Start and end coordinates for the lines
+                const startx = lrect.x - svgRect.left + (lrect.width / 2)
+                const starty = svgRect.height
+                const endx = rrect.x - svgRect.left + (rrect.width / 2)
+                const endy = svgRect.height
+
+                // Control points are based on the midpoint between left and right, plus the offset (`extra`)
+                const dist = (startx + endx + rrect.width) / 2
+
+                const relativeDistance = startx - endx * 1.2
+                const height = 0 // Reimplement nice relative height here
+
+                const leftControlX = Math.max(dist - dist * 1, startx)
+                const rightControlX = Math.min(endx, dist + dist * 1)
+
+                const path = document.createElementNS(this.ns, 'path')
+
+                // Draw a cubic bezier curve with two control points relative to the distance between the nodes
+                const d = `M ${startx} ${starty} C ${leftControlX} ${height}, ${rightControlX} ${height}, ${endx} ${endy}`
+
+                path.setAttributeNS(null, 'd', d)
+
+                svg.appendChild(path)
+            }
+        }
+    }
+}
 class SpreadNavigator extends HTMLElement {
 
 }
@@ -160,12 +276,11 @@ class NavStrip extends CollationMember {
 
     connectedCallback() {
         super.connectedCallback()
-        this.width = this.getAttribute('width') || this.width
-        this.height = this.getAttribute('height') || this.height
+        this.width = +this.getAttribute('width') || this.width
+        this.height = +this.getAttribute('height') || this.height
     }
     ready = () => {
         const viewer = this.collation.querySelector('spread-viewer')
-
         const strip = document.createElement('nav')
         let i = 0
 
@@ -221,8 +336,9 @@ class CachableImage extends HTMLElement {
     connectedCallback() {
 
         const img = document.createElement('img')
-        img.width = this.getAttribute('width')
-        img.height = this.getAttribute('height')
+        img.width = +this.getAttribute('width')
+        img.height = +this.getAttribute('height')
+
 
         // Display the temporary loading image if defined
         if (this.getAttribute("default")) {
@@ -314,6 +430,13 @@ class CachableImage extends HTMLElement {
     }
 }
 
+class StructureLeafImage extends CachableImage {
+    connectedCallback() {
+        super.connectedCallback()
+        this.style.width = `${this.img.width}px`
+        this.style.height = `${this.img.height}px`
+    }
+}
 const iiif = (url, region, width, height, rotation = "0", quality = "default", format = "jpg") => (
     `${url}/${region}/${width},${height}/${rotation}/${quality}.${format}`
 )
@@ -324,6 +447,8 @@ customElements.define('cacheable-image', CachableImage)
 customElements.define('spread-viewer', SpreadViewer)
 customElements.define('leaf-nav', LeafNav)
 customElements.define('spread-navigator', SpreadNavigator)
+customElements.define('structure-view', StructureView)
+customElements.define('structure-leaf-image', StructureLeafImage)
 
 // Figure out how to do this intelligently
 // window.addEventListener(COLLATION_READY_EVENT, (e) => {
