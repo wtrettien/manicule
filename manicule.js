@@ -145,6 +145,7 @@ class StructureView extends CollationMember {
                 img.setAttribute('default', 'images/document-icon.png')
                 img.setAttribute('data-leaf-id', leafId)
                 img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
+                img.setAttribute('data-mode', leaf.params.type.toLowerCase())
 
                 // Get the URL for this leaf
                 const url = iiif(recto.params.image.url,
@@ -182,6 +183,9 @@ class StructureView extends CollationMember {
 
                 // Draw a cubic bezier curve with two control points relative to the distance between the nodes
                 const d = `M ${startx} ${starty} C ${leftControlX} ${height}, ${rightControlX} ${height}, ${endx} ${endy}`
+                if (leaf.getAttribute("data-mode") === "missing") {
+                    path.setAttribute("stroke-dasharray", "5,5") // TODO handle overwriting values
+                }
 
                 path.setAttributeNS(null, 'd', d)
 
