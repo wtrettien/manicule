@@ -172,15 +172,16 @@ class StructureView extends CollationMember {
 
                 // Control points are based on the midpoint between left and right, plus the offset (`extra`)
                 const dist = (startx + endx + rrect.width) / 2
-                const height = 25 - (Math.abs(startx - endx) / 10) * 0.95
-                console.log('height', height, leaf.getAttribute('data-leaf-id'))
-                const leftControlX = Math.max(dist - dist * 1, startx)
-                const rightControlX = Math.min(endx, dist + dist * 1)
+                const height = Math.max(0, 100 - (Math.abs(startx - endx) / 10) * 1.9)
+
+                const leftControlX = Math.max(dist - dist, startx)
+                const rightControlX = Math.min(endx, dist + dist)
 
                 const path = document.createElementNS(this.ns, 'path')
 
                 // Draw a cubic bezier curve with two control points relative to the distance between the nodes
                 const d = `M ${startx} ${starty} C ${leftControlX} ${height}, ${rightControlX} ${height}, ${endx} ${endy}`
+                console.log(d)
                 if (leaf.getAttribute("data-mode") === "missing") {
                     path.setAttribute("stroke-dasharray", "5,5") // TODO handle overwriting values
                 }
