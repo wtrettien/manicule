@@ -172,10 +172,8 @@ class StructureView extends CollationMember {
 
                 // Control points are based on the midpoint between left and right, plus the offset (`extra`)
                 const dist = (startx + endx + rrect.width) / 2
-
-                const relativeDistance = startx - endx * 1.2
-                const height = 0 // Reimplement nice relative height here
-
+                const height = 25 - (Math.abs(startx - endx) / 10) * 0.95
+                console.log('height', height, leaf.getAttribute('data-leaf-id'))
                 const leftControlX = Math.max(dist - dist * 1, startx)
                 const rightControlX = Math.min(endx, dist + dist * 1)
 

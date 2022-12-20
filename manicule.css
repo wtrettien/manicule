@@ -130,7 +130,7 @@ svg {
 }
 svg path {
     stroke: black;
-    stroke-width: ;
+    stroke-width: 2;
     fill: transparent;
 }
 
