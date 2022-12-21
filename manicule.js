@@ -158,37 +158,46 @@ class StructureView extends CollationMember {
             }
             const svgRect = svg.getBoundingClientRect()
 
+            const left = row.querySelector('structure-leaf-image:first-of-type').getBoundingClientRect()
+            const right = row.querySelector('structure-leaf-image:last-of-type').getBoundingClientRect()
+            const center = (right.right - left.x) / 2
+
+            let i = 0
+            const arcHeightIncrement = 15
+
             // Loop over the elements as rendered to draw their lines
-            for (const leaf of row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]')) {
-                const conjoin = row.querySelector(`structure-leaf-image[data-leaf-id="${leaf.getAttribute("data-conjoined-leaf-id")}"]`)
+            const leaves = row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]')
+
+            for (const leaf of leaves) {
+                // const conjoin = row.querySelector(`structure-leaf-image[data-leaf-id="${leaf.getAttribute("data-conjoined-leaf-id")}"]`)
                 const lrect = leaf.getBoundingClientRect()
-                const rrect = conjoin.getBoundingClientRect()
 
                 // Start and end coordinates for the lines
                 const startx = lrect.x - svgRect.left + (lrect.width / 2)
                 const starty = svgRect.height
-                const endx = rrect.x - svgRect.left + (rrect.width / 2)
-                const endy = svgRect.height
 
-                // Control points are based on the midpoint between left and right, plus the offset (`extra`)
-                const dist = (startx + endx + rrect.width) / 2
-                const height = Math.max(0, 100 - (Math.abs(startx - endx) / 10) * 1.9)
-
-                const leftControlX = Math.max(dist - dist, startx)
-                const rightControlX = Math.min(endx, dist + dist)
+                let height = 0
+                // Take the index up until we hit the midpoint
+                if (i < leaves.length / 2) {
+                    height = i * arcHeightIncrement
+                }
+                else {
+                    height = (leaves.length - i - 1) * arcHeightIncrement
+                }
+                height = height + 5
 
                 const path = document.createElementNS(this.ns, 'path')
 
                 // Draw a cubic bezier curve with two control points relative to the distance between the nodes
-                const d = `M ${startx} ${starty} C ${leftControlX} ${height}, ${rightControlX} ${height}, ${endx} ${endy}`
-                console.log(d)
+                const d = `M ${startx} ${starty} C ${startx} ${height}, ${center} ${height}, ${center} ${height}`
                 if (leaf.getAttribute("data-mode") === "missing") {
-                    path.setAttribute("stroke-dasharray", "5,5") // TODO handle overwriting values
+                    path.setAttribute("stroke-dasharray", "5,5")
                 }
 
                 path.setAttributeNS(null, 'd', d)
 
                 svg.appendChild(path)
+                i++
             }
         }
     }
