@@ -123,6 +123,11 @@ img[src="images/loading-icon.svg"] {
 structure-leaf-image {
     display: inline-block;
 }
+structure-view div {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
 svg {
     display: block;
     width: 100%;

@@ -116,15 +116,43 @@ class StructureView extends CollationMember {
     height = 50
     ns = 'http://www.w3.org/2000/svg'
 
+    static get observedAttributes() {
+        return ['quire']
+    }
+
     connectedCallback() {
-        super.connectedCallback()
+
         this.container = document.createElement('section')
         this.append(this.container)
+        this.quireIds = undefined
+        super.connectedCallback()
+    }
+    get quireId() {
+        return +this.getAttribute("quire")
+    }
+
+    attributeChangedCallback(name, _, value) {
+        switch (name) {
+            case "quires": {
+                this.render()
+            }
+        }
     }
     ready = () => {
+        this.render()
+    }
+    render = () => {
 
-        for (const quire of this.collation.data.derived.quires) {
-            console.log(quire)
+        this.container.replaceChildren()
+
+        if (this.quireId) {
+            this.quires = this.collation.data.derived.quires.filter(quire => quire.id == this.quireId)
+        }
+        else {
+            this.quires = this.collation.data.derived.quires
+        }
+
+        for (const quire of this.quires) {
 
             const row = document.createElement('div')
             this.container.append(row)
