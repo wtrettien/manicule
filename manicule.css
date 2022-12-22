@@ -123,15 +123,19 @@ img[src="images/loading-icon.svg"] {
 structure-leaf-image {
     display: inline-block;
 }
+structure-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
 structure-view div {
-    overflow-x: scroll;
     white-space: nowrap;
 }
 
 svg {
     display: block;
+    height: 80px;
     width: 100%;
-    height: 100px;
 }
 svg path {
     stroke: black;

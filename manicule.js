@@ -112,26 +112,46 @@ class CollationMember extends HTMLElement {
 
 class StructureView extends CollationMember {
     region = 'square'
-    width = 50
-    height = 50
+    defaultWidth = 30
+    defaultHeight = 30
+
     ns = 'http://www.w3.org/2000/svg'
 
     static get observedAttributes() {
         return ['quire']
     }
+    constructor() {
+        super()
+
+    }
 
     connectedCallback() {
 
-        this.container = document.createElement('section')
-        this.append(this.container)
         this.quireIds = undefined
         super.connectedCallback()
     }
     get quireId() {
         return +this.getAttribute("quire")
     }
-
-    attributeChangedCallback(name, _, value) {
+    get width() {
+        return +this.getAttribute('width') || this.defaultWidth
+    }
+    get height() {
+        return +this.getAttribute('height') || this.defaultHeight
+    }
+    /**
+     * @param {number | string} width
+     */
+    set width(width) {
+        this.setAttribute('width', width)
+    }
+    /**
+     * @param {number | string} height
+     */
+    set height(height) {
+        this.setAttribute('height', height)
+    }
+    attributeChangedCallback(name, prev, value) {
         switch (name) {
             case "quires": {
                 this.render()
@@ -143,23 +163,23 @@ class StructureView extends CollationMember {
     }
     render = () => {
 
-        this.container.replaceChildren()
+        this.replaceChildren()
 
         if (this.quireId) {
             this.quires = this.collation.data.derived.quires.filter(quire => quire.id == this.quireId)
-        }
-        else {
+        } else {
             this.quires = this.collation.data.derived.quires
         }
 
         for (const quire of this.quires) {
 
             const row = document.createElement('div')
-            this.container.append(row)
+            this.append(row)
             const header = document.createElement('h2')
             header.innerText = `Quire ${quire.id}`
             row.append(header)
             const svg = document.createElementNS(this.ns, 'svg')
+
             row.append(svg)
 
             for (const leafId of quire.leaves) {
@@ -208,8 +228,7 @@ class StructureView extends CollationMember {
                 // Take the index up until we hit the midpoint
                 if (i < leaves.length / 2) {
                     height = i * arcHeightIncrement
-                }
-                else {
+                } else {
                     height = (leaves.length - i - 1) * arcHeightIncrement
                 }
                 height = height + 5
@@ -224,7 +243,7 @@ class StructureView extends CollationMember {
 
                 path.setAttributeNS(null, 'd', d)
 
-                svg.appendChild(path)
+                svg.append(path)
                 i++
             }
         }
@@ -373,6 +392,9 @@ class CachableImage extends HTMLElement {
 
     }
 
+    get default() {
+        return this.getAttribute('default') || 'images/document-icon.png'
+    }
     connectedCallback() {
 
         const img = document.createElement('img')
@@ -450,21 +472,24 @@ class CachableImage extends HTMLElement {
         switch (name) {
             case 'visible': {
                 const url = this.getAttribute('src')
-                cache.match(url).then((resp) => {
-                    if (resp) {
-                        resp.blob().then((blob) => {
-                            this.img.src = URL.createObjectURL(blob)
-                        })
-                    } else {
-                        fetch(new Request(url)).then((resp) => {
-                            cache.put(url, resp.clone())
+                if (url !== this.default) {
+                    cache.match(url).then((resp) => {
+                        if (resp) {
                             resp.blob().then((blob) => {
                                 this.img.src = URL.createObjectURL(blob)
                             })
+                        } else {
+                            fetch(new Request(url)).then((resp) => {
+                                cache.put(url, resp.clone())
+                                resp.blob().then((blob) => {
+                                    this.img.src = URL.createObjectURL(blob)
+                                })
 
-                        })
-                    }
-                })
+                            })
+                        }
+                    })
+                }
+
             }
         }
     }
