@@ -11,10 +11,12 @@ class CollationModel extends HTMLElement {
         super()
         this.data = {}
     }
+    get id() {
+        return this.getAttribute("id")
+    }
     async connectedCallback() {
-        const id = this.getAttribute("id")
 
-        const resp = await fetch(`./data/${id}/${id}.json`)
+        const resp = await fetch(`./data/${this.id}/${this.id}.json`)
         this.data = await resp.json()
 
         // "Derived" data is computed by us from the collation model
@@ -293,18 +295,23 @@ class SpreadNavigator extends HTMLElement {
 }
 class SpreadViewer extends CollationMember {
     region = 'full'
-    width = 1750
-    height = 2423
+    defaultWidth = 1750
+    defaultHeight = 2423
 
     static get observedAttributes() {
         return ['index']
     }
+    get width() {
+        return +this.getAttribute("width") || this.defaultWidth
+    }
+    get height() {
+        return +this.getAttribute("height") || this.defaultHeight
+    }
+    get default() {
+        return this.getAttribute("default") || 'images/loading-icon.svg'
+    }
     connectedCallback() {
         super.connectedCallback()
-        this.width = this.getAttribute('width') || this.width
-        this.height = this.getAttribute('height') || this.height
-        this.default = this.getAttribute('default') || 'images/loading-icon.svg'
-
         this.container = document.createElement('div')
         this.append(this.container)
     }
@@ -369,13 +376,18 @@ class LeafNav extends CollationMember {
 
 class NavStrip extends CollationMember {
     region = 'square'
-    width = 109
-    height = 151
+    defaultWidth = 109
+    defaultHeight = 151
+
+    get width() {
+        return +this.getAttribute("width") || this.defaultWidth
+    }
+    get height() {
+        return +this.getAttribute("height") || this.defaultHeight
+    }
 
     connectedCallback() {
         super.connectedCallback()
-        this.width = +this.getAttribute('width') || this.width
-        this.height = +this.getAttribute('height') || this.height
     }
     ready = () => {
         const viewer = this.collation.querySelector('spread-viewer')
