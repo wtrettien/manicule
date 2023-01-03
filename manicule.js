@@ -31,14 +31,21 @@ class CollationModel extends HTMLElement {
 
         this.data.derived.rectos = {}
         this.data.derived.versos = {}
+
         for (const leaf of rectos) {
             this.data.derived.rectos[leaf.id] = leaf
         }
         for (const leaf of versos) {
             this.data.derived.versos[leaf.id] = leaf
         }
+
         this.data.derived.leaves = Object.entries(this.data.Leafs).map(([id, data]) => {
             data.id = +id
+            data.terms = Object.values(this.data.Terms).map(term => {
+                if (term.objects.Leaf.includes(data.id)) {
+                    return term.params
+                }
+            }).filter(term => term)
             return data
         })
 
@@ -60,7 +67,7 @@ class CollationModel extends HTMLElement {
             }
 
         }
-
+        console.log(this.data.derived)
         this.dispatchEvent(new CustomEvent(COLLATION_READY_EVENT, {
             composed: true,
             bubbles: true,
@@ -175,6 +182,10 @@ class StructureView extends CollationMember {
 
             const row = document.createElement('div')
             this.append(row)
+
+            const termContainer = document.createElement('aside')
+            termContainer.setAttribute('data-type', 'term-container')
+
             const header = document.createElement('h2')
             header.innerText = `Quire ${quire.id}`
             row.append(header)
@@ -195,6 +206,20 @@ class StructureView extends CollationMember {
                 img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
                 img.setAttribute('data-mode', leaf.params.type.toLowerCase())
 
+                const terms = document.createElement('dl')
+                terms.setAttribute('data-leaf-id', leafId)
+                terms.classList.add('hide')
+
+                for (const term of leaf.terms) {
+                    const leafName = document.createElement('span')
+                    leafName.innerText = `L${leafId}`
+                    const taxonomy = document.createElement('dt')
+                    const title = document.createElement('dd')
+                    taxonomy.innerText = term.taxonomy
+                    title.innerText = term.title
+                    terms.append(leafName, taxonomy, title)
+                }
+
                 // Get the URL for this leaf
                 const url = iiif(recto.params.image.url,
                     this.region,
@@ -203,6 +228,7 @@ class StructureView extends CollationMember {
                 )
                 img.setAttribute('src', recto.params.image.url ? url : img.getAttribute('default'))
                 row.append(img)
+                termContainer.append(terms)
             }
             const svgRect = svg.getBoundingClientRect()
 
@@ -243,9 +269,22 @@ class StructureView extends CollationMember {
 
                 path.setAttributeNS(null, 'd', d)
 
+                // Set a listener on the path to display the relevant terms
+                path.addEventListener('mouseover', () => {
+                    const id = leaf.getAttribute('data-leaf-id')
+                    const terms = termContainer.querySelectorAll(`[data-leaf-id="${id}"]`)
+                    terms.forEach(term => term.classList.toggle('hide'))
+                })
+                path.addEventListener('mouseout', () => {
+                    const id = leaf.getAttribute('data-leaf-id')
+                    const terms = termContainer.querySelectorAll(`[data-leaf-id="${id}"]`)
+                    terms.forEach(term => term.classList.toggle('hide'))
+                })
+
                 svg.append(path)
                 i++
             }
+            row.append(termContainer)
         }
     }
 }

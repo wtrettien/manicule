@@ -127,9 +127,20 @@ structure-view {
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap);
+    flex-direction: column;
 }
 structure-view div {
     white-space: nowrap;
+    margin-bottom: 3rem;
+}
+structure-view [data-type="term-container"] {
+    position: absolute;
+}
+structure-view dt {
+    display: none;
+}
+structure-view dd {
+    margin: 0;
 }
 
 svg {
@@ -141,6 +152,10 @@ svg path {
     stroke: black;
     stroke-width: 2;
     fill: transparent;
+}
+svg path:hover {
+    stroke: red;
+    stroke-width: 3;
 }
 
 @font-face {
