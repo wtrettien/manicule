@@ -212,7 +212,9 @@ class StructureView extends CollationMember {
             displaySide.innerText = this.side
             displaySide.addEventListener('click', () => {
                 this.side = this.side === 'recto' ? 'verso' : 'recto'
-            }, {passive: true})
+            }, {
+                passive: true
+            })
             header.append(displaySide)
             row.append(header)
             const svg = document.createElementNS(this.ns, 'svg')
@@ -221,53 +223,64 @@ class StructureView extends CollationMember {
 
             for (const leafId of quire.leaves) {
                 const leaf = this.collation.data.derived.leaves[leafId - 1] // leaves is an array so -1
-                const side = this.side === 'recto' ? this.collation.data.derived.rectos[leaf.rectoOrder] :
-                    this.collation.data.derived.versos[leaf.versoOrder]
 
-                const img = document.createElement('structure-leaf-image')
-                img.setAttribute('width', this.width)
-                img.setAttribute("height", this.height)
-                img.setAttribute('default', 'images/document-icon.png')
-                img.setAttribute('data-leaf-id', leafId)
-                img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
-                img.setAttribute('data-mode', leaf.params.type.toLowerCase())
-                img.setAttribute('data-side', this.side)
-                const terms = document.createElement('dl')
-                terms.setAttribute('data-leaf-id', leafId)
-                terms.classList.add('hide')
+                // Always render both sides, but one will be invisible
 
-                for (const term of leaf.terms) {
-                    const leafName = document.createElement('span')
-                    leafName.innerText = `L${leafId}`
-                    const taxonomy = document.createElement('dt')
-                    const title = document.createElement('dd')
-                    taxonomy.innerText = term.taxonomy
-                    title.innerText = term.title
-                    terms.append(leafName, taxonomy, title)
+                const recto = {side: 'recto', data: this.collation.data.derived.rectos[leaf.rectoOrder]}
+                const verso = {side: 'verso', data: this.collation.data.derived.versos[leaf.versoOrder]}
+
+                for (const sideData of [recto, verso]) {
+                    const img = document.createElement('structure-leaf-image')
+
+                    img.setAttribute('width', this.width)
+                    img.setAttribute("height", this.height)
+                    img.setAttribute('default', 'images/document-icon.png')
+                    img.setAttribute('data-leaf-id', leafId)
+                    img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
+                    img.setAttribute('data-mode', leaf.params.type.toLowerCase())
+                    img.setAttribute('data-side', sideData.side)
+                    const terms = document.createElement('dl')
+                    terms.setAttribute('data-leaf-id', leafId)
+                    terms.classList.add('hide')
+
+                    for (const term of leaf.terms) { // TODO does this account for sides?
+                        const leafName = document.createElement('span')
+                        leafName.innerText = `L${leafId}`
+                        const taxonomy = document.createElement('dt')
+                        const title = document.createElement('dd')
+                        taxonomy.innerText = term.taxonomy
+                        title.innerText = term.title
+                        terms.append(leafName, taxonomy, title)
+                    }
+
+                    // Get the URL for this leaf
+                    const url = iiif(sideData.data.params.image.url,
+                        this.region,
+                        this.width,
+                        this.height
+                    )
+                    img.setAttribute('src', sideData.data.params.image.url ? url : img.getAttribute('default'))
+
+                    // Only show the one matching the current side
+                    if (sideData.side !== this.side) {
+                        img.classList.add('hide')
+                    }
+                    row.append(img)
+                    termContainer.append(terms)
                 }
-
-                // Get the URL for this leaf
-                const url = iiif(side.params.image.url,
-                    this.region,
-                    this.width,
-                    this.height
-                )
-                img.setAttribute('src', side.params.image.url ? url : img.getAttribute('default'))
-                row.append(img)
-                termContainer.append(terms)
             }
-            const svgRect = svg.getBoundingClientRect()
 
-            const left = row.querySelector('structure-leaf-image:first-of-type').getBoundingClientRect()
-            const right = row.querySelector('structure-leaf-image:last-of-type').getBoundingClientRect()
+            const leaves = [...row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]:not([class="hide"])')]
+
+            const left = leaves[0].getBoundingClientRect()
+            const right = leaves[leaves.length -1].getBoundingClientRect()
             const center = (right.right - left.x) / 2
+            const svgRect = svg.getBoundingClientRect()
 
             let i = 0
             const arcHeightIncrement = 15
 
             // Loop over the elements as rendered to draw their lines
-            const leaves = row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]')
-
             for (const leaf of leaves) {
                 const id = leaf.getAttribute('data-leaf-id')
                 const lrect = leaf.getBoundingClientRect()
