@@ -127,7 +127,7 @@ structure-view {
     gap: var(--gap);
     flex-direction: column;
 }
-structure-view div {
+structure-view > div {
     white-space: nowrap;
 }
 structure-view [data-type="term-container"] {
@@ -155,7 +155,12 @@ structure-leaf-image {
 structure-leaf-image.hover img {
     outline: inset 2px var(--highlight-color);
 }
-
+structure-leaf {
+    display: inline-block;
+}
+structure-leaf figure {
+    margin: 0;
+}
 
 svg {
     display: block;

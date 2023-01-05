@@ -120,7 +120,6 @@ class CollationMember extends HTMLElement {
 }
 
 class StructureView extends CollationMember {
-    region = 'square'
     defaultWidth = 30
     defaultHeight = 30
     defaultSide = 'verso'
@@ -229,45 +228,18 @@ class StructureView extends CollationMember {
                 const recto = {side: 'recto', data: this.collation.data.derived.rectos[leaf.rectoOrder]}
                 const verso = {side: 'verso', data: this.collation.data.derived.versos[leaf.versoOrder]}
 
-                for (const sideData of [recto, verso]) {
-                    const img = document.createElement('structure-leaf-image')
+                const group = document.createElement('structure-leaf')
+                group.setAttribute('width', this.width)
+                group.setAttribute("height", this.height)
+                group.setAttribute("side", this.side)
+                group.recto = recto
+                group.verso = verso
+                group.leaf = leaf
 
-                    img.setAttribute('width', this.width)
-                    img.setAttribute("height", this.height)
-                    img.setAttribute('default', 'images/document-icon.png')
-                    img.setAttribute('data-leaf-id', leafId)
-                    img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
-                    img.setAttribute('data-mode', leaf.params.type.toLowerCase())
-                    img.setAttribute('data-side', sideData.side)
-                    const terms = document.createElement('dl')
-                    terms.setAttribute('data-leaf-id', leafId)
-                    terms.classList.add('hide')
 
-                    for (const term of leaf.terms) { // TODO does this account for sides?
-                        const leafName = document.createElement('span')
-                        leafName.innerText = `L${leafId}`
-                        const taxonomy = document.createElement('dt')
-                        const title = document.createElement('dd')
-                        taxonomy.innerText = term.taxonomy
-                        title.innerText = term.title
-                        terms.append(leafName, taxonomy, title)
-                    }
+                row.append(group)
 
-                    // Get the URL for this leaf
-                    const url = iiif(sideData.data.params.image.url,
-                        this.region,
-                        this.width,
-                        this.height
-                    )
-                    img.setAttribute('src', sideData.data.params.image.url ? url : img.getAttribute('default'))
 
-                    // Only show the one matching the current side
-                    if (sideData.side !== this.side) {
-                        img.classList.add('hide')
-                    }
-                    row.append(img)
-                    termContainer.append(terms)
-                }
             }
 
             const leaves = [...row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]:not([class="hide"])')]
@@ -599,10 +571,99 @@ class StructureLeafImage extends CachableImage {
     get side() {
         return this.getAttribute('side')
     }
+
     connectedCallback() {
         super.connectedCallback()
         this.style.width = `${this.img.width}px`
         this.style.height = `${this.img.height}px`
+
+
+    }
+}
+class StructureLeaf extends HTMLElement {
+    region = 'square'
+    // Contains two leaf images, one for each side
+    constructor() {
+        super()
+        this.recto = undefined
+        this.verso = undefined
+        this.leaf = undefined
+        // const figure = document.createElement('figure')
+        // this.append(figure)
+    }
+    get width() {
+        return +this.getAttribute('width') || this.defaultWidth
+    }
+    get height() {
+        return +this.getAttribute('height') || this.defaultHeight
+    }
+    get side() {
+        return this.getAttribute('side') || this.defaultSide
+    }
+    /**
+     * @param {number | string} width
+     */
+    set width(width) {
+        this.setAttribute('width', width)
+    }
+    /**
+     * @param {number | string} height
+     */
+    set height(height) {
+        this.setAttribute('height', height)
+    }
+    /**
+     * @param {string} side
+     */
+    set side(side) {
+        this.setAttribute('side', side)
+    }
+    connectedCallback() {
+
+        this.style.width = `${this.width}px`
+        this.style.height = `${this.height}px`
+        const {recto, verso, leaf, leafId, side} = this
+
+        for (const sideData of [recto, verso]) {
+            const img = document.createElement('structure-leaf-image')
+
+            img.setAttribute('width', this.width)
+            img.setAttribute("height", this.height)
+            img.setAttribute('default', 'images/document-icon.png')
+            img.setAttribute('data-leaf-id', leaf.id)
+            img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
+            img.setAttribute('data-mode', leaf.params.type.toLowerCase())
+            img.setAttribute('data-side', sideData.side)
+
+            const terms = document.createElement('dl')
+            terms.setAttribute('data-leaf-id', leafId)
+            terms.classList.add('hide')
+
+            for (const term of leaf.terms) { // TODO does this account for sides?
+                const leafName = document.createElement('span')
+                leafName.innerText = `L${leafId}`
+                const taxonomy = document.createElement('dt')
+                const title = document.createElement('dd')
+                taxonomy.innerText = term.taxonomy
+                title.innerText = term.title
+                terms.append(leafName, taxonomy, title)
+            }
+
+            // Get the URL for this leaf
+            const url = iiif(sideData.data.params.image.url,
+                this.region,
+                this.width,
+                this.height
+            )
+            img.setAttribute('src', sideData.data.params.image.url ? url : img.getAttribute('default'))
+
+            // Only show the one matching the current side
+            if (sideData.side !== this.side) {
+                img.classList.add('hide')
+            }
+            this.append(img)
+            //termContainer.append(terms)
+        }
     }
 }
 const iiif = (url, region, width, height, rotation = "0", quality = "default", format = "jpg") => (
@@ -617,6 +678,7 @@ customElements.define('leaf-nav', LeafNav)
 customElements.define('spread-navigator', SpreadNavigator)
 customElements.define('structure-view', StructureView)
 customElements.define('structure-leaf-image', StructureLeafImage)
+customElements.define('structure-leaf', StructureLeaf)
 
 // Figure out how to do this intelligently
 // window.addEventListener(COLLATION_READY_EVENT, (e) => {
