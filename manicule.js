@@ -246,6 +246,7 @@ class StructureView extends CollationMember {
 
             for (const leaf of leaves) {
                 // const conjoin = row.querySelector(`structure-leaf-image[data-leaf-id="${leaf.getAttribute("data-conjoined-leaf-id")}"]`)
+                const id = leaf.getAttribute('data-leaf-id')
                 const lrect = leaf.getBoundingClientRect()
 
                 // Start and end coordinates for the lines
@@ -270,18 +271,26 @@ class StructureView extends CollationMember {
                 }
 
                 path.setAttributeNS(null, 'd', d)
+                path.setAttributeNS(null, "data-leaf-id", id)
 
-                // Set a listener on the path to display the relevant terms
-                path.addEventListener('mouseover', () => {
-                    const id = leaf.getAttribute('data-leaf-id')
+                // Set a listener on the path and the image to display the relevant terms
+                const showTerms = () => {
+
                     const terms = termContainer.querySelectorAll(`[data-leaf-id="${id}"]`)
                     terms.forEach(term => term.classList.toggle('hide'))
-                })
-                path.addEventListener('mouseout', () => {
-                    const id = leaf.getAttribute('data-leaf-id')
+                    leaf.classList.toggle('hover')
+                    path.classList.toggle('hover')
+                }
+                const hideTerms = () => {
                     const terms = termContainer.querySelectorAll(`[data-leaf-id="${id}"]`)
                     terms.forEach(term => term.classList.toggle('hide'))
-                })
+                    leaf.classList.toggle('hover')
+                    path.classList.toggle('hover')
+                }
+                path.addEventListener('mouseover', showTerms)
+                path.addEventListener('mouseout', hideTerms)
+                leaf.addEventListener('mouseover', showTerms)
+                leaf.addEventListener('mouseout', hideTerms)
 
                 svg.append(path)
                 i++
