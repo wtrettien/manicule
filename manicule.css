@@ -120,32 +120,72 @@ img[src="images/loading-icon.svg"] {
 .hide {
      display: none;
 }
+
+structure-view {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+structure-view > div {
+    white-space: nowrap;
+    margin-bottom: 60px;
+}
+
+structure-view [data-type="side-toggle"] {
+    background: none;
+    color: var(--dark-color);
+    border: 1px solid var(--dark-color);
+    display: block;
+    padding: 0;
+    margin: 1rem 0;
+}
 structure-leaf-image {
     display: inline-block;
 }
 structure-leaf-image.hover img {
     outline: inset 2px var(--highlight-color);
 }
-structure-view {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap);
-    flex-direction: column;
+structure-leaf {
+    display: inline-block;
+    perspective: 600px;
+
 }
-structure-view div {
-    white-space: nowrap;
-}
-structure-view [data-type="term-container"] {
-    position: relative;
+structure-leaf figcaption {
+    position: absolute;
+    bottom: -60px;
     width: 100%;
     height: 3rem;
 }
-structure-view [data-type="term-container"] dt {
+structure-view figcaption dt {
     display: none;
 }
-structure-view [data-type="term-container"] * {
+structure-view figcaption * {
     margin: 0;
 }
+
+structure-leaf figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+structure-leaf-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+structure-leaf-image.back {
+    transform: rotateY(180deg);
+}
+.is-flipped {
+    transform: rotateY(180deg);
+}
+
 
 
 svg {

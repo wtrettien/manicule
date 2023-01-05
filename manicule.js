@@ -120,14 +120,14 @@ class CollationMember extends HTMLElement {
 }
 
 class StructureView extends CollationMember {
-    region = 'square'
     defaultWidth = 30
     defaultHeight = 30
+    defaultSide = 'verso'
 
     ns = 'http://www.w3.org/2000/svg'
 
     static get observedAttributes() {
-        return ['quire']
+        return ['quire', 'side']
     }
     constructor() {
         super()
@@ -148,6 +148,9 @@ class StructureView extends CollationMember {
     get height() {
         return +this.getAttribute('height') || this.defaultHeight
     }
+    get side() {
+        return this.getAttribute('side') || this.defaultSide
+    }
     /**
      * @param {number | string} width
      */
@@ -160,10 +163,29 @@ class StructureView extends CollationMember {
     set height(height) {
         this.setAttribute('height', height)
     }
+    /**
+     * @param {string} side
+     */
+    set side(side) {
+        this.setAttribute('side', side)
+    }
+
     attributeChangedCallback(name, prev, value) {
         switch (name) {
             case "quires": {
                 this.render()
+            }
+            case "side": {
+                for (const button of this.querySelectorAll('[data-type="side-toggle"]')) {
+                    button.innerText = this.side
+                }
+                const groups = [...this.querySelectorAll('structure-leaf')]
+
+                for (const group of groups) {
+                    group.setAttribute("side", this.side)
+                }
+
+
             }
         }
     }
@@ -179,17 +201,24 @@ class StructureView extends CollationMember {
         } else {
             this.quires = this.collation.data.derived.quires
         }
-
+        const toggleSide = () => {
+            console.log('called')
+            this.side = this.side === 'recto' ? 'verso' : 'recto'
+        }
         for (const quire of this.quires) {
 
             const row = document.createElement('div')
             this.append(row)
 
-            const termContainer = document.createElement('div')
-            termContainer.setAttribute('data-type', 'term-container')
-
             const header = document.createElement('h2')
             header.innerText = `Quire ${quire.id}`
+            const displaySide = document.createElement('button')
+            displaySide.setAttribute('data-type', 'side-toggle')
+            displaySide.innerText = this.side
+            displaySide.addEventListener('click', () => {
+                this.side = this.side === 'recto' ? 'verso' : 'recto'
+            })
+            header.append(displaySide)
             row.append(header)
             const svg = document.createElementNS(this.ns, 'svg')
 
@@ -197,55 +226,42 @@ class StructureView extends CollationMember {
 
             for (const leafId of quire.leaves) {
                 const leaf = this.collation.data.derived.leaves[leafId - 1] // leaves is an array so -1
-                // TODO allow flipping to verso
-                const recto = this.collation.data.derived.rectos[leaf.rectoOrder]
 
-                const img = document.createElement('structure-leaf-image')
-                img.setAttribute('width', this.width)
-                img.setAttribute("height", this.height)
-                img.setAttribute('default', 'images/document-icon.png')
-                img.setAttribute('data-leaf-id', leafId)
-                img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
-                img.setAttribute('data-mode', leaf.params.type.toLowerCase())
+                // Always render both sides, but one will be invisible
 
-                const terms = document.createElement('dl')
-                terms.setAttribute('data-leaf-id', leafId)
-                terms.classList.add('hide')
-
-                for (const term of leaf.terms) {
-                    const leafName = document.createElement('span')
-                    leafName.innerText = `L${leafId}`
-                    const taxonomy = document.createElement('dt')
-                    const title = document.createElement('dd')
-                    taxonomy.innerText = term.taxonomy
-                    title.innerText = term.title
-                    terms.append(leafName, taxonomy, title)
+                const recto = {
+                    side: 'recto',
+                    data: this.collation.data.derived.rectos[leaf.rectoOrder]
+                }
+                const verso = {
+                    side: 'verso',
+                    data: this.collation.data.derived.versos[leaf.versoOrder]
                 }
 
-                // Get the URL for this leaf
-                const url = iiif(recto.params.image.url,
-                    this.region,
-                    this.width,
-                    this.height
-                )
-                img.setAttribute('src', recto.params.image.url ? url : img.getAttribute('default'))
-                row.append(img)
-                termContainer.append(terms)
-            }
-            const svgRect = svg.getBoundingClientRect()
+                const group = document.createElement('structure-leaf')
+                group.setAttribute('width', this.width)
+                group.setAttribute("height", this.height)
+                group.setAttribute("side", this.side)
+                group.recto = recto
+                group.verso = verso
+                group.leaf = leaf
+                row.append(group)
 
-            const left = row.querySelector('structure-leaf-image:first-of-type').getBoundingClientRect()
-            const right = row.querySelector('structure-leaf-image:last-of-type').getBoundingClientRect()
+
+            }
+
+            const leaves = [...row.querySelectorAll(`structure-leaf-image[data-conjoined-leaf-id][data-side="${this.side}"]`)]
+
+            const left = leaves[0].getBoundingClientRect()
+            const right = leaves[leaves.length - 1].getBoundingClientRect()
             const center = (right.right - left.x) / 2
+            const svgRect = svg.getBoundingClientRect()
 
             let i = 0
             const arcHeightIncrement = 15
 
             // Loop over the elements as rendered to draw their lines
-            const leaves = row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]')
-
             for (const leaf of leaves) {
-                // const conjoin = row.querySelector(`structure-leaf-image[data-leaf-id="${leaf.getAttribute("data-conjoined-leaf-id")}"]`)
                 const id = leaf.getAttribute('data-leaf-id')
                 const lrect = leaf.getBoundingClientRect()
 
@@ -276,13 +292,13 @@ class StructureView extends CollationMember {
                 // Set a listener on the path and the image to display the relevant terms
                 const showTerms = () => {
 
-                    const terms = termContainer.querySelectorAll(`[data-leaf-id="${id}"]`)
+                    const terms = this.querySelectorAll(`dl[data-leaf-id="${id}"]`)
                     terms.forEach(term => term.classList.toggle('hide'))
                     leaf.classList.toggle('hover')
                     path.classList.toggle('hover')
                 }
                 const hideTerms = () => {
-                    const terms = termContainer.querySelectorAll(`[data-leaf-id="${id}"]`)
+                    const terms = this.querySelectorAll(`dl[data-leaf-id="${id}"]`)
                     terms.forEach(term => term.classList.toggle('hide'))
                     leaf.classList.toggle('hover')
                     path.classList.toggle('hover')
@@ -295,7 +311,6 @@ class StructureView extends CollationMember {
                 svg.append(path)
                 i++
             }
-            row.append(termContainer)
         }
     }
 }
@@ -406,7 +421,8 @@ class NavStrip extends CollationMember {
         const items = this.collation.data.derived.linear.map((spread) => {
             const container = document.createElement('span')
             container.setAttribute("data-spread-index", i)
-            container.addEventListener('click', () => viewer.setAttribute('index', container.getAttribute('data-spread-index')))
+            container.addEventListener('click', () =>
+                viewer.setAttribute('index', container.getAttribute('data-spread-index')))
             for (const leaf of spread) {
                 const img = document.createElement('cacheable-image')
                 img.setAttribute('width', this.width)
@@ -433,7 +449,7 @@ class NavStrip extends CollationMember {
 
 class CachableImage extends HTMLElement {
     static get observedAttributes() {
-        return ['src', 'visible']
+        return ['src', 'visible', 'side']
     }
     constructor() {
         super()
@@ -455,12 +471,12 @@ class CachableImage extends HTMLElement {
     get default() {
         return this.getAttribute('default') || 'images/document-icon.png'
     }
+
     connectedCallback() {
 
         const img = document.createElement('img')
         img.width = +this.getAttribute('width')
         img.height = +this.getAttribute('height')
-
 
         // Display the temporary loading image if defined
         if (this.getAttribute("default")) {
@@ -556,10 +572,126 @@ class CachableImage extends HTMLElement {
 }
 
 class StructureLeafImage extends CachableImage {
+
     connectedCallback() {
         super.connectedCallback()
         this.style.width = `${this.img.width}px`
         this.style.height = `${this.img.height}px`
+
+
+    }
+}
+class StructureLeaf extends HTMLElement {
+    static get observedAttributes() {
+        return ['side']
+    }
+
+    region = 'square'
+
+    // Contains two leaf images, one for each side
+    constructor() {
+        super()
+        this.recto = undefined
+        this.verso = undefined
+        this.leaf = undefined
+    }
+    get width() {
+        return +this.getAttribute('width') || this.defaultWidth
+    }
+    get height() {
+        return +this.getAttribute('height') || this.defaultHeight
+    }
+    get side() {
+        return this.getAttribute('side') || this.defaultSide
+    }
+    /**
+     * @param {number | string} width
+     */
+    set width(width) {
+        this.setAttribute('width', width)
+    }
+    /**
+     * @param {number | string} height
+     */
+    set height(height) {
+        this.setAttribute('height', height)
+    }
+    /**
+     * @param {string} side
+     */
+    set side(side) {
+        this.setAttribute('side', side)
+    }
+    connectedCallback() {
+
+        this.style.width = `${this.width}px`
+        this.style.height = `${this.height}px`
+        const {
+            recto,
+            verso,
+            leaf,
+            side
+        } = this
+
+        const figure = document.createElement('figure')
+        this.append(figure)
+
+        for (const sideData of [recto, verso]) {
+            const img = document.createElement('structure-leaf-image')
+
+            img.setAttribute('width', this.width)
+            img.setAttribute("height", this.height)
+            img.setAttribute('default', 'images/document-icon.png')
+            img.setAttribute('data-leaf-id', leaf.id)
+            img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
+            img.setAttribute('data-mode', leaf.params.type.toLowerCase())
+            img.setAttribute('data-side', sideData.side)
+
+            const terms = document.createElement('dl')
+            terms.setAttribute('data-leaf-id', leaf.id)
+            terms.classList.add('hide')
+
+            for (const term of leaf.terms) { // TODO does this account for sides?
+                const leafName = document.createElement('span')
+                leafName.innerText = `L${leaf.id}`
+                const taxonomy = document.createElement('dt')
+                const title = document.createElement('dd')
+                taxonomy.innerText = term.taxonomy
+                title.innerText = term.title
+                terms.append(leafName, taxonomy, title)
+            }
+
+            // Get the URL for this leaf
+            const url = iiif(sideData.data.params.image.url,
+                this.region,
+                this.width,
+                this.height
+            )
+            img.setAttribute('src', sideData.data.params.image.url ? url : img.getAttribute('default'))
+
+            // Only show the one matching the current side
+            if (sideData.side === this.side) {
+                img.classList.add('front')
+            } else {
+                img.classList.add('back')
+            }
+            figure.append(img)
+            const caption = document.createElement('figcaption')
+            img.append(caption)
+
+            // TODO associate the figure and the capture since it's not connected in the DOM
+            // <figure role="region" aria-labelledby="caption-text"> + id
+            caption.append(terms)
+        }
+    }
+    attributeChangedCallback(name, prev, value) {
+        switch (name) {
+            case "side": {
+                for (const fig of this.querySelectorAll('figure')) {
+                    fig.classList.toggle('is-flipped')
+                }
+            }
+        }
     }
 }
 const iiif = (url, region, width, height, rotation = "0", quality = "default", format = "jpg") => (
@@ -574,6 +706,7 @@ customElements.define('leaf-nav', LeafNav)
 customElements.define('spread-navigator', SpreadNavigator)
 customElements.define('structure-view', StructureView)
 customElements.define('structure-leaf-image', StructureLeafImage)
+customElements.define('structure-leaf', StructureLeaf)
 
 // Figure out how to do this intelligently
 // window.addEventListener(COLLATION_READY_EVENT, (e) => {
