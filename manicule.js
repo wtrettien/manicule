@@ -123,11 +123,12 @@ class StructureView extends CollationMember {
     region = 'square'
     defaultWidth = 30
     defaultHeight = 30
+    defaultSide = 'verso'
 
     ns = 'http://www.w3.org/2000/svg'
 
     static get observedAttributes() {
-        return ['quire']
+        return ['quire', 'side']
     }
     constructor() {
         super()
@@ -148,6 +149,9 @@ class StructureView extends CollationMember {
     get height() {
         return +this.getAttribute('height') || this.defaultHeight
     }
+    get side() {
+        return this.getAttribute('side') || this.defaultSide
+    }
     /**
      * @param {number | string} width
      */
@@ -160,9 +164,22 @@ class StructureView extends CollationMember {
     set height(height) {
         this.setAttribute('height', height)
     }
+    /**
+     * @param {string} side
+     */
+    set side(side) {
+        this.setAttribute('side', side)
+    }
+
     attributeChangedCallback(name, prev, value) {
         switch (name) {
             case "quires": {
+                this.render()
+            }
+            case "side": {
+                for (const button of this.querySelectorAll('[data-type="side-toggle"]')) {
+                    button.innerText = this.side
+                }
                 this.render()
             }
         }
@@ -190,6 +207,13 @@ class StructureView extends CollationMember {
 
             const header = document.createElement('h2')
             header.innerText = `Quire ${quire.id}`
+            const displaySide = document.createElement('button')
+            displaySide.setAttribute('data-type', 'side-toggle')
+            displaySide.innerText = this.side
+            displaySide.addEventListener('click', () => {
+                this.side = this.side === 'recto' ? 'verso' : 'recto'
+            }, {passive: true})
+            header.append(displaySide)
             row.append(header)
             const svg = document.createElementNS(this.ns, 'svg')
 
@@ -197,8 +221,8 @@ class StructureView extends CollationMember {
 
             for (const leafId of quire.leaves) {
                 const leaf = this.collation.data.derived.leaves[leafId - 1] // leaves is an array so -1
-                // TODO allow flipping to verso
-                const recto = this.collation.data.derived.rectos[leaf.rectoOrder]
+                const side = this.side === 'recto' ? this.collation.data.derived.rectos[leaf.rectoOrder] :
+                    this.collation.data.derived.versos[leaf.versoOrder]
 
                 const img = document.createElement('structure-leaf-image')
                 img.setAttribute('width', this.width)
@@ -207,7 +231,7 @@ class StructureView extends CollationMember {
                 img.setAttribute('data-leaf-id', leafId)
                 img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
                 img.setAttribute('data-mode', leaf.params.type.toLowerCase())
-
+                img.setAttribute('data-side', this.side)
                 const terms = document.createElement('dl')
                 terms.setAttribute('data-leaf-id', leafId)
                 terms.classList.add('hide')
@@ -223,12 +247,12 @@ class StructureView extends CollationMember {
                 }
 
                 // Get the URL for this leaf
-                const url = iiif(recto.params.image.url,
+                const url = iiif(side.params.image.url,
                     this.region,
                     this.width,
                     this.height
                 )
-                img.setAttribute('src', recto.params.image.url ? url : img.getAttribute('default'))
+                img.setAttribute('src', side.params.image.url ? url : img.getAttribute('default'))
                 row.append(img)
                 termContainer.append(terms)
             }
@@ -245,7 +269,6 @@ class StructureView extends CollationMember {
             const leaves = row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]')
 
             for (const leaf of leaves) {
-                // const conjoin = row.querySelector(`structure-leaf-image[data-leaf-id="${leaf.getAttribute("data-conjoined-leaf-id")}"]`)
                 const id = leaf.getAttribute('data-leaf-id')
                 const lrect = leaf.getBoundingClientRect()
 
@@ -406,7 +429,8 @@ class NavStrip extends CollationMember {
         const items = this.collation.data.derived.linear.map((spread) => {
             const container = document.createElement('span')
             container.setAttribute("data-spread-index", i)
-            container.addEventListener('click', () => viewer.setAttribute('index', container.getAttribute('data-spread-index')))
+            container.addEventListener('click', () =>
+                viewer.setAttribute('index', container.getAttribute('data-spread-index')))
             for (const leaf of spread) {
                 const img = document.createElement('cacheable-image')
                 img.setAttribute('width', this.width)
@@ -433,7 +457,7 @@ class NavStrip extends CollationMember {
 
 class CachableImage extends HTMLElement {
     static get observedAttributes() {
-        return ['src', 'visible']
+        return ['src', 'visible', 'side']
     }
     constructor() {
         super()
@@ -455,12 +479,12 @@ class CachableImage extends HTMLElement {
     get default() {
         return this.getAttribute('default') || 'images/document-icon.png'
     }
+
     connectedCallback() {
 
         const img = document.createElement('img')
         img.width = +this.getAttribute('width')
         img.height = +this.getAttribute('height')
-
 
         // Display the temporary loading image if defined
         if (this.getAttribute("default")) {
@@ -556,6 +580,12 @@ class CachableImage extends HTMLElement {
 }
 
 class StructureLeafImage extends CachableImage {
+    static get observedAttributes() {
+        return ['src', 'visible', 'side']
+    }
+    get side() {
+        return this.getAttribute('side')
+    }
     connectedCallback() {
         super.connectedCallback()
         this.style.width = `${this.img.width}px`

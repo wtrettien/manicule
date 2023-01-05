@@ -120,12 +120,7 @@ img[src="images/loading-icon.svg"] {
 .hide {
      display: none;
 }
-structure-leaf-image {
-    display: inline-block;
-}
-structure-leaf-image.hover img {
-    outline: inset 2px var(--highlight-color);
-}
+
 structure-view {
     display: flex;
     flex-wrap: wrap;
@@ -145,6 +140,20 @@ structure-view [data-type="term-container"] dt {
 }
 structure-view [data-type="term-container"] * {
     margin: 0;
+}
+structure-view [data-type="side-toggle"] {
+    background: none;
+    color: var(--dark-color);
+    border: 1px solid var(--dark-color);
+    display: block;
+    padding: 0;
+    margin: 1rem 0;
+}
+structure-leaf-image {
+    display: inline-block;
+}
+structure-leaf-image.hover img {
+    outline: inset 2px var(--highlight-color);
 }
 
 
