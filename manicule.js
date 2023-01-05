@@ -179,7 +179,13 @@ class StructureView extends CollationMember {
                 for (const button of this.querySelectorAll('[data-type="side-toggle"]')) {
                     button.innerText = this.side
                 }
-                this.render()
+                const groups = [...this.querySelectorAll('structure-leaf')]
+
+                for (const group of groups) {
+                    group.setAttribute("side", this.side)
+                }
+
+
             }
         }
     }
@@ -195,14 +201,14 @@ class StructureView extends CollationMember {
         } else {
             this.quires = this.collation.data.derived.quires
         }
-
+        const toggleSide = () => {
+            console.log('called')
+            this.side = this.side === 'recto' ? 'verso' : 'recto'
+        }
         for (const quire of this.quires) {
 
             const row = document.createElement('div')
             this.append(row)
-
-            const termContainer = document.createElement('div')
-            termContainer.setAttribute('data-type', 'term-container')
 
             const header = document.createElement('h2')
             header.innerText = `Quire ${quire.id}`
@@ -211,8 +217,6 @@ class StructureView extends CollationMember {
             displaySide.innerText = this.side
             displaySide.addEventListener('click', () => {
                 this.side = this.side === 'recto' ? 'verso' : 'recto'
-            }, {
-                passive: true
             })
             header.append(displaySide)
             row.append(header)
@@ -225,8 +229,14 @@ class StructureView extends CollationMember {
 
                 // Always render both sides, but one will be invisible
 
-                const recto = {side: 'recto', data: this.collation.data.derived.rectos[leaf.rectoOrder]}
-                const verso = {side: 'verso', data: this.collation.data.derived.versos[leaf.versoOrder]}
+                const recto = {
+                    side: 'recto',
+                    data: this.collation.data.derived.rectos[leaf.rectoOrder]
+                }
+                const verso = {
+                    side: 'verso',
+                    data: this.collation.data.derived.versos[leaf.versoOrder]
+                }
 
                 const group = document.createElement('structure-leaf')
                 group.setAttribute('width', this.width)
@@ -235,17 +245,15 @@ class StructureView extends CollationMember {
                 group.recto = recto
                 group.verso = verso
                 group.leaf = leaf
-
-
                 row.append(group)
 
 
             }
 
-            const leaves = [...row.querySelectorAll('structure-leaf-image[data-conjoined-leaf-id]:not([class="hide"])')]
+            const leaves = [...row.querySelectorAll(`structure-leaf-image[data-conjoined-leaf-id][data-side="${this.side}"]`)]
 
             const left = leaves[0].getBoundingClientRect()
-            const right = leaves[leaves.length -1].getBoundingClientRect()
+            const right = leaves[leaves.length - 1].getBoundingClientRect()
             const center = (right.right - left.x) / 2
             const svgRect = svg.getBoundingClientRect()
 
@@ -284,13 +292,13 @@ class StructureView extends CollationMember {
                 // Set a listener on the path and the image to display the relevant terms
                 const showTerms = () => {
 
-                    const terms = termContainer.querySelectorAll(`[data-leaf-id="${id}"]`)
+                    const terms = this.querySelectorAll(`dl[data-leaf-id="${id}"]`)
                     terms.forEach(term => term.classList.toggle('hide'))
                     leaf.classList.toggle('hover')
                     path.classList.toggle('hover')
                 }
                 const hideTerms = () => {
-                    const terms = termContainer.querySelectorAll(`[data-leaf-id="${id}"]`)
+                    const terms = this.querySelectorAll(`dl[data-leaf-id="${id}"]`)
                     terms.forEach(term => term.classList.toggle('hide'))
                     leaf.classList.toggle('hover')
                     path.classList.toggle('hover')
@@ -303,7 +311,6 @@ class StructureView extends CollationMember {
                 svg.append(path)
                 i++
             }
-            row.append(termContainer)
         }
     }
 }
@@ -565,12 +572,6 @@ class CachableImage extends HTMLElement {
 }
 
 class StructureLeafImage extends CachableImage {
-    static get observedAttributes() {
-        return ['src', 'visible', 'side']
-    }
-    get side() {
-        return this.getAttribute('side')
-    }
 
     connectedCallback() {
         super.connectedCallback()
@@ -581,15 +582,18 @@ class StructureLeafImage extends CachableImage {
     }
 }
 class StructureLeaf extends HTMLElement {
+    static get observedAttributes() {
+        return ['side']
+    }
+
     region = 'square'
+
     // Contains two leaf images, one for each side
     constructor() {
         super()
         this.recto = undefined
         this.verso = undefined
         this.leaf = undefined
-        // const figure = document.createElement('figure')
-        // this.append(figure)
     }
     get width() {
         return +this.getAttribute('width') || this.defaultWidth
@@ -622,7 +626,15 @@ class StructureLeaf extends HTMLElement {
 
         this.style.width = `${this.width}px`
         this.style.height = `${this.height}px`
-        const {recto, verso, leaf, leafId, side} = this
+        const {
+            recto,
+            verso,
+            leaf,
+            side
+        } = this
+
+        const figure = document.createElement('figure')
+        this.append(figure)
 
         for (const sideData of [recto, verso]) {
             const img = document.createElement('structure-leaf-image')
@@ -636,12 +648,12 @@ class StructureLeaf extends HTMLElement {
             img.setAttribute('data-side', sideData.side)
 
             const terms = document.createElement('dl')
-            terms.setAttribute('data-leaf-id', leafId)
+            terms.setAttribute('data-leaf-id', leaf.id)
             terms.classList.add('hide')
 
             for (const term of leaf.terms) { // TODO does this account for sides?
                 const leafName = document.createElement('span')
-                leafName.innerText = `L${leafId}`
+                leafName.innerText = `L${leaf.id}`
                 const taxonomy = document.createElement('dt')
                 const title = document.createElement('dd')
                 taxonomy.innerText = term.taxonomy
@@ -658,11 +670,27 @@ class StructureLeaf extends HTMLElement {
             img.setAttribute('src', sideData.data.params.image.url ? url : img.getAttribute('default'))
 
             // Only show the one matching the current side
-            if (sideData.side !== this.side) {
-                img.classList.add('hide')
+            if (sideData.side === this.side) {
+                img.classList.add('front')
+            } else {
+                img.classList.add('back')
             }
-            this.append(img)
-            //termContainer.append(terms)
+            figure.append(img)
+            const caption = document.createElement('figcaption')
+            img.append(caption)
+
+            // TODO associate the figure and the capture since it's not connected in the DOM
+            // <figure role="region" aria-labelledby="caption-text"> + id
+            caption.append(terms)
+        }
+    }
+    attributeChangedCallback(name, prev, value) {
+        switch (name) {
+            case "side": {
+                for (const fig of this.querySelectorAll('figure')) {
+                    fig.classList.toggle('is-flipped')
+                }
+            }
         }
     }
 }

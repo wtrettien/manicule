@@ -124,23 +124,13 @@ img[src="images/loading-icon.svg"] {
 structure-view {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap);
     flex-direction: column;
 }
 structure-view > div {
     white-space: nowrap;
+    margin-bottom: 60px;
 }
-structure-view [data-type="term-container"] {
-    position: relative;
-    width: 100%;
-    height: 3rem;
-}
-structure-view [data-type="term-container"] dt {
-    display: none;
-}
-structure-view [data-type="term-container"] * {
-    margin: 0;
-}
+
 structure-view [data-type="side-toggle"] {
     background: none;
     color: var(--dark-color);
@@ -157,10 +147,46 @@ structure-leaf-image.hover img {
 }
 structure-leaf {
     display: inline-block;
+    perspective: 600px;
+
 }
-structure-leaf figure {
+structure-leaf figcaption {
+    position: absolute;
+    bottom: -60px;
+    width: 100%;
+    height: 3rem;
+}
+structure-view figcaption dt {
+    display: none;
+}
+structure-view figcaption * {
     margin: 0;
 }
+
+structure-leaf figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+structure-leaf-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+structure-leaf-image.back {
+    transform: rotateY(180deg);
+}
+.is-flipped {
+    transform: rotateY(180deg);
+}
+
+
 
 svg {
     display: block;
