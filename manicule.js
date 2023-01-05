@@ -185,7 +185,7 @@ class StructureView extends CollationMember {
             const row = document.createElement('div')
             this.append(row)
 
-            const termContainer = document.createElement('aside')
+            const termContainer = document.createElement('div')
             termContainer.setAttribute('data-type', 'term-container')
 
             const header = document.createElement('h2')
