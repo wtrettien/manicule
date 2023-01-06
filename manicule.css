@@ -141,7 +141,7 @@ structure-view [data-type="side-toggle"] {
 [data-type="structure-leaf-image"] {
     display: inline-block;
 }
-[data-type="structure-leaf-image"].hover img {
+[data-type="structure-leaf-image"].hover {
     outline: inset 2px var(--highlight-color);
 }
 structure-leaf {

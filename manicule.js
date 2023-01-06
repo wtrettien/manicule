@@ -292,7 +292,7 @@ class StructureView extends CollationMember {
 
                     const terms = this.querySelectorAll(`dl[data-leaf-id="${id}"]`)
                     terms.forEach(term => term.classList.toggle('hide'))
-                    leaf.classList.toggle('hover')
+                    leaf.classList.toggle('hover') // TODO figure out how to pass this down to the final image
                     path.classList.toggle('hover')
                 }
                 const hideTerms = () => {
