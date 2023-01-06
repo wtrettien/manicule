@@ -120,8 +120,8 @@ class CollationMember extends HTMLElement {
 }
 
 class StructureView extends CollationMember {
-    defaultWidth = 30
-    defaultHeight = 30
+    defaultWidth = 50
+    defaultHeight = 50
     defaultSide = 'verso'
 
     ns = 'http://www.w3.org/2000/svg'
@@ -201,10 +201,6 @@ class StructureView extends CollationMember {
         } else {
             this.quires = this.collation.data.derived.quires
         }
-        const toggleSide = () => {
-            console.log('called')
-            this.side = this.side === 'recto' ? 'verso' : 'recto'
-        }
         for (const quire of this.quires) {
 
             const row = document.createElement('div')
@@ -250,7 +246,7 @@ class StructureView extends CollationMember {
 
             }
 
-            const leaves = [...row.querySelectorAll(`structure-leaf-image[data-conjoined-leaf-id][data-side="${this.side}"]`)]
+            const leaves = [...row.querySelectorAll('structure-leaf[data-conjoined-leaf-id]')]
 
             const left = leaves[0].getBoundingClientRect()
             const right = leaves[leaves.length - 1].getBoundingClientRect()
@@ -263,6 +259,7 @@ class StructureView extends CollationMember {
             // Loop over the elements as rendered to draw their lines
             for (const leaf of leaves) {
                 const id = leaf.getAttribute('data-leaf-id')
+
                 const lrect = leaf.getBoundingClientRect()
 
                 // Start and end coordinates for the lines
@@ -289,6 +286,7 @@ class StructureView extends CollationMember {
                 path.setAttributeNS(null, 'd', d)
                 path.setAttributeNS(null, "data-leaf-id", id)
 
+
                 // Set a listener on the path and the image to display the relevant terms
                 const showTerms = () => {
 
@@ -311,6 +309,7 @@ class StructureView extends CollationMember {
                 svg.append(path)
                 i++
             }
+
         }
     }
 }
@@ -336,8 +335,7 @@ class SpreadViewer extends CollationMember {
     }
     connectedCallback() {
         super.connectedCallback()
-        this.container = document.createElement('div')
-        this.append(this.container)
+
     }
     attributeChangedCallback(name, oldValue, value) {
         // Fire the render method only when the attribute has been dynamically updated
@@ -350,27 +348,18 @@ class SpreadViewer extends CollationMember {
     }
     render = () => {
         const index = +this.getAttribute('index')
-        const verso = document.createElement('cacheable-image')
-        verso.setAttribute('width', this.width)
-        verso.setAttribute('height', this.height)
-        verso.setAttribute('type', 'leaf')
-        verso.setAttribute('default', this.default)
+        const verso = cacheableImage(this.width, this.height, 'leaf', this.default)
+        const recto = cacheableImage(this.width, this.height, 'leaf', this.default)
 
-        const recto = document.createElement('cacheable-image')
-        recto.setAttribute('width', this.width)
-        recto.setAttribute('height', this.height)
-        recto.setAttribute('type', 'leaf')
-        recto.setAttribute('default', this.default)
-
-        this.container.replaceChildren(...[verso, recto])
+        this.replaceChildren(...[verso, recto])
         const spread = this.collation.data.derived.linear[index]
 
-        verso.setAttribute('src', iiif(spread[0].params.image.url,
+        verso.setAttribute('data-url', iiif(spread[0].params.image.url,
             this.region,
             this.width,
             this.height
         ))
-        recto.setAttribute('src', iiif(spread[1].params.image.url,
+        recto.setAttribute('data-url', iiif(spread[1].params.image.url,
             this.region,
             this.width,
             this.height
@@ -421,13 +410,12 @@ class NavStrip extends CollationMember {
         const items = this.collation.data.derived.linear.map((spread) => {
             const container = document.createElement('span')
             container.setAttribute("data-spread-index", i)
-            container.addEventListener('click', () =>
-                viewer.setAttribute('index', container.getAttribute('data-spread-index')))
+            container.addEventListener('click', () => {
+                viewer.setAttribute('index', container.getAttribute('data-spread-index'))
+            })
             for (const leaf of spread) {
-                const img = document.createElement('cacheable-image')
-                img.setAttribute('width', this.width)
-                img.setAttribute("height", this.height)
-                img.setAttribute('default', 'images/document-icon.png')
+                const img = cacheableImage(this.width, this.height, 'nav-leaf')
+
                 container.append(img)
 
                 const url = iiif(leaf.params.image.url,
@@ -435,7 +423,7 @@ class NavStrip extends CollationMember {
                     this.width,
                     this.height
                 )
-                img.setAttribute('src', url)
+                img.setAttribute('data-url', url)
 
             }
             i++
@@ -446,141 +434,119 @@ class NavStrip extends CollationMember {
     }
 
 }
+/**
+ * Return an image element that will, as a side effect, cache itself and return the cached image as its source.
+ *
+ * @param {number} width
+ * @param {number} height
+ * @param {string} type
+ * @param {string} srcDefault*
+ * @param {boolean} visible
+ * @param {boolean} selected
 
-class CachableImage extends HTMLElement {
-    static get observedAttributes() {
-        return ['src', 'visible', 'side']
-    }
-    constructor() {
-        super()
-        this.mousedown = false
-        this.zoomed = false
-        this.selected = false
-        this.observer = new IntersectionObserver((entries) => {
-            entries.map((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.setAttribute('visible', true)
-                    this.observer.unobserve(entry.target)
-                }
-            })
+
+ */
+const cacheableImage = (width, height, type = undefined, srcDefault = 'images/document-icon.png', visible = false,
+    selected = false) => {
+
+    const img = document.createElement('img')
+    img.width = width
+    img.height = height
+    img.visible = visible
+    img.selected = selected
+    img.mousedown = false
+    img.setAttribute('data-type', type)
+    img.setAttribute('data-cacheable-image', 'cacheable-image')
+    img.src = srcDefault
+
+    img.observer = new IntersectionObserver((entries) => {
+        entries.map((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.cache()
+                img.observer.unobserve(entry.target)
+            }
         })
-        this.observer.observe(this)
+    })
+    img.observer.observe(img)
 
-    }
-
-    get default() {
-        return this.getAttribute('default') || 'images/document-icon.png'
-    }
-
-    connectedCallback() {
-
-        const img = document.createElement('img')
-        img.width = +this.getAttribute('width')
-        img.height = +this.getAttribute('height')
-
-        // Display the temporary loading image if defined
-        if (this.getAttribute("default")) {
-            img.src = this.getAttribute('default')
+    if (type === 'leaf') {
+        const start = {
+            x: 0,
+            y: 0
         }
+        const offset = {
+            x: 0,
+            y: 0
+        } // The transform offset (from center)
+        let scale = 1
+        img.addEventListener('wheel', (e) => {
+            if (img.selected) {
+                scale += e.deltaY * -0.01
 
-        // Set up mouse zoom/pan events
-        if (this.getAttribute('type') === 'leaf') {
-            const start = {
-                x: 0,
-                y: 0
+                // Restrict scale
+                scale = Math.min(Math.max(1, scale), 4)
+
+                // Apply scale transform
+                img.style.transform = `scale(${scale})`
+
+                if (scale > 1) {
+                    img.zoomed = true
+                    img.style.zIndex = 99
+                } else {
+                    img.zoomed = false
+                    img.style.zIndex = 1
+                    img.style.translate = '0px 0px'
+                }
             }
-            const offset = {
-                x: 0,
-                y: 0
-            } // The transform offset (from center)
-            let scale = 1
-            img.addEventListener('wheel', (e) => {
-                if (this.selected) {
-                    scale += e.deltaY * -0.01
+        }, {
+            passive: true
+        })
+        img.addEventListener('click', (e) => {
+            e.stopPropagation()
+            img.selected = !img.selected
+            img.classList.toggle('selected')
 
-                    // Restrict scale
-                    scale = Math.min(Math.max(1, scale), 4)
+        })
+        img.addEventListener('mousedown', (e) => {
+            img.mousedown = true
+            start.x = e.clientX - offset.x
+            start.y = e.clientY - offset.y
+        })
+        img.addEventListener('mouseup', () => {
+            img.mousedown = false
+        })
 
-                    // Apply scale transform
-                    img.style.transform = `scale(${scale})`
+        img.addEventListener('mousemove', (e) => {
+            if (img.mousedown && img.zoomed && img.selected) {
+                e.preventDefault()
+                offset.x = e.clientX - start.x
+                offset.y = e.clientY - start.y
+                img.style.translate = `${offset.x}px ${offset.y}px`
+            }
+        })
 
-                    if (scale > 1) {
-                        this.zoomed = true
-                        img.style.zIndex = 99
-                    } else {
-                        this.zoomed = false
-                        img.style.zIndex = 1
-                        img.style.translate = '0px 0px'
-                    }
-                }
-            }, {
-                passive: true
-            })
-            img.addEventListener('click', (e) => {
-                e.stopPropagation()
-                this.selected = !this.selected
-                this.img.classList.toggle('selected')
-
-            })
-            img.addEventListener('mousedown', (e) => {
-                this.mousedown = true
-                start.x = e.clientX - offset.x
-                start.y = e.clientY - offset.y
-            })
-            img.addEventListener('mouseup', () => {
-                this.mousedown = false
-            })
-
-            img.addEventListener('mousemove', (e) => {
-                if (this.mousedown && this.zoomed && this.selected) {
-                    e.preventDefault()
-                    offset.x = e.clientX - start.x
-                    offset.y = e.clientY - start.y
-                    img.style.translate = `${offset.x}px ${offset.y}px`
-                }
-            })
-
-        }
-        this.append(img)
-        this.img = img
     }
-    attributeChangedCallback(name, _, value) {
-        switch (name) {
-            case 'visible': {
-                const url = this.getAttribute('src')
-                if (url !== this.default) {
-                    cache.match(url).then((resp) => {
-                        if (resp) {
-                            resp.blob().then((blob) => {
-                                this.img.src = URL.createObjectURL(blob)
-                            })
-                        } else {
-                            fetch(new Request(url)).then((resp) => {
-                                cache.put(url, resp.clone())
-                                resp.blob().then((blob) => {
-                                    this.img.src = URL.createObjectURL(blob)
-                                })
-
-                            })
-                        }
+    img.cache = () => {
+        const url = img.getAttribute('data-url')
+        cache.match(url).then((resp) => {
+            if (resp) {
+                resp.blob().then((blob) => {
+                    img.src = URL.createObjectURL(blob)
+                })
+            } else {
+                fetch(new Request(url)).then((resp) => {
+                    cache.put(url, resp.clone())
+                    resp.blob().then((blob) => {
+                        img.src = URL.createObjectURL(blob)
                     })
-                }
 
+                })
             }
-        }
+        })
     }
+    return img
 }
 
-class StructureLeafImage extends CachableImage {
-
-    connectedCallback() {
-        super.connectedCallback()
-        this.style.width = `${this.img.width}px`
-        this.style.height = `${this.img.height}px`
-
-
-    }
-}
 class StructureLeaf extends HTMLElement {
     static get observedAttributes() {
         return ['side']
@@ -637,14 +603,12 @@ class StructureLeaf extends HTMLElement {
         this.append(figure)
 
         for (const sideData of [recto, verso]) {
-            const img = document.createElement('structure-leaf-image')
-
-            img.setAttribute('width', this.width)
-            img.setAttribute("height", this.height)
-            img.setAttribute('default', 'images/document-icon.png')
+            const img = cacheableImage(this.width, this.height, 'structure-leaf-image')
             img.setAttribute('data-leaf-id', leaf.id)
+            this.setAttribute('data-leaf-id', leaf.id)
             img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
-            img.setAttribute('data-mode', leaf.params.type.toLowerCase())
+            this.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
+            this.setAttribute('data-mode', leaf.params.type.toLowerCase())
             img.setAttribute('data-side', sideData.side)
 
             const terms = document.createElement('dl')
@@ -667,7 +631,11 @@ class StructureLeaf extends HTMLElement {
                 this.width,
                 this.height
             )
-            img.setAttribute('src', sideData.data.params.image.url ? url : img.getAttribute('default'))
+            img.setAttribute('data-url', sideData.data.params.image.url ? url : img.src)
+
+            if (!sideData.data.params.image.url) {
+                img.setAttribute('data-no-image', 'true')
+            }
 
             // Only show the one matching the current side
             if (sideData.side === this.side) {
@@ -677,7 +645,7 @@ class StructureLeaf extends HTMLElement {
             }
             figure.append(img)
             const caption = document.createElement('figcaption')
-            img.append(caption)
+            figure.append(caption)
 
             // TODO associate the figure and the capture since it's not connected in the DOM
             // <figure role="region" aria-labelledby="caption-text"> + id
@@ -700,12 +668,10 @@ const iiif = (url, region, width, height, rotation = "0", quality = "default", f
 
 customElements.define('collation-model', CollationModel)
 customElements.define('nav-strip', NavStrip)
-customElements.define('cacheable-image', CachableImage)
 customElements.define('spread-viewer', SpreadViewer)
 customElements.define('leaf-nav', LeafNav)
 customElements.define('spread-navigator', SpreadNavigator)
 customElements.define('structure-view', StructureView)
-customElements.define('structure-leaf-image', StructureLeafImage)
 customElements.define('structure-leaf', StructureLeaf)
 
 // Figure out how to do this intelligently
@@ -745,13 +711,13 @@ document.addEventListener('click', () => {
 document.addEventListener('keydown', (e) => {
     switch (e.key) {
         case 'Escape': {
-            [...document.querySelectorAll('cacheable-image')].map((el) => {
+            [...document.querySelectorAll('[data-cacheable-image]')].map((el) => {
                 el.zoomed = false
                 el.selected = false
-                el.img.style.translate = '0px 0px'
-                el.img.style.transform = 'scale(1)'
-                el.img.classList.remove('selected')
-                el.img.zIndex = 1
+                el.style.translate = '0px 0px'
+                el.style.transform = 'scale(1)'
+                el.classList.remove('selected')
+                el.zIndex = 1
 
 
             })

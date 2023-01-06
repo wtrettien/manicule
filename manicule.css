@@ -63,15 +63,14 @@ spread-navigator {
     min-height: 4rem;
 }
 
-spread-viewer div {
+spread-viewer {
     display: flex;
     align-items: center;
     width: 100%;
 }
 spread-viewer img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
-    display: inline-flex;
 }
 spread-viewer img.selected {
     outline: 10px solid var(--highlight-color);
@@ -139,10 +138,10 @@ structure-view [data-type="side-toggle"] {
     padding: 0;
     margin: 1rem 0;
 }
-structure-leaf-image {
+[data-type="structure-leaf-image"] {
     display: inline-block;
 }
-structure-leaf-image.hover img {
+[data-type="structure-leaf-image"].hover img {
     outline: inset 2px var(--highlight-color);
 }
 structure-leaf {
@@ -173,16 +172,20 @@ structure-leaf figure {
     transform-style: preserve-3d;
 }
 
-structure-leaf-image {
+[data-type="structure-leaf-image"] {
     position: absolute;
     height: 100%;
     width: 100%;
     backface-visibility: hidden;
 }
-structure-leaf-image.back {
+[data-type="structure-leaf-image"].back {
     transform: rotateY(180deg);
 }
 .is-flipped {
+    transform: rotateY(180deg);
+}
+/* Un-rotate the caption */
+.is-flipped figcaption {
     transform: rotateY(180deg);
 }
 
