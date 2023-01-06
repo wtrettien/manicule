@@ -201,10 +201,6 @@ class StructureView extends CollationMember {
         } else {
             this.quires = this.collation.data.derived.quires
         }
-        const toggleSide = () => {
-            console.log('called')
-            this.side = this.side === 'recto' ? 'verso' : 'recto'
-        }
         for (const quire of this.quires) {
 
             const row = document.createElement('div')
@@ -250,7 +246,7 @@ class StructureView extends CollationMember {
 
             }
 
-            const leaves = [...row.querySelectorAll(`structure-leaf-image[data-conjoined-leaf-id][data-side="${this.side}"]`)]
+            const leaves = [...row.querySelectorAll(`[data-type="structure-leaf-image"][data-conjoined-leaf-id][data-side="${this.side}"]`)]
 
             const left = leaves[0].getBoundingClientRect()
             const right = leaves[leaves.length - 1].getBoundingClientRect()
@@ -336,8 +332,7 @@ class SpreadViewer extends CollationMember {
     }
     connectedCallback() {
         super.connectedCallback()
-        this.container = document.createElement('div')
-        this.append(this.container)
+
     }
     attributeChangedCallback(name, oldValue, value) {
         // Fire the render method only when the attribute has been dynamically updated
@@ -350,27 +345,18 @@ class SpreadViewer extends CollationMember {
     }
     render = () => {
         const index = +this.getAttribute('index')
-        const verso = document.createElement('cacheable-image')
-        verso.setAttribute('width', this.width)
-        verso.setAttribute('height', this.height)
-        verso.setAttribute('type', 'leaf')
-        verso.setAttribute('default', this.default)
+        const verso = cacheableImage(this.width, this.height, 'leaf', this.default)
+        const recto = cacheableImage(this.width, this.height, 'leaf', this.default)
 
-        const recto = document.createElement('cacheable-image')
-        recto.setAttribute('width', this.width)
-        recto.setAttribute('height', this.height)
-        recto.setAttribute('type', 'leaf')
-        recto.setAttribute('default', this.default)
-
-        this.container.replaceChildren(...[verso, recto])
+        this.replaceChildren(...[verso, recto])
         const spread = this.collation.data.derived.linear[index]
 
-        verso.setAttribute('src', iiif(spread[0].params.image.url,
+        verso.setAttribute('data-url', iiif(spread[0].params.image.url,
             this.region,
             this.width,
             this.height
         ))
-        recto.setAttribute('src', iiif(spread[1].params.image.url,
+        recto.setAttribute('data-url', iiif(spread[1].params.image.url,
             this.region,
             this.width,
             this.height
@@ -424,10 +410,8 @@ class NavStrip extends CollationMember {
             container.addEventListener('click', () =>
                 viewer.setAttribute('index', container.getAttribute('data-spread-index')))
             for (const leaf of spread) {
-                const img = document.createElement('cacheable-image')
-                img.setAttribute('width', this.width)
-                img.setAttribute("height", this.height)
-                img.setAttribute('default', 'images/document-icon.png')
+                const img = cacheableImage(this.width, this.height, 'leaf')
+
                 container.append(img)
 
                 const url = iiif(leaf.params.image.url,
@@ -435,7 +419,7 @@ class NavStrip extends CollationMember {
                     this.width,
                     this.height
                 )
-                img.setAttribute('src', url)
+                img.setAttribute('data-url', url)
 
             }
             i++
@@ -446,7 +430,59 @@ class NavStrip extends CollationMember {
     }
 
 }
+/**
+ * Return an image element that will, as a side effect, cache itself and return the cached image as its source.
+ *
+ * @param {number} width
+ * @param {number} height
+ * @param {string} type
+ * @param {string} srcDefault*
+ * @param {boolean} visible
+ * @param {boolean} selected
 
+
+ */
+const cacheableImage = (width, height, type = undefined, srcDefault = 'images/document-icon.png', visible = false,
+    selected = false) => {
+
+    const img = document.createElement('img')
+    img.width = width
+    img.height = height
+    img.visible = visible
+    img.selected = selected
+    img.setAttribute('data-type', type)
+    img.src = srcDefault
+
+    img.observer = new IntersectionObserver((entries) => {
+        entries.map((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.cache()
+                img.observer.unobserve(entry.target)
+            }
+        })
+    })
+    img.observer.observe(img)
+
+    img.cache = () => {
+        const url = img.getAttribute('data-url')
+        cache.match(url).then((resp) => {
+            if (resp) {
+                resp.blob().then((blob) => {
+                    img.src = URL.createObjectURL(blob)
+                })
+            } else {
+                fetch(new Request(url)).then((resp) => {
+                    cache.put(url, resp.clone())
+                    resp.blob().then((blob) => {
+                        img.src = URL.createObjectURL(blob)
+                    })
+
+                })
+            }
+        })
+    }
+    return img
+}
 class CachableImage extends HTMLElement {
     static get observedAttributes() {
         return ['src', 'visible', 'side']
@@ -465,6 +501,7 @@ class CachableImage extends HTMLElement {
             })
         })
         this.observer.observe(this)
+
 
     }
 
@@ -637,11 +674,7 @@ class StructureLeaf extends HTMLElement {
         this.append(figure)
 
         for (const sideData of [recto, verso]) {
-            const img = document.createElement('structure-leaf-image')
-
-            img.setAttribute('width', this.width)
-            img.setAttribute("height", this.height)
-            img.setAttribute('default', 'images/document-icon.png')
+            const img = cacheableImage(this.width, this.height, 'structure-leaf-image')
             img.setAttribute('data-leaf-id', leaf.id)
             img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
             img.setAttribute('data-mode', leaf.params.type.toLowerCase())
@@ -667,7 +700,7 @@ class StructureLeaf extends HTMLElement {
                 this.width,
                 this.height
             )
-            img.setAttribute('src', sideData.data.params.image.url ? url : img.getAttribute('default'))
+            img.setAttribute('data-url', sideData.data.params.image.url ? url : img.src)
 
             // Only show the one matching the current side
             if (sideData.side === this.side) {
@@ -677,7 +710,7 @@ class StructureLeaf extends HTMLElement {
             }
             figure.append(img)
             const caption = document.createElement('figcaption')
-            img.append(caption)
+            figure.append(caption)
 
             // TODO associate the figure and the capture since it's not connected in the DOM
             // <figure role="region" aria-labelledby="caption-text"> + id
