@@ -178,7 +178,7 @@ structure-leaf figure {
     width: 100%;
     backface-visibility: hidden;
 }
-[data-type="structure-leaf-image"].back {
+[data-type="structure-leaf-image"][data-facing="back"] {
     transform: rotateY(180deg);
 }
 .is-flipped {

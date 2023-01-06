@@ -348,8 +348,8 @@ class SpreadViewer extends CollationMember {
     }
     render = () => {
         const index = +this.getAttribute('index')
-        const verso = cacheableImage(this.width, this.height, 'leaf', this.default)
-        const recto = cacheableImage(this.width, this.height, 'leaf', this.default)
+        const verso = cacheableImage(this.width, this.height, 'leaf', {}, this.default)
+        const recto = cacheableImage(this.width, this.height, 'leaf', {}, this.default)
 
         this.replaceChildren(...[verso, recto])
         const spread = this.collation.data.derived.linear[index]
@@ -434,20 +434,27 @@ class NavStrip extends CollationMember {
     }
 
 }
+
 /**
  * Return an image element that will, as a side effect, cache itself and return the cached image as its source.
  *
  * @param {number} width
  * @param {number} height
  * @param {string} type
+ * @param {Object} attrs
  * @param {string} srcDefault*
  * @param {boolean} visible
  * @param {boolean} selected
 
 
  */
-const cacheableImage = (width, height, type = undefined, srcDefault = 'images/document-icon.png', visible = false,
+const cacheableImage = (width, height, type = undefined, attrs = {}, srcDefault = 'images/document-icon.png', visible = false,
     selected = false) => {
+
+    const loadingImg = document.createElement('img')
+    loadingImg.width = width
+    loadingImg.height = height
+    loadingImg.src = srcDefault
 
     const img = document.createElement('img')
     img.width = width
@@ -457,17 +464,24 @@ const cacheableImage = (width, height, type = undefined, srcDefault = 'images/do
     img.mousedown = false
     img.setAttribute('data-type', type)
     img.setAttribute('data-cacheable-image', 'cacheable-image')
-    img.src = srcDefault
 
-    img.observer = new IntersectionObserver((entries) => {
+    for (const attr of Object.entries(attrs)) {
+        const [
+            k,
+            v
+         ] = attr
+        img.setAttribute(k, v)
+    }
+
+    loadingImg.observer = new IntersectionObserver((entries) => {
         entries.map((entry) => {
             if (entry.isIntersecting) {
-                entry.target.cache()
-                img.observer.unobserve(entry.target)
+                img.cache()
+                loadingImg.observer.unobserve(entry.target)
             }
         })
     })
-    img.observer.observe(img)
+    loadingImg.observer.observe(loadingImg)
 
     if (type === 'leaf') {
         const start = {
@@ -527,24 +541,26 @@ const cacheableImage = (width, height, type = undefined, srcDefault = 'images/do
 
     }
     img.cache = () => {
-        const url = img.getAttribute('data-url')
+        const url = loadingImg.getAttribute('data-url')
         cache.match(url).then((resp) => {
             if (resp) {
                 resp.blob().then((blob) => {
                     img.src = URL.createObjectURL(blob)
+                    img.decode().then(() => loadingImg.replaceWith(img))
                 })
             } else {
                 fetch(new Request(url)).then((resp) => {
                     cache.put(url, resp.clone())
                     resp.blob().then((blob) => {
                         img.src = URL.createObjectURL(blob)
+                        img.decode().then(() => loadingImg.replaceWith(img))
                     })
 
                 })
             }
         })
     }
-    return img
+    return loadingImg
 }
 
 class StructureLeaf extends HTMLElement {
@@ -603,7 +619,12 @@ class StructureLeaf extends HTMLElement {
         this.append(figure)
 
         for (const sideData of [recto, verso]) {
-            const img = cacheableImage(this.width, this.height, 'structure-leaf-image')
+            const img = cacheableImage(this.width, this.height, 'structure-leaf-image', {
+                'data-leaf-id': leaf.id,
+                'data-conjoined-leaf-id': leaf.conjoined_leaf_order,
+                'data-side': sideData.side,
+                'data-facing': sideData.side === this.side ? 'front' : 'back'
+            })
             img.setAttribute('data-leaf-id', leaf.id)
             this.setAttribute('data-leaf-id', leaf.id)
             img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
@@ -632,18 +653,8 @@ class StructureLeaf extends HTMLElement {
                 this.height
             )
             img.setAttribute('data-url', sideData.data.params.image.url ? url : img.src)
-
-            if (!sideData.data.params.image.url) {
-                img.setAttribute('data-no-image', 'true')
-            }
-
-            // Only show the one matching the current side
-            if (sideData.side === this.side) {
-                img.classList.add('front')
-            } else {
-                img.classList.add('back')
-            }
             figure.append(img)
+
             const caption = document.createElement('figcaption')
             figure.append(caption)
 
