@@ -184,6 +184,10 @@ structure-leaf figure {
 .is-flipped {
     transform: rotateY(180deg);
 }
+/* Un-rotate the caption */
+.is-flipped figcaption {
+    transform: rotateY(180deg);
+}
 
 
 

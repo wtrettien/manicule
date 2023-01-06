@@ -120,8 +120,8 @@ class CollationMember extends HTMLElement {
 }
 
 class StructureView extends CollationMember {
-    defaultWidth = 30
-    defaultHeight = 30
+    defaultWidth = 50
+    defaultHeight = 50
     defaultSide = 'verso'
 
     ns = 'http://www.w3.org/2000/svg'
@@ -246,7 +246,7 @@ class StructureView extends CollationMember {
 
             }
 
-            const leaves = [...row.querySelectorAll(`[data-type="structure-leaf-image"][data-conjoined-leaf-id][data-side="${this.side}"]`)]
+            const leaves = [...row.querySelectorAll('structure-leaf[data-conjoined-leaf-id]')]
 
             const left = leaves[0].getBoundingClientRect()
             const right = leaves[leaves.length - 1].getBoundingClientRect()
@@ -259,6 +259,7 @@ class StructureView extends CollationMember {
             // Loop over the elements as rendered to draw their lines
             for (const leaf of leaves) {
                 const id = leaf.getAttribute('data-leaf-id')
+
                 const lrect = leaf.getBoundingClientRect()
 
                 // Start and end coordinates for the lines
@@ -285,6 +286,7 @@ class StructureView extends CollationMember {
                 path.setAttributeNS(null, 'd', d)
                 path.setAttributeNS(null, "data-leaf-id", id)
 
+
                 // Set a listener on the path and the image to display the relevant terms
                 const showTerms = () => {
 
@@ -307,6 +309,7 @@ class StructureView extends CollationMember {
                 svg.append(path)
                 i++
             }
+
         }
     }
 }
@@ -407,10 +410,11 @@ class NavStrip extends CollationMember {
         const items = this.collation.data.derived.linear.map((spread) => {
             const container = document.createElement('span')
             container.setAttribute("data-spread-index", i)
-            container.addEventListener('click', () =>
-                viewer.setAttribute('index', container.getAttribute('data-spread-index')))
+            container.addEventListener('click', () => {
+                viewer.setAttribute('index', container.getAttribute('data-spread-index'))
+            })
             for (const leaf of spread) {
-                const img = cacheableImage(this.width, this.height, 'leaf')
+                const img = cacheableImage(this.width, this.height, 'nav-leaf')
 
                 container.append(img)
 
@@ -450,7 +454,9 @@ const cacheableImage = (width, height, type = undefined, srcDefault = 'images/do
     img.height = height
     img.visible = visible
     img.selected = selected
+    img.mousedown = false
     img.setAttribute('data-type', type)
+    img.setAttribute('data-cacheable-image', 'cacheable-image')
     img.src = srcDefault
 
     img.observer = new IntersectionObserver((entries) => {
@@ -463,6 +469,63 @@ const cacheableImage = (width, height, type = undefined, srcDefault = 'images/do
     })
     img.observer.observe(img)
 
+    if (type === 'leaf') {
+        const start = {
+            x: 0,
+            y: 0
+        }
+        const offset = {
+            x: 0,
+            y: 0
+        } // The transform offset (from center)
+        let scale = 1
+        img.addEventListener('wheel', (e) => {
+            if (img.selected) {
+                scale += e.deltaY * -0.01
+
+                // Restrict scale
+                scale = Math.min(Math.max(1, scale), 4)
+
+                // Apply scale transform
+                img.style.transform = `scale(${scale})`
+
+                if (scale > 1) {
+                    img.zoomed = true
+                    img.style.zIndex = 99
+                } else {
+                    img.zoomed = false
+                    img.style.zIndex = 1
+                    img.style.translate = '0px 0px'
+                }
+            }
+        }, {
+            passive: true
+        })
+        img.addEventListener('click', (e) => {
+            e.stopPropagation()
+            img.selected = !img.selected
+            img.classList.toggle('selected')
+
+        })
+        img.addEventListener('mousedown', (e) => {
+            img.mousedown = true
+            start.x = e.clientX - offset.x
+            start.y = e.clientY - offset.y
+        })
+        img.addEventListener('mouseup', () => {
+            img.mousedown = false
+        })
+
+        img.addEventListener('mousemove', (e) => {
+            if (img.mousedown && img.zoomed && img.selected) {
+                e.preventDefault()
+                offset.x = e.clientX - start.x
+                offset.y = e.clientY - start.y
+                img.style.translate = `${offset.x}px ${offset.y}px`
+            }
+        })
+
+    }
     img.cache = () => {
         const url = img.getAttribute('data-url')
         cache.match(url).then((resp) => {
@@ -483,141 +546,7 @@ const cacheableImage = (width, height, type = undefined, srcDefault = 'images/do
     }
     return img
 }
-class CachableImage extends HTMLElement {
-    static get observedAttributes() {
-        return ['src', 'visible', 'side']
-    }
-    constructor() {
-        super()
-        this.mousedown = false
-        this.zoomed = false
-        this.selected = false
-        this.observer = new IntersectionObserver((entries) => {
-            entries.map((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.setAttribute('visible', true)
-                    this.observer.unobserve(entry.target)
-                }
-            })
-        })
-        this.observer.observe(this)
 
-
-    }
-
-    get default() {
-        return this.getAttribute('default') || 'images/document-icon.png'
-    }
-
-    connectedCallback() {
-
-        const img = document.createElement('img')
-        img.width = +this.getAttribute('width')
-        img.height = +this.getAttribute('height')
-
-        // Display the temporary loading image if defined
-        if (this.getAttribute("default")) {
-            img.src = this.getAttribute('default')
-        }
-
-        // Set up mouse zoom/pan events
-        if (this.getAttribute('type') === 'leaf') {
-            const start = {
-                x: 0,
-                y: 0
-            }
-            const offset = {
-                x: 0,
-                y: 0
-            } // The transform offset (from center)
-            let scale = 1
-            img.addEventListener('wheel', (e) => {
-                if (this.selected) {
-                    scale += e.deltaY * -0.01
-
-                    // Restrict scale
-                    scale = Math.min(Math.max(1, scale), 4)
-
-                    // Apply scale transform
-                    img.style.transform = `scale(${scale})`
-
-                    if (scale > 1) {
-                        this.zoomed = true
-                        img.style.zIndex = 99
-                    } else {
-                        this.zoomed = false
-                        img.style.zIndex = 1
-                        img.style.translate = '0px 0px'
-                    }
-                }
-            }, {
-                passive: true
-            })
-            img.addEventListener('click', (e) => {
-                e.stopPropagation()
-                this.selected = !this.selected
-                this.img.classList.toggle('selected')
-
-            })
-            img.addEventListener('mousedown', (e) => {
-                this.mousedown = true
-                start.x = e.clientX - offset.x
-                start.y = e.clientY - offset.y
-            })
-            img.addEventListener('mouseup', () => {
-                this.mousedown = false
-            })
-
-            img.addEventListener('mousemove', (e) => {
-                if (this.mousedown && this.zoomed && this.selected) {
-                    e.preventDefault()
-                    offset.x = e.clientX - start.x
-                    offset.y = e.clientY - start.y
-                    img.style.translate = `${offset.x}px ${offset.y}px`
-                }
-            })
-
-        }
-        this.append(img)
-        this.img = img
-    }
-    attributeChangedCallback(name, _, value) {
-        switch (name) {
-            case 'visible': {
-                const url = this.getAttribute('src')
-                if (url !== this.default) {
-                    cache.match(url).then((resp) => {
-                        if (resp) {
-                            resp.blob().then((blob) => {
-                                this.img.src = URL.createObjectURL(blob)
-                            })
-                        } else {
-                            fetch(new Request(url)).then((resp) => {
-                                cache.put(url, resp.clone())
-                                resp.blob().then((blob) => {
-                                    this.img.src = URL.createObjectURL(blob)
-                                })
-
-                            })
-                        }
-                    })
-                }
-
-            }
-        }
-    }
-}
-
-class StructureLeafImage extends CachableImage {
-
-    connectedCallback() {
-        super.connectedCallback()
-        this.style.width = `${this.img.width}px`
-        this.style.height = `${this.img.height}px`
-
-
-    }
-}
 class StructureLeaf extends HTMLElement {
     static get observedAttributes() {
         return ['side']
@@ -676,8 +605,10 @@ class StructureLeaf extends HTMLElement {
         for (const sideData of [recto, verso]) {
             const img = cacheableImage(this.width, this.height, 'structure-leaf-image')
             img.setAttribute('data-leaf-id', leaf.id)
+            this.setAttribute('data-leaf-id', leaf.id)
             img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
-            img.setAttribute('data-mode', leaf.params.type.toLowerCase())
+            this.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
+            this.setAttribute('data-mode', leaf.params.type.toLowerCase())
             img.setAttribute('data-side', sideData.side)
 
             const terms = document.createElement('dl')
@@ -701,6 +632,10 @@ class StructureLeaf extends HTMLElement {
                 this.height
             )
             img.setAttribute('data-url', sideData.data.params.image.url ? url : img.src)
+
+            if (!sideData.data.params.image.url) {
+                img.setAttribute('data-no-image', 'true')
+            }
 
             // Only show the one matching the current side
             if (sideData.side === this.side) {
@@ -733,12 +668,10 @@ const iiif = (url, region, width, height, rotation = "0", quality = "default", f
 
 customElements.define('collation-model', CollationModel)
 customElements.define('nav-strip', NavStrip)
-customElements.define('cacheable-image', CachableImage)
 customElements.define('spread-viewer', SpreadViewer)
 customElements.define('leaf-nav', LeafNav)
 customElements.define('spread-navigator', SpreadNavigator)
 customElements.define('structure-view', StructureView)
-customElements.define('structure-leaf-image', StructureLeafImage)
 customElements.define('structure-leaf', StructureLeaf)
 
 // Figure out how to do this intelligently
@@ -778,13 +711,13 @@ document.addEventListener('click', () => {
 document.addEventListener('keydown', (e) => {
     switch (e.key) {
         case 'Escape': {
-            [...document.querySelectorAll('cacheable-image')].map((el) => {
+            [...document.querySelectorAll('[data-cacheable-image]')].map((el) => {
                 el.zoomed = false
                 el.selected = false
-                el.img.style.translate = '0px 0px'
-                el.img.style.transform = 'scale(1)'
-                el.img.classList.remove('selected')
-                el.img.zIndex = 1
+                el.style.translate = '0px 0px'
+                el.style.transform = 'scale(1)'
+                el.classList.remove('selected')
+                el.zIndex = 1
 
 
             })
