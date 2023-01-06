@@ -455,6 +455,7 @@ const cacheableImage = (width, height, type = undefined, attrs = {}, srcDefault 
     loadingImg.width = width
     loadingImg.height = height
     loadingImg.src = srcDefault
+    loadingImg.setAttribute('data-type', type)
 
     const img = document.createElement('img')
     img.width = width
@@ -625,12 +626,11 @@ class StructureLeaf extends HTMLElement {
                 'data-side': sideData.side,
                 'data-facing': sideData.side === this.side ? 'front' : 'back'
             })
-            img.setAttribute('data-leaf-id', leaf.id)
+            img.setAttribute('data-facing', sideData.side === this.side ? 'front' : 'back')
+
             this.setAttribute('data-leaf-id', leaf.id)
-            img.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
             this.setAttribute('data-conjoined-leaf-id', leaf.conjoined_leaf_order)
             this.setAttribute('data-mode', leaf.params.type.toLowerCase())
-            img.setAttribute('data-side', sideData.side)
 
             const terms = document.createElement('dl')
             terms.setAttribute('data-leaf-id', leaf.id)
