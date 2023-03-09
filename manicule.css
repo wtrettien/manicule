@@ -63,19 +63,6 @@ spread-navigator {
     min-height: 4rem;
 }
 
-spread-viewer {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-spread-viewer img {
-    max-width: 50%;
-    height: auto;
-}
-spread-viewer img.selected {
-    outline: 10px solid var(--highlight-color);
-    z-index: 99;
-}
 nav-strip > nav {
     overflow-x: auto;
     width: 100%;

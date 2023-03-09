@@ -10,6 +10,12 @@ class CollationModel extends HTMLElement {
     constructor() {
         super()
         this.data = {}
+        this.insertAdjacentHTML("afterbegin", `<style>
+            :host { 
+                container-type: size;
+                container-name: outer;
+            }
+        </style>`)
     }
     get id() {
         return this.getAttribute("id")
@@ -103,6 +109,10 @@ class CollationModel extends HTMLElement {
 }
 class CollationMember extends HTMLElement {
 
+    constructor() {
+        super()
+        this.attachShadow({mode: 'open'})
+    }
     connectedCallback() {
         const collation = this.collation
         this.id = collation.getAttribute('id')
@@ -321,6 +331,10 @@ class SpreadViewer extends CollationMember {
     defaultWidth = 1750
     defaultHeight = 2423
 
+    constructor() {
+        super()
+
+    }
     static get observedAttributes() {
         return ['index']
     }
@@ -351,7 +365,7 @@ class SpreadViewer extends CollationMember {
         const verso = cacheableImage(this.width, this.height, 'leaf', {}, this.default)
         const recto = cacheableImage(this.width, this.height, 'leaf', {}, this.default)
 
-        this.replaceChildren(...[verso, recto])
+        this.shadowRoot.replaceChildren(...[verso, recto])
         const spread = this.collation.data.derived.linear[index]
 
         verso.setAttribute('data-url', iiif(spread[0].params.image.url,
@@ -364,6 +378,22 @@ class SpreadViewer extends CollationMember {
             this.width,
             this.height
         ))
+        console.log(this.shadowRoot)
+        this.shadowRoot.lastChild.insertAdjacentHTML("afterend",  `<style>
+        :host {
+            display: flex;
+            align-items: center;
+            width: 100%;          
+        }
+        img { 
+            height: auto;
+            max-width: 50%;
+        }
+        img.selected {
+            outline: 5px solid var(--highlight-color);
+            z-index: 99;            
+        }
+    </style>`)
 
     }
 }
@@ -373,7 +403,7 @@ class LeafNav extends CollationMember {
     ready = () => {
         const button = document.createElement('button')
         button.textContent = this.getAttribute('direction')
-        this.append(button)
+        this.shadowRoot.append(button)
         button.addEventListener('click', () => {
             const spread = this.collation.querySelector('spread-viewer')
             const current = +spread.getAttribute('index')
@@ -442,7 +472,7 @@ class NavStrip extends CollationMember {
  * @param {number} height
  * @param {string} type
  * @param {Object} attrs
- * @param {string} srcDefault*
+ * @param {string} srcDefault
  * @param {boolean} visible
  * @param {boolean} selected
 
