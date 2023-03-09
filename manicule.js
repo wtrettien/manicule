@@ -194,12 +194,12 @@ class StructureView extends CollationMember {
         this.render();
       }
       case "side": {
-        for (const button of this.querySelectorAll(
+        for (const button of this.shadowRoot.querySelectorAll(
           '[data-type="side-toggle"]'
         )) {
           button.innerText = this.side;
         }
-        const groups = [...this.querySelectorAll("structure-leaf")];
+        const groups = [...this.shadowRoot.querySelectorAll("structure-leaf")];
 
         for (const group of groups) {
           group.setAttribute("side", this.side);
@@ -281,7 +281,6 @@ class StructureView extends CollationMember {
           const id = leaf.getAttribute("data-leaf-id");
 
           const lrect = leaf.getBoundingClientRect();
-          console.log(lrect);
           // Start and end coordinates for the lines
           const startx = lrect.x - svgRect.left + lrect.width / 2;
           const starty = svgRect.height;
@@ -307,20 +306,19 @@ class StructureView extends CollationMember {
           path.setAttributeNS(null, "data-leaf-id", id);
 
           // Set a listener on the path and the image to display the relevant terms
-          const showTerms = () => {
-            const terms = this.querySelectorAll(`dl[data-leaf-id="${id}"]`);
-            terms.forEach((term) => term.classList.toggle("hide"));
+          const showTerms = (e) => {
+            console.log(e.target)
+            const term = e.target.shadowRoot.querySelector(`dl[data-leaf-id="${id}"]`).classList.toggle('hide')
             leaf.classList.toggle("hover"); // TODO figure out how to pass this down to the final image
             path.classList.toggle("hover");
           };
-          const hideTerms = () => {
-            const terms = this.querySelectorAll(`dl[data-leaf-id="${id}"]`);
-            terms.forEach((term) => term.classList.toggle("hide"));
+          const hideTerms = (e) => {
+            const term = e.target.shadowRoot.querySelector(`dl[data-leaf-id="${id}"]`).classList.toggle('hide')
             leaf.classList.toggle("hover");
             path.classList.toggle("hover");
           };
-          path.addEventListener("mouseover", showTerms);
-          path.addEventListener("mouseout", hideTerms);
+          //path.addEventListener("mouseover", showTerms);
+          //path.addEventListener("mouseout", hideTerms);
           leaf.addEventListener("mouseover", showTerms);
           leaf.addEventListener("mouseout", hideTerms);
 
@@ -429,7 +427,6 @@ class SpreadViewer extends CollationMember {
       "data-url",
       iiif(spread[1].params.image.url, this.region, this.width, this.height)
     );
-    console.log(this.shadowRoot);
     this.shadowRoot.lastChild.insertAdjacentHTML(
       "afterend",
       `<style>
@@ -827,7 +824,7 @@ class StructureLeaf extends HTMLElement {
   attributeChangedCallback(name, prev, value) {
     switch (name) {
       case "side": {
-        for (const fig of this.querySelectorAll("figure")) {
+        for (const fig of this.shadowRoot.querySelectorAll("figure")) {
           fig.classList.toggle("is-flipped");
         }
       }
