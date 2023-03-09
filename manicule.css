@@ -63,15 +63,6 @@ spread-navigator {
     min-height: 4rem;
 }
 
-nav-strip > nav {
-    overflow-x: auto;
-    width: 100%;
-    white-space: nowrap;
-}
-nav-strip > nav img {
-    width: 50px;
-    height: 50px;
-}
 #introduction {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -107,24 +98,7 @@ img[src="images/loading-icon.svg"] {
      display: none;
 }
 
-structure-view {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-structure-view > div {
-    white-space: nowrap;
-    margin-bottom: 60px;
-}
 
-structure-view [data-type="side-toggle"] {
-    background: none;
-    color: var(--dark-color);
-    border: 1px solid var(--dark-color);
-    display: block;
-    padding: 0;
-    margin: 1rem 0;
-}
 [data-type="structure-leaf-image"] {
     display: inline-block;
 }
