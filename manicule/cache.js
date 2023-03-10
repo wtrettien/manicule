@@ -2,6 +2,17 @@ const CACHE_NAME = "manicule"
 
 export const cache = await caches.open(CACHE_NAME)
 
+// Web worker
+onmessage = async (e) => {
+  const { name, url } = e.data
+  const cache = await caches.open(name)
+  const match = await cache.match(url)
+  if (!match) {
+    fetch(new Request(url)).then((resp) => {
+      cache.put(url, resp)
+    })
+  }
+}
 // Figure out how to do this intelligently
 // window.addEventListener(COLLATION_READY_EVENT, (e) => {
 //     setTimeout(() => {

@@ -1,9 +1,12 @@
 # Manicule (version 3)
 
+## March 2023
+
+This is an in-development version of Manicule. It not ready for general use.
+
 # Installation (first time)
 
 Create a [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) of this repository so you are able to add your own content.
-
 
 Manicule does not require any external dependencies or libraries to operate, but it does require
 a local web server to be running. The simplest thing is to use the built-in Vite library to run a local development server:
@@ -21,18 +24,16 @@ npm run dev
 
 every time you want to work on your local copy of Manicule.
 
-
-
 # Changes from version 1
 
 If you have previously worked with Manicule version 1, you may need to make the following changes to render a book on version 2:
 
--   Data files are now stored in `src/data` (rather than `data`)
--   Tour metadata is now stored adjacent to book metadata in `src/data/{edition}` rather than in its own folder.
--   All book images are stored in `public/images/book/{edition}`, including tour images.
--   Website styles are stored in `src/styles` as plain CSS, not SCSS. Style file names have changed from version 1.
--   Source code pages are in TypeScript rather than JavaScript. If you are customizing the home page or other site pages you may need to be extra-careful about syntax as TypeScript is a bit more strict than JavaScript, but the page content should be very familiar to Manicule 1 users.
--   URLs have changed from version 1 to make it simpler to deploy. You should not need to mess with `.htaccess` files or similar server configuration in version 2. However, if you are upgrading from Manicule 1 to Manicule 2, note that existing inbound links will need to be changed.
+- Data files are now stored in `src/data` (rather than `data`)
+- Tour metadata is now stored adjacent to book metadata in `src/data/{edition}` rather than in its own folder.
+- All book images are stored in `public/images/book/{edition}`, including tour images.
+- Website styles are stored in `src/styles` as plain CSS, not SCSS. Style file names have changed from version 1.
+- Source code pages are in TypeScript rather than JavaScript. If you are customizing the home page or other site pages you may need to be extra-careful about syntax as TypeScript is a bit more strict than JavaScript, but the page content should be very familiar to Manicule 1 users.
+- URLs have changed from version 1 to make it simpler to deploy. You should not need to mess with `.htaccess` files or similar server configuration in version 2. However, if you are upgrading from Manicule 1 to Manicule 2, note that existing inbound links will need to be changed.
 
 A full list of changes including internal code changes are available in CHANGELOG.md.
 
