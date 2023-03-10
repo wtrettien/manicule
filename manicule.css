@@ -1,0 +1,88 @@
+:root {
+  --margin-width: 10vw;
+  --margin-height: 5vw;
+  --region-border: 2px;
+  --gap: 40px;
+  --accent-color: #cf8707;
+  --highlight-color: rgb(255, 115, 0);
+  --dark-color: #25201a;
+  --light-color: rgb(255, 253, 250);
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--light-color);
+  color: var(--dark-color);
+  font-family: Roboto, sans-serif;
+  line-height: 1.6rem;
+}
+button {
+  cursor: pointer;
+}
+
+header {
+  padding: 0 var(--margin-width);
+  border-bottom: var(--region-border) solid var(--accent-color);
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header nav h1 {
+  font-family: "Berkshire Swash", serif;
+  font-weight: normal;
+}
+header nav li {
+  list-style-type: none;
+}
+header nav ol {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+footer {
+  margin: var(--margin-height) var(--margin-width);
+}
+main {
+  margin: var(--margin-height) var(--margin-width);
+}
+button[data-opener] {
+  color: var(--dark-color);
+  background: none;
+}
+
+#introduction {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  margin-bottom: calc(var(--gap) * 2);
+}
+#introduction aside {
+  background-color: rgb(241, 241, 241);
+  padding: var(--gap);
+}
+button {
+  background: var(--accent-color);
+  color: var(--light-color);
+  border: 0;
+  padding: 10px;
+  min-width: 75px;
+}
+
+@font-face {
+  font-family: "Berkshire Swash";
+  src: url("fonts/BerkshireSwash-Regular.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Regular.woff2");
+  font-weight: normal;
+  font-style: normal;
+}

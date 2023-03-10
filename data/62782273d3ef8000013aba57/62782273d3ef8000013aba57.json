@@ -1,0 +1,1395 @@
+{
+    "project": {
+        "title": "Ms. Codex 1263: Confessione generale [manuscript].",
+        "shelfmark": "Ms. Codex 1263",
+        "notationStyle": "r-v",
+        "metadata": {
+            "date": "[Tuscany?, Italy, ca. 1400-1450?]"
+        },
+        "preferences": {
+            "showTips": true,
+            "side": {
+                "page_number": true
+            },
+            "leaf": {
+                "folio_number": true
+            }
+        },
+        "manifests": {
+            "627822c9d3ef8000013abab7": {
+                "id": "627822c9d3ef8000013abab7",
+                "url": "https://colenda.library.upenn.edu/phalt/iiif/2/81431-p3hd62/manifest"
+            }
+        },
+        "taxonomies": [
+            "Unknown",
+            "Contents"
+        ]
+    },
+    "Groups": {
+        "1": {
+            "params": {
+                "type": "Quire",
+                "title": "Default",
+                "nestLevel": 1
+            },
+            "tacketed": [],
+            "sewing": [],
+            "parentOrder": null,
+            "memberOrders": [
+                "Leaf_1",
+                "Leaf_2",
+                "Leaf_3",
+                "Leaf_4",
+                "Leaf_5",
+                "Leaf_6",
+                "Leaf_7",
+                "Leaf_8",
+                "Leaf_9",
+                "Leaf_10"
+            ]
+        },
+        "2": {
+            "params": {
+                "type": "Quire",
+                "title": "Default",
+                "nestLevel": 1
+            },
+            "tacketed": [],
+            "sewing": [],
+            "parentOrder": null,
+            "memberOrders": [
+                "Leaf_11",
+                "Leaf_12",
+                "Leaf_13",
+                "Leaf_14",
+                "Leaf_15",
+                "Leaf_16",
+                "Leaf_17",
+                "Leaf_18",
+                "Leaf_19",
+                "Leaf_20"
+            ]
+        },
+        "3": {
+            "params": {
+                "type": "Quire",
+                "title": "Default",
+                "nestLevel": 1
+            },
+            "tacketed": [],
+            "sewing": [],
+            "parentOrder": null,
+            "memberOrders": [
+                "Leaf_21",
+                "Leaf_22",
+                "Leaf_23",
+                "Leaf_24",
+                "Leaf_25",
+                "Leaf_26",
+                "Leaf_27",
+                "Leaf_28",
+                "Leaf_29",
+                "Leaf_30"
+            ]
+        }
+    },
+    "Leafs": {
+        "1": {
+            "params": {
+                "folio_number": "1",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 10,
+            "parentOrder": 1,
+            "rectoOrder": 1,
+            "versoOrder": 1
+        },
+        "2": {
+            "params": {
+                "folio_number": "2",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 9,
+            "parentOrder": 1,
+            "rectoOrder": 2,
+            "versoOrder": 2
+        },
+        "3": {
+            "params": {
+                "folio_number": "3",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 8,
+            "parentOrder": 1,
+            "rectoOrder": 3,
+            "versoOrder": 3
+        },
+        "4": {
+            "params": {
+                "folio_number": "4",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 7,
+            "parentOrder": 1,
+            "rectoOrder": 4,
+            "versoOrder": 4
+        },
+        "5": {
+            "params": {
+                "folio_number": "5",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 6,
+            "parentOrder": 1,
+            "rectoOrder": 5,
+            "versoOrder": 5
+        },
+        "6": {
+            "params": {
+                "folio_number": "6",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 5,
+            "parentOrder": 1,
+            "rectoOrder": 6,
+            "versoOrder": 6
+        },
+        "7": {
+            "params": {
+                "folio_number": "7",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 4,
+            "parentOrder": 1,
+            "rectoOrder": 7,
+            "versoOrder": 7
+        },
+        "8": {
+            "params": {
+                "folio_number": "8",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 3,
+            "parentOrder": 1,
+            "rectoOrder": 8,
+            "versoOrder": 8
+        },
+        "9": {
+            "params": {
+                "folio_number": "9",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 2,
+            "parentOrder": 1,
+            "rectoOrder": 9,
+            "versoOrder": 9
+        },
+        "10": {
+            "params": {
+                "folio_number": "10",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 1,
+            "parentOrder": 1,
+            "rectoOrder": 10,
+            "versoOrder": 10
+        },
+        "11": {
+            "params": {
+                "folio_number": "11",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 20,
+            "parentOrder": 2,
+            "rectoOrder": 11,
+            "versoOrder": 11
+        },
+        "12": {
+            "params": {
+                "folio_number": "12",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 19,
+            "parentOrder": 2,
+            "rectoOrder": 12,
+            "versoOrder": 12
+        },
+        "13": {
+            "params": {
+                "folio_number": "13",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 18,
+            "parentOrder": 2,
+            "rectoOrder": 13,
+            "versoOrder": 13
+        },
+        "14": {
+            "params": {
+                "folio_number": "14",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 17,
+            "parentOrder": 2,
+            "rectoOrder": 14,
+            "versoOrder": 14
+        },
+        "15": {
+            "params": {
+                "folio_number": "15",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 16,
+            "parentOrder": 2,
+            "rectoOrder": 15,
+            "versoOrder": 15
+        },
+        "16": {
+            "params": {
+                "folio_number": "16",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 15,
+            "parentOrder": 2,
+            "rectoOrder": 16,
+            "versoOrder": 16
+        },
+        "17": {
+            "params": {
+                "folio_number": "17",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 14,
+            "parentOrder": 2,
+            "rectoOrder": 17,
+            "versoOrder": 17
+        },
+        "18": {
+            "params": {
+                "folio_number": "18",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 13,
+            "parentOrder": 2,
+            "rectoOrder": 18,
+            "versoOrder": 18
+        },
+        "19": {
+            "params": {
+                "folio_number": "19",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 12,
+            "parentOrder": 2,
+            "rectoOrder": 19,
+            "versoOrder": 19
+        },
+        "20": {
+            "params": {
+                "folio_number": "20",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 11,
+            "parentOrder": 2,
+            "rectoOrder": 20,
+            "versoOrder": 20
+        },
+        "21": {
+            "params": {
+                "folio_number": "21",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 30,
+            "parentOrder": 3,
+            "rectoOrder": 21,
+            "versoOrder": 21
+        },
+        "22": {
+            "params": {
+                "folio_number": "22",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 29,
+            "parentOrder": 3,
+            "rectoOrder": 22,
+            "versoOrder": 22
+        },
+        "23": {
+            "params": {
+                "folio_number": "23",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 28,
+            "parentOrder": 3,
+            "rectoOrder": 23,
+            "versoOrder": 23
+        },
+        "24": {
+            "params": {
+                "folio_number": "24",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 27,
+            "parentOrder": 3,
+            "rectoOrder": 24,
+            "versoOrder": 24
+        },
+        "25": {
+            "params": {
+                "folio_number": "25",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 26,
+            "parentOrder": 3,
+            "rectoOrder": 25,
+            "versoOrder": 25
+        },
+        "26": {
+            "params": {
+                "folio_number": "26",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 25,
+            "parentOrder": 3,
+            "rectoOrder": 26,
+            "versoOrder": 26
+        },
+        "27": {
+            "params": {
+                "folio_number": "27",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 24,
+            "parentOrder": 3,
+            "rectoOrder": 27,
+            "versoOrder": 27
+        },
+        "28": {
+            "params": {
+                "folio_number": "28",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 23,
+            "parentOrder": 3,
+            "rectoOrder": 28,
+            "versoOrder": 28
+        },
+        "29": {
+            "params": {
+                "folio_number": "29",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 22,
+            "parentOrder": 3,
+            "rectoOrder": 29,
+            "versoOrder": 29
+        },
+        "30": {
+            "params": {
+                "folio_number": "30",
+                "material": "None",
+                "type": "Original",
+                "attached_above": "None",
+                "attached_below": "None",
+                "stub": "No",
+                "nestLevel": 1
+            },
+            "conjoined_leaf_order": 21,
+            "parentOrder": 3,
+            "rectoOrder": 30,
+            "versoOrder": 30
+        }
+    },
+    "Rectos": {
+        "1": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "1r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3008604--6aa3fe34c5fe2c5453cea45fb6d471f148d67ac8b6d548844bc5184ddbe3c458.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 1
+        },
+        "2": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "2r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4256184--f397f5bb0a86f85a0fdfa9ed03e0c61dfcdd23fac94357cfc1f4b0ced6d1373e.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 2
+        },
+        "3": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "3r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3109199--a9e5655dae7f46cdbba5436813a982cb68f858232168734b11474d19957ea0b6.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 3
+        },
+        "4": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "4r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4303580--362a4b85ee2e45a943a4dd3ac0fc9b818dac1981468b22a571a22c80004ebffa.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 4
+        },
+        "5": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "5r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3224391--db3e659e42b9fde4db56c41d728ee8785840d4c0c7cc3d7ed2ed5d47d2363944.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 5
+        },
+        "6": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "6r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3861751--e6a73cf005a3d52e4fe2fad3b5256ea08c4cd644c9dd258098c15b5f2bf29d14.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 6
+        },
+        "7": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "7r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3079064--945e838cb39cd929af2de0d8293d3577b03cba904fc18d9dac5e61f041ca3ad7.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 7
+        },
+        "8": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "8r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4175783--8559359c3774dc4deb154a78c7ac22563c02680720932dc573f99281fbdf46a2.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 8
+        },
+        "9": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "9r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s2931385--7d8cecd853c97019684bea750f925168342648731e07303ec67ce30c18c019ef.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 9
+        },
+        "10": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "10r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4059673--d453e2333ea629be8885a5f0c9c6cefbcc6dd178e729436c0ee02520ba1c0dc8.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 10
+        },
+        "11": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "11r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3080455--37442025e31366024feb213002aa1c51648651eb46589b81ac7d1fe60c30552a.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 11
+        },
+        "12": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "12r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4091687--68f5d942187f20232c951225b429400f209f6f07dc17ce4e5b194713b6d064f6.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 12
+        },
+        "13": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "13r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3149893--3ad992d878996a35885c581d6086c422f224cd9c13903c055daa0abca5f37a88.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 13
+        },
+        "14": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "14r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s5139297--fa5b4ea8d9e0a7e87203276d8301d62d563a1377f0a9e958b48e9eeecea57e1f.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 14
+        },
+        "15": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "15r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3121843--8506eec95c828058b8374e1091238d3a31e66b78a0be91703c203ad544bec746.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 15
+        },
+        "16": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "16r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3954236--2c387c6f56538b19a485bfb3626ccf8bd6297f793582a43197264e60873e99ff.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 16
+        },
+        "17": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "17r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3072484--3eb9e4df93bd6aeb11aceebcf7048cac54007e1a1266bf4c28aee7c8a11501eb.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 17
+        },
+        "18": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "18r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4519796--4d765703f0bf12e680ee5e2e1eeecba22a7332e1ab04217ab47335c0df3fb41f.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 18
+        },
+        "19": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "19r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3142816--73958b113e5c2beb5acf45ed82d58e2747286b89dce9aadc537c9eb98b64643b.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 19
+        },
+        "20": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "20r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3602258--16cb3a64ecf150835ed118f52a478de6afe7e4637ec8c39b89d0c4b28b1da5c2.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 20
+        },
+        "21": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "21r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3043440--0e07c9dc57bb5cb47b7d627acbc3a773492aa33b7742ab30d5e3927582a42fe0.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 21
+        },
+        "22": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "22r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3545215--b116d0f8c5039bd732050e9c7f7571a4ba61f4a1e46f01590b01681f24ca0a53.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 22
+        },
+        "23": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "23r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3223217--eb242cf5093e2e291f654ff0d014bd704a4fef776cb889bed2c085dae277d78f.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 23
+        },
+        "24": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "24r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3832528--0349781e18ab84b84829d4b0c32aabb96431c98008829e15b5a2ade701f0a1b4.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 24
+        },
+        "25": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "25r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3043517--121bf88f1de48ab752395c26460a5ea18a3f380e3fb0da8bc3a9090d41e0b633.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 25
+        },
+        "26": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "26r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3808454--eef8d936f9d989e6e148de51c412d29231f4fb28a7a474da7c42c07681ab5640.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 26
+        },
+        "27": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "27r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3298470--e0a3564aba0eaffb75419efc96d7a8d49e5c37689015c965ea847180cff419ed.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 27
+        },
+        "28": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "28r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3772487--b7db7846204ab5c80c6c9b6b138f3b8b62a7a961b45731c053b6d2f3d23058ec.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 28
+        },
+        "29": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "29r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s2854898--af69e6c2a4a0ddea51f53cb7ab0895a62540680b62eeba309c8917ba59bf1ec7.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 29
+        },
+        "30": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "30r",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3643405--22401ae4b534ea4f8bd4e8b007ac3eccb1772015a8e532c4dea876385ff5af51.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 30
+        }
+    },
+    "Versos": {
+        "1": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "1v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4018784--f794682952f94a7231a271d05a4dfbf52f83bb0976c60ae61c21b3f62f4a3e3b.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 1
+        },
+        "2": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "2v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3046070--5fefbb7a7680a85307467457c7ae86056ab736607556337ef3d50bcf6a236ca1.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 2
+        },
+        "3": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "3v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4070465--9157b1bc37f0e032ba60dfa7d8d1971b301c2a531e042ccda1a2e10e6dd01d00.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 3
+        },
+        "4": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "4v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3088436--aad32ee3fa9dbdb1859c75d49e19112a9178a79cb920aef3b3c9c87296cfae10.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 4
+        },
+        "5": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "5v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3711834--b0e04ee795c90edb62d3c7c66459a3f8ccda0411dda09de362931c3f2e2ac771.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 5
+        },
+        "6": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "6v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3086349--1e5b7df32d05761b2b2289dc809ffc268d63f690cd0356f144bc6e455f617aca.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 6
+        },
+        "7": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "7v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3951078--be249c02bff15cff17079e6f686eda619ab74691c4c28ac40a1961bd3fc229e0.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 7
+        },
+        "8": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "8v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s2993554--72eb7c8c718c686272f2cd02c64d580f57284323c93b3880a8fab254845fb437.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 8
+        },
+        "9": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "9v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3886946--e8e37770c53f83778da0c122009ec16a26de6a11d5892e81808a57cf3d0935fc.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 9
+        },
+        "10": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "10v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s2599901--584a2bbaca727d3ebcd3b0f1aae597db26e7148fc5697c04d6a70bcb7cea36a2.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 10
+        },
+        "11": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "11v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3788648--2bc71e01a7ec710f57cfb5d4a128897839125b5ff0f7b0edd4574039ae890471.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 11
+        },
+        "12": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "12v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3149641--30f743e0ce33c58291a2331eec26b806ab381e23cace2b0b69d788ea20ac92c3.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 12
+        },
+        "13": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "13v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4653720--432bda7f858e970971e22374faedcc37aa654d724877bccb46c0ea444ecb2b78.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 13
+        },
+        "14": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "14v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3142626--2a3fc1c3a89ac944f82a0e2900dcd53a651946164018e326eaac89a912eeb8db.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 14
+        },
+        "15": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "15v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4040429--b378c28215d3b33f8bb7952db38f6762b7134cec6979a384da3b23e8299ba75b.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 15
+        },
+        "16": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "16v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3101417--e9ba728a4427d9b8236a26bdace2de34c7aeb258fba3d159e36baffecd4a0a40.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 16
+        },
+        "17": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "17v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4892166--bf0fcb0967c599baef87d1518e2470bc80bf0277ef70a5ca41b8efcfa8e194d1.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 17
+        },
+        "18": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "18v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3251137--610cb765f9170e18060b8fbda17d21eafff1bee6c371a6beabfbb479b9db5aff.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 18
+        },
+        "19": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "19v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3813479--c611cdb0416ad33838985f28cd6e28ac32c562695c5d22b07161e98e4c28c3ed.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 19
+        },
+        "20": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "20v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3107296--570aae3a5adb1dc3f745a88175770858350ad71aa2d83330206a87f573f02c5d.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 20
+        },
+        "21": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "21v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3592904--300300ecac9868fcce6e175fe41e0f80caefa3d743c8ef077f60f16e30400c34.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 21
+        },
+        "22": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "22v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3000230--c8d6f72c93a913f0f7ca5079eff16c01ad69362273460bd07c2bd723bc4426e7.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 22
+        },
+        "23": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "23v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3978230--263febd892bdf486635bda79e1e4561fb38126c39a2563181829862c3f4dc854.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 23
+        },
+        "24": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "24v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3426238--b2c5173e2bb54517dd1fb155f569f810f2f86158de4cca43085647b16e7774b7.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 24
+        },
+        "25": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "25v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3973496--e78e38cfbf69566b96740bf132c78daab8711e335ecbc3fbc6d4d38f76ca05d1.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 25
+        },
+        "26": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "26v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3201527--72b9e1e6d7e353f29f1bb7dcd4c8e90bb31866f6bd26d787271a8b26881d5c5d.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 26
+        },
+        "27": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "27v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s4116796--e0d301ebfdb70d0884dd50e848b31bf1a212f0d30b92534b56a9c26443367acf.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 27
+        },
+        "28": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "28v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3291900--8afebc130a5659d4839002c728a971cecefe9ca999932505b01532f386217421.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 28
+        },
+        "29": {
+            "params": {
+                "page_number": "",
+                "texture": "Flesh",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "29v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3711902--5834410a49136cb42aa5993b0280d01e0c90b76f428641888cca121f70823d40.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 29
+        },
+        "30": {
+            "params": {
+                "page_number": "",
+                "texture": "Hair",
+                "image": {
+                    "manifestID": "627822c9d3ef8000013abab7",
+                    "label": "30v",
+                    "url": "https://colenda.library.upenn.edu/phalt/iiif/2/ark81431p3hd62%2FSHA256E-s3097688--db02abd16b0aa194cb6f209a166e2e39058042e3e2afdf4fa8cb3f8c6a2f8294.jpeg"
+                },
+                "script_direction": "None"
+            },
+            "parentOrder": 30
+        }
+    },
+    "Terms": {
+        "1": {
+            "params": {
+                "title": "Confessione generale.",
+                "taxonomy": "Contents",
+                "description": "",
+                "show": true
+            },
+            "objects": {
+                "Group": [],
+                "Leaf": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "Recto": [],
+                "Verso": []
+            }
+        },
+        "2": {
+            "params": {
+                "title": " [Manual for confessors]",
+                "taxonomy": "Contents",
+                "description": "",
+                "show": true
+            },
+            "objects": {
+                "Group": [],
+                "Leaf": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30
+                ],
+                "Recto": [],
+                "Verso": []
+            }
+        }
+    }
+}
